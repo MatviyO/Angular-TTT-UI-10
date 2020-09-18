@@ -1,0 +1,13 @@
+<div class="content-top clearfix">
+  <h1 class="al-title">{{ activePageTitle }}</h1>
+
+  <ul id="breadcrumb" class="breadcrumb al-breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/pages/dashboard" translate>{{'general.home'}}</a>
+    </li>
+    <li class="breadcrumb-item" *ngFor="let n of navs">
+      <a [routerLink]="n.url" (click)="navigate(n)">{{n.title}}</a>
+    </li>
+    <li class="breadcrumb-item active" >{{ activePageTitle }}</li>
+  </ul>
+</div>

@@ -1,0 +1,12 @@
+<div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)">
+  <!--[ngClass]="{scrolled: isScrolled}"-->
+  <a routerLink="/" class="al-logo clearfix"><span>TTT  </span><span class="log-name">- admin</span></a>
+  <a href="#" (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+
+  <div class="user-profile clearfix">
+    <a class="log-out" (click)='logOut()'>Sign out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+    <ba-msg-center></ba-msg-center>
+  </div>
+
+  <span class="msg-offline" *ngIf="!(isConnected | async)">Offline</span>
+</div>

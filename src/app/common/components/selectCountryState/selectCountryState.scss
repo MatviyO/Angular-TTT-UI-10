@@ -1,0 +1,18 @@
+.select-st{
+  
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+}
+
+.no-padd{
+    padding-right: 0px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .select-st{
+        padding-right: 0px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,96 @@
+<app-ba-card cardTitle="" baCardClass="with-scroll">
+    <div class="card" scroll-spy (onPageEnd)="loadMore()">
+        <div class="allTable">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="black-muted-bg">
+                        <th>Name</th>
+                        <th>Trade</th>
+                        <th>Campus</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ngForm #formNew="ngForm" (keydown.control.s)="onSave(entity, formNew)">
+                        <td>
+                            <input type="text" name="className" class="form-control" [(ngModel)]="entity.name" />
+                        </td>
+                        <td>
+                            <select class="form-control" name="trade" [(ngModel)]="entity.trade" required [ngClass]="{'ng-submit' : formNew._submitted}">
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <option *ngFor="let tr of trades" [value]="tr.id">{{tr.name}}</option>
+                            </select>
+                        </td>
+                        <td class="tdForAddItem">
+                            <select addNewItem ref="settings/campuses" (onclick)="navigate()" class="form-control" name="campus" [(ngModel)]="entity.campusId" required [ngClass]="{'ng-submit' : formNew._submitted}">
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <ng-container *ngFor="let item of campuses">
+                                    <option *ngIf="item.isActive" [ngClass]="{'grey': !item.isActive}" [value]="item.id">{{item.name}}</option>
+                                </ng-container>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" name="date" class="form-control" [ngModel]="entity.startDate | date:'yyyy-MM-dd'" (blur)="entity.startDate = $event.target.value"
+                                   required [ngClass]="{'ng-submit' : formNew._submitted}">
+                        </td>
+                        <td>
+                            <input type="date" name="date" class="form-control" [ngModel]="entity.endDate | date:'yyyy-MM-dd'" (blur)="entity.endDate = $event.target.value"
+                                   required [ngClass]="{'ng-submit' : formNew._submitted}">
+                        </td>
+                        <td>
+                            <a class="btnHover" (click)="onSave(entity, formNew)"><i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i></a>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let item of entities;let i=index" ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)" [ngClass]="{'disable' : item.isActive === false}">
+                        <td>
+                            <span *ngIf="!item.editing">{{item.name}}</span>
+                            <input *ngIf="item.editing" type="text" name="className-{{i}}" class="form-control" [(ngModel)]="item.name"
+                                   [ngClass]="{'ng-submit' : form._submitted}">
+                        </td>
+                        <td>
+                            <span *ngIf="!item.editing">{{getTrade(item.trade)}}</span>
+                            <select *ngIf="item.editing" class="form-control" name="trade-{{i}}" [(ngModel)]="item.trade" required [ngClass]="{'ng-submit' : form._submitted}">
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <option *ngFor="let trade of trades" [value]="trade.id">{{trade.name}}</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <span *ngIf="!item.editing">{{item.campus.name}}</span>
+                            <select *ngIf="item.editing" class="form-control" name="campus-{{i}}" [(ngModel)]="item.campusId" required [ngClass]="{'ng-submit' : form._submitted}">
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <ng-container *ngFor="let c of campuses">
+                                    <option *ngIf="c.isActive || c.id == item.campusId" [ngClass]="{'grey': !c.isActive}" [value]="c.id">{{c.name}}</option>
+                                </ng-container>
+                            </select>
+                        </td>
+
+                        <td>
+                            <span *ngIf="!item.editing">{{item.startDate | date:'MM/dd/yyyy'}}</span>
+                            <input *ngIf="item.editing" type="date" name="startDate-{{i}}" class="form-control" [ngModel]="item.startDate | date:'yyyy-MM-dd'"
+                                   (blur)="item.startDate = $event.target.value" required [ngClass]="{'ng-submit' : form._submitted}">
+                        </td>
+
+                        <td>
+                            <span *ngIf="!item.editing">{{item.endDate | date:'MM/dd/yyyy'}}</span>
+                            <input *ngIf="item.editing" type="date" name="endDate-{{i}}" class="form-control" [ngModel]="item.endDate | date:'yyyy-MM-dd'"
+                                   (blur)="item.endDate = $event.target.value" required [ngClass]="{'ng-submit' : form._submitted}">
+                        </td>
+
+                        <td>
+                            <!-- <a class="btnHover" (click)="onDelete(item)" *ngIf="!item.editing"><i class="fa fa-trash-o " aria-hidden="true" title="Remove"></i></a> -->
+                            <a class="btnHover" (click)="item.editing = true; edit(item)" *ngIf="!item.editing"><i class="fa fa-pencil " aria-hidden="true" title="Edit"></i></a>
+                            <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing"><i class="fa fa-times " aria-hidden="true" title="Cancel"></i></a>
+                            <a class="btnHover" (click)="onSave(item, form)" *ngIf="item.editing"><i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-ba-card>
+<!--<app-confirm></app-confirm>-->
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

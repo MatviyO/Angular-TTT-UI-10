@@ -1,0 +1,51 @@
+
+<app-ba-card cardTitle="Map" *ngIf="showMap">
+    <div class="zoomForMap"
+    [ngClass]="{'disable' : noFound_}"
+    >
+        <span class="zoomTxt"> Distance: </span>
+        <input id="currentTimeInput" [(ngModel)]="_distance" type="range" value="1" min="1" max="5" name="range" (change)='onShowMap()'>
+        <span class="labelZoom">
+            <span>10</span>
+            <span>20</span>
+            <span>30</span>
+            <span>40</span>
+            <span>50</span>
+        </span>
+        <span class="zoomTxt"> ml </span>
+    </div>
+
+    <div class="map">
+        <agm-map #gm [latitude]="centerLat" [zoom]="zoom" [longitude]="centerLon">
+            <!-- -------------markers home----------- -->
+            <ng-container *ngFor="let item of location; let inx = index">
+                <h5>Some text</h5>
+                <agm-marker [iconUrl]="'/assets/markers/Home2.png'" markerClick="info.open()" *ngIf="item.applicationId" [latitude]="item.latitude - 0.0005"
+                    [longitude]="item.longitude - 0.0005">
+                    <agm-info-window #info>
+                        <h4>{{inx + 1}}. Location preference</h4>
+                        <span> {{item.city}} </span>
+                        <span *ngIf='item.address'>, {{item.address}}</span>
+                        <span *ngIf='item.zip'>, {{item.zip}}</span>
+                    </agm-info-window>
+                </agm-marker>
+                 <!-- -------------markers companies----------- -->
+                <ng-container *ngFor="let items of item.closestCompanies; let i = index">
+
+                    <agm-marker [iconUrl]="'/assets/markers/office1.png'" markerClick="info.open()" [markerClickable]="true"
+                     [latitude]="items.latitude + i/2000" [longitude]="items.longitude + i/2000">
+                        <agm-info-window #info>
+                            <h4>{{items.company.name ? items.company.name : 'No name'}}</h4>
+                            <h5 *ngIf="items.id > 0">{{items.name}}</h5>
+                            <span> {{items.city}}, </span>
+                            <span> {{items.address}}, </span>
+                            <span> {{items.zip}}</span>
+                            <button *ngIf="canSelectCompany && items.company.name" class="selectBtn" (click)="selectComp(items, info)">select</button>
+                        </agm-info-window>
+                    </agm-marker>
+                </ng-container>
+            </ng-container>
+        </agm-map>
+    </div>
+
+</app-ba-card>

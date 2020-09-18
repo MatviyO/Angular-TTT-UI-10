@@ -1,0 +1,59 @@
+<div class="card" scroll-spy (onPageEnd)="loadMore()">
+    <div class="addNewItem">
+        <a (click)="downloadReport()">
+            <i class="fa fa-download" aria-hidden="true" data-toggle="tooltip" title="download report"></i>
+          <span >Download report</span> 
+        </a>
+      </div>
+    <div class="allTable">
+        <table class="table table-hover">
+            <thead>
+                <tr class="black-muted-bg">
+                    <th>Program</th>
+                    <th class="align-center">Attendees/ <br />Reservations</th>
+                    <th class="align-center">Available spots <br /> Total/Military</th>
+                    <th>Trade</th>
+                    <th>Campus</th>
+                    <th class="width-110">
+                        <a (click)="onSort('startDate')" class="sorting-hover">
+                            Start Date
+                            <span class="iconsForName" *ngIf="sort.column =='startDate'">
+                                <i class="fa fa-chevron-down" aria-hidden="true" *ngIf="sort.direction"></i>
+                                <i class="fa fa-chevron-up" aria-hidden="true" *ngIf="!sort.direction"></i>
+                            </span>
+                        </a>
+                    </th>
+                    <th>End Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of entities;let i=index" [ngClass]="{'disable' : item.isActive === false}">
+                    <td>{{item.program ? item.program.name : ''}}</td>
+                    <td class="align-center">
+                        {{(getCountActiveAttendees(item.attendees | callback: filterMilitary))}}/{{item.reservations ? (item.reservations | callback: filterMilitary).length : 0}}
+                    </td>
+                    <td class="align-center">{{item.totalSpotsLeft}}/{{item.militarySpotsLeft}}</td>
+                    <td>{{getTrade(item.program? item.program.trade : 0)}}</td>
+                    <td>{{item.campus ? item.campus.name : ''}}</td>
+                    <td class="position-relative">
+                        <span class="class-pm-icon" *ngIf="item.laterClassId > 0 || item.priorClassId > 0">
+                            <i class={{getClassIconSchedulingType(item.schedulingType)}}
+                                title={{getSchedulingType(item.schedulingType)}} aria-hidden="true"></i>
+                        </span>
+                        {{item.startDate | date:'MM/dd/yyyy'}}
+                    </td>
+                    <td>{{item.endDate | date:'MM/dd/yyyy'}}</td>
+                    <td>
+                        <a class="btnHover" routerLink="{{'/settings/classes-schedule/details/'+ item.id}}">
+                            <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+                        </a>
+                       
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

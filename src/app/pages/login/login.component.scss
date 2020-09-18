@@ -1,0 +1,49 @@
+
+
+.login{
+    button{
+    float: right;
+    }
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+    .main{
+        margin-top: 50px;
+        box-shadow: 0px 0px 39px 7px #4466a5;
+    }
+    .logo{
+        padding: 50px 100px;
+        text-align: center;
+    }
+    .title-login{
+        color: #fcfcfc3f;
+    }
+    .alert-danger{
+        background-color: rgba(232, 152, 152, 0.212);
+
+        border-color: #bad1e8;
+        color: #d50032;
+    }
+    .form-check{
+        float: left;
+        cursor: pointer;
+        padding: 10px 0 0 5px;
+        i{
+            margin-right: 5px;
+        }
+    }
+
+}
+
+.title-error-pass{
+    color: #ffa7a7;
+    margin-left: 10px;
+    display: none;
+}
+
+.title-error-pass-show{
+    display: block;
+}
+

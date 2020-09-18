@@ -1,0 +1,121 @@
+.all-body{
+  i{
+    transition: .5s;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    cursor: pointer;
+    &:hover{
+      color: #b6e7ff;
+    }
+  }
+}
+
+.hide{
+  height: 44px;
+  overflow: hidden;
+}
+
+.message-item{
+  float: left;
+  width: 100%;
+  position: relative;
+}
+
+.all-messenges {
+  overflow-y: auto;
+  overflow-x: hidden;
+  float: left;
+  max-height: 400px;
+  width: 100%;
+}
+
+.new-message{
+  width: 50%;
+  float: left;
+}
+
+.form-group>button{
+  float: left;
+  margin: 6px 15px;
+}
+
+.title-adim{
+  float: left;
+  padding: 8px;
+  max-width: 60px;
+}
+
+.title-user{
+  float: right;
+  padding: 8px;
+  max-width: 90px;
+  
+}
+
+.arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  top: 6px;
+  right: -1px;
+}
+
+ .arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid rgba(102, 151, 202, 0.58);;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+.message-body {
+  margin: 5px 0px;
+  max-width: calc(90% - 90px) ;
+  height: auto;
+  background-color: rgba(102, 151, 202, 0.58);
+  box-shadow: 0px 11px 27px -16px #000000;
+  padding: 6px 8px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.float-right{float: right;}
+
+.float-left{float: left;}
+
+.message-body p {margin: 0;}
+
+.message-text{color: white;}
+
+.f-right-arrow{
+  float: right;
+  -webkit-transform: rotate(58deg);
+  transform: rotate(58deg);
+  top: 3px;
+  left: -6px;
+}
+
+.message-date{
+  color: rgba(255, 255, 255, 0.39);
+  font-size: 11px;
+}
+
+.control-bottom{
+  border-top: 1px solid #b9ceff;
+  float: left;
+  width: 100%;
+  padding-top: 15px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+
+

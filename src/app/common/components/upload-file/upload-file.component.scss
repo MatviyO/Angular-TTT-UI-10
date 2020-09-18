@@ -1,0 +1,177 @@
+.all-files{
+    width: 100%;
+}
+
+.drag{
+    padding: 10px;
+    padding-top: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.31);
+    opacity: 0.9;
+    overflow: hidden;
+}
+
+.drag-files{
+    .file-element{
+        border: 1px dashed rgba(255, 255, 255, 0.31);
+    }
+}
+
+.is-drop-over{border-color: white}
+
+
+.file-element{
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    margin: 2px;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 76px;
+    float: left;
+    border: 1px solid transparent;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(64, 33, 94, 0.082);
+        color: white !important;
+        cursor: pointer;
+        .cancel-file,
+        .download-file{
+            color: rgba(64, 33, 95, 0.16);
+            visibility: visible;
+        }
+    }
+
+    .download-file:hover{
+        background-color: rgba(61, 34, 88, 0.473);
+    }
+    .cancel-file:hover{
+        color: white;
+    }
+
+    a{
+        color: white;
+    }
+
+    .cancel-file{
+        visibility: hidden;
+        position: relative;
+        float: right;
+        top: -8px;
+        right: -5px;
+        font-size: 17px;
+        color: #f0eaeae6;
+    }
+
+    .download-file{
+        color: white !important;
+        visibility: hidden;
+        background-color: rgba(64, 33, 95, 0.16);
+        position: absolute;
+        bottom: -18px;
+        margin-left: -67px;
+        padding: 0px 36px;
+        border: 1px solid rgba(64, 33, 95, 0.12);
+        font-size: 13px;
+    }
+    .icon{
+        img{
+            width: 30px;
+        }
+        i{
+            position: relative;
+            right: -7px;
+        }
+        font-size: 28px;
+        padding-bottom: 4px;
+    }
+    .name-file{
+        font-size: 14px;
+        overflow: hidden;
+        height: 33px;
+    }
+}
+
+.title-card{
+    cursor: pointer;
+    border-bottom: 1px solid #87a3cc;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    .selected{
+        font-size: 13px;
+        color: rgb(226, 222, 222);
+        padding: 0 10px;
+    }
+    .count{
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0px 5px;
+        border-radius: 20px;
+    }
+}
+
+.background-text{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    bottom: 39px;
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.16) !important;
+    z-index: -1;
+    i{
+        padding-bottom: 10px;
+    }
+}
+
+.hide{
+    display: none;
+    .title-card{
+        margin-bottom: -12px !important
+    }
+}
+
+.cancel-btn{float: right}
+
+.all-btn{
+    width: 100%;
+    float: left;
+    margin: 10px;
+    button{
+        margin: 0 5px
+    }
+}
+
+.marg-hide{
+    transition: .6s;
+    margin-bottom: -10px !important}
+
+// -----spiner-------
+.pre-loader{
+    height: 2px;
+}
+.loader {
+    height: 2px;
+    width: 100%;
+    top: -12px;
+    position: relative;
+    overflow: hidden;
+}
+.loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 4px;
+  background-color: #0ff7ff;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+    from {left: -200px; width: 30%;}
+    50% {width: 30%;}
+    70% {width: 70%;}
+    80% { left: 50%;}
+    95% {left: 120%;}
+    to {left: 100%;}
+}

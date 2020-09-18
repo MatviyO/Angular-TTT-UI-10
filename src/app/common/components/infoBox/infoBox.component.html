@@ -1,0 +1,17 @@
+<div class="item">
+  <div class="items" *ngFor="let item of notification ">
+    <div class="tool-{{getSeverity(item.severity)}} info-box" *ngIf="item.visible">
+        <span class="title">{{item.title}}</span><br>
+      <i [ngClass]="{'fa-exclamation' : item.severity === 1,
+      'fa-exclamation-triangle': item.severity === 2,
+      'fa-info': item.severity === 0}" class="fa icon icon-{{getSeverity(item.severity)}}" aria-hidden="true">
+    </i>
+    <div class="details">
+       
+        <span class="txt-{{getSeverity(item.severity)}}"> {{item.message}}</span>
+      </div>
+      <!-- *ngIf="item.severity === 2" -->
+      <button  class="btn close" (click)="close(item.num)">x</button>
+    </div>
+  </div>
+</div>

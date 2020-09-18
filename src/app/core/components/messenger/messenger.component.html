@@ -1,0 +1,30 @@
+<div class="all-body" [ngClass]="{'hide': hideMesenger }">
+
+  <app-ba-card cardTitle="Messenger">
+    <i (click)="hideMesenger = !hideMesenger" class="fa {{!hideMesenger ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon"
+      aria-hidden="true" title="{{hideMesenger ? 'Show': 'Hide'}}"></i>
+
+      <div id="msgs" class="all-messenges">
+      <div *ngFor="let message of messages">
+        <div class="message-item" *ngIf="message.message !== '' ">
+          <span class="{{message.admin ? 'title-adim': 'title-user'}}">{{message.admin ? 'Admin': userName }}</span>
+
+          <div class="arrow {{message.admin ? '' : 'f-right-arrow'}}">
+            <div class="inner"></div>
+          </div>
+
+          <div class="message-body {{message.admin ? 'float-left' : 'float-right'}}">
+            <p class="message-date">{{message.date? message.date: 'no date'}}</p>
+            <p class="message-text">{{message.message}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group control-bottom">
+      <input class="form-control new-message" placeholder="Type your message" [(ngModel)]="newMessage" (keydown.enter)="newMessage? addMessage(): null" />
+      <button type="button" class="btn btn-primary" [disabled]="!newMessage" (click)="addMessage()"> Send </button>
+    </div>
+  </app-ba-card>
+
+</div>

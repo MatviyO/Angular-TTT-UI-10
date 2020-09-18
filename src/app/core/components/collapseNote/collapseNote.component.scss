@@ -1,0 +1,89 @@
+.itemHeader{
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.itemList{
+  border-top: 1px solid #ffffff47;
+}
+
+.iconForColappse{
+  float: right;
+  font-size: 18px;
+}
+
+.linkInCard{
+  position: absolute;
+  top: 15px;
+  right: 70px;
+  color: #6DBFED;
+  font-size: 17px;
+  text-shadow: 2px -1px 6px black;
+  z-index: 1000;
+  i{
+      float: right;
+      padding-left: 10px;
+  } 
+  &:hover{
+    cursor: pointer;
+    color: white;
+    text-shadow: none;
+    i{
+      color: white;
+    }
+  }
+}
+
+.notes{
+  float: left;
+  width: 100% ;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+}
+
+.date {
+  width: 93%;
+  float: left;
+  text-align: left;
+  border-bottom: 1px solid rgba(247, 242, 242, 0.09);
+      span{
+      color: #cbdeec;
+      font-style: italic;
+          i{
+              padding-right: 5px;
+          }
+      }
+}
+
+.text{
+  width: 100% !important;
+  float: left;
+   p{
+      font-size: 16px;
+   }
+}
+
+.noteBtn{
+  width: 7%;
+  float: right;
+  margin-top: -5px;
+  margin-right: -9px;  
+}
+
+
+.length-note{
+  background-color: rgba(0, 0, 0, 0.178);
+  box-shadow: 0px 0px 10px 0px #a7a7a7;
+  color: #caca36;
+  padding: 3px 7px;
+  font-size: 12px;
+  margin-left: 10px;
+  border-radius: 20px;
+}
+
+.btn-add-notes{
+  margin: 10px 0;
+}

@@ -1,0 +1,108 @@
+@import '../../sass/conf/conf';
+
+/* msg center */
+@-webkit-keyframes pulsate {
+  30% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+
+
+.al-msg-center {
+  float: right;
+  padding: 0;
+  list-style: none;
+  margin: 13px 47px 0 0;
+  div{
+    float: right;
+  }
+   li {
+    list-style: none;
+    float: left;
+    margin-left: 30px;
+    & > a {
+      color: $sidebar-text;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      span {
+        display: inline-block;
+        min-width: 20px;
+        padding: 4px ;
+        color: $sidebar-text;
+        vertical-align: baseline;
+        white-space: nowrap;
+        text-align: center;
+        border-radius: 10px;
+        text-shadow: none;
+        line-height: 11px;
+        background-color: $danger;
+        position: absolute;
+        top: -5px;
+        margin: 5px -14px;
+        right: -14px;
+        font-size: 11px;
+      }
+      .notification-left {
+        border: 1px solid $danger;
+        border-radius: 100px;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: -11px;
+        right: -38px;
+        animation: pulsate 10s ease-out;
+        animation-iteration-count: infinite;
+        opacity: 0.0
+      }
+      .notification-right {
+        border: 1px solid $warning-bg;
+        border-radius: 100px;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: -11px;
+        right: -65px;
+        animation: pulsate 8s ease-out;
+        animation-iteration-count: infinite;
+        opacity: 0.0
+      }
+      .warningTrig{
+        right: -40px;
+        color: black;
+        background-color: $warning-bg;
+      }
+      &:hover {
+        color: $danger;
+        &.msg {
+          color: $primary;
+        }
+      }
+      &.msg {
+              span {
+                background-color: $primary;
+              }
+              .notification-ring {
+                border-color: $warning-bg;
+              }
+              .notification-left {
+                border-color: $primary;
+              }
+            }
+    }
+ 
+  }
+}
+
+
+
+ 
