@@ -1,65 +1,65 @@
-//.confirmation{
-//    top: 50px;
-//    left: 0px;
-//    position: fixed;
-//    width: 100%;
-//    height: 200%;
-//    // text-align: center;
-//    background-color: rgba(10, 10, 10, 0.29);
-//
-//    .alert{
-//        padding: 0;
-//        float: left;
-//        margin: 0;
-//        i{
-//            font-size: 25px;
-//            color: #f5ebeb;
-//        }
-//    }
-//
-//
-//    .body{
-//        width: 40%;
-//        top: 30%;
-//        left: 30%;
-//        background-color: rgba(45, 83, 128, 0.75);
-//        border: 1px solid rgba(255, 255, 255, 0.47);
-//        position: fixed;
-//        z-index: 1000;
-//        border-radius: 10px;
-//        padding: 20px;
-//        box-shadow: 0px 0px 44px -8px #FFFFFF;
-//        text-align: right;
-//
-//            i{
-//                float: left;
-//                font-size: 30px;
-//                color: #d4d4d4;
-//                padding-right: 10px;
-//            }
-//        p{
-//            color: #ffffff;
-//            text-align: center;
-//            font-size: 17px;
-//            padding-top: 5px;
-//            float: none;
-//            line-height: 17px;
-//        }
-//        button{
-//            // width: 32%;
-//            margin: 5px;
-//            &:hover{
-//                color: rgb(241, 182, 70);
-//            }
-//        }
-//    }
-//
-//}
-//
-//@media only screen and (max-width: 760px) {
-//    .body{
-//        width: 90% !important;
-//        left: 7% !important;
-//
-//    }
-//}
+.confirmation{
+    top: 50px;
+    left: 0px;
+    position: fixed;
+    width: 100%;
+    height: 200%;
+    // text-align: center;
+    background-color: rgba(10, 10, 10, 0.29);
+
+    .alert{
+        padding: 0;
+        float: left;
+        margin: 0;
+        i{
+            font-size: 25px;
+            color: #f5ebeb;
+        }
+    }
+
+
+    .body{
+        width: 40%;
+        top: 30%;
+        left: 30%;
+        background-color: rgba(45, 83, 128, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.47);
+        position: fixed;
+        z-index: 1000;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 44px -8px #FFFFFF;
+        text-align: right;
+
+            i{
+                float: left;
+                font-size: 30px;
+                color: #d4d4d4;
+                padding-right: 10px;
+            }
+        p{
+            color: #ffffff;
+            text-align: center;
+            font-size: 17px;
+            padding-top: 5px;
+            float: none;
+            line-height: 17px;
+        }
+        button{
+            // width: 32%;
+            margin: 5px;
+            &:hover{
+                color: rgb(241, 182, 70);
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 760px) {
+    .body{
+        width: 90% !important;
+        left: 7% !important;
+
+    }
+}

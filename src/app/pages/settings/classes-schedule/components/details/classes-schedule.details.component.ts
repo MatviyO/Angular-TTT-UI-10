@@ -17,7 +17,7 @@ import {
 } from '../../../../../core/data';
 import {ObservableService} from '../../../../../common/services';
 import {DetailsStateful} from '../../../../../common/base-classes';
-// import {ConfirmComponent} from '../../../../../common/components/confirm';
+import {ConfirmComponent} from '../../../../../common/components/confirm';
 
 @Component({
     selector: 'app-classes-schedule-details',
@@ -29,7 +29,7 @@ import {DetailsStateful} from '../../../../../common/base-classes';
 
 export class ClassesScheduleDetailsComponent extends DetailsStateful<ScheduledClass> implements OnInit {
 
-    // @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
+    @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     private application: Profile;
     trades: Trade[] = this.tradesSvc.getTrades();
     campuses: Campus[] = [];
@@ -201,12 +201,12 @@ export class ClassesScheduleDetailsComponent extends DetailsStateful<ScheduledCl
     }
 
     deleteReservation(item: Reservation): void {
-        // this.confirm.show(
-        //     'confirm',
-        //     `Are you sure you'd like to release a class spot reserved for ${item.appUser.firstName} ${item.appUser.lastName}?`,
-        // )
-        //     .then((conf: boolean) => {
-        //         if (conf) {
+        this.confirm.show(
+            'confirm',
+            `Are you sure you'd like to release a class spot reserved for ${item.appUser.firstName} ${item.appUser.lastName}?`,
+        )
+            .then((conf: boolean) => {
+                if (conf) {
                     this.showLoadData = true;
                     this.reservationHelper.releaseClassSpot(item)
                         .then(() => {
@@ -214,26 +214,26 @@ export class ClassesScheduleDetailsComponent extends DetailsStateful<ScheduledCl
                             this.showLoadData = false;
                         })
                         .catch(err => this.onHttpError(err));
-    //             }
-    //         });
+                }
+            });
     }
 
     deleteAttendee(obj: Attendee): void {
-        // if (new Date(this.entity.startDate) > new Date()) {
-        //     this.confirm.show(
-        //         'confirm',
-        //         `Are you sure you'd like to remove a class attendee ${obj.appUser.firstName} ${obj.appUser.lastName}?`,
-        //     )
-        //         .then((res: boolean) => {
-        //             if (res) {
+        if (new Date(this.entity.startDate) > new Date()) {
+            this.confirm.show(
+                'confirm',
+                `Are you sure you'd like to remove a class attendee ${obj.appUser.firstName} ${obj.appUser.lastName}?`,
+            )
+                .then((res: boolean) => {
+                    if (res) {
                         this.attendeeService.delete(obj)
                             .then(() => super.ngOnInit())
                             .catch(err => this.onHttpError(err));
-        //             }
-        //         });
-        // } else {
-        //     this.notificationSvc.warning('info', 'Class has been started already');
-        // }
+                    }
+                });
+        } else {
+            this.notificationSvc.warning('info', 'Class has been started already');
+        }
     }
 
     onHttpError(err: any): any {

@@ -1,15 +1,15 @@
-<!--<div class="confirmation" *ngIf="type == 'confirm' || type == 'alert'">-->
+<div class="confirmation" *ngIf="type == 'confirm' || type == 'alert'">
 
-<!--  <div class="body">-->
+  <div class="body">
 
-<!--    <i *ngIf="type == 'confirm'" class="fa fa-question-circle" aria-hidden="true"></i>-->
-<!--    <i *ngIf="type == 'alert'" class="fa fa-info-circle" aria-hidden="true"></i>-->
-<!--    <p class="{{type}}">{{message}}</p>-->
+    <i *ngIf="type == 'confirm'" class="fa fa-question-circle" aria-hidden="true"></i>
+    <i *ngIf="type == 'alert'" class="fa fa-info-circle" aria-hidden="true"></i>
+    <p class="{{type}}">{{message}}</p>
 
-<!--    <ng-content class="content"></ng-content>-->
+    <ng-content class="content"></ng-content>
 
-<!--    <button *ngIf="type == 'confirm'" class="btn btn-default" (click)="close()">{{this.buttonsName.cancel}}</button>-->
-<!--    <button *ngIf="type == 'confirm'" class="btn btn-default" (click)="onOk()">{{this.buttonsName.ok}}</button>-->
-<!--    <button *ngIf="type == 'alert'" class="btn btn-default btn-ok" (click)="onOk()">OK </button>-->
-<!--  </div>-->
-<!--</div>-->
+    <button *ngIf="type == 'confirm'" class="btn btn-default" (click)="close()">{{this.buttonsName.cancel}}</button>
+    <button *ngIf="type == 'confirm'" class="btn btn-default" (click)="onOk()">{{this.buttonsName.ok}}</button>
+    <button *ngIf="type == 'alert'" class="btn btn-default btn-ok" (click)="onOk()">OK </button>
+  </div>
+</div>
