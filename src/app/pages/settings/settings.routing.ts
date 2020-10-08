@@ -7,7 +7,7 @@ import { SettingsComponent } from './settings.component';
 // import { ExitReasonsComponent } from './exit-reasons/exit-reasons.component';
 // import { CampusesComponent } from './campuses/campuses.component';
 // // import { GraduationsComponent } from './graduations/graduations.component';
-// import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
+import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
 // import { BaseNameComponent } from './base-name/base-name.component';
 // import { OfficeLocationComponent } from './office-locations/office-locations.component';
 // import { FeedbacksComponent } from './feedbacks/feedbacks.component';
@@ -18,7 +18,7 @@ import { SettingsComponent } from './settings.component';
 // import { InterviewStatusComponent } from './interview-status/interview-status.component';
 // import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome.component';
 // import { EmploymentStatusComponent } from './employment-status/employment-status.component';
-// import { NonPlacementReasonComponent } from './non-placement-reason/non-placement-reason.component';
+import { NonPlacementReasonComponent } from './non-placement-reason/non-placement-reason.component';
 import { ClassesScheduleComponent } from './classes-schedule/classes-schedule.component';
 
 const routes: Routes = [
@@ -26,15 +26,13 @@ const routes: Routes = [
         path: '',
         component: SettingsComponent,
         children: [
-            // { path: 'levels', component: LevelsComponent },
              { path: 'classes-schedule', component: ClassesScheduleComponent },
-            // { path: 'non-placement-reasons', component: NonPlacementReasonComponent },
-            // // { path: 'graduations', component: GraduationsComponent },
+              { path: 'non-placement-reasons', component: NonPlacementReasonComponent },
             // { path: 'references', component: ReferencesComponent },
             // { path: 'military', component: MilitaryComponent },
             // { path: 'exits', component: ExitReasonsComponent },
             // { path: 'campuses', component: CampusesComponent },
-            // { path: 'graduation-locations', component: GraduationLocationsComponent },
+            { path: 'graduation-locations', component: GraduationLocationsComponent },
             // { path: 'base-name', component: BaseNameComponent },
             // { path: 'office-locations', component: OfficeLocationComponent },
             // { path: 'feedbacks', component: FeedbacksComponent },

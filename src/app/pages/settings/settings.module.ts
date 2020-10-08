@@ -9,7 +9,7 @@ import { SettingsComponent } from './settings.component';
 // import { MilitaryComponent, MilitaryService } from './military';
 // import { ExitReasonsComponent, ExitReasonsService } from './exit-reasons';
 // import { CampusesComponent, CampusesService } from './campuses';
-// import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
+import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
 // import { BaseNameComponent, MilitaryBaseService } from './base-name';
 // import { OfficeLocationComponent, OfficeLocationService } from './office-locations';
 // import { FeedbacksComponent, FeedbacksService } from './feedbacks';
@@ -19,19 +19,15 @@ import { SettingsComponent } from './settings.component';
 // import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
 // import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
 // import { CallReasonsComponent, CallReasonsService } from './call-reasons';
-// import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
+import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
 // import { CompanyModule } from './company/company.module';
-
-
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
 import {Common_Module} from '../../common';
 import {SettingsRoutingModule} from './settings.routing';
 import {GraduationDatesService} from '../../core/data';
 import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-
-// import { GraduationsModule } from './graduations/graduations.module';
-// import { LevelsComponent, LevelsService } from './levels';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
     imports: [
@@ -44,16 +40,15 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         NguiAutoCompleteModule
         // TextMaskModule,
         // CompanyModule,
-        // NonPlacementReasonComponent,
-        // GraduationsModule,
     ],
     declarations: [
-        // NonPlacementReasonComponent,
+        NonPlacementReasonComponent,
         SettingsComponent,
         // ReferencesComponent,
         // ExitReasonsComponent,
         // CampusesComponent,
-        // GraduationLocationsComponent,
+        GraduationLocationsComponent,
+        // CompanyComponent,
         // BaseNameComponent,
         // OfficeLocationComponent,
         // FeedbacksComponent,
@@ -64,10 +59,9 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         // InterviewStatusComponent,
         // EmploymentStatusComponent,
         // MilitaryComponent,
-        // LevelsComponent,
     ],
     providers: [
-        // NonPlacementReasonService,
+        NonPlacementReasonService,
         // CampusesService,
         GraduationDatesService,
         // OfficeLocationService,
@@ -75,7 +69,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         // ReferencesService,
         // ExitReasonsService,
         // MilitaryBaseService,
-        // GraduationLocationsService,
+        GraduationLocationsService,
         // CompanyAffiliatesService,
         // CallReasonsService,
         // InterviewTypeService,
@@ -83,8 +77,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         // InterviewStatusService,
         // EmploymentStatusService,
         // MilitaryService,
-        CountryStatesService,
-        // LevelsService,
+        CountryStatesService
     ],
 })
 export class SettingsModule { }

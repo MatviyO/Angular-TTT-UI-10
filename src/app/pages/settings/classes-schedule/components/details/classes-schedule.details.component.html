@@ -281,35 +281,6 @@
                                 <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit note"></i>
                             </a>
                         </td>
-
-
-                        <!-- <td class="text-right">
-                            <i class="fa fa-ellipsis-h fa-2x dot btnOpptions" aria-hidden="true">
-                            <div class="moreOptions">
-                                <a class="btn" >
-                                    <span>Edit note</span>
-                                    <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip"
-                                        title="edit"></i>
-                                </a>
-                                <a class="btn" (click)="navigate()"
-                                    routerLink="{{'/classes/details/appl/' + item.appUser.id}}">
-                                    <span>Graduation date</span>
-                                    <i class="fa fa-graduation-cap " aria-hidden="true" data-toggle="tooltip"
-                                        title="Graduation date"></i>
-                                </a>
-                                <a class="btn" (click)="navigate()"
-                                    routerLink="{{'/profile/details/' + item.appUser.id}}">
-                                    <span>Profile</span>
-                                    <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"></i>
-                                </a>
-                                <a class="btn" (click)="deleteReservation(item)">
-                                    <span>Release a spot</span>
-                                    <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip"
-                                        title="release a spot"></i>
-                                </a>
-                            </div>
-                        </i>
-                        </td> -->
                     </tr>
                 </tbody>
             </table>
@@ -317,16 +288,13 @@
     </div>
 </app-ba-card>
 
-<!-- <a class="btn" *ngIf="entity.id" (click)="navigate()" routerLink="/dashboard/class-activity/{{entity.id}}">
-    <span>Class activity</span>
-    <i class="fa fa-calendar-check-o" aria-hidden="true" title="Workforce training"></i>
-  </a> -->
+
 <div class="search-btn">
     <button class="btn btn-default" (click)="navigate()" routerLink="/dashboard/class-activity/{{entity.id}}">
         <i class="fa fa-line-chart stats" aria-hidden="true" title=" Class activity"></i>
         Class activity
     </button>
 </div>
-<!--<app-confirm></app-confirm>-->
+<app-confirm></app-confirm>
 
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

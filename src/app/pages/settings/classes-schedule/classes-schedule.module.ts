@@ -30,6 +30,9 @@ import {ConfirmComponent} from '../../../common/components/confirm/confirm.compo
         CampusesService,
         TradesService,
     ],
+    exports: [
+        ConfirmComponent
+    ]
 })
 export class ClassScheduleModule {
 

@@ -126,7 +126,7 @@ export const PAGES_MENU = [
                             },
                         },
                     },
-                  
+
                 ],
             },
 
@@ -361,7 +361,6 @@ export const PAGES_MENU = [
                             },
                         },
                     },
-                   
                     {
                         path: 'non-placement-reasons',
                         data: {
