@@ -20,7 +20,7 @@ import { GraduationLocationsComponent, GraduationLocationsService } from './grad
 // import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
 // import { CallReasonsComponent, CallReasonsService } from './call-reasons';
 import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
-// import { CompanyModule } from './company/company.module';
+import { CompanyModule } from './company/company.module';
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
 import {Common_Module} from '../../common';
 import {SettingsRoutingModule} from './settings.routing';
@@ -37,9 +37,9 @@ import { CompanyComponent } from './company/company.component';
         FormsModule,
         NgaModule,
         SettingsRoutingModule,
-        NguiAutoCompleteModule
+        NguiAutoCompleteModule,
         // TextMaskModule,
-        // CompanyModule,
+        CompanyModule,
     ],
     declarations: [
         NonPlacementReasonComponent,

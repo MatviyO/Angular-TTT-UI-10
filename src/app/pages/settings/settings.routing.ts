@@ -12,7 +12,7 @@ import { GraduationLocationsComponent } from './graduation-locations/graduation-
 // import { OfficeLocationComponent } from './office-locations/office-locations.component';
 // import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 // import { CompanyAffiliatesComponent } from './company-affiliates/company-affiliates.component';
-// import { CompanyComponent } from './company/company.component';
+import { CompanyComponent } from './company/company.component';
 // import { CallReasonsComponent } from './call-reasons/call-reasons.component';
 // import { InterviewTypeComponent } from './interview-type/interview-type.component';
 // import { InterviewStatusComponent } from './interview-status/interview-status.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
             // { path: 'office-locations', component: OfficeLocationComponent },
             // { path: 'feedbacks', component: FeedbacksComponent },
             // { path: 'company-affiliates', component: CompanyAffiliatesComponent },
-            // { path: 'company', component: CompanyComponent },
+            { path: 'company', component: CompanyComponent },
             // { path: 'call-reasons', component: CallReasonsComponent },
             // { path: 'interview-type', component: InterviewTypeComponent },
             // { path: 'interview-status', component: InterviewStatusComponent },
