@@ -6,6 +6,8 @@ import {CompanyRoutingModule} from './company-routing.module';
 import {NgaModule} from '../../../theme/nga.module';
 import {FormsModule} from '@angular/forms';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
+import {ListenerService} from '../../../common/services';
+import {CompanyContactsService, CompanyService, StatesService, TradesService} from '../../../core/data';
 import {Common_Module} from '../../../common';
 
 @NgModule({
@@ -18,6 +20,12 @@ import {Common_Module} from '../../../common';
     FormsModule,
     NguiAutoCompleteModule,
   ],
-  providers: []
+  providers: [
+    CompanyService,
+    TradesService,
+    StatesService,
+    ListenerService,
+    CompanyContactsService,
+  ]
 })
 export class CompanyModule { }
