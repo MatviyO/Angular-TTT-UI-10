@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IComponentConfig, IResourceService } from '../../../../../common/interfaces';
-import { BaseSortableList, INavigationHelper, NavigationHelper } from '../../../../../common';
+import { BaseSortableListDirective, INavigationHelper, NavigationHelper } from '../../../../../common';
 import { CampusesService, TradesService, ScheduledClass, Campus, Reservation, ApplicationType, Attendee, SchedulingType } from '../../../../../core';
 import { ClassesScheduleListConfig } from './classes-schedule.list.config';
 import {TTTReportService} from '../../../../../core/data/TTTReport.service';
@@ -11,7 +11,7 @@ import {TTTReportService} from '../../../../../core/data/TTTReport.service';
     styleUrls: ['./classes-schedule.list.component.scss'],
     providers: [ClassesScheduleListConfig, TTTReportService],
 })
-export class ClassesScheduleListComponent extends BaseSortableList<ScheduledClass> implements OnInit {
+export class ClassesScheduleListComponent extends BaseSortableListDirective<ScheduledClass> implements OnInit {
     campuses: Campus[];
     trades = this.tradesSvc.getTrades();
 

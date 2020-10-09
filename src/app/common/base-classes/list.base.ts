@@ -1,25 +1,24 @@
-import {OnInit, AfterContentInit, Directive, Injectable} from '@angular/core';
+import {OnInit, AfterContentInit, Directive} from '@angular/core';
 import {
   IInstanceCreator, IList, ISortableList, IEditableList, IListWithTriggers,
   IDataStorage, IDataService, ITriggerService,
   IComponentConfig, IListWithTriggersConfig, IEditorConfig, INavigationHelper,
 } from '../interfaces';
-import { MemoryDataStorage, applyMixins, NavigationHelper } from '../utils';
-import { BaseEntity } from '../entities';
+import {MemoryDataStorage, applyMixins, NavigationHelper} from '../utils';
+import {BaseEntity} from '../entities';
 import {ComponentBase} from './componentBase';
 
 
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export abstract class BaseList<T extends BaseEntity> extends ComponentBase implements OnInit, IList<T> {
+export abstract class BaseListDirective<T extends BaseEntity> extends ComponentBase implements OnInit, IList<T> {
 
   protected dataSvc: IDataService<T>;
   protected loadlisteners: ((data: T, response: T) => void)[] = [];
 
-  skip: number = 0;
-  take: number = 25;
-  total: number = 0;
-  totalLoaded: number = 0;
+  skip = 0;
+  take = 25;
+  total = 0;
+  totalLoaded = 0;
   entities: T[] = [];
   includes: string;
   selectJSONPath: string;
@@ -36,13 +35,12 @@ export abstract class BaseList<T extends BaseEntity> extends ComponentBase imple
   onDataLoaded(callback: (data: T, response: T) => void): void {
     this.loadlisteners.push(callback);
   }
+
   protected propagateEvent(listeners: ((data: T, response: T) => void)[], data: any, res: any = null): void {
     listeners.forEach(cb => cb(data, res));
   }
 
   ngOnInit(): void {
-
-
     this.entities = new Array<T>();
     this.getData();
   }
@@ -81,20 +79,18 @@ export abstract class BaseList<T extends BaseEntity> extends ComponentBase imple
     });
   }
 }
+
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export abstract class BaseSortableList<T extends BaseEntity> extends BaseList<T> implements IList<T>, ISortableList<T>, OnInit {
+export abstract class BaseSortableListDirective<T extends BaseEntity>
+  extends BaseListDirective<T> implements IList<T>, ISortableList<T>, OnInit {
 
-  private filterStorageKey: string = `${this.componentTitle.replace(' ', '')}_filter`;
-  private sortStorageKey: string = `${this.componentTitle.replace(' ', '')}_sort`;
-
+  private filterStorageKey = `${this.componentTitle.replace(' ', '')}_filter`;
+  private sortStorageKey = `${this.componentTitle.replace(' ', '')}_sort`;
   protected storage: IDataStorage;
 
-
-  showfilter: boolean = false;
-
+  showfilter = false;
   filter: any = {};
-  sort: any = { direction: true, column: '' };
+  sort: any = {direction: true, column: ''};
 
   abstract getFilterFormatted(): string;
 
@@ -131,7 +127,7 @@ export abstract class BaseSortableList<T extends BaseEntity> extends BaseList<T>
     if (this.sort.column === column) {
       this.sort.direction = !this.sort.direction;
     } else {
-      this.sort = { column, direction: true };
+      this.sort = {column, direction: true};
     }
     this.entities = new Array<T>();
 
@@ -144,11 +140,10 @@ export abstract class BaseSortableList<T extends BaseEntity> extends BaseList<T>
       return '';
     }
     return `${this.sort.column} ${this.sort.direction ? 'ascending' : 'descending'}`;
-
   }
 
   replaceSpecialCharacters(attribute: string): string {
-    attribute = attribute.replace(/'/g, "''");
+    attribute = attribute.replace(/'/g, '\'\'');
     attribute = attribute.replace(/"/g, '');
     attribute = attribute.replace(/%/g, '%25');
     attribute = attribute.replace(/\+/g, '%2B');
@@ -162,14 +157,14 @@ export abstract class BaseSortableList<T extends BaseEntity> extends BaseList<T>
   getData(args: any[] = null): void {
     this.storage.store(this.filterStorageKey, this.filter);
     this.storage.store(this.sortStorageKey, this.sort);
-
     super.getDataInternal(this.getFilterFormatted(), this.getSortFormatted(), this.take, this.skip, args);
   }
 }
+
 @Directive()
 
-// tslint:disable-next-line:directive-class-suffix max-line-length
-export abstract class BaseListWithTriggers<T extends BaseEntity> extends BaseList<T> implements IList<T>, IListWithTriggers<T>, OnInit, AfterContentInit {
+export abstract class BaseListWithTriggersDirective<T extends BaseEntity>
+  extends BaseListDirective<T> implements IList<T>, IListWithTriggers<T>, OnInit, AfterContentInit {
 
   protected triggerSvc: ITriggerService;
   protected triggerType: string;
@@ -185,7 +180,6 @@ export abstract class BaseListWithTriggers<T extends BaseEntity> extends BaseLis
 
   ngOnInit(): void {
     super.ngOnInit();
-    // this.getTriggers(this.triggerType);
   }
 
   ngAfterContentInit(): void {
@@ -221,9 +215,10 @@ export abstract class BaseListWithTriggers<T extends BaseEntity> extends BaseLis
 
 }
 
-export abstract class BaseEditableList<T extends BaseEntity> extends BaseList<T> implements IList<T>, IEditableList<T>, IInstanceCreator<T> {
-
-  protected cls: { new(): T };
+@Directive()
+export abstract class BaseEditableListDirective<T extends BaseEntity>
+  extends BaseListDirective<T> implements IList<T>, IEditableList<T>, IInstanceCreator<T> {
+  protected cls: new() => T;
 
   entity: T;
   _items: any[] = [];
@@ -333,8 +328,9 @@ export abstract class BaseEditableList<T extends BaseEntity> extends BaseList<T>
   }
 }
 
-export abstract class BaseSortableListWithTriggers<T extends BaseEntity> extends BaseSortableList<T>
-  implements IList<T>, ISortableList<T>, IListWithTriggers<T>, OnInit {
+@Directive()
+export abstract class BaseSortableListWithTriggersDirective<T extends BaseEntity> extends BaseSortableListDirective<T>
+  implements IList<T>, ISortableList<T>, IListWithTriggers<T> {
 
   protected triggerSvc: ITriggerService;
   protected triggerType: string;
@@ -347,33 +343,15 @@ export abstract class BaseSortableListWithTriggers<T extends BaseEntity> extends
     this.triggerType = config.triggerType;
     this.triggerSvc = config.triggersSvc;
   }
-
-  // ngOnInit(): void {
-  //    //super.ngOnInit();
-  //    //this.getTriggers(this.triggerType);
-  // }
-
   getTriggers: (triggersType: string) => void;
 
   addStatusColor: (itemId: number, sub?: boolean) => string;
 }
+
 @Directive()
 
-// tslint:disable-next-line:directive-class-suffix
-export abstract class BaseEditableSortableList<T extends BaseEntity> extends BaseEditableList<T>
+export abstract class BaseEditableSortableListDirective<T extends BaseEntity> extends BaseEditableListDirective<T>
   implements IList<T>, IEditableList<T>, ISortableList<T>, OnInit {
-
-  private filterStorageKey: string = `${this.constructor.name}_filter`;
-  private sortStorageKey: string = `${this.constructor.name}_sort`;
-
-  protected storage: IDataStorage;
-
-  showfilter: boolean = false;
-
-  filter: any = {};
-  sort: any = { direction: true, column: '' };
-
-  abstract getFilterFormatted(): string;
 
   constructor(
     config: IEditorConfig<T>,
@@ -382,18 +360,32 @@ export abstract class BaseEditableSortableList<T extends BaseEntity> extends Bas
     this.storage = config.injector.get(MemoryDataStorage);
   }
 
-  ngOnInit(): void {
-    super.ngOnInit();
-  }
+  private filterStorageKey = `${this.constructor.name}_filter`;
+  private sortStorageKey = `${this.constructor.name}_sort`;
+
+  protected storage: IDataStorage;
+
+  showfilter = false;
+
+  filter: any = {};
+  sort: any = {direction: true, column: ''};
 
   onSearch: () => void;
   onSort: (column: string) => void;
 
   getSortFormatted: () => string;
-  getData(args: any[]): void { }
+
+  abstract getFilterFormatted(): string;
+
+  ngOnInit(): void {
+    super.ngOnInit();
+  }
+
+  getData(args: any[]): void {
+  }
 
 }
 
-applyMixins(BaseEditableSortableList, [BaseSortableList]);
-applyMixins(BaseSortableListWithTriggers, [BaseListWithTriggers]);
+applyMixins(BaseEditableSortableListDirective, [BaseSortableListDirective]);
+applyMixins(BaseSortableListWithTriggersDirective, [BaseListWithTriggersDirective]);
 

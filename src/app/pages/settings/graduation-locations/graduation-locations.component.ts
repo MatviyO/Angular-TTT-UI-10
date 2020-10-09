@@ -2,7 +2,7 @@ import { Component, ViewChild, Inject } from '@angular/core';
 import { GraduationLocationConfig } from './graduation-locations.config';
 import {GraduationLocation} from '../../../core/model/properties';
 import {ConfirmComponent} from '../../../common/components/confirm';
-import {BaseEditableList} from '../../../common/base-classes';
+import {BaseEditableListDirective} from '../../../common/base-classes';
 
 import {IEditorConfig} from '../../../common/interfaces';
 import {CountryStatesService, State} from '../../../core/data/country-state.service';
@@ -15,7 +15,7 @@ import {CountryStatesService, State} from '../../../core/data/country-state.serv
     providers: [GraduationLocationConfig],
 })
 
-export class GraduationLocationsComponent extends BaseEditableList<GraduationLocation> {
+export class GraduationLocationsComponent extends BaseEditableListDirective<GraduationLocation> {
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
     countries = this.countrySvc.getCounries();

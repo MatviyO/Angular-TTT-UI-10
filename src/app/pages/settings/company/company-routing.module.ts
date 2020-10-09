@@ -7,6 +7,7 @@ import {CompanyListComponent} from './components/list/company-list.component';
 const routes: Routes = [
   {path: 'company', component: CompanyComponent, children: [
       {path: 'list', component: CompanyListComponent },
+      {path: '', redirectTo: 'list'}
     ]
   }
 ];

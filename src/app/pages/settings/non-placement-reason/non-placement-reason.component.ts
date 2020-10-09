@@ -1,7 +1,7 @@
 import { Component, ViewChild, Inject } from '@angular/core';
 
 import { NonPlacementReasonConfig } from './non-placement-reason.config';
-import {BaseEditableList} from '../../../common/base-classes';
+import {BaseEditableListDirective} from '../../../common/base-classes';
 import {ConfirmComponent} from '../../../common/components/confirm';
 import {IEditorConfig} from '../../../common/interfaces';
 import {NonPlacementReason} from '../../../core/model/properties';
@@ -14,7 +14,7 @@ import {NonPlacementReason} from '../../../core/model/properties';
     providers: [NonPlacementReasonConfig],
 
 })
-export class NonPlacementReasonComponent extends BaseEditableList<NonPlacementReason> {
+export class NonPlacementReasonComponent extends BaseEditableListDirective<NonPlacementReason> {
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
     constructor(

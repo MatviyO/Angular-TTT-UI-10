@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import {NgxUploaderModule } from 'ngx-uploader';
+import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 // import { FileDropModule } from 'ngx-file-drop';
 
 import { FormsModule } from '@angular/forms';
@@ -14,17 +13,18 @@ import { CallbackPipe, OrderByPipe } from './pipes';
 import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
 
 
+
+
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        // Ng2AutoCompleteModule,
+        NguiAutoCompleteModule,
         NgxUploaderModule,
         // FileDropModule,
     ],
 
     declarations: [
-        // ConfirmComponent,
         SelectCountryStateComponent,
         InfoBoxComponentComponent,
         ProgressLoadDataComponent,
@@ -40,7 +40,6 @@ import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
         FileUploader,
     ],
     exports: [
-        // ConfirmComponent,
         SelectCountryStateComponent,
         InfoBoxComponentComponent,
         ProgressLoadDataComponent,
