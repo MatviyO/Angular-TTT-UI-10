@@ -7,6 +7,4 @@ export interface ICache {
     keyExist(key: string): boolean;
 
     invalidate(key: string): void;
-
-    
 }

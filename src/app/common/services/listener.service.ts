@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 @Injectable()
 export class ListenerService {
     private listeners: ((T) => void)[] = [];

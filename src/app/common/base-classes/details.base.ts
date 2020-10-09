@@ -17,10 +17,11 @@ import {
 import { MemoryDataStorage, NavigationHelper, applyMixins } from '../utils';
 
 import { Trigger } from '../../core';
-import {ComponentBase} from './componentBase';
+import {ComponentBaseDirective} from './componentBase';
 
 @Directive()
-export class DetailsBaseClassDirective<T extends BaseEntity> extends ComponentBase implements OnInit, IInstanceCreator<T>, IEditor<T> {
+export class DetailsBaseClassDirective<T extends BaseEntity>
+  extends ComponentBaseDirective implements OnInit, IInstanceCreator<T>, IEditor<T> {
 
   protected dataSvc: IDataService<T>;
   protected injector: Injector;
@@ -165,7 +166,6 @@ export class DetailsStatefulDirective<T extends BaseEntity>
       data,
     };
 
-
     this.storage.store(key, this.state);
     if (data && data.section) {
       this.navigation.addNavigation(name, `/${urlPrefix}/r/details/${key}/${data.section}`);
@@ -194,13 +194,13 @@ export class DetailsStatefulDirective<T extends BaseEntity>
 
 @Directive()
 
-export class DetailsWithTriggers<T extends BaseEntity> extends DetailsBaseClassDirective<T> implements IEditor<T>, IEditorWithTriggers<T> {
+export class DetailsWithTriggersDirective<T extends BaseEntity>
+  extends DetailsBaseClassDirective<T> implements IEditor<T>, IEditorWithTriggers<T> {
 
   protected triggersSvc: ITriggerService;
   protected triggerHelper: ITriggerHelper;
   protected triggerCategory: string;
   protected loadtriggers: ((T) => void)[] = [];
-
 
   constructor(
     config: IEditorWithTriggersConfig<T>,
@@ -258,8 +258,9 @@ export class DetailsWithTriggers<T extends BaseEntity> extends DetailsBaseClassD
   }
 }
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export class DetailsStatefulDirectiveWithTriggers<T extends BaseEntity> extends DetailsStatefulDirective<T>
+
+export class DetailsStatefulWithTriggersDirective<T extends BaseEntity>
+  extends DetailsStatefulDirective<T>
   implements IEditor<T>, IEditorStateful<T>, IEditorWithTriggers<T> {
 
   protected triggersSvc: ITriggerService;
@@ -283,4 +284,4 @@ export class DetailsStatefulDirectiveWithTriggers<T extends BaseEntity> extends 
 
 }
 
-applyMixins(DetailsStatefulDirectiveWithTriggers, [DetailsWithTriggers]);
+applyMixins(DetailsStatefulWithTriggersDirective, [DetailsWithTriggersDirective]);

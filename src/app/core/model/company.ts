@@ -1,13 +1,9 @@
-
-
 import { Discount } from './properties/discount';
 import {BaseAddressUnDeletable, BaseEntity} from '../../common/entities';
 import {AlternativeLocation, CompanyAffiliate, CompanyContacts} from './properties';
 
-
 export class Company extends BaseAddressUnDeletable {
     name: string;
-    // trades: CompanyTrade[];
     trades: CompanyTrade[];
     affiliate: CompanyAffiliate;
     affiliateId: number;

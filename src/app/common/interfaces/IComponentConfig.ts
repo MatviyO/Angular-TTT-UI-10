@@ -20,9 +20,7 @@ export interface IListWithTriggersConfig<T extends BaseEntity> extends IComponen
 }
 
 export interface IEditorConfig<T extends BaseEntity> extends IComponentConfig<T> {
-    cls: { new (): T };
-  
-
+    cls: new () => T;
 }
 
 export interface IEditorStatefulConfig<T extends BaseEntity> extends IEditorConfig<T> {

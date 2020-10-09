@@ -6,11 +6,11 @@ import {
 } from '../interfaces';
 import {MemoryDataStorage, applyMixins, NavigationHelper} from '../utils';
 import {BaseEntity} from '../entities';
-import {ComponentBase} from './componentBase';
+import {ComponentBaseDirective} from './componentBase';
 
 
 @Directive()
-export abstract class BaseListDirective<T extends BaseEntity> extends ComponentBase implements OnInit, IList<T> {
+export abstract class BaseListDirective<T extends BaseEntity> extends ComponentBaseDirective implements OnInit, IList<T> {
 
   protected dataSvc: IDataService<T>;
   protected loadlisteners: ((data: T, response: T) => void)[] = [];

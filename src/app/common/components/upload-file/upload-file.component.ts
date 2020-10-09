@@ -173,7 +173,7 @@ export class FileUploader {
         return className;
     }
 
-    // todo: update error handling or reuse from ComponentBase
+    // todo: update error handling or reuse from ComponentBaseDirective
     onHttpError(exception: any): void {
         this.loading = false;
         const type = 'Uploading files';

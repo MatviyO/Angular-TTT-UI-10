@@ -3,7 +3,7 @@ import { INotificationService, Severity } from '../interfaces';
 
 @Injectable()
 export class NotificationService implements INotificationService {
-        
+
     private listeners: ((priority: Severity, title: string, message: string) => void)[] = [];
 
     subscribe(callback: (priority: Severity, title: string, message: string) => void): void {

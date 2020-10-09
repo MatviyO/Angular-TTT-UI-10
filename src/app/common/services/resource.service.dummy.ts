@@ -1,33 +1,33 @@
-import { BaseEntity } from '../entities';
-import { IResourceService } from '../interfaces';
+import {BaseEntity} from '../entities';
+import {IResourceService} from '../interfaces';
 
 export class ResourceServiceDummy<T extends BaseEntity> implements IResourceService<T> {
+  private res: (value?: number) => void;
+  private rej: (reason?: any) => void;
+  private resolve: (value?: T[]) => void;
+  private reject: (reason?: any) => void;
 
-     count(filter?: string): Promise<number> {
-        const promise = new Promise<number>((resolve, reject) => {
-            this.res = resolve;
-            this.rej = reject;
-        });
+  constructor(private dataSet: T[]) {
+  }
 
-        setTimeout(() => this.resolve(this.dataSet), 1000);
+  query(filter: string = '', order: string = ''): Promise<T[]> {
+    const promise = new Promise<T[]>((resolve, reject) => {
+      this.resolve = resolve;
+      this.reject = reject;
+    });
 
-        return promise;
-    }
-    private res: (value?: number) => void;
-    private rej: (reason?: any) => void;
-    private resolve: (value?: T[]) => void;
-    private reject: (reason?: any) => void;
+    setTimeout(() => this.resolve(this.dataSet), 1000);
 
-    constructor(private dataSet: T[]) { }
+    return promise;
+  }
 
-    query(filter: string = '', order: string = ''): Promise<T[]> {
-        const promise = new Promise<T[]>((resolve, reject) => {
-            this.resolve = resolve;
-            this.reject = reject;
-        });
+  count(filter?: string): Promise<number> {
+    const promise = new Promise<number>((resolve, reject) => {
+      this.res = resolve;
+      this.rej = reject;
+    });
+    setTimeout(() => this.resolve(this.dataSet), 1000);
 
-        setTimeout(() => this.resolve(this.dataSet), 1000);
-
-        return promise;
-    }
+    return promise;
+  }
 }

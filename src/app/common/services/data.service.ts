@@ -40,14 +40,12 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
         if (selector) {
             return this.getBySelector(id, selector);
         }
-
         return this.http.get<T>(this.urlProvider.select(this.url, id, includes))
             .toPromise()
             .catch(this.handleError);
     }
 
     private getBySelector(id: number, selector: string): Promise<T> {
-
         return this.http.get<T[]>(this.urlProvider.selectByPrefix(this.url, id, selector, this.defaultFilter))
             .toPromise()
             .then(response => {
@@ -92,26 +90,6 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
             })
             .catch(this.handleError);
     }
-
-    // async requestFile(url: string): Promise<any> {
-    //    return this.http.get<BaseEntityCollection<T>>(this.urlProvider.query(url))
-    //     .toPromise()
-    //     // .then(response => this.saveAsBlob(response))
-    //     .catch(error => this.handleError(error));
-    //     // .toPromise()
-    //     // .then((res1: any) => {
-    //     //     console.log(res1);
-    //     //     res1.blob();
-
-    //     // })
-    //     // .catch(this.handleError);
-    //     // if (res) {
-
-    //     //     return res.blob();
-    //     // }
-    // }
-
-
     protected handleError(error: any): Promise<any> {
         return Promise.reject(error);
     }
@@ -125,14 +103,8 @@ export class BaseDataServiceUnDeletable<T extends BaseEntityUnDeletable> extends
     }
 
     delete(obj: T): Promise<any> {
-        // obj.isActive = false;
         obj.isActive = !obj.isActive;
         return super.update(obj);
     }
-
-    // restore(obj: T): Promise<any> {
-    //     obj.isActive = true;
-    //     return super.update(obj);
-    // }
 
 }

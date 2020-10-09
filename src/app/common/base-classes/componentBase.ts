@@ -1,12 +1,11 @@
 import { IBaseConfig, INotificationService } from '../interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotificationService } from '../services';
-import { Directive, Injectable} from '@angular/core';
+import { Directive} from '@angular/core';
 
 @Directive()
 
-// tslint:disable-next-line:directive-class-suffix
-export class ComponentBase {
+export class ComponentBaseDirective {
 
   protected notificationSvc: INotificationService;
   protected componentTitle: string;
@@ -19,7 +18,7 @@ export class ComponentBase {
 
   onHttpError(exception: HttpErrorResponse): void {
     this.showLoadData = false;
-    const type = `${this.componentTitle} details`; // ;
+    const type = `${this.componentTitle} details`;
     if (exception) {
       if (exception.status === 404) {
         this.notificationSvc.error(type, 'No records found with specified ID');
@@ -76,7 +75,7 @@ export class ComponentBase {
           }
         }
         return;
-      }else {
+      } else {
         // tslint:disable-next-line:forin
         for (const property in exception.error) {
           if (property === '') {
