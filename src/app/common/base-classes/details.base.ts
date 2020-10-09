@@ -20,25 +20,18 @@ import { Trigger } from '../../core';
 import {ComponentBase} from './componentBase';
 
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export class DetailsBase<T extends BaseEntity> extends ComponentBase implements OnInit, IInstanceCreator<T>, IEditor<T> {
+export class DetailsBaseClassDirective<T extends BaseEntity> extends ComponentBase implements OnInit, IInstanceCreator<T>, IEditor<T> {
 
   protected dataSvc: IDataService<T>;
   protected injector: Injector;
   protected cls: new() => T;
-
   protected storage: IDataStorage;
   protected route: ActivatedRoute;
   protected router: Router;
-
   protected queryParams: Params;
-
   protected loadlisteners: ((x: T) => void)[] = [];
   protected savelisteners: ((x: T) => void)[] = [];
-
   protected includes: string;
-  // protected selectJSONPath: string;
-
   entity: T;
 
   constructor(
@@ -125,14 +118,14 @@ export class DetailsBase<T extends BaseEntity> extends ComponentBase implements 
   }
 }
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export class DetailsStateful<T extends BaseEntity> extends DetailsBase<T> implements OnInit, IEditor<T>, IEditorStateful<T> {
+
+export class DetailsStatefulDirective<T extends BaseEntity>
+  extends DetailsBaseClassDirective<T> implements OnInit, IEditor<T>, IEditorStateful<T> {
 
   protected storage: IDataStorage;
   protected navigation: INavigationHelper;
   protected navigationTitle: string;
   protected navigationUrlPrefix: string;
-
   protected state: IEditorState;
 
   constructor(
@@ -200,8 +193,8 @@ export class DetailsStateful<T extends BaseEntity> extends DetailsBase<T> implem
 }
 
 @Directive()
-// tslint:disable-next-line:directive-class-suffix
-export class DetailsWithTriggers<T extends BaseEntity> extends DetailsBase<T> implements IEditor<T>, IEditorWithTriggers<T> {
+
+export class DetailsWithTriggers<T extends BaseEntity> extends DetailsBaseClassDirective<T> implements IEditor<T>, IEditorWithTriggers<T> {
 
   protected triggersSvc: ITriggerService;
   protected triggerHelper: ITriggerHelper;
@@ -266,7 +259,7 @@ export class DetailsWithTriggers<T extends BaseEntity> extends DetailsBase<T> im
 }
 @Directive()
 // tslint:disable-next-line:directive-class-suffix
-export class DetailsStatefulWithTriggers<T extends BaseEntity> extends DetailsStateful<T>
+export class DetailsStatefulDirectiveWithTriggers<T extends BaseEntity> extends DetailsStatefulDirective<T>
   implements IEditor<T>, IEditorStateful<T>, IEditorWithTriggers<T> {
 
   protected triggersSvc: ITriggerService;
@@ -290,4 +283,4 @@ export class DetailsStatefulWithTriggers<T extends BaseEntity> extends DetailsSt
 
 }
 
-applyMixins(DetailsStatefulWithTriggers, [DetailsWithTriggers]);
+applyMixins(DetailsStatefulDirectiveWithTriggers, [DetailsWithTriggers]);

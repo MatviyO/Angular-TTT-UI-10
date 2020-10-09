@@ -16,7 +16,7 @@ import {
   TriggerHelper, TriggerService
 } from '../../../../../core/data';
 import {ObservableService} from '../../../../../common/services';
-import {DetailsStateful} from '../../../../../common/base-classes';
+import {DetailsStatefulDirective} from '../../../../../common/base-classes';
 import {ConfirmComponent} from '../../../../../common/components/confirm';
 
 @Component({
@@ -27,7 +27,7 @@ import {ConfirmComponent} from '../../../../../common/components/confirm';
     styleUrls: ['classes-schedule.details.component.scss'],
 })
 
-export class ClassesScheduleDetailsComponent extends DetailsStateful<ScheduledClass> implements OnInit {
+export class ClassesScheduleDetailsComponent extends DetailsStatefulDirective<ScheduledClass> implements OnInit {
 
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     private application: Profile;
