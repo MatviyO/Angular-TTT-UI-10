@@ -9,6 +9,8 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {ListenerService} from '../../../common/services';
 import {CompanyContactsService, CompanyService, StatesService, TradesService} from '../../../core/data';
 import {Common_Module} from '../../../common';
+import { CompanyDetailsComponent } from './components/details/company-details.component';
+import { AlternativeLocationsComponent } from './components/details/components/alternative-locations/alternative-locations.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import {Common_Module} from '../../../common';
     FormsModule,
     NguiAutoCompleteModule,
   ],
-  declarations: [CompanyComponent, CompanyListComponent],
+  declarations: [CompanyComponent, CompanyListComponent, CompanyDetailsComponent, AlternativeLocationsComponent],
   providers: [
     CompanyService,
     TradesService,
