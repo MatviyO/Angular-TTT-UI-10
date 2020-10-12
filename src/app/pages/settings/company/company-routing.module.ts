@@ -5,11 +5,19 @@ import {CompanyComponent} from './company.component';
 import {CompanyListComponent} from './components/list/company-list.component';
 
 const routes: Routes = [
-  {path: 'company', component: CompanyComponent, children: [
-      {path: 'list', component: CompanyListComponent },
-      {path: '', redirectTo: 'list'}
-    ]
-  }
+  {
+    path: 'company',
+    component: CompanyComponent,
+    children: [
+      { path: 'list', component: CompanyListComponent },
+      { path: 'list/:filter', component: CompanyListComponent },
+      {
+        path: '',
+        redirectTo: 'list'
+      },
+      { path: '**', component: CompanyListComponent }
+    ],
+  },
 ];
 
 @NgModule({

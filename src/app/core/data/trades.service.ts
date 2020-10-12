@@ -1,7 +1,7 @@
 import { Trade } from '../model/properties';
 
 export class TradesService {
-    getTrades(): Trade[] { 
+    getTrades(): Trade[] {
         return [
             { id: 1, name: 'Plumbing' },
             { id: 2, name: 'Electrical' },

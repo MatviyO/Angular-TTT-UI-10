@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { NgaModule } from '../../theme/nga.module';
-
 import { SettingsComponent } from './settings.component';
 // import { ReferencesComponent, ReferencesService } from './references';
 // import { MilitaryComponent, MilitaryService } from './military';
@@ -27,7 +25,7 @@ import {SettingsRoutingModule} from './settings.routing';
 import {GraduationDatesService} from '../../core/data';
 import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-import { CompanyComponent } from './company/company.component';
+// import { CompanyComponent } from './company/company.component';
 
 @NgModule({
     imports: [

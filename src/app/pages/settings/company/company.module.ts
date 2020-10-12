@@ -11,7 +11,6 @@ import {CompanyContactsService, CompanyService, StatesService, TradesService} fr
 import {Common_Module} from '../../../common';
 
 @NgModule({
-  declarations: [CompanyComponent, CompanyListComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule,
@@ -20,12 +19,15 @@ import {Common_Module} from '../../../common';
     FormsModule,
     NguiAutoCompleteModule,
   ],
+  declarations: [CompanyComponent, CompanyListComponent],
   providers: [
     CompanyService,
     TradesService,
     StatesService,
     ListenerService,
+    // AlternativeLocationService,
     CompanyContactsService,
+    // CommunicationHistoryService,
   ]
 })
 export class CompanyModule { }
