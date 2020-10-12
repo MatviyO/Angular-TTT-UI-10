@@ -11,6 +11,8 @@ import {CompanyContactsService, CompanyService, StatesService, TradesService} fr
 import {Common_Module} from '../../../common';
 import { CompanyDetailsComponent } from './components/details/company-details.component';
 import { AlternativeLocationsComponent } from './components/details/components/alternative-locations/alternative-locations.component';
+import { ContactsComponent } from './components/details/components/contacts/contacts.component';
+import { CommunicationHistoryComponent } from './components/details/components/communication-history/communication-history.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { AlternativeLocationsComponent } from './components/details/components/a
     FormsModule,
     NguiAutoCompleteModule,
   ],
-  declarations: [CompanyComponent, CompanyListComponent, CompanyDetailsComponent, AlternativeLocationsComponent],
+  declarations: [CompanyComponent, CompanyListComponent, CompanyDetailsComponent, AlternativeLocationsComponent, ContactsComponent, CommunicationHistoryComponent],
   providers: [
     CompanyService,
     TradesService,
