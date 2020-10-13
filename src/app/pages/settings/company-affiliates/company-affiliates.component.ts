@@ -17,10 +17,11 @@ import {ConfirmComponent} from '../../../common/components/confirm';
 export class CompanyAffiliatesComponent extends BaseEditableListDirective<CompanyAffiliate> implements OnInit {
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
   discountes: Discount[] = [];
+
   constructor(
     @Inject(CompanyAffialatesConfig) config: IEditorConfig<CompanyAffiliate>,
     @Inject(DiscountResourceService) private discountSvc: IResourceService<Discount>,
-    private state: GlobalState ) {
+    private state: GlobalState) {
     super(config);
   }
 
@@ -29,19 +30,36 @@ export class CompanyAffiliatesComponent extends BaseEditableListDirective<Compan
     this.discountSvc.query()
       .then((res: Discount[]) => this.discountes = res);
   }
-  getDiscountById = (id: number): string  => {
+
+  getDiscountById = (id: number): string => {
     const discount = this.discountes.find((x: Discount) => x.id = id);
     if (discount) {
       const value = discount.relativeDiscount ? `${discount.relativeDiscount} % ` : `${discount.absolutDiscount} $`;
       return `${discount.description} (${value})`;
-    } else { return ''; }
+    } else {
+      return '';
+    }
   }
-  update(item: any, form: any) {
+
+  update(item: any, form: any): any {
     if (!(item.defaultDiscountId >= 0)) {
       item.defaultDiscountId = null;
     }
     super.onSave(item, form);
   }
 
-
+  onDelete(item: CompanyAffiliate): void {
+    const status = !item.isActive ? 'enabled' : 'disable';
+    this.confirm.show('confirm', `Are you sure you\'d like to ${status} this item?`)
+      .then(res => {
+        if (res) {
+          if (item.isActive) {
+            item.isActive = false;
+          } else {
+            item.isActive = true;
+          }
+          super.save(item);
+        }
+      });
+  }
 }
