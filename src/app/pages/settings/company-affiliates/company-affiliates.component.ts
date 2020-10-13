@@ -26,6 +26,22 @@ export class CompanyAffiliatesComponent extends BaseEditableListDirective<Compan
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.discountSvc.query()
+      .then((res: Discount[]) => this.discountes = res);
   }
+  getDiscountById = (id: number): string  => {
+    const discount = this.discountes.find((x: Discount) => x.id = id);
+    if (discount) {
+      const value = discount.relativeDiscount ? `${discount.relativeDiscount} % ` : `${discount.absolutDiscount} $`;
+      return `${discount.description} (${value})`;
+    } else { return ''; }
+  }
+  update(item: any, form: any) {
+    if (!(item.defaultDiscountId >= 0)) {
+      item.defaultDiscountId = null;
+    }
+    super.onSave(item, form);
+  }
+
 
 }
