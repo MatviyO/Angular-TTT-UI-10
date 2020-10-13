@@ -11,7 +11,6 @@ import { GraduationLocationsComponent, GraduationLocationsService } from './grad
 // import { BaseNameComponent, MilitaryBaseService } from './base-name';
 // import { OfficeLocationComponent, OfficeLocationService } from './office-locations';
 // import { FeedbacksComponent, FeedbacksService } from './feedbacks';
-// import { CompanyAffiliatesComponent, CompanyAffiliatesService } from './company-affiliates';
 // import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
 // import { InterviewStatusComponent, InterviewStatusService } from './interview-status';
 // import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
@@ -22,10 +21,11 @@ import { CompanyModule } from './company/company.module';
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
 import {Common_Module} from '../../common';
 import {SettingsRoutingModule} from './settings.routing';
-import {GraduationDatesService} from '../../core/data';
+import {CompanyAffiliatesService, GraduationDatesService} from '../../core/data';
 import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-// import { CompanyComponent } from './company/company.component';
+import { CompanyAffiliatesComponent } from './company-affiliates/company-affiliates.component';
+
 
 @NgModule({
     imports: [
@@ -46,11 +46,10 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         // ExitReasonsComponent,
         // CampusesComponent,
         GraduationLocationsComponent,
-        // CompanyComponent,
+        CompanyAffiliatesComponent,
         // BaseNameComponent,
         // OfficeLocationComponent,
         // FeedbacksComponent,
-        // CompanyAffiliatesComponent,
         // CallReasonsComponent,
         // InterviewTypeComponent,
         // InterviewOutcomeComponent,
@@ -68,7 +67,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         // ExitReasonsService,
         // MilitaryBaseService,
         GraduationLocationsService,
-        // CompanyAffiliatesService,
+        CompanyAffiliatesService,
         // CallReasonsService,
         // InterviewTypeService,
         // InterviewOutcomeService,

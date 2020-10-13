@@ -11,7 +11,7 @@ import { GraduationLocationsComponent } from './graduation-locations/graduation-
 // import { BaseNameComponent } from './base-name/base-name.component';
 // import { OfficeLocationComponent } from './office-locations/office-locations.component';
 // import { FeedbacksComponent } from './feedbacks/feedbacks.component';
-// import { CompanyAffiliatesComponent } from './company-affiliates/company-affiliates.component';
+import { CompanyAffiliatesComponent } from './company-affiliates';
 import { CompanyComponent } from './company/company.component';
 // import { CallReasonsComponent } from './call-reasons/call-reasons.component';
 // import { InterviewTypeComponent } from './interview-type/interview-type.component';
@@ -36,7 +36,7 @@ const routes: Routes = [
             // { path: 'base-name', component: BaseNameComponent },
             // { path: 'office-locations', component: OfficeLocationComponent },
             // { path: 'feedbacks', component: FeedbacksComponent },
-            // { path: 'company-affiliates', component: CompanyAffiliatesComponent },
+            { path: 'company-affiliates', component: CompanyAffiliatesComponent },
             { path: 'company', component: CompanyComponent },
             // { path: 'call-reasons', component: CallReasonsComponent },
             // { path: 'interview-type', component: InterviewTypeComponent },

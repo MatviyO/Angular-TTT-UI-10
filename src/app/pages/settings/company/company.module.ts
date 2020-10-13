@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CompanyComponent} from './company.component';
 import { CompanyListComponent } from './components/list/company-list.component';
-import {CompanyRoutingModule} from './company-routing.module';
+import { routing} from './company.routing';
 import {NgaModule} from '../../../theme/nga.module';
 import {FormsModule} from '@angular/forms';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
@@ -17,13 +17,16 @@ import { CommunicationHistoryComponent } from './components/details/components/c
 @NgModule({
   imports: [
     CommonModule,
-    CompanyRoutingModule,
     Common_Module,
     NgaModule,
     FormsModule,
+    routing,
     NguiAutoCompleteModule,
   ],
-  declarations: [CompanyComponent, CompanyListComponent, CompanyDetailsComponent, AlternativeLocationsComponent, ContactsComponent, CommunicationHistoryComponent],
+  declarations:
+    [CompanyComponent, CompanyListComponent, CompanyDetailsComponent,
+      AlternativeLocationsComponent, ContactsComponent, CommunicationHistoryComponent
+    ],
   providers: [
     CompanyService,
     TradesService,
@@ -32,6 +35,7 @@ import { CommunicationHistoryComponent } from './components/details/components/c
     // AlternativeLocationService,
     CompanyContactsService,
     // CommunicationHistoryService,
-  ]
+  ],
+
 })
 export class CompanyModule { }
