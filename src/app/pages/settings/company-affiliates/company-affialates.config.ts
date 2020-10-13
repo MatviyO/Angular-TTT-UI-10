@@ -5,7 +5,7 @@ import {CompanyAffiliatesService} from '../../../core/data';
 
 @Injectable()
 
-export class CompanyAffialatesConfig implements IEditorConfig<CompanyAffiliate> {
+export class CompanyAffiliateConfig implements IEditorConfig<CompanyAffiliate> {
   cls: new() =>  any = CompanyAffiliate ;
   componentTitle = 'Company affiliate';
   includes = 'null';

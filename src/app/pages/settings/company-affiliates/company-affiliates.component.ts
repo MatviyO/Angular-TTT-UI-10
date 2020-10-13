@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {DiscountResourceService} from '../../../core/data';
-import {CompanyAffialatesConfig} from './company-affialates.config';
+import {CompanyAffiliateConfig} from './company-affialates.config';
 import {BaseEditableListDirective} from '../../../common/base-classes';
 import {CompanyAffiliate} from '../../../core/model/properties';
 import {Discount} from '../../../core/model/properties/discount';
@@ -12,29 +12,30 @@ import {ConfirmComponent} from '../../../common/components/confirm';
   selector: 'app-company-affiliates',
   templateUrl: './company-affiliates.component.html',
   styleUrls: ['./company-affiliates.component.scss'],
-  providers: [CompanyAffialatesConfig, DiscountResourceService],
+  providers: [CompanyAffiliateConfig, DiscountResourceService],
 })
 export class CompanyAffiliatesComponent extends BaseEditableListDirective<CompanyAffiliate> implements OnInit {
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
   discountes: Discount[] = [];
 
   constructor(
-    @Inject(CompanyAffialatesConfig) config: IEditorConfig<CompanyAffiliate>,
+    @Inject(CompanyAffiliateConfig) config: IEditorConfig<CompanyAffiliate>,
     @Inject(DiscountResourceService) private discountSvc: IResourceService<Discount>,
-    private state: GlobalState) {
+    private state: GlobalState,
+  ) {
     super(config);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     super.ngOnInit();
     this.discountSvc.query()
       .then((res: Discount[]) => this.discountes = res);
   }
 
   getDiscountById = (id: number): string => {
-    const discount = this.discountes.find((x: Discount) => x.id = id);
+    const discount = this.discountes.find((x: Discount) => x.id === id);
     if (discount) {
-      const value = discount.relativeDiscount ? `${discount.relativeDiscount} % ` : `${discount.absolutDiscount} $`;
+      const value = discount.relativeDiscount ? `${discount.relativeDiscount} %` : `${discount.absolutDiscount} $`;
       return `${discount.description} (${value})`;
     } else {
       return '';
@@ -49,10 +50,10 @@ export class CompanyAffiliatesComponent extends BaseEditableListDirective<Compan
   }
 
   onDelete(item: CompanyAffiliate): void {
-    const status = !item.isActive ? 'enabled' : 'disable';
+    const status = !item.isActive ? 'enable' : 'disable';
     this.confirm.show('confirm', `Are you sure you\'d like to ${status} this item?`)
-      .then(res => {
-        if (res) {
+      .then(result => {
+        if (result) {
           if (item.isActive) {
             item.isActive = false;
           } else {

@@ -1,3 +1,73 @@
-<p>company-affiliates works!</p>
-<p style="color: black;">company-affiliates works fkjkdfgdfkgkdjfghjdf gjkdfgkhjd jgdfhkjdg f!</p>
+<app-ba-card cardTitle="" baCardClass="with-scroll">
+  <div class="card" appScrollSpy (onPageEnd)="loadMore()">
+    <div class="allTable">
+      <table class="table table-hover">
+        <thead>
+        <tr class="black-muted-bg">
+          <th>Description </th>
+          <th>Discount </th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ngForm #formNew="ngForm" (keydown.control.s)="onSave(entity, formNew)">
+          <td>
+            <input type="text" name="description" class="form-control" [(ngModel)]="entity.description"
+                   placeholder="Description" required [ngClass]="{'ng-submit' : formNew._submitted}">
+          </td>
+          <td>
+            <select class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId" [ngClass]="{'ng-submit' : formNew._submitted}">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let discount of discountes" [ngValue]="discount.id">{{discount.description}}
+                <span *ngIf="discount.relativeDiscount">({{discount.relativeDiscount}} %)</span>
+                <span *ngIf="discount.absolutDiscount">({{discount.absolutDiscount}} $)</span>
+              </option>
+            </select>
+          </td>
+          <td>
+            <a class="btnHover" (click)="onSave(entity, formNew)"><i class="fa fa-floppy-o" aria-hidden="true"
+                                                                     title="Save"></i></a>
+          </td>
+        </tr>
+        <tr *ngFor="let item of entities;let i=index" ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)"
+            [ngClass]="{'disable' : item.isActive === false}">
+          <td>
+            <span *ngIf="!item.editing">{{item.description}}</span>
+            <input *ngIf="item.editing" type="text" name="description-{{i}}" class="form-control"
+                   [(ngModel)]="item.description" required [ngClass]="{'ng-submit' : form._submitted}">
+          </td>
+          <td>
+              <span *ngIf="!item.editing">{{getDiscountById(item.defaultDiscountId)}}
 
+              </span>
+            <select *ngIf="item.editing" class="form-control" name="discount-{{i}}" [(ngModel)]="item.defaultDiscountId">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let discount of discountes" [ngValue]="discount.id">{{discount.description}}
+                <span *ngIf="discount.relativeDiscount">({{discount.relativeDiscount}} %)</span>
+                <span *ngIf="discount.absolutDiscount">({{discount.absolutDiscount}} $)</span>
+              </option>
+            </select>
+          </td>
+          <td>
+            <a class="btnHover no-disable" (click)="onDelete(item)" *ngIf="!item.editing"><i
+              [class]="item.isActive ? 'fa fa-check-square-o' : 'fa fa-square-o'" aria-hidden="true"
+              title="{{item.isActive ? 'click to disable': 'click to enable'}}"></i></a>
+            <a class="btnHover" (click)="item.editing = true; edit(item)" *ngIf="!item.editing"><i
+              class="fa fa-pencil " aria-hidden="true" title="Edit"></i></a>
+            <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing"><i class="fa fa-times "
+                                                                                      aria-hidden="true" title="Cancel"></i></a>
+            <a class="btnHover" (click)="update(item, form)" *ngIf="item.editing"><i class="fa fa-floppy-o"
+                                                                                     aria-hidden="true" title="Save"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-ba-card>
+
+<app-confirm></app-confirm>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
