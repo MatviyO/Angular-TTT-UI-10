@@ -12,17 +12,19 @@ import { ScrollSpyDirective, ContainerDirective, AddNewItemDirective, Visability
 import { CallbackPipe, OrderByPipe } from './pipes';
 import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
 import {FileUploaderComponent} from './components/upload-file';
+import {ConfirmComponent} from './components/confirm';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        NguiAutoCompleteModule,
-        NgxUploaderModule,
-        // FileDropModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NguiAutoCompleteModule,
+    NgxUploaderModule,
+    // FileDropModule,
+  ],
 
     declarations: [
+      ConfirmComponent,
       FileUploaderComponent,
         SelectCountryStateComponent,
         InfoBoxComponentComponent,
@@ -51,6 +53,7 @@ import {FileUploaderComponent} from './components/upload-file';
         OrderByPipe,
         EnumKeyValueListPipe,
         CallbackPipe,
+      ConfirmComponent
     ],
     providers: [
     ],

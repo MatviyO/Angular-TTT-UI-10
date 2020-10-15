@@ -23,7 +23,6 @@ import {FileUploaderComponent} from '../../../common/components/upload-file';
         NgxUploaderModule
     ],
     declarations: [
-        ConfirmComponent,
         ClassesScheduleComponent,
         ClassesScheduleListComponent,
         ClassesScheduleDetailsComponent,
@@ -32,11 +31,7 @@ import {FileUploaderComponent} from '../../../common/components/upload-file';
         ClassesService,
         CampusesService,
         TradesService,
-    ],
-  exports: [
-    ConfirmComponent,
-    FileUploaderComponent
-  ]
+    ]
 })
 export class ClassScheduleModule {
 

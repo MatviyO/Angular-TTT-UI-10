@@ -15,6 +15,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyService, StatesService, TradesService} from '../../../core/data';
 import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
 import {NgxUploaderModule} from 'ngx-uploader';
+import {ConfirmComponent} from '../../../common/components/confirm';
 
 @NgModule({
   imports: [
@@ -34,7 +35,7 @@ import {NgxUploaderModule} from 'ngx-uploader';
         CompanyComponent,
         AlternativeLocationsComponent,
         CompanyContactsComponent,
-        CompanyCommunicationHistoryComponent,
+        CompanyCommunicationHistoryComponent
     ],
     providers: [
         CompanyService,

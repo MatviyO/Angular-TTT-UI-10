@@ -5,6 +5,7 @@ import {UrlProvider} from '../../utils';
 import {NotificationService} from '../../services/notification.service';
 // import { ConfirmComponent } from '../confirm';
 import {isPlatformBrowser} from '@angular/common';
+import {ConfirmComponent} from '../confirm';
 
 @Component({
   selector: 'app-file-uploader',
@@ -13,8 +14,7 @@ import {isPlatformBrowser} from '@angular/common';
 })
 
 export class FileUploaderComponent implements OnInit {
-  // @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
-  // tslint:disable-next-line:variable-name
+  @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
   @ViewChild('fileUpload') _fileUpload: ElementRef;
   @Input() tag: string;
   uploadInput: EventEmitter<UploadInput> = new EventEmitter<UploadInput>();
@@ -126,18 +126,18 @@ export class FileUploaderComponent implements OnInit {
   }
 
   removeFile(id: string, name: string): any {
-    // this.confirm.show(
-    //     'confirm',
-    //     `Are you sure you would like to delete ${name}?`,
-    // )
-    //     .then(answer => {
-    //         if (answer) {
+    this.confirm.show(
+        'confirm',
+        `Are you sure you would like to delete ${name}?`,
+    )
+        .then(answer => {
+            if (answer) {
     this.loading = true;
     const httpOptions = {
       headers: this.headers,
       body: [id],
     };
-    this.http.delete(`${this.url}/${this.id}/assets`, httpOptions)
+    this.http.delete(`${this.getUrl}/${this.getObjId}/assets`, httpOptions)
       .toPromise()
       .then(res => {
         const index = this._files.findIndex(x => x.id === id);
@@ -145,8 +145,8 @@ export class FileUploaderComponent implements OnInit {
         this.loading = false;
       })
       .catch(err => this.onHttpError(err));
-    //     }
-    // });
+        }
+    });
   }
 
   getIconforType(fileName: string): string {
