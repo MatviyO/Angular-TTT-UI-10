@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-load-data',
+    selector: 'load-data',
     template: `
     <div [ngClass]="{'fullScreen' : fullscreen}">
         <div class="load">

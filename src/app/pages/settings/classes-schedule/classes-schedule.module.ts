@@ -9,6 +9,8 @@ import { routing } from './classes-schedule.routing';
 import { CampusesService, TradesService, ClassesService } from '../../../core';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {ConfirmComponent} from '../../../common/components/confirm/confirm.component';
+import {NgxUploaderModule} from 'ngx-uploader';
+import {FileUploaderComponent} from '../../../common/components/upload-file';
 
 @NgModule({
     imports: [
@@ -18,6 +20,7 @@ import {ConfirmComponent} from '../../../common/components/confirm/confirm.compo
         routing,
         FormsModule,
         NguiAutoCompleteModule,
+        NgxUploaderModule
     ],
     declarations: [
         ConfirmComponent,
@@ -30,9 +33,10 @@ import {ConfirmComponent} from '../../../common/components/confirm/confirm.compo
         CampusesService,
         TradesService,
     ],
-    exports: [
-        ConfirmComponent
-    ]
+  exports: [
+    ConfirmComponent,
+    FileUploaderComponent
+  ]
 })
 export class ClassScheduleModule {
 

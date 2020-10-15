@@ -71,7 +71,7 @@ export class ClassesScheduleListComponent extends BaseSortableListDirective<Sche
         }
     }
 
-    downloadReport() {
+    downloadReport(): any {
         this.reportSvc.getReport();
     }
 

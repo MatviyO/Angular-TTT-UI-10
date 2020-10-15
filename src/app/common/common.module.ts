@@ -6,14 +6,12 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 
 import { FormsModule } from '@angular/forms';
 import {  InfoBoxComponentComponent, ProgressLoadDataComponent,
-        EditorComponent, AddNewItemComponent, FileUploader, SelectCountryStateComponent } from './Components/';
+        EditorComponent, AddNewItemComponent, SelectCountryStateComponent } from './Components/';
 import { ScrollSpyDirective, ContainerDirective, AddNewItemDirective, VisabilitySsnDirective } from './directives';
 // import { MemoryCache, MemoryDataStorage } from './utils';
 import { CallbackPipe, OrderByPipe } from './pipes';
 import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
-
-
-
+import {FileUploaderComponent} from './components/upload-file';
 
 @NgModule({
     imports: [
@@ -25,6 +23,7 @@ import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
     ],
 
     declarations: [
+      FileUploaderComponent,
         SelectCountryStateComponent,
         InfoBoxComponentComponent,
         ProgressLoadDataComponent,
@@ -37,9 +36,9 @@ import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
         OrderByPipe,
         EnumKeyValueListPipe,
         CallbackPipe,
-        FileUploader,
     ],
     exports: [
+      FileUploaderComponent,
         SelectCountryStateComponent,
         InfoBoxComponentComponent,
         ProgressLoadDataComponent,
@@ -52,7 +51,6 @@ import { EnumKeyValueListPipe } from './pipes/keyValue.pipe';
         OrderByPipe,
         EnumKeyValueListPipe,
         CallbackPipe,
-        FileUploader,
     ],
     providers: [
     ],

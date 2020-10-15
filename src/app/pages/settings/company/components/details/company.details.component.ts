@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 
 import { AlternativeLocationsComponent, CompanyContactsComponent, CompanyCommunicationHistoryComponent } from './components';
 import { CompanyDetailsConfig } from './company.details.config';
-import {FileUploader} from '../../../../../common/components/upload-file';
+import {FileUploaderComponent} from '../../../../../common/components/upload-file';
 import {ConfirmComponent} from '../../../../../common/components/confirm';
 import {DetailsStatefulDirective} from '../../../../../common/base-classes';
 import {Company, CompanyAffiliate, CompanyCommunicationHistory, CompanyTrade, MilitaryBase} from '../../../../../core/model';
@@ -31,7 +31,7 @@ export class CompanyDetailsComponent extends DetailsStatefulDirective<Company> i
     @ViewChild(AlternativeLocationsComponent) altLocation: AlternativeLocationsComponent;
     @ViewChild(CompanyContactsComponent) contact: CompanyContactsComponent;
     @ViewChild(CompanyCommunicationHistoryComponent) commHistory: CompanyCommunicationHistoryComponent;
-    @ViewChild(FileUploader) fileUploader: FileUploader;
+    @ViewChild(FileUploaderComponent) FileUploaderComponent: FileUploaderComponent;
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
     affiliates: CompanyAffiliate[];

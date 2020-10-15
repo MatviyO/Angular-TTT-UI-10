@@ -14,6 +14,7 @@ import {Common_Module, ListenerService} from '../../../common';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyService, StatesService, TradesService} from '../../../core/data';
 import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
+import {NgxUploaderModule} from 'ngx-uploader';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
     // TextMaskModule,
     NguiAutoCompleteModule,
     ClassScheduleModule,
+    NgxUploaderModule
   ],
     declarations: [
         CompanyDetailsComponent,

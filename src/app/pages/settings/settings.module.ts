@@ -23,14 +23,15 @@ import {SettingsRoutingModule} from './settings.routing';
 import { GraduationDatesService} from '../../core/data';
 import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-import { CompanyAffiliatesComponent } from './company-affiliates/company-affiliates.component';
-import {CompanyAffiliatesService} from './company-affiliates';
+import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
+import {CompanyModule} from './company/company.module';
 
 
 @NgModule({
     imports: [
         ClassScheduleModule,
         CommonModule,
+        CompanyModule,
         Common_Module,
         FormsModule,
         NgaModule,

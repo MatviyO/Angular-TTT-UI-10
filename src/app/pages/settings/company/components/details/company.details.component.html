@@ -30,11 +30,11 @@
 
                 <!-- --------------------Company---------------------------- -->
                 <div id="company" class="tab-pane fade active show">
-                    <ba-card cardTitle="Info">
+                    <app-ba-card cardTitle="Info">
                         <div class="row">
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" class="form-control" [(ngModel)]="entity.name"
+                                <input id="name" type="text" name="name" class="form-control" [(ngModel)]="entity.name"
                                     placeholder="Name" required [ngClass]="{'ng-submit' : companyForm._submitted}">
                             </div>
 
@@ -45,8 +45,8 @@
                             </div> -->
 
                             <div class="form-group col-sm-12 col-md-3">
-                                <label for="states">Country</label>
-                                <select class="form-control" name="adreess-country" [(ngModel)]="entity.country"
+                                <label for="Country">Country</label>
+                                <select id="Country" class="form-control" name="adreess-country" [(ngModel)]="entity.country"
                                     required (change)="changeCompany()"
                                     [ngClass]="{'ng-submit' : companyForm._submitted}">
                                     <option hidden [ngValue]="undefined">select...</option>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="states">State</label>
-                                <select class="form-control" name="adreess-state" [(ngModel)]="entity.state"
+                                <select id="states" class="form-control" name="adreess-state" [(ngModel)]="entity.state"
                                     [ngClass]="{'ng-submit' : companyForm._submitted}">
                                     <option hidden [ngValue]="undefined">select...</option>
                                     <option [ngValue]="null">select...</option>
@@ -67,17 +67,17 @@
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="city">City</label>
-                                <input type="text" name="city" class="form-control" [(ngModel)]="entity.city"
+                                <input id="city" type="text" name="city" class="form-control" [(ngModel)]="entity.city"
                                     placeholder="City" required [ngClass]="{'ng-submit' : companyForm._submitted}">
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="address">Address</label>
-                                <input type="text" name="address" class="form-control" [(ngModel)]="entity.address"
+                                <input id="address" type="text" name="address" class="form-control" [(ngModel)]="entity.address"
                                     placeholder="Address">
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="zip">Zip code</label>
-                                <input type="text" name="zip" class="form-control" [(ngModel)]="entity.zip"
+                                <input id="zip" type="text" name="zip" class="form-control" [(ngModel)]="entity.zip"
                                     placeholder="Zip code"
                                     onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                     maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
@@ -85,8 +85,8 @@
                             </div>
 
                             <div class="form-group col-sm-12 col-md-3">
-                                <label for="affiliate">Source</label>
-                                <select addNewItem ref="settings/company-affiliates" (onclick)="navigate()"
+                                <label for="Source">Source</label>
+                                <select id="Source" addNewItem ref="settings/company-affiliates" (onclick)="navigate()"
                                     class="form-control" name="affiliate" [(ngModel)]="entity.affiliateId">
                                     <option disabled hidden [value]="undefined">select...</option>
                                     <ng-container *ngFor="let affiliate of affiliates">
@@ -98,7 +98,7 @@
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="close">Base close by</label>
-                                <select addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
+                                <select id="close" addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
                                     name="close" [(ngModel)]="entity.baseCloseById"
                                     [ngClass]="{'ng-submit' : companyForm._submitted}">
                                     <option [value]="undefined">select...</option>
@@ -111,13 +111,13 @@
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
                                 <label for="webSite">Web site</label>
-                                <input type="url" name="webSite" class="form-control" [(ngModel)]="entity.webSite"
+                                <input id="webSite" type="url" name="webSite" class="form-control" [(ngModel)]="entity.webSite"
                                     pattern="[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}(\.[a-z]{2,4})?\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?"
                                     placeholder="www.example.com">
                             </div>
                             <div class="form-group col-sm-12 col-md-3">
-                                <label for="affiliate">Discount</label>
-                                <select class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId">
+                                <label for="Discount">Discount</label>
+                                <select id="Discount" class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId">
                                     <option hidden [ngValue]="undefined">select...</option>
                                     <option [ngValue]="null">select...</option>
                                     <ng-container *ngFor="let discount of discountes">
@@ -134,9 +134,9 @@
 
                             <div class="form-group col-md-1 col-xs-4 prospect"
                                 (click)="entity.isActive  = !entity.isActive">
-                                <label for="prosp">Active</label>
+                                <label for="Active">Active</label>
                                 <br>
-                                <input type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isActive">
+                                <input id="Active" type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isActive">
                                 <i style="font-size:25px"
                                     [class]="entity.isActive ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
                             </div>
@@ -144,14 +144,14 @@
                                 (click)="entity.isProspect  = !entity.isProspect">
                                 <label for="prosp">Is prospect?</label>
                                 <br>
-                                <input type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isProspect">
+                                <input id="prosp" type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isProspect">
                                 <i style="font-size:25px"
                                     [class]="entity.isProspect ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
                             </div>
 
                             <div class="form-group labelTrades col-sm-12 ">
-                                <label for="affiliate">Trades</label>
-                                <div class="admiteds">
+                                <label for="Trades">Trades</label>
+                                <div id="Trades" class="admiteds">
                                     <!-- [ngClass]="{'ng-submit-custom' : companyForm._submitted && !checkBoxChecked && !entity.otherTrades}" -->
                                     <label class="checkbox-inline custom-checkbox" *ngFor="let pa of programs">
                                         <input type="checkbox" class="form-control" id="pgr" [value]="pa.id"
@@ -162,8 +162,8 @@
                             </div>
 
                             <div  *ngIf="entity && entity.id" class="form-group  col-sm-12 ">
-                                <label for="affiliate">Other Trades</label>
-                                <div class="card">
+                                <label for="Other">Other Trades</label>
+                                <div id="Other" class="card">
                                     <table class="table table-hover ">
                                         <thead>
                                             <tr class="black-muted-bg">
@@ -233,15 +233,15 @@
 
                             <div class="form-group col-sm-12  note">
                                 <label for="note">Notes</label>
-                                <textarea class="form-control bo-pre" name="note" rows="8"
+                                <textarea id="note" class="form-control bo-pre" name="note" rows="8"
                                     [(ngModel)]="entity.notes"></textarea>
                             </div>
 
                         </div>
-                    </ba-card>
+                    </app-ba-card>
 
                     <!-- ---------files----------- -->
-                    <file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/Companies'"></file-uploader>
+                    <app-file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/Companies'"></app-file-uploader>
 
                     <div class="allBtn btn-back">
                         <button type="submit" class="btn btn-primary" (click)="onSave(companyForm)">
@@ -257,20 +257,20 @@
 
                 <!-- --------------------Locations---------------------------- -->
                 <div id="alternative-locations" class="tab-pane fade">
-                    <alternative-locations></alternative-locations>
+                    <app-alternative-locations></app-alternative-locations>
                 </div>
 
                 <!-- --------------------Contacts---------------------------- -->
                 <div id="comp-contacts" class="tab-pane fade">
-                    <contacts></contacts>
+                    <app-contacts></app-contacts>
                 </div>
 
                 <!-- ----------------Communication history-------------------- -->
                 <div id="communication" class="tab-pane fade">
-                    <communication-history (onNavigate)="navigate($event)"></communication-history>
+                    <app-communication-history (onNavigate)="navigate($event)"></app-communication-history>
                 </div>
 
-                <confirm></confirm>
+                <app-confirm></app-confirm>
 
             </div>
         </div>
