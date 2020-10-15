@@ -149,7 +149,6 @@ export class FeedbacksService extends ResourceServiceBase<Feedback> {
 
 @Injectable()
 export class CompanyAffiliatesService extends ResourceServiceBase<CompanyAffiliate> {
-
     constructor(protected injector: Injector) {
         super(injector, 'api/companyaffiliates');
     }

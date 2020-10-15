@@ -17,14 +17,14 @@ import { GraduationLocationsComponent, GraduationLocationsService } from './grad
 // import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
 // import { CallReasonsComponent, CallReasonsService } from './call-reasons';
 import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
-import { CompanyModule } from './company/company.module';
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
 import {Common_Module} from '../../common';
 import {SettingsRoutingModule} from './settings.routing';
-import {CompanyAffiliatesService, GraduationDatesService} from '../../core/data';
+import { GraduationDatesService} from '../../core/data';
 import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import { CompanyAffiliatesComponent } from './company-affiliates/company-affiliates.component';
+import {CompanyAffiliatesService} from './company-affiliates';
 
 
 @NgModule({
@@ -37,7 +37,6 @@ import { CompanyAffiliatesComponent } from './company-affiliates/company-affilia
         SettingsRoutingModule,
         NguiAutoCompleteModule,
         // TextMaskModule,
-        CompanyModule,
     ],
     declarations: [
         NonPlacementReasonComponent,

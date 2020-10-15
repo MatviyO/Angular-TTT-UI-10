@@ -4,8 +4,8 @@
       <table class="table table-hover">
         <thead>
         <tr class="black-muted-bg">
-          <th>Description </th>
-          <th>Discount </th>
+          <th>Description</th>
+          <th>Discount</th>
           <th></th>
         </tr>
         </thead>
@@ -16,7 +16,8 @@
                    placeholder="Description" required [ngClass]="{'ng-submit' : formNew._submitted}">
           </td>
           <td>
-            <select class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId" [ngClass]="{'ng-submit' : formNew._submitted}">
+            <select class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId"
+                    [ngClass]="{'ng-submit' : formNew._submitted}">
               <option hidden [ngValue]="undefined">select...</option>
               <option [ngValue]="null">select...</option>
               <option *ngFor="let discount of discountes" [ngValue]="discount.id">{{discount.description}}
@@ -39,9 +40,9 @@
           </td>
           <td>
               <span *ngIf="!item.editing">{{getDiscountById(item.defaultDiscountId)}}
-
               </span>
-            <select *ngIf="item.editing" class="form-control" name="discount-{{i}}" [(ngModel)]="item.defaultDiscountId">
+            <select *ngIf="item.editing" class="form-control" name="discount-{{i}}"
+                    [(ngModel)]="item.defaultDiscountId">
               <option hidden [ngValue]="undefined">select...</option>
               <option [ngValue]="null">select...</option>
               <option *ngFor="let discount of discountes" [ngValue]="discount.id">{{discount.description}}
@@ -57,9 +58,11 @@
             <a class="btnHover" (click)="item.editing = true; edit(item)" *ngIf="!item.editing"><i
               class="fa fa-pencil " aria-hidden="true" title="Edit"></i></a>
             <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing"><i class="fa fa-times "
-                                                                                      aria-hidden="true" title="Cancel"></i></a>
+                                                                                      aria-hidden="true"
+                                                                                      title="Cancel"></i></a>
             <a class="btnHover" (click)="update(item, form)" *ngIf="item.editing"><i class="fa fa-floppy-o"
-                                                                                     aria-hidden="true" title="Save"></i></a>
+                                                                                     aria-hidden="true"
+                                                                                     title="Save"></i></a>
           </td>
         </tr>
         </tbody>

@@ -1,2 +1,1 @@
-
-export * from './company-list.component';
+﻿export * from './company.list.component';

@@ -21,7 +21,8 @@ export class CompanyAffiliatesComponent extends BaseEditableListDirective<Compan
   constructor(
     @Inject(CompanyAffiliateConfig) config: IEditorConfig<CompanyAffiliate>,
     @Inject(DiscountResourceService) private discountSvc: IResourceService<Discount>,
-    private state: GlobalState,
+    // tslint:disable-next-line:variable-name
+    private _state: GlobalState,
   ) {
     super(config);
   }

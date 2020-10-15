@@ -1,7 +1,7 @@
 import {Inject, Injectable, Injector} from '@angular/core';
 import {IDataService, IEditorConfig} from '../../../common/interfaces';
 import {CompanyAffiliate} from '../../../core/model/properties';
-import {CompanyAffiliatesService} from '../../../core/data';
+import {CompanyAffiliatesService} from './company-affiliates.service';
 
 @Injectable()
 
@@ -13,5 +13,5 @@ export class CompanyAffiliateConfig implements IEditorConfig<CompanyAffiliate> {
   constructor(
     @Inject(CompanyAffiliatesService) public dataSvc: IDataService<CompanyAffiliate>,
     public injector: Injector,
-  ) {}
+  ) { }
 }

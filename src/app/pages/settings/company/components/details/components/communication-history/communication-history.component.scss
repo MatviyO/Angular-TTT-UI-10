@@ -1,0 +1,40 @@
+﻿.search{
+    height: 42.5px;
+    i{
+        float: left;
+        padding: 5px 0;
+        color: rgba(255, 255, 255, 0.582);
+    }
+    .input{
+        padding-top: 19px;
+        position: relative; 
+        border: none;
+        background-color: transparent;
+    } 
+}
+
+.addNewItem{
+    padding: 0;
+    i{
+        top: -1px;
+        right: 12px;
+    }
+}
+.addNewItem a:hover{
+    cursor: pointer;
+}
+
+.editing{
+    color: cyan;
+    .selecticon{
+        position: absolute;
+        right: -13px;
+        padding-top: 11px;
+        color: cyan;
+        font-size: 18px;
+    }
+  
+}
+
+
+

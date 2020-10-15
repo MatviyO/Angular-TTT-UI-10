@@ -1,0 +1,280 @@
+<div ngForm #companyForm="ngForm" (keydown.control.s)="onSave(companyForm)">
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="tabsJustified" class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#company" data-toggle="tab" class="nav-link text-uppercase active">
+                        <i class="fa fa-building" aria-hidden="true"> </i>Company</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" id="loc" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#alternative-locations"
+                        data-toggle="tab" class="nav-link text-uppercase">
+                        <i class="fa fa-location-arrow" aria-hidden="true"> </i>Alternative Locations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" id="contacts" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#comp-contacts"
+                        data-toggle="tab" class="nav-link text-uppercase">
+                        <i class="fa fa-address-book-o" aria-hidden="true"></i>Contacts </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" id="commHistory" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#communication"
+                        data-toggle="tab" class="nav-link text-uppercase">
+                        <i class="fa fa-history" aria-hidden="true"></i>Communication history
+                        <span class="length-note" *ngIf="companyHistories.length>0">{{companyHistories.length}}</span>
+                    </a>
+                </li>
+                <span class="hide" [ngClass]="{'showInfo' : !(entity.id > 0)}">the company is not saved</span>
+            </ul>
+            <br>
+            <div id="tabsJustifiedContent" class="tab-content">
+
+                <!-- --------------------Company---------------------------- -->
+                <div id="company" class="tab-pane fade active show">
+                    <ba-card cardTitle="Info">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" class="form-control" [(ngModel)]="entity.name"
+                                    placeholder="Name" required [ngClass]="{'ng-submit' : companyForm._submitted}">
+                            </div>
+
+                            <!-- <div class="form-group col-sm-12 col-md-3">
+                                <label for="otherTrade">Other trade</label>
+                                <input type="text" name="otherTrade" class="form-control"
+                                    [(ngModel)]="entity.otherTrades" placeholder="Other trade">
+                            </div> -->
+
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="states">Country</label>
+                                <select class="form-control" name="adreess-country" [(ngModel)]="entity.country"
+                                    required (change)="changeCompany()"
+                                    [ngClass]="{'ng-submit' : companyForm._submitted}">
+                                    <option hidden [ngValue]="undefined">select...</option>
+                                    <option [ngValue]="null">select...</option>
+                                    <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">
+                                        {{country.countryName}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="states">State</label>
+                                <select class="form-control" name="adreess-state" [(ngModel)]="entity.state"
+                                    [ngClass]="{'ng-submit' : companyForm._submitted}">
+                                    <option hidden [ngValue]="undefined">select...</option>
+                                    <option [ngValue]="null">select...</option>
+                                    <option *ngFor="let state of states" [ngValue]="state.shortCode">{{state.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="city">City</label>
+                                <input type="text" name="city" class="form-control" [(ngModel)]="entity.city"
+                                    placeholder="City" required [ngClass]="{'ng-submit' : companyForm._submitted}">
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="address">Address</label>
+                                <input type="text" name="address" class="form-control" [(ngModel)]="entity.address"
+                                    placeholder="Address">
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="zip">Zip code</label>
+                                <input type="text" name="zip" class="form-control" [(ngModel)]="entity.zip"
+                                    placeholder="Zip code"
+                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                    maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
+                                    required [ngClass]="{'ng-submit' : companyForm._submitted}">
+                            </div>
+
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="affiliate">Source</label>
+                                <select addNewItem ref="settings/company-affiliates" (onclick)="navigate()"
+                                    class="form-control" name="affiliate" [(ngModel)]="entity.affiliateId">
+                                    <option disabled hidden [value]="undefined">select...</option>
+                                    <ng-container *ngFor="let affiliate of affiliates">
+                                        <option *ngIf="affiliate.isActive || affiliate.id == entity.affiliateId"
+                                            [ngClass]="{'grey': !affiliate.isActive}" [value]="affiliate.id">
+                                            {{affiliate.description}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="close">Base close by</label>
+                                <select addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
+                                    name="close" [(ngModel)]="entity.baseCloseById"
+                                    [ngClass]="{'ng-submit' : companyForm._submitted}">
+                                    <option [value]="undefined">select...</option>
+                                    <ng-container *ngFor="let base of baseName">
+                                        <option *ngIf="base.isActive || base.id == entity.baseCloseById"
+                                            [ngClass]="{'grey': !base.isActive}" [value]="base.id">{{base.name}}
+                                        </option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="webSite">Web site</label>
+                                <input type="url" name="webSite" class="form-control" [(ngModel)]="entity.webSite"
+                                    pattern="[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}(\.[a-z]{2,4})?\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?"
+                                    placeholder="www.example.com">
+                            </div>
+                            <div class="form-group col-sm-12 col-md-3">
+                                <label for="affiliate">Discount</label>
+                                <select class="form-control" name="discount" [(ngModel)]="entity.defaultDiscountId">
+                                    <option hidden [ngValue]="undefined">select...</option>
+                                    <option [ngValue]="null">select...</option>
+                                    <ng-container *ngFor="let discount of discountes">
+                                        <option [ngValue]="discount.id">
+                                            {{discount.description}}
+                                            <span *ngIf="discount.relativeDiscount">({{discount.relativeDiscount}}
+                                                %)</span>
+                                            <span *ngIf="discount.absolutDiscount">({{discount.absolutDiscount}}
+                                                $)</span>
+                                        </option>
+                                    </ng-container>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-1 col-xs-4 prospect"
+                                (click)="entity.isActive  = !entity.isActive">
+                                <label for="prosp">Active</label>
+                                <br>
+                                <input type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isActive">
+                                <i style="font-size:25px"
+                                    [class]="entity.isActive ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-4 prospect"
+                                (click)="entity.isProspect  = !entity.isProspect">
+                                <label for="prosp">Is prospect?</label>
+                                <br>
+                                <input type="hidden" name="prosp" class="form-control" [(ngModel)]="entity.isProspect">
+                                <i style="font-size:25px"
+                                    [class]="entity.isProspect ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                            </div>
+
+                            <div class="form-group labelTrades col-sm-12 ">
+                                <label for="affiliate">Trades</label>
+                                <div class="admiteds">
+                                    <!-- [ngClass]="{'ng-submit-custom' : companyForm._submitted && !checkBoxChecked && !entity.otherTrades}" -->
+                                    <label class="checkbox-inline custom-checkbox" *ngFor="let pa of programs">
+                                        <input type="checkbox" class="form-control" id="pgr" [value]="pa.id"
+                                            [checked]="pa.admitted" (change)="onProgramsAdmitted($event.target, pa)">
+                                        <span>{{pa.name}}</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div  *ngIf="entity && entity.id" class="form-group  col-sm-12 ">
+                                <label for="affiliate">Other Trades</label>
+                                <div class="card">
+                                    <table class="table table-hover ">
+                                        <thead>
+                                            <tr class="black-muted-bg">
+                                                <th>Name </th>
+                                                <th>In field</th>
+                                                <th>Active</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="description" class="form-control"  [(ngModel)]="newAnotherTrade.name" placeholder="Other trade name" >
+                                                </td>
+                                                <td (click)="newAnotherTrade.trade = newAnotherTrade.trade == 0 ? -1 : 0">
+                                                    <i class="fa checkbox grey" [ngClass]="{'fa-square-o' : newAnotherTrade.trade == -1, 'fa-check-square-o' : newAnotherTrade.trade == 0}" aria-hidden="true"></i>
+                                                </td>
+                                                <td (click)="newAnotherTrade.isActive = !newAnotherTrade.isActive">
+                                                    <i class="fa checkbox grey" [ngClass]="{'fa-square-o' : !newAnotherTrade.isActive, 'fa-check-square-o' : newAnotherTrade.isActive}" aria-hidden="true"></i>
+                                                </td>
+                                                <td>
+                                                    <a class="btnHover" (click)="addOtherTrade(companyForm)"><i
+                                                            class="fa fa-floppy-o" aria-hidden="true"
+                                                            [ngClass]="{'disable' : !newAnotherTrade.name }"
+                                                            title="Save"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr *ngFor="let item of otherTrades;let i=index">
+                                                <td>
+                                                    <span *ngIf="!item.editing">{{item.name}}</span>
+                                                    <input *ngIf="item.editing" type="text" name="name-{{i}}"
+                                                        class="form-control" [(ngModel)]="item.name" >
+                                                </td>
+                                                <td *ngIf="item.editing" (click)="item.trade = item.trade == 0 ? -1 : 0">
+                                                    <i class="fa checkbox" [ngClass]="{'fa-square-o' : item.trade == -1, 'fa-check-square-o' : item.trade == 0}"  aria-hidden="true">  </i>
+                                                </td>
+                                                <td *ngIf="!item.editing">
+                                                    <i class="fa checkbox" [ngClass]="{'fa-square-o' : item.trade == -1, 'fa-check-square-o' : item.trade == 0}"  aria-hidden="true">  </i>
+                                                </td>
+
+                                                <td *ngIf="item.editing" (click)="item.isActive = !item.isActive">
+                                                    <i class="fa checkbox" [ngClass]="{'fa-square-o' : !item.isActive, 'fa-check-square-o' : item.isActive}"  aria-hidden="true">  </i>
+                                                </td>
+                                                <td *ngIf="!item.editing">
+                                                    <i class="fa checkbox" [ngClass]="{'fa-square-o' : !item.isActive, 'fa-check-square-o' : item.isActive}"  aria-hidden="true">  </i>
+                                                </td>
+
+                                                <td>
+
+                                                    <a class="btnHover" (click)="item.editing = true; editOtherTrade(item)" *ngIf="!item.editing">
+                                                        <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+                                                    </a>
+                                                    <a class="btnHover" (click)="cancelEditOtherTrade(item)" *ngIf="item.editing">
+                                                        <i class="fa fa-times " aria-hidden="true" title="Cancel"></i>
+                                                    </a>
+                                                    <a class="btnHover" (click)="updateOtherTrade(item, companyForm)" *ngIf="item.editing">
+                                                        <i class="fa fa-floppy-o"aria-hidden="true" title="Save"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-12  note">
+                                <label for="note">Notes</label>
+                                <textarea class="form-control bo-pre" name="note" rows="8"
+                                    [(ngModel)]="entity.notes"></textarea>
+                            </div>
+
+                        </div>
+                    </ba-card>
+
+                    <!-- ---------files----------- -->
+                    <file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/Companies'"></file-uploader>
+
+                    <div class="allBtn btn-back">
+                        <button type="submit" class="btn btn-primary" (click)="onSave(companyForm)">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+                        </button>
+                    </div>
+                    <div class="allBtn">
+                        <button type="submit" class="btn btn-default" (click)="cancel()">
+                            <i class="fa fa-ban" aria-hidden="true"></i> cancel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- --------------------Locations---------------------------- -->
+                <div id="alternative-locations" class="tab-pane fade">
+                    <alternative-locations></alternative-locations>
+                </div>
+
+                <!-- --------------------Contacts---------------------------- -->
+                <div id="comp-contacts" class="tab-pane fade">
+                    <contacts></contacts>
+                </div>
+
+                <!-- ----------------Communication history-------------------- -->
+                <div id="communication" class="tab-pane fade">
+                    <communication-history (onNavigate)="navigate($event)"></communication-history>
+                </div>
+
+                <confirm></confirm>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

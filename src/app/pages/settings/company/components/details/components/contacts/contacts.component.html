@@ -1,1 +1,89 @@
-<p>contacts works!</p>
+<app-ba-card cardTitle="" baCardClass="with-scroll">
+  <div class="card">
+    <div class="allTable">
+      <table class="table table-hover">
+        <thead>
+          <tr class="black-muted-bg">
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Title</th>
+            <th>Note</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ngForm #formNew="ngForm" (keydown.control.s)="onSave(entity, formNew)">
+            <td>
+              <input type="text" name="fname" class="form-control" [(ngModel)]="entity.firstName" placeholder="First name" required [ngClass]="{'ng-submit' : formNew._submitted}">
+            </td>
+            <td>
+              <input type="text" name="lname" class="form-control" [(ngModel)]="entity.lastName" placeholder="Last name">
+            </td>
+            <td>
+              <input type="text" name="email" class="form-control" [(ngModel)]="entity.email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
+            </td>
+            <td>
+              <input  name="phone" class="form-control" (blur)="entity.phone = parsePhone(entity.phone)"  [(ngModel)]="entity.phone" placeholder="Phone" minlength="10" maxlength="20" [textMask]="{mask: mask, guide: false}" >
+            </td>
+            <td>
+              <input type="text" name="title" class="form-control" [(ngModel)]="entity.title" placeholder="Title" >
+            </td>
+            <td>
+              <input type="text" name="note" class="form-control" [(ngModel)]="entity.note" placeholder="Note" >
+            </td>
+            <td>
+              <a class="btnHover" (click)="onSave(entity, formNew)">
+                <i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i>
+              </a>
+            </td>
+          </tr>
+          <tr *ngFor="let item of entities;let i=index" ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)" [ngClass]="{'disable' : item.isActive === false}">
+            <td>
+              <span *ngIf="!item.editing">{{item.firstName}}</span>
+              <input *ngIf="item.editing" type="text" name="fname-{{i}}" class="form-control" [(ngModel)]="item.firstName "
+                     onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 45 || event.charCode == 46' required [ngClass]="{'ng-submit' : form._submitted}">
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.lastName}}</span>
+              <input *ngIf="item.editing" type="text" name="lname-{{i}}" class="form-control" [(ngModel)]="item.lastName "
+                     onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 45 || event.charCode == 46' >
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.email}}</span>
+              <input *ngIf="item.editing" type="text" name="email-{{i}}" class="form-control" [(ngModel)]="item.email " pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.phone}}</span>
+              <input *ngIf="item.editing"  type="text" class="form-control" name="phone-{{i}}" (blur)="item.phone = parsePhone(item.phone)"  [(ngModel)]="item.phone" minlength="10" maxlength="20" [textMask]="{mask: mask, guide: false}">
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.title}}</span>
+              <input *ngIf="item.editing" type="text" name="title-{{i}}" maxlength="50" class="form-control" [(ngModel)]="item.title" >
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.note}}</span>
+              <input *ngIf="item.editing" type="text" name="note-{{i}}" maxlength="50" class="form-control" [(ngModel)]="item.note" >
+            </td>
+            <td>
+              <a class="btnHover no-disable" (click)="onDelete(item)" *ngIf="!item.editing">
+                <i [class]="item.isActive ? 'fa fa-check-square-o' : 'fa fa-square-o'"  aria-hidden="true" title="{{item.isActive ? 'click to disable': 'click to enable'}}"></i>
+              </a>
+              <a class="btnHover" (click)="item.editing = true; edit(item)" *ngIf="!item.editing">
+                <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+              </a>
+              <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing">
+                <i class="fa fa-times " aria-hidden="true" title="Cancel"></i>
+              </a>
+              <a class="btnHover" (click)="onSave(item, form)" *ngIf="item.editing">
+                <i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-ba-card>
+<app-confirm></app-confirm>

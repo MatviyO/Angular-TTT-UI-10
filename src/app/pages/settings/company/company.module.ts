@@ -1,41 +1,49 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {CompanyComponent} from './company.component';
-import { CompanyListComponent } from './components/list/company-list.component';
-import { routing} from './company.routing';
-import {NgaModule} from '../../../theme/nga.module';
-import {FormsModule} from '@angular/forms';
+import { NgaModule } from '../../../theme/nga.module';
+
+import { CompanyListComponent, CompanyDetailsComponent } from './components';
+import { CompanyComponent } from './company.component';
+import { routing } from './company.routing';
+import { AlternativeLocationsComponent, CompanyContactsComponent, CompanyCommunicationHistoryComponent } from './components';
+import { AlternativeLocationService } from './components/details/components/alternativeLocations/alternativeLocations.service';
+import { CompanyContactsService } from './components/details/components/contacts/contacts.service';
+import { CommunicationHistoryService } from './components/details/components/communication-history/communication-history.service';
+import {Common_Module, ListenerService} from '../../../common';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-import {ListenerService} from '../../../common/services';
-import {CompanyContactsService, CompanyService, StatesService, TradesService} from '../../../core/data';
-import {Common_Module} from '../../../common';
-import { CompanyDetailsComponent } from './components/details/company-details.component';
-import { AlternativeLocationsComponent } from './components/details/components/alternative-locations/alternative-locations.component';
-import { ContactsComponent } from './components/details/components/contacts/contacts.component';
-import { CommunicationHistoryComponent } from './components/details/components/communication-history/communication-history.component';
+import {CompanyService, StatesService, TradesService} from '../../../core/data';
+import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    Common_Module,
     NgaModule,
-    FormsModule,
+    Common_Module,
     routing,
+    FormsModule,
+    // TextMaskModule,
     NguiAutoCompleteModule,
+    ClassScheduleModule,
   ],
-  declarations:
-    [CompanyComponent, CompanyListComponent, CompanyDetailsComponent,
-      AlternativeLocationsComponent, ContactsComponent, CommunicationHistoryComponent
+    declarations: [
+        CompanyDetailsComponent,
+        CompanyListComponent,
+        CompanyComponent,
+        AlternativeLocationsComponent,
+        CompanyContactsComponent,
+        CompanyCommunicationHistoryComponent,
     ],
-  providers: [
-    CompanyService,
-    TradesService,
-    StatesService,
-    ListenerService,
-    // AlternativeLocationService,
-    CompanyContactsService,
-    // CommunicationHistoryService,
-  ],
-
+    providers: [
+        CompanyService,
+        TradesService,
+        StatesService,
+        ListenerService,
+        AlternativeLocationService,
+        CompanyContactsService,
+        CommunicationHistoryService,
+    ],
 })
-export class CompanyModule { }
+export class CompanyModule {
+
+}
