@@ -25,6 +25,7 @@ import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
+import { CampusesComponent } from './campuses/campuses.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {CompanyModule} from './company/company.module';
         // CampusesComponent,
         GraduationLocationsComponent,
         CompanyAffiliatesComponent,
+        CampusesComponent,
         // BaseNameComponent,
         // OfficeLocationComponent,
         // FeedbacksComponent,
