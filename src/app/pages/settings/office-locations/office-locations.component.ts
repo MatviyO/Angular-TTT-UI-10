@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {BaseEditableListDirective} from '../../../common/base-classes';
 import {OfficeLocation} from '../../../core/model/properties';
 import {OfficeLocationsConfig} from './office-locations.config';
@@ -9,12 +9,13 @@ import {ConfirmComponent} from '../../../common/components/confirm';
 @Component({
   selector: 'app-office-locations',
   templateUrl: './office-locations.component.html',
-  styleUrls: ['./office-locations.component.scss']
+  styleUrls: ['./office-locations.component.scss'],
+  providers: [OfficeLocationsConfig]
 })
-export class OfficeLocationsComponent extends BaseEditableListDirective<OfficeLocation> implements OnInit {
+export class OfficeLocationsComponent extends BaseEditableListDirective<OfficeLocation>   {
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
-  countries: any;
-  state: State[] = [];
+  countries = this.countryStateService.getCounries();
+  states: State[] = [];
   constructor(
     @Inject(OfficeLocationsConfig) config: IEditorConfig<OfficeLocation>,
     private countryStateService: CountryStatesService
@@ -22,20 +23,23 @@ export class OfficeLocationsComponent extends BaseEditableListDirective<OfficeLo
     super(config);
   }
 
-  ngOnInit(): void {
-    this.countries = this.countryStateService.getCounries();
-  }
   validationMaxlength = (item: OfficeLocation): number => item.country === 'US' ? 5 : 10;
   validationMinlength = (item: OfficeLocation): number => item.country === 'US' ? 5 : 1;
 
   changeCompany(index: number = null, firstLoad: boolean = false): any {
     if (index !== null) {
       const _country = this.countries.find(x => x.countryShortCode === this.entities[index].country);
-      if (_country) {this.state = _country.regions; }
+      if (_country) { this.states = _country.regions; }
       if (!firstLoad) { this.entities[index].state = null; }
     } else {
-      if (this.entity.country) {
 
+      if (this.entity.country) {
+        const _country = this.countries.find(x => x.countryShortCode === this.entity.country);
+        if (_country) { this.states = _country.regions; }
+        if (!firstLoad) { this.entity.state = null; }
+      } else {
+        this.entity.state = null;
+        this.states = [];
       }
     }
   }

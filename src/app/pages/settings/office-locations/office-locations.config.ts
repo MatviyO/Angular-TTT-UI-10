@@ -6,7 +6,7 @@ import {OfficeLocationService} from './office-locations.service';
 
 @Injectable()
 export class OfficeLocationsConfig implements IEditorConfig<OfficeLocation> {
-  cls: new() => OfficeLocation;
+  cls: new () => any = OfficeLocation;
   componentTitle = 'Office Location';
   includes = 'null';
   constructor(
