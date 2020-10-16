@@ -22,7 +22,6 @@ import {ConfirmComponent} from './components/confirm';
     NgxUploaderModule,
     // FileDropModule,
   ],
-
     declarations: [
       ConfirmComponent,
       FileUploaderComponent,
