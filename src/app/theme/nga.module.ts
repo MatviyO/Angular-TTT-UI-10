@@ -11,6 +11,7 @@ import {BaScrollPosition, BaSlimScroll, BaThemeRunDirective} from './directives'
 import { BaMenuService, BaThemePreloader, BaThemeSpinner } from './services';
 import { BaBackTopComponent, BaCardComponent, BaContentTopCommponent, BaMenuItem, BaMenu,
   BaMsgCenter, BaPageTopComponent, BaPictureUploader, BaSidebarComponent } from './components';
+import {Common_Module} from '../common';
 
 
 const NGA_COMPONENTS = [
@@ -50,6 +51,7 @@ const NGA_SERVICES = [
     ReactiveFormsModule,
     AppTranslationModule,
     NgxUploaderModule,
+    Common_Module,
   ],
   exports: [
     ...NGA_DIRECTIVES,

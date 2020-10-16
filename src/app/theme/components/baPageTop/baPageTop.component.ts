@@ -63,4 +63,8 @@ export class BaPageTopComponent implements OnInit {
         this.router.navigate(['/login']);
       });
   }
+  clickTheme(): any {
+    const el = document.getElementsByTagName('main')[0];
+    el.classList.add('mybgstyle');
+  }
 }

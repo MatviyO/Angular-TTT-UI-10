@@ -1,4 +1,3 @@
-
 @import './theme/sass/conf/conf';
 @import './theme/components/baSidebar/baSidebar';
 
@@ -30,16 +29,20 @@
         display: block;
         overflow: hidden;
         transition: width 0.5s ease;
+
         &.slide-right {
           width: 135px;
         }
+
         &::before {
           display: none;
         }
+
         li {
           &::before {
             display: none;
           }
+
           a {
             padding-left: 18px;
             padding-right: 18px;
@@ -123,4 +126,39 @@
       padding-left: 0;
     }
   }
+
+  .mybgstyle::before {
+    background-color: darkslategrey;
+    background-image: none !important;
+  }
+
+  .dropbtn {
+    cursor: pointer;
+    font-size: 24px;
+    margin: 9px 0px 0px 0px;
+    color: white;
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn:hover .dropdown-content1 {
+
+  }
+
+  .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .dropdown-content1 a {
+    color: black;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+  }
+
 }
