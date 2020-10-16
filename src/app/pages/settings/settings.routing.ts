@@ -5,11 +5,11 @@ import { SettingsComponent } from './settings.component';
 // import { ReferencesComponent } from './references';
 // import { MilitaryComponent } from './military';
 // import { ExitReasonsComponent } from './exit-reasons/exit-reasons.component';
-// import { CampusesComponent } from './campuses/campuses.component';
+import { CampusesComponent } from './campuses';
 // // import { GraduationsComponent } from './graduations/graduations.component';
 import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
 // import { BaseNameComponent } from './base-name/base-name.component';
-// import { OfficeLocationComponent } from './office-locations/office-locations.component';
+import { OfficeLocationsComponent } from './office-locations';
 // import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { CompanyAffiliatesComponent } from './company-affiliates';
 import { CompanyComponent } from './company/company.component';
@@ -31,10 +31,10 @@ const routes: Routes = [
             // { path: 'references', component: ReferencesComponent },
             // { path: 'military', component: MilitaryComponent },
             // { path: 'exits', component: ExitReasonsComponent },
-            // { path: 'campuses', component: CampusesComponent },
+            { path: 'campuses', component: CampusesComponent },
             { path: 'graduation-locations', component: GraduationLocationsComponent },
             // { path: 'base-name', component: BaseNameComponent },
-            // { path: 'office-locations', component: OfficeLocationComponent },
+            { path: 'office-locations', component: OfficeLocationsComponent },
             // { path: 'feedbacks', component: FeedbacksComponent },
             { path: 'company-affiliates', component: CompanyAffiliatesComponent },
             { path: 'company', component: CompanyComponent },

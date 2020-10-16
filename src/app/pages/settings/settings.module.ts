@@ -6,10 +6,10 @@ import { SettingsComponent } from './settings.component';
 // import { ReferencesComponent, ReferencesService } from './references';
 // import { MilitaryComponent, MilitaryService } from './military';
 // import { ExitReasonsComponent, ExitReasonsService } from './exit-reasons';
-// import { CampusesComponent, CampusesService } from './campuses';
+import { CampusesComponent, CampusesService } from './campuses';
 import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
 // import { BaseNameComponent, MilitaryBaseService } from './base-name';
-// import { OfficeLocationComponent, OfficeLocationService } from './office-locations';
+import { OfficeLocationsComponent, OfficeLocationService } from './office-locations';
 // import { FeedbacksComponent, FeedbacksService } from './feedbacks';
 // import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
 // import { InterviewStatusComponent, InterviewStatusService } from './interview-status';
@@ -25,8 +25,6 @@ import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
-import { CampusesComponent } from './campuses/campuses.component';
-
 
 @NgModule({
     imports: [
@@ -45,12 +43,13 @@ import { CampusesComponent } from './campuses/campuses.component';
         SettingsComponent,
         // ReferencesComponent,
         // ExitReasonsComponent,
-        // CampusesComponent,
+        CampusesComponent,
         GraduationLocationsComponent,
         CompanyAffiliatesComponent,
         CampusesComponent,
+        OfficeLocationsComponent,
         // BaseNameComponent,
-        // OfficeLocationComponent,
+        OfficeLocationsComponent,
         // FeedbacksComponent,
         // CallReasonsComponent,
         // InterviewTypeComponent,
@@ -61,9 +60,9 @@ import { CampusesComponent } from './campuses/campuses.component';
     ],
     providers: [
         NonPlacementReasonService,
-        // CampusesService,
+        CampusesService,
         GraduationDatesService,
-        // OfficeLocationService,
+        OfficeLocationService,
         // FeedbacksService,
         // ReferencesService,
         // ExitReasonsService,
