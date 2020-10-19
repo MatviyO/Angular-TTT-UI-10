@@ -25,6 +25,7 @@ import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
+import { MilitaryBaseComponent } from './military-base/military-base.component';
 
 @NgModule({
     imports: [
@@ -50,6 +51,7 @@ import {CompanyModule} from './company/company.module';
         OfficeLocationsComponent,
         // BaseNameComponent,
         OfficeLocationsComponent,
+        MilitaryBaseComponent,
         // FeedbacksComponent,
         // CallReasonsComponent,
         // InterviewTypeComponent,
