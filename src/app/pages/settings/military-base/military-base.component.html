@@ -1,1 +1,111 @@
-<p>military-base works!</p>
+<app-ba-card  baCardClass="with-scroll">
+  <div class="card" appScrollSpy (onPageEnd)="loadMore()">
+    <div class="allTable">
+      <table class="table table-hover">
+        <thead>
+        <tr class="black-muted-bg">
+          <th>Name</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>City</th>
+          <th>Address</th>
+          <th>Zip code</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ngForm #formNew="ngForm" (keydown.control.s)="onSave(entity, formNew)">
+          <td>
+            <input type="text" name="name" class="form-control" [(ngModel)]="entity.name" placeholder="Name" required [ngClass]="{'ng-submit' : formNew._submitted}">
+          </td>
+          <td>
+            <select class="form-control" name="country" [(ngModel)]="entity.country" required
+                    (change)="changeCompany()" [ngClass]="{'ng-submit' : formNew._submitted}">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">{{country.countryName}}
+              </option>
+            </select>
+          </td>
+          <td>
+            <select class="form-control" name="state" [(ngModel)]="entity.state" required
+                    [ngClass]="{'ng-submit' : formNew._submitted}">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let state of entity.country ? states : [] " [ngValue]="state.shortCode">{{state.name}}</option>
+            </select>
+          </td>
+          <td>
+            <input type="text" name="city" class="form-control" [(ngModel)]="entity.city" placeholder="City" [ngClass]="{'ng-submit' : formNew._submitted}">
+          </td>
+          <td>
+            <input type="text" name="address" class="form-control" [(ngModel)]="entity.address" placeholder="Address" [ngClass]="{'ng-submit' : formNew._submitted}">
+          </td>
+          <td>
+            <input type="text" name="zip" class="form-control" [(ngModel)]="entity.zip" placeholder="Zip code"
+                   onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
+                   [ngClass]="{'ng-submit' : formNew._submitted}">
+          </td>
+
+          <td>
+            <a class="btnHover" (click)="onSave(entity, formNew)"><i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i></a>
+          </td>
+        </tr>
+        <tr *ngFor="let item of entities;let i=index" ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)" [ngClass]="{'disable' : item.isActive === false}">
+          <td>
+            <span *ngIf="!item.editing">{{item.name}}</span>
+            <input *ngIf="item.editing" type="text" name="name-{{i}}" class="form-control" [(ngModel)]="item.name "
+                   required [ngClass]="{'ng-submit' : form._submitted}">
+          </td>
+          <td>
+            <span *ngIf="!item.editing">{{countrySvc.getFullCountryName(item.country)}}</span>
+            <select *ngIf="item.editing" class="form-control" name="country-{{i}}" [(ngModel)]="item.country" required
+                    (change)="changeCompany(i)" [ngClass]="{'ng-submit' : formNew._submitted}">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">{{country.countryName}}
+              </option>
+            </select>
+          </td>
+          <td>
+            <span *ngIf="!item.editing">{{countrySvc.getFullStateName(item.country, item.state)}}</span>
+            <select *ngIf="item.editing" class="form-control" name="state-{{i}}" [(ngModel)]="item.state" required
+                    [ngClass]="{'ng-submit' : formNew._submitted}">
+              <option hidden [ngValue]="undefined">select...</option>
+              <option [ngValue]="null">select...</option>
+              <option *ngFor="let state of item.country ? states : []" [ngValue]="state.shortCode">{{state.name}}</option>
+            </select>
+          </td>
+          <td>
+            <span *ngIf="!item.editing">{{item.city}}</span>
+            <input *ngIf="item.editing" type="text" name="city-{{i}}" class="form-control" [(ngModel)]="item.city "
+                   required [ngClass]="{'ng-submit' : form._submitted}">
+          </td>
+          <td>
+            <span *ngIf="!item.editing">{{item.address}}</span>
+            <input *ngIf="item.editing" type="text" name="address-{{i}}" class="form-control"
+                   [(ngModel)]="item.address " required [ngClass]="{'ng-submit' : form._submitted}">
+          </td>
+
+          <td>
+            <span *ngIf="!item.editing">{{item.zip}}</span>
+            <input *ngIf="item.editing" type="text" name="zip-{{i}}" class="form-control"
+                   onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength={{validationMaxlength(item)}} minlength={{validationMinlength(item)}}
+                   [(ngModel)]="item.zip" [ngClass]="{'ng-submit' : form._submitted}">
+          </td>
+
+          <td>
+            <a class="btnHover no-disable" (click)="onDelete(item)" *ngIf="!item.editing"><i [class]="item.isActive ? 'fa fa-check-square-o' : 'fa fa-square-o'" aria-hidden="true" title="{{item.isActive ? 'click to disable': 'click to enable'}}"></i></a>
+            <a class="btnHover" (click)="item.editing = true; edit(item); changeCompany(i, true)" *ngIf="!item.editing && _items.length == 0"><i class="fa fa-pencil " aria-hidden="true" title="Edit"></i></a>
+            <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing"><i class="fa fa-times " aria-hidden="true" title="Cancel"></i></a>
+            <a class="btnHover" (click)="onSave(item, form)" *ngIf="item.editing"><i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-ba-card>
+<app-confirm></app-confirm>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

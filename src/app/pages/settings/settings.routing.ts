@@ -3,12 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SettingsComponent } from './settings.component';
 // import { ReferencesComponent } from './references';
-// import { MilitaryComponent } from './military';
 // import { ExitReasonsComponent } from './exit-reasons/exit-reasons.component';
 import { CampusesComponent } from './campuses';
 // // import { GraduationsComponent } from './graduations/graduations.component';
 import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
-// import { BaseNameComponent } from './base-name/base-name.component';
 import { OfficeLocationsComponent } from './office-locations';
 // import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { CompanyAffiliatesComponent } from './company-affiliates';
@@ -20,6 +18,8 @@ import { CompanyComponent } from './company/company.component';
 // import { EmploymentStatusComponent } from './employment-status/employment-status.component';
 import { NonPlacementReasonComponent } from './non-placement-reason/non-placement-reason.component';
 import { ClassesScheduleComponent } from './classes-schedule/classes-schedule.component';
+import {MilitaryBaseComponent} from './military-base';
+import {MilitaryBranchComponent} from './military-branch';
 
 const routes: Routes = [
     {
@@ -29,11 +29,11 @@ const routes: Routes = [
              { path: 'classes-schedule', component: ClassesScheduleComponent },
               { path: 'non-placement-reasons', component: NonPlacementReasonComponent },
             // { path: 'references', component: ReferencesComponent },
-            // { path: 'military', component: MilitaryComponent },
+            { path: 'military', component: MilitaryBranchComponent },
             // { path: 'exits', component: ExitReasonsComponent },
             { path: 'campuses', component: CampusesComponent },
             { path: 'graduation-locations', component: GraduationLocationsComponent },
-            // { path: 'base-name', component: BaseNameComponent },
+            { path: 'base-name', component: MilitaryBaseComponent },
             { path: 'office-locations', component: OfficeLocationsComponent },
             // { path: 'feedbacks', component: FeedbacksComponent },
             { path: 'company-affiliates', component: CompanyAffiliatesComponent },

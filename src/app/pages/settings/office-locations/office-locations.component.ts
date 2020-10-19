@@ -1,4 +1,4 @@
-import {Component, Inject, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {BaseEditableListDirective} from '../../../common/base-classes';
 import {OfficeLocation} from '../../../core/model/properties';
 import {OfficeLocationsConfig} from './office-locations.config';
@@ -12,15 +12,19 @@ import {ConfirmComponent} from '../../../common/components/confirm';
   styleUrls: ['./office-locations.component.scss'],
   providers: [OfficeLocationsConfig]
 })
-export class OfficeLocationsComponent extends BaseEditableListDirective<OfficeLocation>   {
+export class OfficeLocationsComponent extends BaseEditableListDirective<OfficeLocation> implements OnInit  {
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
-  countries = this.countryStateService.getCounries();
+  countries: any;
   states: State[] = [];
   constructor(
     @Inject(OfficeLocationsConfig) config: IEditorConfig<OfficeLocation>,
     private countryStateService: CountryStatesService
   ) {
     super(config);
+  }
+  ngOnInit(): any {
+    super.ngOnInit();
+    this.countries = this.countryStateService.getCounries();
   }
 
   validationMaxlength = (item: OfficeLocation): number => item.country === 'US' ? 5 : 10;

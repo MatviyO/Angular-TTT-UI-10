@@ -1,4 +1,4 @@
-import { Component, ViewChild, Inject } from '@angular/core';
+import {Component, ViewChild, Inject, OnInit} from '@angular/core';
 import { GraduationLocationConfig } from './graduation-locations.config';
 import {GraduationLocation} from '../../../core/model/properties';
 import {ConfirmComponent} from '../../../common/components/confirm';
@@ -15,10 +15,10 @@ import {CountryStatesService, State} from '../../../core/data/country-state.serv
     providers: [GraduationLocationConfig],
 })
 
-export class GraduationLocationsComponent extends BaseEditableListDirective<GraduationLocation> {
+export class GraduationLocationsComponent extends BaseEditableListDirective<GraduationLocation> implements OnInit {
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
-    countries = this.countrySvc.getCounries();
+    countries: any;
     states: State[] = [];
 
     constructor(
@@ -27,8 +27,12 @@ export class GraduationLocationsComponent extends BaseEditableListDirective<Grad
     ) {
         super(config);
     }
+    ngOnInit(): any {
+      super.ngOnInit();
+      this.countries = this.countrySvc.getCounries();
+    }
 
-    validationMaxlength = (item: GraduationLocation): number => item.country === 'US' ? 5 : 10;
+  validationMaxlength = (item: GraduationLocation): number => item.country === 'US' ? 5 : 10;
     validationMinlength = (item: GraduationLocation): number => item.country === 'US' ? 5 : 1;
 
     changeCompany(index: number = null, firstLoad: boolean = false): any {

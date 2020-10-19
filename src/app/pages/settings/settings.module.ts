@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { SettingsComponent } from './settings.component';
 // import { ReferencesComponent, ReferencesService } from './references';
-// import { MilitaryComponent, MilitaryService } from './military';
 // import { ExitReasonsComponent, ExitReasonsService } from './exit-reasons';
 import { CampusesComponent, CampusesService } from './campuses';
 import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
-// import { BaseNameComponent, MilitaryBaseService } from './base-name';
+import { MilitaryBaseComponent, MilitaryBaseService } from './military-base';
 import { OfficeLocationsComponent, OfficeLocationService } from './office-locations';
 // import { FeedbacksComponent, FeedbacksService } from './feedbacks';
 // import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
@@ -25,7 +24,8 @@ import {CountryStatesService} from '../../core/data/country-state.service';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
-import { MilitaryBaseComponent } from './military-base/military-base.component';
+import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
+import { ReferencesComponent } from './references/references.component';
 
 @NgModule({
     imports: [
@@ -49,16 +49,17 @@ import { MilitaryBaseComponent } from './military-base/military-base.component';
         CompanyAffiliatesComponent,
         CampusesComponent,
         OfficeLocationsComponent,
-        // BaseNameComponent,
         OfficeLocationsComponent,
         MilitaryBaseComponent,
+        MilitaryBranchComponent,
         // FeedbacksComponent,
         // CallReasonsComponent,
         // InterviewTypeComponent,
         // InterviewOutcomeComponent,
         // InterviewStatusComponent,
         // EmploymentStatusComponent,
-        // MilitaryComponent,
+        MilitaryBranchComponent,
+        ReferencesComponent
     ],
     providers: [
         NonPlacementReasonService,
@@ -68,7 +69,7 @@ import { MilitaryBaseComponent } from './military-base/military-base.component';
         // FeedbacksService,
         // ReferencesService,
         // ExitReasonsService,
-        // MilitaryBaseService,
+        MilitaryBaseService,
         GraduationLocationsService,
         CompanyAffiliatesService,
         // CallReasonsService,
@@ -76,7 +77,7 @@ import { MilitaryBaseComponent } from './military-base/military-base.component';
         // InterviewOutcomeService,
         // InterviewStatusService,
         // EmploymentStatusService,
-        // MilitaryService,
+        MilitaryBranchService,
         CountryStatesService
     ],
 })
