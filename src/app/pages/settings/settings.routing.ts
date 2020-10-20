@@ -8,10 +8,10 @@ import { CampusesComponent } from './campuses';
 // // import { GraduationsComponent } from './graduations/graduations.component';
 import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
 import { OfficeLocationsComponent } from './office-locations';
-// import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { CompanyAffiliatesComponent } from './company-affiliates';
 import { CompanyComponent } from './company/company.component';
-// import { CallReasonsComponent } from './call-reasons/call-reasons.component';
+import { CallReasonsComponent } from './call-reasons/call-reasons.component';
 // import { InterviewTypeComponent } from './interview-type/interview-type.component';
 // import { InterviewStatusComponent } from './interview-status/interview-status.component';
 // import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome.component';
@@ -35,10 +35,10 @@ const routes: Routes = [
             { path: 'graduation-locations', component: GraduationLocationsComponent },
             { path: 'base-name', component: MilitaryBaseComponent },
             { path: 'office-locations', component: OfficeLocationsComponent },
-            // { path: 'feedbacks', component: FeedbacksComponent },
+            { path: 'feedbacks', component: FeedbacksComponent },
             { path: 'company-affiliates', component: CompanyAffiliatesComponent },
             { path: 'company', component: CompanyComponent },
-            // { path: 'call-reasons', component: CallReasonsComponent },
+            { path: 'call-reasons', component: CallReasonsComponent },
             // { path: 'interview-type', component: InterviewTypeComponent },
             // { path: 'interview-status', component: InterviewStatusComponent },
             // { path: 'interview-outcome', component: InterviewOutcomeComponent },

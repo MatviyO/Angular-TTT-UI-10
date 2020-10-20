@@ -5,7 +5,7 @@ import {ExitReasonsService} from './exit-reasons.service';
 
 @Injectable()
 export class ExitReasonsConfig implements IEditorConfig<ExitReason> {
-  cls: new() => ExitReason;
+  cls: new() => any = ExitReason;
   componentTitle = 'Exit reason';
   includes = 'null';
   constructor(@Inject(ExitReasonsService) public dataSvc: IDataService<ExitReason>,

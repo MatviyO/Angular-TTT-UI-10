@@ -5,7 +5,7 @@ import {ReferencesService} from './references.service';
 
 @Injectable()
 export class ReferencesConfig implements IEditorConfig<Reference>{
-  cls: new() => Reference;
+  cls: new() => any = Reference;
   componentTitle = 'Reference';
   includes = 'null';
   constructor(

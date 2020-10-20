@@ -9,12 +9,12 @@ import { CampusesComponent, CampusesService } from './campuses';
 import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
 import { MilitaryBaseComponent, MilitaryBaseService } from './military-base';
 import { OfficeLocationsComponent, OfficeLocationService } from './office-locations';
-// import { FeedbacksComponent, FeedbacksService } from './feedbacks';
+import { FeedbacksComponent, FeedbacksService } from './feedbacks';
 // import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
 // import { InterviewStatusComponent, InterviewStatusService } from './interview-status';
 // import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
 // import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
-// import { CallReasonsComponent, CallReasonsService } from './call-reasons';
+import { CallReasonsComponent, CallReasonsService } from './call-reasons';
 import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
 import {Common_Module} from '../../common';
@@ -25,6 +25,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
+
 
 @NgModule({
     imports: [
@@ -51,7 +52,7 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         OfficeLocationsComponent,
         MilitaryBaseComponent,
         MilitaryBranchComponent,
-        // FeedbacksComponent,
+        FeedbacksComponent,
         // CallReasonsComponent,
         // InterviewTypeComponent,
         // InterviewOutcomeComponent,
@@ -59,20 +60,22 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         // EmploymentStatusComponent,
         MilitaryBranchComponent,
         ReferencesComponent,
-        ExitReasonsComponent
+        ExitReasonsComponent,
+        CallReasonsComponent,
+        FeedbacksComponent
     ],
     providers: [
         NonPlacementReasonService,
         CampusesService,
         GraduationDatesService,
         OfficeLocationService,
-        // FeedbacksService,
+        FeedbacksService,
         ReferencesService,
         ExitReasonsService,
         MilitaryBaseService,
         GraduationLocationsService,
         CompanyAffiliatesService,
-        // CallReasonsService,
+        CallReasonsService,
         // InterviewTypeService,
         // InterviewOutcomeService,
         // InterviewStatusService,
