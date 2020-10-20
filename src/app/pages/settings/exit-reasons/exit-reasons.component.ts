@@ -1,26 +1,26 @@
 import {Component, Inject, ViewChild} from '@angular/core';
 import {ConfirmComponent} from '../../../common/components/confirm';
-import {Reference} from '../../../core/model/properties';
-import {ReferencesConfig} from './references.config';
+import {ExitReason} from '../../../core/model/properties';
 import {IEditorConfig} from '../../../common/interfaces';
+import {ExitReasonsConfig} from './exit-reasons.config';
 import {BaseEditableListDirective} from '../../../common/base-classes';
 
 @Component({
-  selector: 'app-references',
-  templateUrl: './references.component.html',
-  styleUrls: ['./references.component.scss'],
-  providers: [ReferencesConfig]
+  selector: 'app-exit-reasons',
+  templateUrl: './exit-reasons.component.html',
+  styleUrls: ['./exit-reasons.component.scss'],
+  providers: [ExitReasonsConfig],
 })
-export class ReferencesComponent extends BaseEditableListDirective<Reference>  {
+export class ExitReasonsComponent extends BaseEditableListDirective<ExitReason>  {
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
   constructor(
-    @Inject(ReferencesConfig) config: IEditorConfig<Reference>,
+    @Inject(ExitReasonsConfig) config: IEditorConfig<ExitReason>,
   ) {
     super(config);
   }
 
-  onDelete(item: Reference): void {
+  onDelete(item: ExitReason): void {
     const status = !item.isActive ? 'enable' : 'disable';
     this.confirm.show('confirm', `Are you sure you\'d like to ${status} this item?`)
       .then(result => {
@@ -33,7 +33,7 @@ export class ReferencesComponent extends BaseEditableListDirective<Reference>  {
           super.save(item);
         }
       });
-  }
 
+  }
 
 }

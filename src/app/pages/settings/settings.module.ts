@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { SettingsComponent } from './settings.component';
-// import { ReferencesComponent, ReferencesService } from './references';
-// import { ExitReasonsComponent, ExitReasonsService } from './exit-reasons';
+import { ReferencesComponent, ReferencesService } from './references';
+import { ExitReasonsComponent, ExitReasonsService } from './exit-reasons';
 import { CampusesComponent, CampusesService } from './campuses';
 import { GraduationLocationsComponent, GraduationLocationsService } from './graduation-locations';
 import { MilitaryBaseComponent, MilitaryBaseService } from './military-base';
@@ -25,7 +25,6 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
-import { ReferencesComponent } from './references/references.component';
 
 @NgModule({
     imports: [
@@ -42,8 +41,8 @@ import { ReferencesComponent } from './references/references.component';
     declarations: [
         NonPlacementReasonComponent,
         SettingsComponent,
-        // ReferencesComponent,
-        // ExitReasonsComponent,
+        ReferencesComponent,
+        ExitReasonsComponent,
         CampusesComponent,
         GraduationLocationsComponent,
         CompanyAffiliatesComponent,
@@ -59,7 +58,8 @@ import { ReferencesComponent } from './references/references.component';
         // InterviewStatusComponent,
         // EmploymentStatusComponent,
         MilitaryBranchComponent,
-        ReferencesComponent
+        ReferencesComponent,
+        ExitReasonsComponent
     ],
     providers: [
         NonPlacementReasonService,
@@ -67,8 +67,8 @@ import { ReferencesComponent } from './references/references.component';
         GraduationDatesService,
         OfficeLocationService,
         // FeedbacksService,
-        // ReferencesService,
-        // ExitReasonsService,
+        ReferencesService,
+        ExitReasonsService,
         MilitaryBaseService,
         GraduationLocationsService,
         CompanyAffiliatesService,

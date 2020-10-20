@@ -4,7 +4,7 @@
       <table class="table table-hover">
         <thead>
         <tr class="black-muted-bg">
-          <th> Description</th>
+          <th>Description </th>
           <th></th>
         </tr>
         </thead>
@@ -20,7 +20,7 @@
         <tr *ngFor="let item of entities;let i=index" ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)" [ngClass]="{'disable' : item.isActive === false}">
           <td>
             <span *ngIf="!item.editing">{{item.description}}</span>
-            <input *ngIf="item.editing" type="text" name="description-{{i}}" class="form-control" [(ngModel)]="item.description "  required [ngClass]="{'ng-submit' : form._submitted}">
+            <input *ngIf="item.editing" type="text" name="description-{{i}}" class="form-control" [(ngModel)]="item.description" required [ngClass]="{'ng-submit' : form._submitted}">
           </td>
           <td>
             <a class="btnHover no-disable" (click)="onDelete(item)" *ngIf="!item.editing"><i [class]="item.isActive ? 'fa fa-check-square-o' : 'fa fa-square-o'" aria-hidden="true" title="{{item.isActive ? 'click to disable': 'click to enable'}}"></i></a>

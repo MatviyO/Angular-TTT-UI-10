@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SettingsComponent } from './settings.component';
-// import { ReferencesComponent } from './references';
-// import { ExitReasonsComponent } from './exit-reasons/exit-reasons.component';
+import {ReferencesComponent} from './references';
+import { ExitReasonsComponent } from './exit-reasons/exit-reasons.component';
 import { CampusesComponent } from './campuses';
 // // import { GraduationsComponent } from './graduations/graduations.component';
 import { GraduationLocationsComponent } from './graduation-locations/graduation-locations.component';
@@ -26,11 +26,11 @@ const routes: Routes = [
         path: '',
         component: SettingsComponent,
         children: [
-             { path: 'classes-schedule', component: ClassesScheduleComponent },
-              { path: 'non-placement-reasons', component: NonPlacementReasonComponent },
-            // { path: 'references', component: ReferencesComponent },
+            { path: 'classes-schedule', component: ClassesScheduleComponent },
+            { path: 'non-placement-reasons', component: NonPlacementReasonComponent },
+            {path: 'references', component: ReferencesComponent},
             { path: 'military', component: MilitaryBranchComponent },
-            // { path: 'exits', component: ExitReasonsComponent },
+            { path: 'exits', component: ExitReasonsComponent },
             { path: 'campuses', component: CampusesComponent },
             { path: 'graduation-locations', component: GraduationLocationsComponent },
             { path: 'base-name', component: MilitaryBaseComponent },
