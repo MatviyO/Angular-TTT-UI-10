@@ -10,7 +10,7 @@ import { GraduationLocationsComponent, GraduationLocationsService } from './grad
 import { MilitaryBaseComponent, MilitaryBaseService } from './military-base';
 import { OfficeLocationsComponent, OfficeLocationService } from './office-locations';
 import { FeedbacksComponent, FeedbacksService } from './feedbacks';
-// import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
+import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
 // import { InterviewStatusComponent, InterviewStatusService } from './interview-status';
 // import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
 // import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
@@ -25,6 +25,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import {CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
+import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome.component';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         MilitaryBranchComponent,
         FeedbacksComponent,
         // CallReasonsComponent,
-        // InterviewTypeComponent,
+        InterviewTypeComponent,
         // InterviewOutcomeComponent,
         // InterviewStatusComponent,
         // EmploymentStatusComponent,
@@ -62,7 +63,9 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         ReferencesComponent,
         ExitReasonsComponent,
         CallReasonsComponent,
-        FeedbacksComponent
+        FeedbacksComponent,
+        InterviewTypeComponent,
+        InterviewOutcomeComponent
     ],
     providers: [
         NonPlacementReasonService,
@@ -76,7 +79,7 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         GraduationLocationsService,
         CompanyAffiliatesService,
         CallReasonsService,
-        // InterviewTypeService,
+        InterviewTypeService,
         // InterviewOutcomeService,
         // InterviewStatusService,
         // EmploymentStatusService,

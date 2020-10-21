@@ -12,7 +12,7 @@ import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { CompanyAffiliatesComponent } from './company-affiliates';
 import { CompanyComponent } from './company/company.component';
 import { CallReasonsComponent } from './call-reasons/call-reasons.component';
-// import { InterviewTypeComponent } from './interview-type/interview-type.component';
+import { InterviewTypeComponent } from './interview-type/interview-type.component';
 // import { InterviewStatusComponent } from './interview-status/interview-status.component';
 // import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome.component';
 // import { EmploymentStatusComponent } from './employment-status/employment-status.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
             { path: 'company-affiliates', component: CompanyAffiliatesComponent },
             { path: 'company', component: CompanyComponent },
             { path: 'call-reasons', component: CallReasonsComponent },
-            // { path: 'interview-type', component: InterviewTypeComponent },
+            { path: 'interview-type', component: InterviewTypeComponent },
             // { path: 'interview-status', component: InterviewStatusComponent },
             // { path: 'interview-outcome', component: InterviewOutcomeComponent },
             // { path: 'employment-status', component: EmploymentStatusComponent },
