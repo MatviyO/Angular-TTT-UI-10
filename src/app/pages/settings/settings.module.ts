@@ -11,21 +11,19 @@ import { MilitaryBaseComponent, MilitaryBaseService } from './military-base';
 import { OfficeLocationsComponent, OfficeLocationService } from './office-locations';
 import { FeedbacksComponent, FeedbacksService } from './feedbacks';
 import { InterviewTypeComponent, InterviewTypeService } from './interview-type';
-// import { InterviewStatusComponent, InterviewStatusService } from './interview-status';
-// import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
-// import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
+import { InterviewOutcomeComponent, InterviewOutcomeService } from './interview-outcome';
+import { EmploymentStatusComponent, EmploymentStatusService } from './employment-status';
 import { CallReasonsComponent, CallReasonsService } from './call-reasons';
 import { NonPlacementReasonComponent, NonPlacementReasonService } from './non-placement-reason';
 import { ClassScheduleModule } from './classes-schedule/classes-schedule.module';
-import {Common_Module} from '../../common';
-import {SettingsRoutingModule} from './settings.routing';
+import { Common_Module} from '../../common';
+import { SettingsRoutingModule} from './settings.routing';
 import { GraduationDatesService} from '../../core/data';
-import {CountryStatesService} from '../../core/data/country-state.service';
-import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-import {CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
-import {CompanyModule} from './company/company.module';
+import { CountryStatesService} from '../../core/data/country-state.service';
+import { NguiAutoCompleteModule} from '@ngui/auto-complete';
+import { CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
+import { CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
-import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome.component';
 
 
 @NgModule({
@@ -54,18 +52,17 @@ import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome
         MilitaryBaseComponent,
         MilitaryBranchComponent,
         FeedbacksComponent,
-        // CallReasonsComponent,
         InterviewTypeComponent,
-        // InterviewOutcomeComponent,
-        // InterviewStatusComponent,
-        // EmploymentStatusComponent,
+        InterviewOutcomeComponent,
+        EmploymentStatusComponent,
         MilitaryBranchComponent,
         ReferencesComponent,
         ExitReasonsComponent,
         CallReasonsComponent,
         FeedbacksComponent,
         InterviewTypeComponent,
-        InterviewOutcomeComponent
+        InterviewOutcomeComponent,
+        EmploymentStatusComponent
     ],
     providers: [
         NonPlacementReasonService,
@@ -80,9 +77,8 @@ import { InterviewOutcomeComponent } from './interview-outcome/interview-outcome
         CompanyAffiliatesService,
         CallReasonsService,
         InterviewTypeService,
-        // InterviewOutcomeService,
-        // InterviewStatusService,
-        // EmploymentStatusService,
+        InterviewOutcomeService,
+        EmploymentStatusService,
         MilitaryBranchService,
         CountryStatesService
     ],

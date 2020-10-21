@@ -1,27 +1,27 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {InterviewOutcomeConfig} from './interview-outcome.config';
-import {BaseEditableListDirective} from '../../../common/base-classes';
-import {InterviewOutcome} from '../../../core/model/properties';
 import {IEditorConfig} from '../../../common/interfaces';
+import {EmploymentStatus } from '../../../core/model/properties';
 import {ConfirmComponent} from '../../../common/components/confirm';
+import {EmploymentStatusConfig} from './employment-status.config';
+import {BaseEditableListDirective} from '../../../common/base-classes';
 
 @Component({
-  selector: 'app-interview-outcome',
-  templateUrl: './interview-outcome.component.html',
-  styleUrls: ['./interview-outcome.component.scss'],
-  providers: [InterviewOutcomeConfig]
+  selector: 'app-employment-status',
+  templateUrl: './employment-status.component.html',
+  styleUrls: ['./employment-status.component.scss'],
+  providers: [EmploymentStatusConfig]
 })
-export class InterviewOutcomeComponent extends BaseEditableListDirective<InterviewOutcome>{
+export class EmploymentStatusComponent extends BaseEditableListDirective<EmploymentStatus>  {
 
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 
   constructor(
-    @Inject(InterviewOutcomeConfig) config: IEditorConfig<InterviewOutcome>,
+    @Inject(EmploymentStatusConfig) config: IEditorConfig<EmploymentStatus>,
   ) {
     super(config);
   }
 
-  onDelete(item: InterviewOutcome): void {
+  onDelete(item: EmploymentStatus): void {
     const status = !item.isActive ? 'enable' : 'disable';
     this.confirm.show('confirm', `Are you sure you\'d like to ${status} this item?`)
       .then(result => {
@@ -35,5 +35,4 @@ export class InterviewOutcomeComponent extends BaseEditableListDirective<Intervi
         }
       });
   }
-
 }
