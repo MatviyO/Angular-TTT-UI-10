@@ -32,7 +32,7 @@ const routes: Routes = [
       // tslint:disable-next-line:max-line-length
       // { path: 'housing-transportation', loadChildren: './housing-transportation/housing-transportation.module#HousingTransportationModule' },
       // { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
-      // { path: 'events', loadChildren: './events/events.module#EventsModule' },
+      { path: 'events', loadChildren: () => import('../pages/events/events.module').then((m) => m.EventsModule), },
     ],
   },
 ];

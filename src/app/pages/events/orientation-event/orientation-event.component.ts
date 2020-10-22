@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-orientation-event',
-  templateUrl: './orientation-event.component.html',
-  styleUrls: ['./orientation-event.component.scss']
-})
-export class OrientationEventComponent implements OnInit {
+ @Component({
+   selector: 'app-registration',
+   template: '<router-outlet></router-outlet>',
+ })
+ export class OrientationEventComponent implements OnInit {
 
-  constructor() { }
+   constructor() { }
 
-  ngOnInit(): void {
-  }
+   ngOnInit() {
+   }
 
-}
+ }

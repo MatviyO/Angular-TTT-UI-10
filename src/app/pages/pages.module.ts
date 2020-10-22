@@ -24,7 +24,6 @@ import {DashboardModule} from './dashboard/dashboard.module';
     NgaModule,
     FormsModule,
     PageRoutingModule,
-    // Ng2AutoCompleteModule,
     Common_Module,
     RouterModule,
     DashboardModule,
@@ -35,10 +34,6 @@ import {DashboardModule} from './dashboard/dashboard.module';
     PagesComponent
   ],
   providers: [
-        // providers used to create fake backend
-        // fakeBackendProvider,
-        // MockBackend,
-        // BaseRequestOptions,
   ],
   exports: [
     PagesComponent

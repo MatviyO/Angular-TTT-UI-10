@@ -1,0 +1,109 @@
+<div class="card" scroll-spy (onPageEnd)="loadMore()">
+    <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+        <a (click)="showfilter = !showfilter" class="filter-icon">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+            <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="showfilter" (click)="filter = {}; onSearch(filter) " class="btn resetFilter">reset filter
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+        <div class="row allInputs" *ngIf="showfilter">
+            <div class="form-group col-lg-3 col-sm-6">
+                <label for="filterName">Date</label>
+                <input type="date" [ngModel]="filter.date | date:'yyyy-MM-dd'"  (blur)="filter.date = $event.target.value" class="form-control" name="filterName" placeholder="Name">
+            </div>
+            <div class="form-group col-lg-3 col-sm-6">
+                <label for="filterBase">Military Base</label>
+                <select id="filterBase" class="form-control" [(ngModel)]="filter.baseId">
+                  <option [ngValue]="null">select...</option>
+                  <option hidden [ngValue]="undefined">select...</option>
+                  <option *ngFor="let base of militaryBases" [value]="base.id">{{base.name}}</option>
+                </select>
+            </div>
+            <div class="form-group col-lg-3 col-sm-6">
+                <label for="filterStatus">Status</label>
+                <select id="filterStatus" class="form-control" [(ngModel)]="filter.status">
+                  <option [ngValue]="null">select...</option>
+                  <option hidden [ngValue]="undefined">select...</option>
+                 <option value='active'>Active</option>
+                 <option value='planned'>Planned</option>
+                 <option value='completed'>Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group col-lg-3 col-sm-6 group-box center">
+                <label class="labelTxt">Allowed</label>
+                <br>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary btn-sm" (click)="filter.allowed = 1" [ngClass]="{'active': filter.allowed === 1}">
+                    <input type="radio" name="pa"> Yes
+                  </label>
+                  <label class="btn btn-primary btn-sm" (click)="filter.allowed = 2" [ngClass]="{'active': filter.allowed === 2}">
+                    <input type="radio" name="pa"> No
+                  </label>
+                  <label class="btn btn-primary btn-sm" (click)="filter.allowed = null" [ngClass]="{'active': filter.allowed === null}">
+                    <input type="radio" name="pa"> N/A
+                  </label>
+                </div>
+              </div>
+       
+            <div class="form-group col-lg-12 col-sm-12 search-btn">
+                <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+            </div>
+        </div>
+    </div>
+  <div class="addNewItem">
+    <a routerLink="/events/registration-event/details">
+      <span>Add new event</span>
+      <i class="fa fa-plus-square" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('date')" class="sorting-hover">
+              Date
+              <span class="iconsForName" *ngIf="sort.column =='date'">
+                <i class="fa fa-chevron-down" aria-hidden="true" *ngIf="sort.direction"></i>
+                <i class="fa fa-chevron-up" aria-hidden="true" *ngIf="!sort.direction"></i>
+              </span>
+            </a>
+          </th>
+          <th class='center'>Attendees</th>
+          <th>Military Base</th>
+          <th class='center'>Registration Allowed</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities; let i=index">
+          <td>
+            {{item.date | date:'MM/dd/yyyy'}}
+          </td>
+          <td class='center'>
+            {{item.attendees ? item.attendees.length : 0}}
+          </td>
+          <td>
+              {{getMilitaryBaseById(item.baseId)}}
+          </td>
+          <td class='center'>
+              <i class="fa check-icon {{item.registrationAllowed ? 'fa-check-square-o' : 'fa-square-o'}}" aria-hidden="true"></i>
+          </td>
+
+          <td>
+            <a class="btnHover" routerLink="{{'/events/registration-event/details/'+ item.id}}">
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<confirm></confirm>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
- @Component({
-   selector: 'app-registration',
+@Component({
+   selector: 'app-graduations',
    template: '<router-outlet></router-outlet>',
  })
- export class RegistrationEventComponent implements OnInit {
+ export class GraduationsComponent implements OnInit {
 
    constructor() { }
 
-   ngOnInit() {
+   ngOnInit(): void {
    }
 
  }
