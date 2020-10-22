@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
-import { BaseDataService } from '@ttt/common';
-import { OrientationEvent } from 'app/core';
+import {BaseDataService} from '../../../common/services';
+import {OrientationEvent} from '../../../core/model';
+
 
 @Injectable()
 export class OrientationEventService extends BaseDataService<OrientationEvent> {

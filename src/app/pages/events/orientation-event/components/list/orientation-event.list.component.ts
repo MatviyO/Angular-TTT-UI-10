@@ -1,10 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { IEditorConfig, IDataStorage, IResourceService } from '@ttt/common/interfaces';
-import { BaseSortableList, MemoryDataStorage } from '@ttt/common';
-import { MilitaryBase, OrientationEvent } from '@ttt/core/model';
-
-import { MilitaryBaseService } from 'app/core/data';
+;
 import { OrientationEventListConfig } from './orientation-event.list.config';
+import {IDataStorage, IEditorConfig, IResourceService} from '../../../../../common/interfaces';
+import {MilitaryBase} from '../../../../../core/model/properties';
+import {MemoryDataStorage} from '../../../../../common/utils';
+import {OrientationEvent} from '../../../../../core/model';
+import {MilitaryBaseService} from '../../../../../core/data';
+import {BaseSortableListDirective} from '../../../../../common/base-classes';
 
 @Component({
     selector: 'app-orientation-event',
@@ -13,7 +15,7 @@ import { OrientationEventListConfig } from './orientation-event.list.config';
     providers: [OrientationEventListConfig, MilitaryBaseService],
 })
 
-export class OrientationEventListComponent extends BaseSortableList<OrientationEvent> implements OnInit {
+export class OrientationEventListComponent extends BaseSortableListDirective<OrientationEvent> implements OnInit {
 
     private militaryBases: MilitaryBase[] = [];
 
@@ -45,23 +47,19 @@ export class OrientationEventListComponent extends BaseSortableList<OrientationE
             if (filterStr) { filterStr += ' and '; }
             filterStr += `baseId = "${this.filter.baseId}"`;
         }
-       
+
         if (this.filter.status) {
             if (filterStr) { filterStr += ' and '; }
-            
             if (this.filter.status === 'active') {
                 filterStr += `date = "${this.formatDate(new Date())}"`;
             }
             if (this.filter.status === 'planned') {
                 filterStr += `date > "${this.formatDate(new Date())}"`;
-                
             }
             if (this.filter.status === 'completed') {
                 filterStr += `date < "${this.formatDate(new Date())}"`;
             }
         }
-        
-    
         return filterStr;
     }
 

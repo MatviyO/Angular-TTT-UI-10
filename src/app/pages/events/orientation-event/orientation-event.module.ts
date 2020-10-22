@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgaModule } from '../../../theme/nga.module';
-import { Common_Module } from '@ttt/common';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
-
 import { OrientationEventService } from './orientation-event.service';
 import { routing } from './orientation-event.routing';
 import { OrientationEventComponent } from './orientation-event.component';
 import { OrientationEventListComponent } from './components/list/orientation-event.list.component';
 import { OrientationEventDetailsComponent } from './components/details/orientation-event.details.component';
-import { OrientationEventResourceService } from 'app/core';
+import {NguiAutoCompleteModule} from '@ngui/auto-complete';
+import {Common_Module} from '../../../common';
+import {OrientationEventResourceService} from '../../../core/data';
 
 @NgModule({
     imports: [
@@ -19,7 +18,7 @@ import { OrientationEventResourceService } from 'app/core';
         Common_Module,
         routing,
         FormsModule,
-        Ng2AutoCompleteModule,
+        NguiAutoCompleteModule,
     ],
     declarations: [
         OrientationEventComponent,

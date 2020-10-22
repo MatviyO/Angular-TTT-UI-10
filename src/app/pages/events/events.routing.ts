@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
+import { EventsComponent } from './events.component';
 
 import { GraduationsComponent } from './graduations-event/graduations.component';
-import { EventsComponent } from './events.component';
 import { RegistrationEventComponent } from './registration-event/registration-event.component';
 import { OrientationEventComponent } from './orientation-event/orientation-event.component';
 

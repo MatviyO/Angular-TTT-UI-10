@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
    constructor() { }
 
-   ngOnInit() {
+   ngOnInit(): void {
    }
 
  }
