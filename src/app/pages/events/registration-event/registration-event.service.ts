@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
-import { BaseDataService } from '@ttt/common';
-import { RegistrationEvent } from 'app/core/model/registration-event';
+import {RegistrationEvent} from '../../../core/model';
+import {BaseDataService} from '../../../common/services';
 
 @Injectable()
 export class RegistrationEventService extends BaseDataService<RegistrationEvent> {

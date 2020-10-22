@@ -1,13 +1,17 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { DetailsStateful, IEditorStatefulConfig, IDataService, ObservableService, ConfirmComponent, IResourceService } from '@ttt/common';
-import { Profile, MilitaryBase, OrientationEvent, OrientationEventApplication } from '@ttt/core/model';
-import { ClassesService, MilitaryBaseService, OrientationEventResourceService } from '@ttt/core/data';
 import { OrientationEventDetailsConfig } from './orientation-event.details.config';
-import { AddNewSelectItemComponent } from 'app/core';
 import { OrientationEventService } from '../../orientation-event.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { CountryStatesService, State } from 'app/core/data/country-state.service';
 import * as moment from 'moment';
+import {MilitaryBase} from '../../../../../core/model/properties';
+import {AddNewSelectItemComponent} from '../../../../../core/components/add-new-item-select';
+import {ClassesService, MilitaryBaseService, OrientationEventResourceService } from '../../../../../core/data';
+import {CountryStatesService, State} from '../../../../../core/data/country-state.service';
+import {IDataService, IEditorStatefulConfig, IResourceService} from '../../../../../common/interfaces';
+import {ConfirmComponent} from '../../../../../common/components/confirm';
+import {ObservableService} from '../../../../../common/services';
+import {OrientationEvent, OrientationEventApplication, Profile} from '../../../../../core/model';
+import {DetailsStatefulDirective} from '../../../../../common/base-classes';
 
 
 @Component({
@@ -17,7 +21,7 @@ import * as moment from 'moment';
     providers: [OrientationEventDetailsConfig, ClassesService, CountryStatesService, ObservableService, MilitaryBaseService],
 })
 
-export class OrientationEventDetailsComponent extends DetailsStateful<OrientationEvent> implements OnInit {
+export class OrientationEventDetailsComponent extends DetailsStatefulDirective<OrientationEvent> implements OnInit {
 
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     @ViewChild(AddNewSelectItemComponent) addNewItem: AddNewSelectItemComponent;
@@ -28,7 +32,7 @@ export class OrientationEventDetailsComponent extends DetailsStateful<Orientatio
     private copyDeleteAttendee: OrientationEventApplication;
     private newEventId: number;
     militaryBases: MilitaryBase[] = [];
-    isChangeEvent: boolean = false;
+    isChangeEvent = false;
     editItem: OrientationEventApplication = null;
     newItem: OrientationEventApplication = null;
     countries = this.countrySvc.getCounries();
@@ -46,7 +50,7 @@ export class OrientationEventDetailsComponent extends DetailsStateful<Orientatio
         super.onDataLoaded((x) => this.dataLoaded(x));
     }
 
-    dataLoaded(data: OrientationEvent) {
+    dataLoaded(data: OrientationEvent): void {
         if (this.entity.country) {
             this.changeCompany(true);
         }
@@ -55,7 +59,7 @@ export class OrientationEventDetailsComponent extends DetailsStateful<Orientatio
     validationMaxlength = (item: OrientationEvent): number => item.country === 'US' ? 5 : 10;
     validationMinlength = (item: OrientationEvent): number => item.country === 'US' ? 5 : 1;
 
-    changeCompany(firstLoad: boolean = false) {
+    changeCompany(firstLoad: boolean = false): void {
         if (this.entity.country) {
             const _country = this.countries.find(x => x.countryShortCode === this.entity.country);
             if (_country) { this.states = _country.regions; }
@@ -142,9 +146,9 @@ export class OrientationEventDetailsComponent extends DetailsStateful<Orientatio
                 });
         }
     }
-    onHttpError(err: HttpErrorResponse) {
+    onHttpError(err: HttpErrorResponse): any {
         if (err.error.ErrorCode === 104) {
-            this.notificationSvc.warning('Orientation Event details', "Applicant you're trying to add already attends orientation event.");
+            this.notificationSvc.warning('Orientation Event details', 'Applicant you\'re trying to add already attends orientation event.');
             this.showLoadData = false;
         } else {
             super.onHttpError(err);
@@ -157,7 +161,8 @@ export class OrientationEventDetailsComponent extends DetailsStateful<Orientatio
         this.isChangeEvent = true;
         this.orientEventResourceSvc.query()
             .then((res: any) => {
-                this.orientationEvents = res.sort((a: OrientationEvent, b: OrientationEvent) => new Date(b.date).getTime() - new Date(a.date).getTime());
+              this.orientationEvents = res.sort((a: OrientationEvent, b: OrientationEvent) =>
+                new Date(b.date).getTime() - new Date(a.date).getTime());
             })
             .catch(err => this.onHttpError(err));
     }

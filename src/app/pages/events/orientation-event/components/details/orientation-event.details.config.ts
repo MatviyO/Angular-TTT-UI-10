@@ -1,14 +1,13 @@
 import { Injectable, Inject, Injector } from '@angular/core';
-import { IEditorStatefulConfig, IDataService } from '@ttt/common/interfaces';
 import { OrientationEventService } from '../../orientation-event.service';
-import { OrientationEvent } from 'app/core';
-
+import {IDataService, IEditorStatefulConfig} from '../../../../../common/interfaces';
+import {OrientationEvent} from '../../../../../core/model';
 
 @Injectable()
 export class OrientationEventDetailsConfig implements IEditorStatefulConfig<OrientationEvent> {
-    navigationTitle: string = 'Orientation Event';
-    navigationUrlPrefix: string = 'events/orientation-event';
-    cls: { new (): OrientationEvent } = OrientationEvent;
+    navigationTitle = 'Orientation Event';
+    navigationUrlPrefix = 'events/orientation-event';
+    cls: new () => OrientationEvent = OrientationEvent;
     componentTitle = 'Orientation Event';
 
     constructor(

@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { IEditorConfig, IDataStorage, IResourceService } from '@ttt/common/interfaces';
-import { BaseSortableList, MemoryDataStorage } from '@ttt/common';
-import { MilitaryBase, RegistrationEvent } from '@ttt/core/model';
 import { RegistrationEventListConfig } from './registration-event.list.config';
-import { MilitaryBaseService } from 'app/core/data';
+import {IDataStorage, IEditorConfig, IResourceService} from '../../../../../common/interfaces';
+import {MilitaryBase} from '../../../../../core/model/properties';
+import {RegistrationEvent} from '../../../../../core/model';
+import {MemoryDataStorage} from '../../../../../common/utils';
+import {MilitaryBaseService} from '../../../../../core/data';
+import {BaseSortableListDirective} from '../../../../../common/base-classes';
 
 @Component({
     selector: 'app-registration-event',
@@ -12,7 +14,7 @@ import { MilitaryBaseService } from 'app/core/data';
     providers: [RegistrationEventListConfig, MilitaryBaseService],
 })
 
-export class RegistrationEventListComponent extends BaseSortableList<RegistrationEvent> implements OnInit {
+export class RegistrationEventListComponent extends BaseSortableListDirective<RegistrationEvent> implements OnInit {
 
     private militaryBases: MilitaryBase[] = [];
 
@@ -44,22 +46,18 @@ export class RegistrationEventListComponent extends BaseSortableList<Registratio
             if (filterStr) { filterStr += ' and '; }
             filterStr += `baseId = "${this.filter.baseId}"`;
         }
-       
         if (this.filter.status) {
             if (filterStr) { filterStr += ' and '; }
-            
             if (this.filter.status === 'active') {
                 filterStr += `date = "${this.formatDate(new Date())}"`;
             }
             if (this.filter.status === 'planned') {
                 filterStr += `date > "${this.formatDate(new Date())}"`;
-                
             }
             if (this.filter.status === 'completed') {
                 filterStr += `date < "${this.formatDate(new Date())}"`;
             }
         }
-        
         if (this.filter.allowed) {
             if (filterStr) { filterStr += ' and '; }
             this.filter.allowed === 1

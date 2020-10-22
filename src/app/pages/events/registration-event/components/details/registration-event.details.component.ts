@@ -1,13 +1,17 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { DetailsStateful, IEditorStatefulConfig, IDataService, ObservableService, ConfirmComponent, IResourceService } from '@ttt/common';
-import { Profile, MilitaryBase, RegistrationEvent, RegistrationEventApplication } from '@ttt/core/model';
-import { ClassesService, MilitaryBaseService, RegistrationEventResourceService } from '@ttt/core/data';
 import { RegistrationEventDetailsConfig } from './registration-event.details.config';
 import { RegistrationEventService } from '../../registration-event.service';
-import { AddNewSelectItemComponent } from 'app/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { CountryStatesService, State } from 'app/core/data/country-state.service';
 import * as moment from 'moment';
+import {DetailsStatefulDirective} from '../../../../../common/base-classes';
+import {MilitaryBase} from '../../../../../core/model/properties';
+import {Profile, RegistrationEvent, RegistrationEventApplication} from '../../../../../core/model';
+import {AddNewSelectItemComponent} from '../../../../../core/components/add-new-item-select';
+import {CountryStatesService, State} from '../../../../../core/data/country-state.service';
+import {IDataService, IEditorStatefulConfig, IResourceService} from '../../../../../common/interfaces';
+import {ClassesService, MilitaryBaseService, RegistrationEventResourceService} from '../../../../../core/data';
+import {ConfirmComponent} from '../../../../../common/components/confirm';
+import {ObservableService} from '../../../../../common/services';
 
 @Component({
     selector: 'app-registration-event.details',
@@ -16,7 +20,7 @@ import * as moment from 'moment';
     providers: [RegistrationEventDetailsConfig, ClassesService, CountryStatesService, ObservableService, MilitaryBaseService],
 })
 
-export class RegistrationEventDetailsComponent extends DetailsStateful<RegistrationEvent> implements OnInit {
+export class RegistrationEventDetailsComponent extends DetailsStatefulDirective<RegistrationEvent> implements OnInit {
 
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     @ViewChild(AddNewSelectItemComponent) addNewItem: AddNewSelectItemComponent;
@@ -29,7 +33,7 @@ export class RegistrationEventDetailsComponent extends DetailsStateful<Registrat
     militaryBases: MilitaryBase[] = [];
     newItem: RegistrationEventApplication = null;
     editItem: RegistrationEventApplication = null;
-    isChangeEvent: boolean = false;
+    isChangeEvent = false;
     countries = this.countrySvc.getCounries();
     states: State[] = [];
 
@@ -45,7 +49,7 @@ export class RegistrationEventDetailsComponent extends DetailsStateful<Registrat
         super.onDataLoaded((x) => this.dataLoaded(x));
     }
 
-    dataLoaded(data: RegistrationEvent) {
+    dataLoaded(data: RegistrationEvent): void {
         if (this.entity.country) {
             this.changeCompany(true);
         }
@@ -63,7 +67,7 @@ export class RegistrationEventDetailsComponent extends DetailsStateful<Registrat
     validationMaxlength = (item: RegistrationEvent): number => item.country === 'US' ? 5 : 10;
     validationMinlength = (item: RegistrationEvent): number => item.country === 'US' ? 5 : 1;
 
-    changeCompany(firstLoad: boolean = false) {
+    changeCompany(firstLoad: boolean = false): void {
         if (this.entity.country) {
             const _country = this.countries.find(x => x.countryShortCode === this.entity.country);
             if (_country) { this.states = _country.regions; }
@@ -149,9 +153,9 @@ export class RegistrationEventDetailsComponent extends DetailsStateful<Registrat
         }
     }
 
-    onHttpError(err: HttpErrorResponse) {
+    onHttpError(err: HttpErrorResponse): any {
         if (err.error && err.error.ErrorCode === 104) {
-            this.notificationSvc.warning('Registration Event details', "Applicant you're trying to add already attends another registration event.");
+            this.notificationSvc.warning('Registration Event details', 'Applicant you\'re trying to add already attends another registration event.');
             this.showLoadData = false;
         } else {
             super.onHttpError(err);
@@ -164,7 +168,8 @@ export class RegistrationEventDetailsComponent extends DetailsStateful<Registrat
         this.isChangeEvent = true;
         this.regEventResourceSvc.query()
             .then((res: any) => {
-                this.registrationEvents = res.sort((a: RegistrationEvent, b: RegistrationEvent) => new Date(b.date).getTime() - new Date(a.date).getTime());
+                this.registrationEvents = res.sort((a: RegistrationEvent, b: RegistrationEvent) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime());
             })
             .catch(err => this.onHttpError(err));
     }

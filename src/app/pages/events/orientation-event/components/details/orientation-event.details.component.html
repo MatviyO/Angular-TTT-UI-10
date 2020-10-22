@@ -1,10 +1,10 @@
 <div ngForm #orientationForm="ngForm" (keydown.control.s)="onSave(orientationForm)">
 
-    <ba-card cardTitle="Event">
+    <app-ba-card cardTitle="Event">
         <div class="row">
             <div class="form-group col-sm-4">
                 <label for="military">Military Base</label>
-                <select class="form-control" name="military" [(ngModel)]="entity.baseId" addNewItem
+                <select id="military" class="form-control" name="military" [(ngModel)]="entity.baseId" addNewItem
                     ref="settings/base-name" (onclick)="navigate()" (change)="changeMilitaryBase()">
                     <option hidden [ngValue]="undefined">select...</option>
                     <option [ngValue]="null">select...</option>
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group col-sm-4">
                 <label for="adreess-country">Country</label>
-                <select class="form-control" name="adreess-country" [(ngModel)]="entity.country" required
+                <select id="adreess-country" class="form-control" name="adreess-country" [(ngModel)]="entity.country" required
                     (change)="changeCompany()" [ngClass]="{'ng-submit' : orientationForm._submitted}">
                     <option hidden [ngValue]="undefined">select...</option>
                     <option [ngValue]="null">select...</option>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group col-sm-4">
                 <label for="adreess-state">State</label>
-                <select class="form-control" name="adreess-state" [(ngModel)]="entity.state"
+                <select id="adreess-state" class="form-control" name="adreess-state" [(ngModel)]="entity.state"
                     [ngClass]="{'ng-submit' : orientationForm._submitted}">
                     <option hidden [ngValue]="undefined">select...</option>
                     <option [ngValue]="null">select...</option>
@@ -33,35 +33,35 @@
             </div>
             <div class="form-group col-sm-4">
                 <label for="city">City</label>
-                <input type="text" name="city" class="form-control" [(ngModel)]="entity.city"
+                <input id="city" type="text" name="city" class="form-control" [(ngModel)]="entity.city"
                 placeholder="City" required [ngClass]="{'ng-submit' : orientationForm._submitted}">
             </div>
             <div class="form-group col-sm-4">
                 <label for="address">Address</label>
-                <input type="text" name="address" class="form-control" [(ngModel)]="entity.address"
+                <input id="address" type="text" name="address" class="form-control" [(ngModel)]="entity.address"
                 placeholder="Address" required [ngClass]="{'ng-submit' : orientationForm._submitted}">
             </div>
             <div class="form-group col-sm-4">
                 <label for="zip">Zip code</label>
-                <input type="text" name="zip" class="form-control" [(ngModel)]="entity.zip"
+                <input id="zip" type="text" name="zip" class="form-control" [(ngModel)]="entity.zip"
                     placeholder="Zip code"
                     onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                     maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
                     required [ngClass]="{'ng-submit' : orientationForm._submitted}">
             </div>
 
-         
+
             <div class="form-group col-sm-4">
                 <label for="graduationDate">Date & Time</label>
-                <input type="datetime-local" class="form-control" name="graduationDate" required
+                <input id="graduationDate" type="datetime-local" class="form-control" name="graduationDate" required
                     [ngModel]="entity.date | date:'yyyy-MM-ddThh:mm'" (blur)="entity.date = $event.target.value"
                     [ngClass]="{'ng-submit' : orientationForm._submitted}" />
             </div>
-      
 
-      
+
+
         </div>
-        <ba-card cardTitle="Attendees" *ngIf="entity.id">
+        <app-ba-card cardTitle="Attendees" *ngIf="entity.id">
             <div class="addNewItem moreLink">
                 <a (click)="createNewItem()">
                     <i class="fa fa-user-plus plus" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
                                             <label for="search">
                                                 <i class="fa fa-search" aria-hidden="true"></i>
                                             </label>
-                                            <input autocomplete="off" class="form-control input" name="search" max-num-list='10'
+                                            <input id="search" autocomplete="off" class="form-control input" name="search" max-num-list='10'
                                                 value-formatter="firstName lastName" list-formatter="firstName lastName"
                                                 auto-complete [(ngModel)]="application"
                                                 [source]="observableSource(application)" display-property-name=name
@@ -118,7 +118,7 @@
                                         </div>
                                     </div>
                                 </td>
-                               
+
                                 <td>
                                     <div class="form-group">
                                         <label class="labelTxt"> </label>
@@ -162,7 +162,7 @@
                                             aria-hidden="true" data-toggle="tooltip" title="Change"></i>
                                     </ng-template>
                                 </td>
-                              
+
                                 <td>
                                     <ng-template [ngIf]="editItem && editItem.id == item.id" [ngIfElse]="view3">
                                         <input type="text" name="notes-{{i}}" class="form-control"
@@ -202,9 +202,9 @@
                     </table>
                 </div>
             </div>
-        </ba-card>
+        </app-ba-card>
 
-    </ba-card>
+    </app-ba-card>
     <button type="submit" class="btn btn-primary" (click)="onSave(orientationForm)">
         <i class="fa fa-floppy-o" aria-hidden="true"></i> save
     </button>
@@ -234,5 +234,5 @@
     </div>
 </div>
 
-<confirm></confirm>
+<app-confirm></app-confirm>
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

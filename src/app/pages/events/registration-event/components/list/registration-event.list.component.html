@@ -1,4 +1,4 @@
-<div class="card" scroll-spy (onPageEnd)="loadMore()">
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
     <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
         <a (click)="showfilter = !showfilter" class="filter-icon">
             <i class="fa fa-filter" aria-hidden="true"></i>
@@ -10,7 +10,7 @@
         <div class="row allInputs" *ngIf="showfilter">
             <div class="form-group col-lg-3 col-sm-6">
                 <label for="filterName">Date</label>
-                <input type="date" [ngModel]="filter.date | date:'yyyy-MM-dd'"  (blur)="filter.date = $event.target.value" class="form-control" name="filterName" placeholder="Name">
+                <input id="filterName" type="date" [ngModel]="filter.date | date:'yyyy-MM-dd'"  (blur)="filter.date = $event.target.value" class="form-control" name="filterName" placeholder="Name">
             </div>
             <div class="form-group col-lg-3 col-sm-6">
                 <label for="filterBase">Military Base</label>
@@ -46,7 +46,7 @@
                   </label>
                 </div>
               </div>
-       
+
             <div class="form-group col-lg-12 col-sm-12 search-btn">
                 <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
             </div>
@@ -104,6 +104,6 @@
   </div>
 </div>
 
-<confirm></confirm>
+<app-confirm></app-confirm>
 
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

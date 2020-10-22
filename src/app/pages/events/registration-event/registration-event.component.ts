@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
- @Component({
+@Component({
    selector: 'app-registration',
    template: '<router-outlet></router-outlet>',
  })
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
    constructor() { }
 
-   ngOnInit() {
+   ngOnInit(): void {
    }
 
  }
