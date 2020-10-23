@@ -1,0 +1,116 @@
+<div *ngIf="editing" ngForm #communicationForm="ngForm">
+    <ba-card cardTitle="History editing">
+        <div class="row">
+            <div class="col-sm-4">
+
+                <div class="relative">
+                    <div class="form-group">
+                        <label class="comp">Company</label>
+                        <select addNewItem ref="settings/company/details" (onclick)="navigate(itemEdit)" class="form-control" name="comp" [(ngModel)]="itemEdit.companyId"
+                            (change)="companyChanged()" required [ngClass]="{'ng-submit' : communicationForm._submitted}">
+                            <option disabled hidden [ngValue]="undefined">select...</option>
+                            <ng-container *ngFor="let comp of companies">
+                                <option [ngClass]="{'grey': !comp.isActive}" [ngValue]="comp.id">{{comp.name}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="form-group">
+                        <label for="call">Call reason</label>
+                        <select addNewItem ref="settings/call-reasons" (onclick)="navigate(itemEdit)" class="form-control" name="call" [(ngModel)]="itemEdit.companyCallReasonId"
+                            required [ngClass]="{'ng-submit' : communicationForm._submitted}">
+                            <option disabled hidden [ngValue]="undefined">select...</option>
+                            <ng-container *ngFor="let call of callReasons">
+                                <option *ngIf="call.isActive || call.id == itemEdit.callReasonId" [ngClass]="{'grey': !call.isActive}" [ngValue]="call.id">{{call.description}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="contact">Contact name</label>
+                    <select class="form-control" name="contact" [(ngModel)]="itemEdit.companyContactId" required [ngClass]="{'ng-submit' : communicationForm._submitted}"
+                            addNewItem ref="settings/company/details/{{itemEdit.companyId }}/contacts" (onclick)="navigate(itemEdit)">
+                        <option disabled hidden [ngValue]="undefined">select...</option>
+                        <ng-container *ngFor="let cont of contacts">
+                            <option *ngIf="cont.isActive || cont.id == itemEdit.callReasonId" [ngClass]="{'grey': !cont.isActive}" [ngValue]="cont.id">{{cont.firstName}} {{cont.lastName}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="office">Date of action</label>
+                    <input type="date" class="form-control" name="date" [ngModel]="itemEdit.timeStamp | date:'yyyy-MM-dd'" (blur)="itemEdit.timeStamp = $event.target.value"
+                        required [ngClass]="{'ng-submit' : communicationForm._submitted}">
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="notes">Note</label>
+                    <textarea class="form-control" name="notes" rows="8" [(ngModel)]="itemEdit.notes"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="allBtn">
+            <button type="submit" class="btn btn-primary" (click)="onSave(itemEdit, communicationForm)">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>
+            <button class="btn btn-default" (click)="cancelEdit(itemEdit, num); editing = false"> Cancel</button>
+        </div>
+    </ba-card>
+</div>
+
+<ba-card cardTitle="" baCardClass="with-scroll">
+    <div class="card" scroll-spy (onPageEnd)="onLoadMore()">
+        <div class="allTable">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="black-muted-bg">
+                        <th>Company</th>
+                        <th>Contact name</th>
+                        <th>Call reason</th>
+                        <th>Date of action </th>
+                        <th>
+                            <div *ngIf="!editing" class="addNewItem">
+                                <a (click)="addHistory()">
+                                    <span>Add new</span>
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of entities; let i=index"  ngForm #form="ngForm" (keydown.control.s)="onSave(item, form)" [ngClass]="{'disable' : item.isActive === false, 'editing': num == i }">
+                        <td>
+                            <i *ngIf='num == i' (click)="num = null" class="fa fa-chevron-left selecticon" aria-hidden="true"></i>
+                            <span *ngIf="item.application">{{getCompanyId(item.companyId)}}</span>
+                        </td>
+                        <td>
+
+                            <span>{{item.contact.firstName}} {{item.contact.lastName}}</span>
+                        </td>
+                        <td>
+                            <span>{{item.callReason.description}}</span>
+                        </td>
+                        <td>
+                            <span>{{item.timeStamp | date:'MM/dd/yyyy'}}</span>
+                        </td>
+
+                        <td>
+                            <a class="btnHover" (click)="editItem(item, i)">
+                                <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ba-card>
+
+<confirm></confirm>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

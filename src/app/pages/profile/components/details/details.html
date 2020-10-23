@@ -1,0 +1,747 @@
+<div ngForm #profileForm="ngForm" (keydown.control.s)="onSave(profileForm)">
+
+  <ul id="tabsJustified" class="nav nav-tabs">
+    <li class="nav-item">
+      <a href="" id="profiles" data-target="#profile" data-toggle="tab" class="nav-link text-uppercase active"
+        (click)="activePage = false">
+        <i class="fa fa-user-o" aria-hidden="true"></i> Info</a>
+    </li>
+    <li class="nav-item">
+      <a href="" id="commCompany" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#communication"
+        (click)=" activePage = true " data-toggle="tab" class="nav-link text-uppercase">
+        <i class="fa fa-history" aria-hidden="true"></i>Company communication
+        <span class="length-note" *ngIf="companyHistories.length>0">{{companyHistories.length}}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#notes" data-toggle="tab"
+        (click)=" activePage = false" class="nav-link text-uppercase">
+        <i class="fa fa-commenting-o" aria-hidden="true"></i> Notes
+        <span class="length-note"
+          *ngIf="entity.communicationHistory.length>0">{{entity.communicationHistory.length}}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="" id="exit" [ngClass]="{'disable' : !(entity.id > 0)}" data-target="#exits" data-toggle="tab"
+        class="nav-link text-uppercase" (click)="activePage = false">
+        <i class="fa fa-sign-out" aria-hidden="true"></i> Program exits </a>
+    </li>
+    <span class="hide" [ngClass]="{'showInfo' : !(entity.id > 0)}">The profile is not saved</span>
+  </ul>
+  <br>
+
+
+  <div id="tabsJustifiedContent" class="tab-content">
+
+    <!-- ------------------------Profile-------------------------- -->
+    <div id="profile" class="tab-pane fade active show">
+      <fieldset [disabled]="!entity.isActive && entity.id > 0">
+
+        <div class="row">
+          <div class="col-sm-12 col-lg-9 ">
+            <div>
+              <ba-card cardTitle="General Information">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputFirstName">First Name</label>
+                      <input type="text" name="fName"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 45 || event.charCode == 46'
+                        maxlength="50" class="form-control" id="inputFirstName" placeholder="First Name"
+                        [(ngModel)]="entity.firstName" tabindex="1" required
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                    <div class="form-group">
+                      <label for="mName">Middle Name</label>
+                      <input type="text" name="mName"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 45 || event.charCode == 46'
+                        maxlength="50" class="form-control" id="mName" placeholder="Middle Name"
+                        [(ngModel)]="entity.middleName" tabindex="3">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail">Email</label>
+                      <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
+                        class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="entity.email" tabindex="5"
+                        required [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                    <div class="form-group">
+                      <label for="gender">Gender</label>
+                      <select class="form-control" name="gender" [(ngModel)]="entity.gender" tabindex="7">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <option [ngValue]="'M'">Male</option>
+                        <option [ngValue]="'F'">Female</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputWebsite">Date of Birth</label>
+                      <input type="date" name="dob" class="form-control" id="inputWebsite"
+                        [ngModel]="entity.dateOfBirth | date:'yyyy-MM-dd'" [max]="maxDOB"
+                        (blur)="entity.dateOfBirth = $event.target.value" tabindex="16" tabindex="9">
+                    </div>
+                    <div class="form-group">
+                      <label for="age">Age</label>
+                      <input type="text" name="age" class="form-control" id="age" [ngModel]="entity.age" disabled
+                        tabindex="11">
+                    </div>
+                    <div class="form-group">
+                      <label for="intDate">Interview Date</label>
+                      <input type="date" name="intDate" class="form-control"
+                        [ngModel]="entity.interviewDate | date:'yyyy-MM-dd'"
+                        (blur)="entity.interviewDate = $event.target.value" tabindex="13">
+                    </div>
+                    <div style="position: relative;" *ngIf="entity.orientationEvent && entity.orientationEvent.event">
+                      <div class="form-group">
+                        <label for="orEvent">Orientation Event Date</label>
+                        <input readonly type="date" name="orEvent" class="form-control"
+                          [ngModel]="entity.orientationEvent.event.date | date:'yyyy-MM-dd' " tabindex="15">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="completDate">Completion Date</label>
+                      <input type="date" name="completDate" class="form-control"
+                        [ngModel]="entity.registrationCompletionDate | date:'yyyy-MM-dd'" tabindex="17"
+                        (blur)="entity.registrationCompletionDate = $event.target.value">
+                    </div>
+
+
+
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputLastName">Last Name</label>
+                      <input type="text" name="lName"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 45 || event.charCode == 46'
+                        maxlength="50" class="form-control" id="inputLastName" placeholder="Last Name"
+                        [(ngModel)]="entity.lastName" tabindex="2" required
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail">Phone</label>
+                      <input *ngIf="entity.country == 'US'" type="tel" name="phone" [textMask]="{mask: maskUS, guide: false, showMask: false}"
+                        id="phone1"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45'
+                        class="form-control" placeholder="Phone" [(ngModel)]="entity.phone" tabindex="4"
+                        [ngClass]="{'ng-submit' : profileForm._submitted}" minlength="14">
+
+                      <input *ngIf="entity.country != 'US'" type="tel" name="phone" [textMask]="{mask: mask, guide: false, showMask: true}"
+                        id="phone1"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45'
+                        class="form-control" placeholder="Phone" [(ngModel)]="entity.phone" tabindex="4"
+                        [ngClass]="{'ng-submit' : profileForm._submitted}" minlength="10">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="inputSSN" class="ssn-with-icon">SSN
+                        <i style="font-size:20px" [class]="showSsn ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                      </label>
+                      <input type="text" visabilitySsn name="ssn" autocomplete="none"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="9" minlength="9"
+                        class="form-control" id="inputSSN" placeholder="SSN" [(ngModel)]="entity.ssn" tabindex="6">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="race">Race</label>
+                      <select class="form-control" name="-race" id="race" [(ngModel)]="entity.race" tabindex="8">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <option [ngValue]="'A'">African-American</option>
+                        <option [ngValue]="'C'">Caucasian</option>
+                        <option [ngValue]="'H'">Hispanic</option>
+                        <option [ngValue]="'O'">Other</option>
+                        <option [ngValue]="'U'">Unknown</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="linkIdProfile">LinkedIn Profile</label>
+                      <input type="url" name="linkIdProfile" class="form-control"
+                        placeholder="LinkedIn profile" [(ngModel)]="entity.linkedInProfile" tabindex="10"
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                    <div class="form-group">
+                      <label for="facebookProfile">Facebook profile</label>
+                      <input type="url" name="facebookProfile" class="form-control"
+                        placeholder="Facebook profile" [(ngModel)]="entity.facebookProfile" tabindex="12">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="appdate">Application Date</label>
+                      <input type="date" name="appdate" class="form-control" id="intdate"
+                        [ngModel]="entity.applicationDate | date:'yyyy-MM-dd'"
+                        (blur)="entity.applicationDate = $event.target.value" tabindex="14" required
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                    <div style="position: relative;" *ngIf="entity.registrationEvent && entity.registrationEvent.event">
+                      <div class="form-group">
+                        <label for="regEvent">Registration Event Date</label>
+                        <input readonly type="date" name="regEvent" class="form-control" id="appdate"
+                          [ngModel]="entity.registrationEvent.event.date | date:'yyyy-MM-dd' " tabindex="16">
+                      </div>
+                    </div>
+                    <div class="form-group checkbox-group">
+                      <label for="ptdy"></label>
+                      <div class="cursor-pointer input-check" (click)="entity.ptdy = !entity.ptdy">
+                        <span class="span-txt">PTDY</span>
+                        <i style="font-size:20px" [class]="entity.ptdy ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                      </div>
+                    </div>
+                    <div *ngIf="campbelStrongAffiliation" class="form-group checkbox-group">
+                      <label for="ptdy"></label>
+                      <div class="cursor-pointer input-check" (click)="changeCampbellStrongAffiliation()">
+                        <span class="span-txt">Campbell strong</span>
+                        <i style="font-size:20px" [class]="hasCampbellStrong ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" *ngIf="hillerProgres > 0 && !entity.hillerBonusPaidDate">
+                  <span class="hiller-title">Hiller bonus</span>
+                  <br>
+                  <div class="col-sm-4">
+                    <span>Progress</span>
+                    <div class="progress">
+                      <div class="progress-bar" [ngClass]="{'red': hillerProgres >= 100}" role="progressbar"
+                        [style.width.%]="hillerProgres" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        {{_hillerProgres}}%</div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4" *ngIf="hillerProgres >= 100">
+                    <div class="form-group">
+                      <label for="dateBonus">Date send bonus</label>
+                      <input type="date" name="dateBonus" class="form-control" id="inputWebsite"
+                        [ngModel]="dateBonus | date:'yyyy-MM-dd'" (blur)="dateBonus = $event.target.value" required
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4 bonus" *ngIf="hillerProgres >= 100">
+                    <button class="btn btn-default " (click)='sendBonus(profileForm)'>Bonus sended</button>
+                  </div>
+                </div>
+
+                <div class="row" *ngIf="entity.hillerBonusPaidDate">
+                  <div class="col-sm-6 form-group">
+                    <label for="sendBonus">Date send Hiller bonus
+                      <i class="fa fa-smile-o yellow" aria-hidden="true"></i>
+                    </label>
+                    <input type="date" name="sendBonus" class="form-control" id="appcompdate"
+                      [ngModel]="entity.hillerBonusPaidDate | date:'yyyy-MM-dd'"
+                      (blur)="entity.hillerBonusPaidDate = $event.target.value">
+                  </div>
+                </div>
+              </ba-card>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-lg-3">
+            <div class="foto col-md-12 " [ngClass]="{'disable' : !entity.isActive && entity.id > 0}">
+              <ba-card cardTitle="Photo" class="link-btns" baCardClass="with-scroll">
+                <ba-picture-uploader [objType]="'Applications'" [objId]="entity.id" [photoAvailable]="entity.hasPhoto"
+                  (onPreview)="onPhotoUpdated($event)" (onRemove)="onPhotoRemoved($event)">
+                </ba-picture-uploader>
+              </ba-card>
+            </div>
+
+            <div class="linn col-md-12 " [ngClass]="{'disable' : !(entity.id > 0)}">
+              <ba-card>
+                <div class="box" (click)="entity.disclosureFormAccepted = !entity.disclosureFormAccepted">
+                  <span class="span-txt">Disclosure form</span>
+                  <i style="font-size:20px"
+                    [class]="entity.disclosureFormAccepted ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                </div>
+              </ba-card>
+
+              <ba-card cardTitle="Navigation" class="link-btns">
+
+                <!-- href="{{'https://totaltechschool.com/school-portal/admin#/students/details/' + entity.id}}"> -->
+                <a class="btn" *ngIf="true" target="_blank"
+                  href="{{'https://totaltechschool.com/school-portal/admin#/students/details/'+ entity.id+'/forms'}}">
+                  <span>Forms</span>
+                  <div>
+                    <i class="fa fa-file-text-o icon" aria-hidden="true" title="Tools"></i>
+                  </div>
+
+                </a>
+                <a class="btn" *ngIf="true"
+                  routerLink="{{'/tools/details/appl/' + entity.id +'/'+ entity.firstName +' '+ entity.lastName }}">
+                  <span>Tools</span>
+                  <div>
+                    <i class="fa fa-briefcase icon" aria-hidden="true" title="Tools"></i>
+                  </div>
+
+                </a>
+                <a class="btn btn-default"
+                  routerLink="{{'/classes/details/appl/' + entity.id +'/'+ entity.firstName +' '+ entity.lastName }}">
+                  <span>Graduation</span>
+                  <div>
+                    <i class="fa fa-graduation-cap" aria-hidden="true" title="Graduation"></i>
+                  </div>
+                </a>
+                <a class="btn"
+                  routerLink="{{'/job-tracking/details/appl/' + entity.id +'/'+ entity.firstName +' '+ entity.lastName }}">
+                  <span>Employments</span>
+                  <div>
+                    <i class="fa fa-history" aria-hidden="true" title="Employments"></i>
+                  </div>
+                </a>
+                <a class="btn"
+                  routerLink="{{'/mentorship/details/appl/' + entity.id +'/'+ entity.firstName +' '+ entity.lastName}}">
+                  <span>Mentorship</span>
+                  <div>
+                    <i class="fa fa-male" aria-hidden="true" title="Mentorship"></i>
+                  </div>
+                </a>
+                <a class="btn" routerLink="{{'/ride-along/list/'+ entity.firstName +' '+ entity.lastName }}">
+                  <span>Ride Along</span>
+                  <i class="fa fa-car" aria-hidden="true" title="Ride Along"></i>
+                </a>
+                <a class="btn" *ngIf="entity.properties && entity.properties['CanHillerHousingAllowance']"
+                  routerLink="{{'/housing-allowance/details/empl/' + entity.properties.HillerEmploymentId +'/'+ entity.firstName +' '+ entity.lastName}}">
+                  <span>Housing Allowance</span>
+                  <i class="fa fa-umbrella" aria-hidden="true" title="Housing allowance"></i>
+                </a>
+                <a class="btn" *ngIf="entity.properties && entity.properties['CanHillerHousingAllowance']"
+                  routerLink="{{'/workforce-personal/details/empl/' + entity.properties.HillerEmploymentId +'/'+ entity.firstName +' '+ entity.lastName}}">
+                  <span>Workforce Training</span>
+                  <i class="fa fa-id-badge" aria-hidden="true" title="Workforce training"></i>
+                </a>
+
+                <a class="btn" *ngIf="entity.id" (click)="navigate()"
+                  routerLink="/events/registration-event{{entity.registrationEvent && entity.registrationEvent.eventId ? '/details/' : '/list'}}{{entity.registrationEvent ? entity.registrationEvent.eventId : ''}}">
+                  <span>Registration Event</span>
+                  <i class="fa fa-calendar-plus-o" aria-hidden="true" title="Registration Event"></i>
+                </a>
+
+                <a class="btn" *ngIf="entity.id" (click)="navigate()"
+                  routerLink="/events/orientation-event{{entity.orientationEvent && entity.orientationEvent.eventId ? '/details/' : '/list'}}{{entity.orientationEvent ? entity.orientationEvent.eventId : ''}}">
+                  <span>Orientation Event</span>
+                  <i class="fa fa-calendar-check-o" aria-hidden="true" title="Orientation Event"></i>
+                </a>
+                <a class="btn" *ngIf="entity.id" (click)="navigate()"
+                  routerLink="/dashboard/class-activity/{{entity.firstName}} {{entity.lastName}}/{{entity.id}}">
+                  <span>Class activity</span>
+                  <i class="fa fa-line-chart stats" aria-hidden="true" title="Class activity"></i>
+                </a>
+
+                <a class="btn" *ngIf="entity.id" (click)="navigate()"
+                  routerLink="/housing-transportation/{{entity.firstName}} {{entity.lastName}}/{{entity.id}}">
+                  <span>Housing & <br /> Transportation</span>
+                  <i class="fa fa-building-o align-midle" aria-hidden="true" title="Housing & Transportation"></i>
+                </a>
+
+              </ba-card>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div>
+              <ba-card cardTitle="Address">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="adreess-state">Country</label>
+                      <select class="form-control" name="adreess-country" [(ngModel)]="entity.country"
+                        (change)="changeCompany()" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">
+                          {{country.countryName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="adreess-state">State</label>
+                      <select class="form-control" name="adreess-state" [(ngModel)]="entity.state"
+                        [ngClass]="{'ng-submit' : profileForm._submitted}">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <option *ngFor="let state of states" [ngValue]="state.shortCode">{{state.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="adreess-city">City</label>
+                      <input type="text" name="adreess-city" class="form-control" maxlength="50" placeholder="City"
+                        [(ngModel)]="entity.city" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" name="address" class="form-control" maxlength="50" placeholder="Address"
+                        [(ngModel)]="entity.address" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="address-zip">Zip</label>
+                      <input type="text" name="address-zip" class="form-control"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                        maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
+                        placeholder="Zip" [(ngModel)]="entity.zip" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                    </div>
+                  </div>
+                </div>
+              </ba-card>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div [ngClass]="{'opasity': military}">
+              <ba-card cardTitle="Military Info">
+                <div class="hideSection" (click)="military = !military">
+                  <i class="fa {{military ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+                </div>
+                <div *ngIf="!military">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="basen">Base name</label>
+                        <select addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
+                          name="baseName" id="bases" [(ngModel)]="entity.homeBaseId">
+                          <option hidden [ngValue]="undefined">select...</option>
+                          <option [ngValue]="null">select...</option>
+                          <ng-container *ngFor="let base of baseName">
+                            <option *ngIf="base.isActive || base.id == entity.homeBaseId" [ngValue]="base.id"
+                              [ngClass]="{'grey': !base.isActive}">{{base.name}}
+                              @ {{base.city}},{{base.state}}</option>
+                          </ng-container>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="unit">Unit</label>
+                        <input type="text" name="unit" maxlength="250" class="form-control" id="unit" placeholder="Unit"
+                          [(ngModel)]="entity.unit">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="militaryBranch">Military Branch</label>
+                        <select addNewItem ref="settings/military" (onclick)="navigate()" class="form-control"
+                          name="militaryBranchId" id="militaryBranch" [(ngModel)]="entity.militaryBranchId">
+                          <option hidden [ngValue]="undefined">select...</option>
+                          <option [ngValue]="null">select...</option>
+                          <ng-container *ngFor="let name of militaryBranch">
+                            <option *ngIf="name.isActive || name.id == entity.militaryBranchId" [ngValue]="name.id"
+                              [ngClass]="{'grey': !name.isActive}">{{name.description}}</option>
+                          </ng-container>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="rank">Rank</label>
+                        <input type="text" name="rank1" maxlength="250" class="form-control" id="rank"
+                          placeholder="Rank" [(ngModel)]="entity.rank">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="ets">ETS Date</label>
+                        <input type="date" name="etsDate" class="form-control" id="ets"
+                          [ngModel]="entity.etsDate | date:'yyyy-MM-dd'" (blur)="entity.etsDate = $event.target.value">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="td">Terminal Date</label>
+                        <input type="date" name="terminalDate" class="form-control" id="td"
+                          [ngModel]="entity.terminalDate | date:'yyyy-MM-dd'"
+                          (blur)="entity.terminalDate = $event.target.value">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="swd">Start Work Date</label>
+                        <input type="date" name="startDate" class="form-control" id="swd"
+                          [ngModel]="entity.startWorkDate | date:'yyyy-MM-dd'"
+                          (blur)="entity.startWorkDate = $event.target.value">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="militaryStatus">Military Status</label>
+                        <select name="baseStatus" class="form-control" [(ngModel)]="entity.militaryStatus">
+                          <option hidden [ngValue]="undefined">select...</option>
+                          <option [ngValue]="null">select...</option>
+                          <option [ngValue]="'1'">National Guard</option>
+                          <option [ngValue]="'2'">Reserves</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ba-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div [ngClass]="{'opasity': asvab}">
+              <ba-card cardTitle="ASVAB Tests">
+                <div class="hideSection" (click)="asvab = !asvab">
+                  <i class="fa {{asvab ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+                </div>
+                <div *ngIf="!asvab">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="gt">GT</label>
+                        <input type="text" name="gt" class="form-control" [(ngModel)]="entity.asvaB_GT" placeholder="GT"
+                          onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
+                          [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="admin">ADMIN</label>
+                        <input type="text" name="admin" class="form-control" [(ngModel)]="entity.asvaB_ADMIN"
+                          placeholder="ADMIN" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="cmbt">CMBT</label>
+                        <input type="text" name="cmbt" class="form-control" [(ngModel)]="entity.asvaB_CMBT"
+                          placeholder="CMBT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="elec">ELEC</label>
+                        <input type="text" name="elec" class="form-control" [(ngModel)]="entity.asvaB_ELEC"
+                          placeholder="ELEC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="fa">FA</label>
+                        <input type="text" name="fa" class="form-control" [(ngModel)]="entity.asvaB_FA" placeholder="FA"
+                          onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
+                          [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="mech">MECH</label>
+                        <input type="text" name="mech" class="form-control" [(ngModel)]="entity.asvaB_MECH"
+                          placeholder="MECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="food">FOOD</label>
+                        <input type="text" name="food" class="form-control" [(ngModel)]="entity.asvaB_FOOD"
+                          placeholder="FOOD" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="commo">COMMO</label>
+                        <input type="text" name="commo" class="form-control" [(ngModel)]="entity.asvaB_COMMO"
+                          placeholder="COMMO" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="maint">MAINT</label>
+                        <input type="text" name="maint" class="form-control" [(ngModel)]="entity.asvaB_MAINT"
+                          placeholder="MAINT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="tech">TECH</label>
+                        <input type="text" name="tech" class="form-control" [(ngModel)]="entity.asvaB_TECH"
+                          placeholder="TECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </ba-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div [ngClass]="{'opasity': locition}">
+              <ba-card cardTitle="Locations Preferences">
+                <div class="hideSection" (click)="locition = !locition">
+                  <i class="fa {{locition ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+                </div>
+                <div *ngIf="!locition">
+                  <div class="row" *ngFor="let location of entity.preferredLocations;let i=index">
+
+                    <div class="col-sm-12 col-md-6">
+                      <select-country-state [country]="location.country" [state]="location.state"
+                        (onChangeCompany)="changeLocationCompany($event, i)">
+                      </select-country-state>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                      <div class="form-group">
+                        <label for="city-{{i}}">City</label>
+                        <input type="text" name="city-{{i}}" maxlength="100" class="form-control" placeholder="City"
+                          [(ngModel)]="location.city">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-2">
+                      <div class="form-group">
+                        <label for="zip-{{i}}">Zip code</label>
+                        <input type="text" name="zip{{i}}" class="form-control" [(ngModel)]="location.zip"
+                          placeholder="Zip code" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                          maxlength={{validationMaxlength(location)}} minlength={{validationMinlength(location)}}
+                          [ngClass]="{'ng-submit' : profileForm._submitted}">
+                      </div>
+                    </div>
+                    <div class="col-sm-1">
+                      <div [ngClass]="{'disable' : !entity.isActive && entity.id > 0}" class="col-sm-2 aDell btnHover">
+                        <a (click)="removeLocation(location)">
+                          <i class="fa fa-trash-o" aria-hidden="true" title="Delete"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <button type="submit" *ngIf="entity.preferredLocations.length < 3" class="btn btn-default"
+                    (click)="addLocation()">
+                    <i class="fa fa-plus" aria-hidden="true"></i> new location
+                  </button>
+                </div>
+              </ba-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <div>
+              <ba-card cardTitle="Program Reference">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="programSource">How did you hear about this program</label>
+                      <select addNewItem ref="settings/references" (onclick)="navigate()" class="form-control"
+                        name="progSource" id="programSource" [(ngModel)]="entity.hearAboutProgramId">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <ng-container *ngFor="let src of programSource">
+                          <option *ngIf="src.isActive || src.id == entity.hearAboutProgramId" [ngValue]="src.id"
+                            [ngClass]="{'grey': !src.isActive}">{{src.description}}</option>
+                        </ng-container>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </ba-card>
+            </div>
+          </div>
+          <div class="col-sm-12 col-lg-6 ">
+            <ba-card cardTitle="Programs Admitted">
+              <div class="item-trade" *ngFor="let pa of programs">
+                <label class="trade-checkboxs" (click)="onProgramsAdmitted(pa)">
+                  <span>{{pa.name}}</span>
+                  <i style="font-size:20px" [class]="pa.admitted ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+
+                </label>
+              </div>
+
+            </ba-card>
+          </div>
+        </div>
+
+        <!-- ---------files----------- -->
+        <file-uploader *ngIf="entity.id" [objId]="entity.id" [tag]="'attachments'" [url]="'api/Applications'">
+        </file-uploader>
+
+        <div *ngIf="entity.isActive || !entity.id" class="allBtn">
+          <button type="submit" class="btn btn-primary" (click)="onSave(profileForm)">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+          </button>
+          <button *ngIf=" profileForm.dirty" class="btn btn-default" (click)="getData(entity.id)">
+            Discard changes
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </button>
+        </div>
+
+      </fieldset>
+
+
+
+      <button type="submit" class="btn btn-info" [hidden]="entity.isActive || !entity.id" (click)="onProgramEnter()">
+        <i class="fa fa-sign-in" aria-hidden="true"></i> re-enter program
+      </button>
+      <!-- ---end-profile--- -->
+    </div>
+
+
+
+    <!-- -----------------------NOTES------------------------- -->
+    <div id="notes" class="tab-pane fade">
+      <app-communication-notes (onError)="onHttpError($event)"></app-communication-notes>
+    </div>
+
+    <!-- ----------------Communication company------------------------- -->
+    <div id="communication" class="tab-pane fade">
+      <communication-company (onNavigate)="navigate($event)" [activePage]="activePage"></communication-company>
+    </div>
+
+    <!-- ---------------------------Exits------------------------------ -->
+    <div id="exits" class="tab-pane fade">
+      <div class="row">
+        <div class="col-sm-12">
+          <exits [entity]=entity (onError)="onHttpError($event)" (onNavigate)="navigate($event)"
+            (onChange)="onExit($event)"></exits>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info" [hidden]="entity.isActive || !entity.id" (click)="onProgramEnter()">
+        <i class="fa fa-sign-in" aria-hidden="true"></i> re-enter program
+      </button>
+    </div>
+
+    <!-- ---end-form---- -->
+  </div>
+
+  <!-- --end-tab-content--- -->
+</div>
+
+<confirm></confirm>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

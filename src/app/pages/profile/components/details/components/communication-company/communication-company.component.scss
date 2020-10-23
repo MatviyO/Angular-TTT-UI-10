@@ -1,0 +1,51 @@
+﻿.search{
+    height: 42px;
+    margin-top: 4px;
+    i{
+        float: left;
+        padding: 5px 0;
+        color: rgba(255, 255, 255, 0.582);
+    }
+    .input{
+        padding-top: 13px;
+        position: relative; 
+        border: none;
+        background-color: transparent;
+    } 
+}
+
+.addNewItem{
+    padding: 0;
+    i{
+        top: -1px;
+        right: 12px;
+    }
+}
+
+.relative{
+    position: relative;
+}
+.addNewItem a:hover{
+    cursor: pointer;
+}
+
+//  textarea.form-control {
+//     height: 128px;
+//     margin-top: 4px;
+// }
+
+.editing{
+    color: cyan;
+    .selecticon{
+        cursor: pointer;
+        position: absolute;
+        right: -13px;
+        padding-top: 11px;
+        color: cyan;
+        font-size: 18px;
+    }
+  
+}
+
+
+

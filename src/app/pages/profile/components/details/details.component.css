@@ -1,0 +1,29 @@
+.headerProfile{
+    text-align: center;
+}
+
+.foto{
+    border: 1px solid grey;
+    text-align: center;
+    height: 250px;
+    font-size: 40px;
+}
+
+.card-group{
+    padding-top: 20px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 7px;
+    position: relative;
+    margin-bottom: 24px; 
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15); 
+  
+   
+    
+}
+
+.card-group:hover{
+    background-color: rgba(255, 255, 255, 0.07);
+}
+

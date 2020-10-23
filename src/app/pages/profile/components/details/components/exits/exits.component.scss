@@ -1,0 +1,21 @@
+﻿.exit-tbn{
+    position: absolute;
+    top: 13px;
+    right: 70px;
+    color: #6DBFED;
+    font-size: 17px;
+    text-shadow: 2px -1px 6px black;
+    z-index: 1000;
+    i{
+        float: right;
+        padding-left: 10px;
+    } 
+}
+.exit-tbn:hover{
+    cursor: pointer;
+    color: white;
+    text-shadow: none;
+    i{
+      color: white;
+    }
+} 

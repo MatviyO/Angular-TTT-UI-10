@@ -1,0 +1,58 @@
+<div ngForm #exirForm="ngForm">
+    <ba-card cardTitle="Program Exits">
+
+        <div class="row" *ngIf="exitProgram">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exitreason">Exit Reason</label>
+                    <select addNewItem ref="settings/exits" (onclick)="navigate(exit)" class="form-control" name="exitreason"
+                        id="exitreason" [(ngModel)]="exit.exitReasonId" required [ngClass]="{'ng-submit' : exirForm._submitted}">
+                        <option disabled hidden [ngValue]="undefined">select...</option>
+                        <ng-container *ngFor="let src of exitReasons">
+                            <option *ngIf="src.isActive === true" [ngValue]="src.id">{{src.description}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="td">Exit Date</label>
+                    <input type="date" name="terminalDate" class="form-control" id="td" [ngModel]="exit.exitDate | date:'yyyy-MM-dd'"
+                        (blur)="exit.exitDate = $event.target.value" required [ngClass]="{'ng-submit' : exirForm._submitted}">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="textarea01">Exit Notes</label>
+                    <textarea class="form-control" id="textarea01" name="exitNotes" placeholder="Notes" [(ngModel)]="exit.exitNote"></textarea>
+                </div>
+            </div>
+
+            <div class="col-sm-12 allBtn">
+                <button type="submit" class="btn btn-warning" (click)="onProgramExit(exirForm)">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> exit program</button>
+                <button type="submit" class="btn btn-default" (click)="exitProgram = false; exit = {}">
+                    <i class="fa fa-times" aria-hidden="true"></i> cancel</button>
+            </div>
+        </div>
+        <br />
+
+        <div *ngIf="!exitProgram">
+            <div class="row" *ngFor="let exit of entity.programExits">
+                <div class="col-sm-12">
+                    <h4>{{exit.exitDate | date:'MM/dd/yyyy'}}: {{exit.exitReason ? exit.exitReason.description : ''}}</h4>
+                    <div class="section-block yellow-text">
+                        <p class="bo-pre">{{exit.exitNote}}</p>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="!exitProgram && entity.isActive" type="submit" class="btn btn-default" (click)="exitProgram = true">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Exit program
+            </button>
+        </div>
+    </ba-card>
+
+
+    <load-data *ngIf="showLoadData"></load-data>
+
+</div>
