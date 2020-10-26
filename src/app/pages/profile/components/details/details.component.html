@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-sm-12 col-lg-9 ">
             <div>
-              <ba-card cardTitle="General Information">
+              <app-ba-card cardTitle="General Information">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                       <label for="gender">Gender</label>
-                      <select class="form-control" name="gender" [(ngModel)]="entity.gender" tabindex="7">
+                      <select id="gender" class="form-control" name="gender" [(ngModel)]="entity.gender" tabindex="7">
                         <option hidden [ngValue]="undefined">select...</option>
                         <option [ngValue]="null">select...</option>
                         <option [ngValue]="'M'">Male</option>
@@ -74,8 +74,8 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="inputWebsite">Date of Birth</label>
-                      <input type="date" name="dob" class="form-control" id="inputWebsite"
+                      <label for="Birth">Date of Birth</label>
+                      <input type="date" name="dob" class="form-control" id="Birth"
                         [ngModel]="entity.dateOfBirth | date:'yyyy-MM-dd'" [max]="maxDOB"
                         (blur)="entity.dateOfBirth = $event.target.value" tabindex="16" tabindex="9">
                     </div>
@@ -93,13 +93,13 @@
                     <div style="position: relative;" *ngIf="entity.orientationEvent && entity.orientationEvent.event">
                       <div class="form-group">
                         <label for="orEvent">Orientation Event Date</label>
-                        <input readonly type="date" name="orEvent" class="form-control"
+                        <input id="orEvent" readonly type="date" name="orEvent" class="form-control"
                           [ngModel]="entity.orientationEvent.event.date | date:'yyyy-MM-dd' " tabindex="15">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="completDate">Completion Date</label>
-                      <input type="date" name="completDate" class="form-control"
+                      <input id="completDate" type="date" name="completDate" class="form-control"
                         [ngModel]="entity.registrationCompletionDate | date:'yyyy-MM-dd'" tabindex="17"
                         (blur)="entity.registrationCompletionDate = $event.target.value">
                     </div>
@@ -126,7 +126,7 @@
                         [ngClass]="{'ng-submit' : profileForm._submitted}" minlength="14">
 
                       <input *ngIf="entity.country != 'US'" type="tel" name="phone" [textMask]="{mask: mask, guide: false, showMask: true}"
-                        id="phone1"
+                        id="phone2"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45'
                         class="form-control" placeholder="Phone" [(ngModel)]="entity.phone" tabindex="4"
                         [ngClass]="{'ng-submit' : profileForm._submitted}" minlength="10">
@@ -156,13 +156,13 @@
 
                     <div class="form-group">
                       <label for="linkIdProfile">LinkedIn Profile</label>
-                      <input type="url" name="linkIdProfile" class="form-control"
+                      <input id="linkIdProfile" type="url" name="linkIdProfile" class="form-control"
                         placeholder="LinkedIn profile" [(ngModel)]="entity.linkedInProfile" tabindex="10"
                         [ngClass]="{'ng-submit' : profileForm._submitted}">
                     </div>
                     <div class="form-group">
                       <label for="facebookProfile">Facebook profile</label>
-                      <input type="url" name="facebookProfile" class="form-control"
+                      <input id="facebookProfile" type="url" name="facebookProfile" class="form-control"
                         placeholder="Facebook profile" [(ngModel)]="entity.facebookProfile" tabindex="12">
                     </div>
 
@@ -176,7 +176,7 @@
                     <div style="position: relative;" *ngIf="entity.registrationEvent && entity.registrationEvent.event">
                       <div class="form-group">
                         <label for="regEvent">Registration Event Date</label>
-                        <input readonly type="date" name="regEvent" class="form-control" id="appdate"
+                        <input id="regEvent" readonly type="date" name="regEvent" class="form-control" id="appdate"
                           [ngModel]="entity.registrationEvent.event.date | date:'yyyy-MM-dd' " tabindex="16">
                       </div>
                     </div>
@@ -189,7 +189,7 @@
                     </div>
                     <div *ngIf="campbelStrongAffiliation" class="form-group checkbox-group">
                       <label for="ptdy"></label>
-                      <div class="cursor-pointer input-check" (click)="changeCampbellStrongAffiliation()">
+                      <div id="ptdy" class="cursor-pointer input-check" (click)="changeCampbellStrongAffiliation()">
                         <span class="span-txt">Campbell strong</span>
                         <i style="font-size:20px" [class]="hasCampbellStrong ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
                       </div>
@@ -211,8 +211,8 @@
 
                   <div class="col-sm-4" *ngIf="hillerProgres >= 100">
                     <div class="form-group">
-                      <label for="dateBonus">Date send bonus</label>
-                      <input type="date" name="dateBonus" class="form-control" id="inputWebsite"
+                      <label for="inputWebsite">Date send bonus</label>
+                      <input  type="date" name="dateBonus" class="form-control" id="inputWebsite"
                         [ngModel]="dateBonus | date:'yyyy-MM-dd'" (blur)="dateBonus = $event.target.value" required
                         [ngClass]="{'ng-submit' : profileForm._submitted}">
                     </div>
@@ -228,34 +228,34 @@
                     <label for="sendBonus">Date send Hiller bonus
                       <i class="fa fa-smile-o yellow" aria-hidden="true"></i>
                     </label>
-                    <input type="date" name="sendBonus" class="form-control" id="appcompdate"
+                    <input id="sendBonus" type="date" name="sendBonus" class="form-control" id="appcompdate"
                       [ngModel]="entity.hillerBonusPaidDate | date:'yyyy-MM-dd'"
                       (blur)="entity.hillerBonusPaidDate = $event.target.value">
                   </div>
                 </div>
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
 
           <div class="col-sm-12 col-lg-3">
             <div class="foto col-md-12 " [ngClass]="{'disable' : !entity.isActive && entity.id > 0}">
-              <ba-card cardTitle="Photo" class="link-btns" baCardClass="with-scroll">
+              <app-ba-card cardTitle="Photo" class="link-btns" baCardClass="with-scroll">
                 <ba-picture-uploader [objType]="'Applications'" [objId]="entity.id" [photoAvailable]="entity.hasPhoto"
                   (onPreview)="onPhotoUpdated($event)" (onRemove)="onPhotoRemoved($event)">
                 </ba-picture-uploader>
-              </ba-card>
+              </app-ba-card>
             </div>
 
             <div class="linn col-md-12 " [ngClass]="{'disable' : !(entity.id > 0)}">
-              <ba-card>
+              <app-ba-card>
                 <div class="box" (click)="entity.disclosureFormAccepted = !entity.disclosureFormAccepted">
                   <span class="span-txt">Disclosure form</span>
                   <i style="font-size:20px"
                     [class]="entity.disclosureFormAccepted ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
                 </div>
-              </ba-card>
+              </app-ba-card>
 
-              <ba-card cardTitle="Navigation" class="link-btns">
+              <app-ba-card cardTitle="Navigation" class="link-btns">
 
                 <!-- href="{{'https://totaltechschool.com/school-portal/admin#/students/details/' + entity.id}}"> -->
                 <a class="btn" *ngIf="true" target="_blank"
@@ -333,7 +333,7 @@
                   <i class="fa fa-building-o align-midle" aria-hidden="true" title="Housing & Transportation"></i>
                 </a>
 
-              </ba-card>
+              </app-ba-card>
 
             </div>
           </div>
@@ -343,12 +343,12 @@
         <div class="row">
           <div class="col-sm-12">
             <div>
-              <ba-card cardTitle="Address">
+              <app-ba-card cardTitle="Address">
                 <div class="row">
                   <div class="col-sm-4">
                     <div class="form-group">
-                      <label for="adreess-state">Country</label>
-                      <select class="form-control" name="adreess-country" [(ngModel)]="entity.country"
+                      <label for="Country">Country</label>
+                      <select id="Country" class="form-control" name="adreess-country" [(ngModel)]="entity.country"
                         (change)="changeCompany()" [ngClass]="{'ng-submit' : profileForm._submitted}">
                         <option hidden [ngValue]="undefined">select...</option>
                         <option [ngValue]="null">select...</option>
@@ -360,7 +360,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label for="adreess-state">State</label>
-                      <select class="form-control" name="adreess-state" [(ngModel)]="entity.state"
+                      <select id="adreess-state" class="form-control" name="adreess-state" [(ngModel)]="entity.state"
                         [ngClass]="{'ng-submit' : profileForm._submitted}">
                         <option hidden [ngValue]="undefined">select...</option>
                         <option [ngValue]="null">select...</option>
@@ -371,28 +371,28 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label for="adreess-city">City</label>
-                      <input type="text" name="adreess-city" class="form-control" maxlength="50" placeholder="City"
+                      <input id="adreess-city" type="text" name="adreess-city" class="form-control" maxlength="50" placeholder="City"
                         [(ngModel)]="entity.city" [ngClass]="{'ng-submit' : profileForm._submitted}">
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label for="address">Address</label>
-                      <input type="text" name="address" class="form-control" maxlength="50" placeholder="Address"
+                      <input id="address" type="text" name="address" class="form-control" maxlength="50" placeholder="Address"
                         [(ngModel)]="entity.address" [ngClass]="{'ng-submit' : profileForm._submitted}">
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label for="address-zip">Zip</label>
-                      <input type="text" name="address-zip" class="form-control"
+                      <input id="address-zip" type="text" name="address-zip" class="form-control"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                         maxlength={{validationMaxlength(entity)}} minlength={{validationMinlength(entity)}}
                         placeholder="Zip" [(ngModel)]="entity.zip" [ngClass]="{'ng-submit' : profileForm._submitted}">
                     </div>
                   </div>
                 </div>
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
         </div>
@@ -401,7 +401,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div [ngClass]="{'opasity': military}">
-              <ba-card cardTitle="Military Info">
+              <app-ba-card cardTitle="Military Info">
                 <div class="hideSection" (click)="military = !military">
                   <i class="fa {{military ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
                 </div>
@@ -410,7 +410,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="basen">Base name</label>
-                        <select addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
+                        <select id="basen" addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
                           name="baseName" id="bases" [(ngModel)]="entity.homeBaseId">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
@@ -482,7 +482,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="militaryStatus">Military Status</label>
-                        <select name="baseStatus" class="form-control" [(ngModel)]="entity.militaryStatus">
+                        <select id="militaryStatus" name="baseStatus" class="form-control" [(ngModel)]="entity.militaryStatus">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
                           <option [ngValue]="'1'">National Guard</option>
@@ -492,7 +492,7 @@
                     </div>
                   </div>
                 </div>
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
         </div>
@@ -500,7 +500,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div [ngClass]="{'opasity': asvab}">
-              <ba-card cardTitle="ASVAB Tests">
+              <app-ba-card cardTitle="ASVAB Tests">
                 <div class="hideSection" (click)="asvab = !asvab">
                   <i class="fa {{asvab ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
                 </div>
@@ -509,7 +509,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="gt">GT</label>
-                        <input type="text" name="gt" class="form-control" [(ngModel)]="entity.asvaB_GT" placeholder="GT"
+                        <input id="gt" type="text" name="gt" class="form-control" [(ngModel)]="entity.asvaB_GT" placeholder="GT"
                           onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
                           [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -517,7 +517,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="admin">ADMIN</label>
-                        <input type="text" name="admin" class="form-control" [(ngModel)]="entity.asvaB_ADMIN"
+                        <input id="admin" type="text" name="admin" class="form-control" [(ngModel)]="entity.asvaB_ADMIN"
                           placeholder="ADMIN" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -525,7 +525,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="cmbt">CMBT</label>
-                        <input type="text" name="cmbt" class="form-control" [(ngModel)]="entity.asvaB_CMBT"
+                        <input id="cmbt" type="text" name="cmbt" class="form-control" [(ngModel)]="entity.asvaB_CMBT"
                           placeholder="CMBT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -533,7 +533,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="elec">ELEC</label>
-                        <input type="text" name="elec" class="form-control" [(ngModel)]="entity.asvaB_ELEC"
+                        <input id="elec" type="text" name="elec" class="form-control" [(ngModel)]="entity.asvaB_ELEC"
                           placeholder="ELEC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -541,7 +541,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="fa">FA</label>
-                        <input type="text" name="fa" class="form-control" [(ngModel)]="entity.asvaB_FA" placeholder="FA"
+                        <input id="fa" type="text" name="fa" class="form-control" [(ngModel)]="entity.asvaB_FA" placeholder="FA"
                           onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
                           [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -549,7 +549,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="mech">MECH</label>
-                        <input type="text" name="mech" class="form-control" [(ngModel)]="entity.asvaB_MECH"
+                        <input id="mech" type="text" name="mech" class="form-control" [(ngModel)]="entity.asvaB_MECH"
                           placeholder="MECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -560,7 +560,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="food">FOOD</label>
-                        <input type="text" name="food" class="form-control" [(ngModel)]="entity.asvaB_FOOD"
+                        <input id="food" type="text" name="food" class="form-control" [(ngModel)]="entity.asvaB_FOOD"
                           placeholder="FOOD" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -568,7 +568,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="commo">COMMO</label>
-                        <input type="text" name="commo" class="form-control" [(ngModel)]="entity.asvaB_COMMO"
+                        <input id="commo" type="text" name="commo" class="form-control" [(ngModel)]="entity.asvaB_COMMO"
                           placeholder="COMMO" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -576,7 +576,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="maint">MAINT</label>
-                        <input type="text" name="maint" class="form-control" [(ngModel)]="entity.asvaB_MAINT"
+                        <input id="maint" type="text" name="maint" class="form-control" [(ngModel)]="entity.asvaB_MAINT"
                           placeholder="MAINT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -584,15 +584,14 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="tech">TECH</label>
-                        <input type="text" name="tech" class="form-control" [(ngModel)]="entity.asvaB_TECH"
+                        <input id="tech" type="text" name="tech" class="form-control" [(ngModel)]="entity.asvaB_TECH"
                           placeholder="TECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
                     </div>
                   </div>
                 </div>
-
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
         </div>
@@ -600,7 +599,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div [ngClass]="{'opasity': locition}">
-              <ba-card cardTitle="Locations Preferences">
+              <app-ba-card cardTitle="Locations Preferences">
                 <div class="hideSection" (click)="locition = !locition">
                   <i class="fa {{locition ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
                 </div>
@@ -616,7 +615,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="city-{{i}}">City</label>
-                        <input type="text" name="city-{{i}}" maxlength="100" class="form-control" placeholder="City"
+                        <input id="city-{{i}}" type="text" name="city-{{i}}" maxlength="100" class="form-control" placeholder="City"
                           [(ngModel)]="location.city">
                       </div>
                     </div>
@@ -624,7 +623,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="zip-{{i}}">Zip code</label>
-                        <input type="text" name="zip{{i}}" class="form-control" [(ngModel)]="location.zip"
+                        <input id="zip-{{i}}" type="text" name="zip{{i}}" class="form-control" [(ngModel)]="location.zip"
                           placeholder="Zip code" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                           maxlength={{validationMaxlength(location)}} minlength={{validationMinlength(location)}}
                           [ngClass]="{'ng-submit' : profileForm._submitted}">
@@ -645,7 +644,7 @@
                     <i class="fa fa-plus" aria-hidden="true"></i> new location
                   </button>
                 </div>
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
         </div>
@@ -653,7 +652,7 @@
         <div class="row">
           <div class="col-sm-12 col-lg-6">
             <div>
-              <ba-card cardTitle="Program Reference">
+              <app-ba-card cardTitle="Program Reference">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
@@ -670,11 +669,11 @@
                     </div>
                   </div>
                 </div>
-              </ba-card>
+              </app-ba-card>
             </div>
           </div>
           <div class="col-sm-12 col-lg-6 ">
-            <ba-card cardTitle="Programs Admitted">
+            <app-ba-card cardTitle="Programs Admitted">
               <div class="item-trade" *ngFor="let pa of programs">
                 <label class="trade-checkboxs" (click)="onProgramsAdmitted(pa)">
                   <span>{{pa.name}}</span>
@@ -683,13 +682,13 @@
                 </label>
               </div>
 
-            </ba-card>
+            </app-ba-card>
           </div>
         </div>
 
         <!-- ---------files----------- -->
-        <file-uploader *ngIf="entity.id" [objId]="entity.id" [tag]="'attachments'" [url]="'api/Applications'">
-        </file-uploader>
+        <app-file-uploader *ngIf="entity.id" [objId]="entity.id" [tag]="'attachments'" [url]="'api/Applications'">
+        </app-file-uploader>
 
         <div *ngIf="entity.isActive || !entity.id" class="allBtn">
           <button type="submit" class="btn btn-primary" (click)="onSave(profileForm)">
@@ -720,15 +719,15 @@
 
     <!-- ----------------Communication company------------------------- -->
     <div id="communication" class="tab-pane fade">
-      <communication-company (onNavigate)="navigate($event)" [activePage]="activePage"></communication-company>
+      <app-communication-company (onNavigate)="navigate($event)" [activePage]="activePage"></app-communication-company>
     </div>
 
     <!-- ---------------------------Exits------------------------------ -->
     <div id="exits" class="tab-pane fade">
       <div class="row">
         <div class="col-sm-12">
-          <exits [entity]=entity (onError)="onHttpError($event)" (onNavigate)="navigate($event)"
-            (onChange)="onExit($event)"></exits>
+          <app-exits [entity]=entity (onError)="onHttpError($event)" (onNavigate)="navigate($event)"
+            (onChange)="onExit($event)"></app-exits>
         </div>
       </div>
       <button type="submit" class="btn btn-info" [hidden]="entity.isActive || !entity.id" (click)="onProgramEnter()">
@@ -736,12 +735,9 @@
       </button>
     </div>
 
-    <!-- ---end-form---- -->
   </div>
 
-  <!-- --end-tab-content--- -->
 </div>
-
-<confirm></confirm>
+<app-confirm></app-confirm>
 
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

@@ -1,6 +1,6 @@
 import { Component, ViewChild, Input , Output, EventEmitter } from '@angular/core';
-import { CommunicationHistory } from '@ttt/core/model';
 import { ApplicationNoteService } from './communication-notes.service';
+import {CommunicationHistory} from '../../../../../../core/model';
 
 class CommunicationHistoryNote extends CommunicationHistory {
     index: number;
@@ -19,8 +19,8 @@ export class ApplicationNoteComponent {
     scrolled: number;
     notes: any = [];
     applicationId: number;
-    noCollapse: boolean = true;
-    
+    noCollapse = true;
+
     constructor(
         private applNoteSvc: ApplicationNoteService,
     ) {}

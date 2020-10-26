@@ -1,7 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
-
-import { BaseDataService } from '@ttt/common/services';
-import { CommunicationHistory } from '@ttt/core/model';
+import {CommunicationHistory} from '../../../../../../core/model';
+import {BaseDataService} from '../../../../../../common/services';
 
 @Injectable()
 export class ApplicationNoteService extends BaseDataService<CommunicationHistory> {

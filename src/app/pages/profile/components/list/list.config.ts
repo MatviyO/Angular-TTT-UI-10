@@ -1,13 +1,13 @@
 import { Injectable, Inject, Injector } from '@angular/core';
+import {IDataService, IListWithTriggersConfig, ITriggerService} from '../../../../common/interfaces';
+import {ProfileService, TriggerService} from '../../../../core/data';
+import {Profile} from '../../../../core/model';
 
-import { IListWithTriggersConfig, ITriggerService, IDataService } from '@ttt/common/interfaces';
-
-import { Profile, ProfileService, TriggerService } from '@ttt/core';
 
 @Injectable()
 export class ProfilesListConfig implements IListWithTriggersConfig<Profile> {
-    triggerType: string = 'Application';
-    cls: { new(): any } = Profile;
+    triggerType = 'Application';
+    cls: new() => any = Profile;
     componentTitle = 'Profile';
     includes = 'ProgramsAdmittedTo,RegistrationEvent,OrientationEvent';
     // tslint:disable-next-line:max-line-length

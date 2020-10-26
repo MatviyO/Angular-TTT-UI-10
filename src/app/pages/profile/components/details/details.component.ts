@@ -1,20 +1,34 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import {
-    ConfirmComponent, DetailsStatefulWithTriggers, IResourceService, IEditorStatefulWithTriggersConfig, SelectCountryStateComponent,
-} from '@ttt/common';
-import { Reference, MilitaryBranch, Profile, Location, ApplicationProgram, MilitaryBase, ApplicationType, CompanyCommunicationHistory, ProgramExit, Trade, Trigger } from '@ttt/core/model';
-import { HearAboutProgramService, MilitaryService, TradesService, MilitaryBaseService, ApplicationNoteService, RegistrationEventService, CommunicationHistoryResourceService, AffiliationTypesService } from '@ttt/core/data';
 import { BaPictureUploader } from '../../../../theme/components/baPictureUploader/baPictureUploader.component';
 import { AssetsService } from './services';
 import { ExitsComponent, CommunicationCompanyComponent, ApplicationNoteComponent } from './components';
 import { ProfileDetailsConfig } from './details.config';
-import { RegistrationEvent, RegistrationEventApplication } from 'app/core/model/registration-event';
 import { Params } from '@angular/router';
+import {DetailsStatefulWithTriggersDirective} from '../../../../common/base-classes';
+import {
+  ApplicationProgram, ApplicationType,
+  CompanyCommunicationHistory,
+  MilitaryBase, MilitaryBranch,
+  Profile, ProgramExit,
+  Reference, Location,
+  RegistrationEvent, RegistrationEventApplication,
+  Trade, Trigger
+} from '../../../../core/model';
+import {ApplicationAffiliationService} from '../../../../core/data/application-affiliation.service';
+import {SelectCountryStateComponent} from '../../../../common/components/selectCountryState';
+import {
+  AffiliationTypesService,
+  CommunicationHistoryResourceService,
+  HearAboutProgramService, MilitaryBaseService,
+  MilitaryService, RegistrationEventService,
+  TradesService
+} from '../../../../core/data';
+import {CountryStatesService, State} from '../../../../core/data/country-state.service';
+import {AffiliationType} from '../../../../core/model/properties/application-affiliation';
+import {IEditorStatefulWithTriggersConfig, IResourceService} from '../../../../common/interfaces';
+import {ConfirmComponent} from '../../../../common/components/confirm';
+import {ApplicationNoteService} from './components/communication-notes/communication-notes.service';
 
-import { conformToMask } from 'angular2-text-mask';
-import { CountryStatesService, State } from 'app/core/data/country-state.service';
-import { ApplicationAffiliationService } from 'app/core/data/application-affiliation.service';
-import { AffiliationType, Affiliation } from 'app/core/model/properties/application-affiliation';
 
 class TradeAppl extends Trade {
     admitted: boolean;
@@ -22,13 +36,14 @@ class TradeAppl extends Trade {
 
 @Component({
     selector: 'app-profile-details',
-    templateUrl: './details.html',
+    templateUrl: './details.component.html',
     styleUrls: ['details.component.scss'],
-    providers: [AssetsService, ProfileDetailsConfig, ApplicationNoteService, ApplicationAffiliationService, AffiliationTypesService, RegistrationEventService, CommunicationHistoryResourceService],
+    providers: [AssetsService, ProfileDetailsConfig, ApplicationNoteService,
+      ApplicationAffiliationService, AffiliationTypesService, RegistrationEventService, CommunicationHistoryResourceService],
 })
 
 
-export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile> implements OnInit {
+export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirective<Profile> implements OnInit {
 
     photoId: number;
     section: string;
@@ -53,17 +68,17 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
     countries = this.countrySvc.getCounries();
     programs = this.tradesSvc.getTrades();
     photo: any;
-    asvab: boolean = false;
-    showSsn: boolean = false;
-    military: boolean = false;
-    locition: boolean = false;
-    hillerProgres: number = 0;
+    asvab = false;
+    showSsn = false;
+    military = false;
+    locition = false;
+    hillerProgres = 0;
     dateBonus: Date = new Date();
     activePage: boolean;
     states: State[] = [];
     campbelStrongAffiliation: AffiliationType;
-    hasCampbellStrong: boolean = false;
-    awaitingCreateCampbellStrong: boolean = false;
+    hasCampbellStrong = false;
+    awaitingCreateCampbellStrong = false;
 
 
     constructor(
@@ -85,7 +100,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
     validationMaxlength = (item: Profile): number => item.country === 'US' ? 5 : 10;
     validationMinlength = (item: Profile): number => item.country === 'US' ? 5 : 1;
 
-    changeCompany(firstLoad: boolean = false) {
+    changeCompany(firstLoad: boolean = false): void {
         if (this.entity.country) {
             const _country = this.countries.find(x => x.countryShortCode === this.entity.country);
             if (_country) { this.states = _country.regions; }
@@ -100,10 +115,10 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
         // if (tell && tell.length === 16) {
             tell = tell.slice(0, 14);
         // }
-        return tell;
+            return tell;
     }
 
-    changeLocationCompany(object: { country: string, state: string }, i: any) {
+    changeLocationCompany(object: { country: string, state: string }, i: any): void {
         this.entity.preferredLocations[i].country = object.country;
         this.entity.preferredLocations[i].state = object.state;
     }
@@ -119,9 +134,6 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
             );
         super.ngOnInit();
 
-        // this.affiliationTypesSvc.query('description.contains("Campbell")', '', null, null, true)
-
-
         this.programSvc.query('', '', null, 'null', 'id;description;isActive')
             .then(data => this.programSource = data)
             .catch((e) => this.onHttpError(e));
@@ -129,10 +141,6 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
         this.militarySvc.query('', '', null, 'null', 'id;description;isActive')
             .then(data => this.militaryBranch = data)
             .catch((e) => this.onHttpError(e));
-
-        // this.registrationEventSvc.query()
-        //     .then(data => this.registrationEvents = data)
-        //     .catch((e) => this.onHttpError(e));
 
         this.baseNameSvc.query('', '', null, 'null')
             .then(data => this.baseName = data)
@@ -159,7 +167,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
                         })
                         .catch(err => this.onHttpError(err));
                 } else {
-                    this.notificationSvc.error('Affiliation', "Can't find Campbell Strong Affiliation.");
+                    this.notificationSvc.error('Affiliation', 'Can\'t find Campbell Strong Affiliation.');
                 }
             } else {
                 this.hasCampbellStrong = false;
@@ -185,7 +193,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
                     this.awaitingCreateCampbellStrong = true;
                 }
             } else {
-                this.notificationSvc.error('Affiliation', "Can't find Campbell Strong Affiliation.");
+                this.notificationSvc.error('Affiliation', 'Can\'t find Campbell Strong Affiliation.');
             }
         }
     }
@@ -277,7 +285,6 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
             if (this.entity.country === 'US') {
                 this.entity.phone = this.parsePhone(this.entity.phone);
             }
-            // this.entity.phone = conformToMask(this.entity.phone, this.mask, {}).conformedValue;
         } else {
             this.entity.phone = null;
         }
@@ -361,14 +368,13 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
         }
     }
 
-    onPhotoUpdated(data: any) {
+    onPhotoUpdated(data: any): void {
         this.photo = data;
     }
 
-    onPhotoRemoved(event: any) {
+    onPhotoRemoved(event: any): void {
         this.entity.hasPhoto = false;
         this.photo = null;
-        // super.save();
     }
 
     addLocation(): void {
@@ -413,7 +419,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggers<Profile
         }
     }
 
-    onExit(exitObj: ProgramExit) {
+    onExit(exitObj: ProgramExit): void {
         const _date = this.formatedDate(exitObj.exitDate);
         exitObj.applicationId = this.entity.id;
         this.entity.isActive = false;

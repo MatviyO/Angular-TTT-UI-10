@@ -41,8 +41,8 @@ export class UrlProvider implements IUrlProvider {
         return url;
     }
 
-    selectJSONPathWithParent(selectJSONPath: string) {
-        let _str: string = '';
+    selectJSONPathWithParent(selectJSONPath: string): string {
+        let _str = '';
         const parseStr = selectJSONPath.split(';;');
         if (parseStr) {
             if (parseStr.length > 1) {

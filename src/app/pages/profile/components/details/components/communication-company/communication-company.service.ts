@@ -1,7 +1,6 @@
 ﻿import { Injectable, Injector } from '@angular/core';
-
-import { BaseDataServiceUnDeletable } from '@ttt/common';
-import { CompanyCommunicationHistory } from '@ttt/core/model';
+import {BaseDataServiceUnDeletable} from '../../../../../../common/services';
+import {CompanyCommunicationHistory} from '../../../../../../core/model/properties';
 
 @Injectable()
 export class CommunicationHistoryService extends BaseDataServiceUnDeletable<CompanyCommunicationHistory> {

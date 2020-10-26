@@ -13,12 +13,12 @@ const routes: Routes = [
     // canActivate: [AuthenticationService],
     children: [
       { path: '',  redirectTo: 'dashboard', pathMatch: 'full', },
-      { path: 'dashboard', loadChildren: () => import('../pages/dashboard/dashboard.module').then((m) => m.DashboardModule), },
-      { path: 'settings', loadChildren: () => import('../pages/settings/settings.module').then((m) => m.SettingsModule), },
+      { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule), },
+      { path: 'settings', loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule), },
 
       // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       //   { path: 'todo-dashboard', loadChildren: './todo/todo-dashboard.module#TodoDashboardModule' },
-      // { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
+      { path: 'profile', loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule), },
       // { path: 'tools', loadChildren: './tools/tools.module#ToolsModule' },
       // { path: 'classes', loadChildren: './classes/classes.module#ClassesModule' },
       // { path: 'ride-along', loadChildren: './ride-along/ride-along.module#RideAlongModule' },

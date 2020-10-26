@@ -1,21 +1,21 @@
 import { Component, OnInit, Inject, Injector } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { IListWithTriggersConfig } from '@ttt/common/interfaces';
-import { BaseSortableListWithTriggers } from '@ttt/common';
-import { Profile, ApplicationProgram, TradesService } from '@ttt/core';
 import { ProfilesListConfig } from './list.config';
-import { conformToMask } from 'angular2-text-mask';
+import {ApplicationProgram, Profile} from '../../../../core/model';
+import {BaseSortableListWithTriggersDirective} from '../../../../common/base-classes';
+import {IListWithTriggersConfig} from '../../../../common/interfaces';
+import {TradesService} from '../../../../core/data';
+
 
 @Component({
     selector: 'app-profile-list',
-    templateUrl: './list.html',
+    templateUrl: './list.component.html',
     styleUrls: ['list.component.scss'],
     providers: [ProfilesListConfig],
 })
 
-export class ProfileListComponent extends BaseSortableListWithTriggers<Profile> implements OnInit {
+export class ProfileListComponent extends BaseSortableListWithTriggersDirective<Profile> implements OnInit {
 
-    // mask = ['(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     mask = ['(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
     query: any = false;
     phone: any;

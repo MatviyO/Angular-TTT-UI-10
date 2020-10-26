@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { INotificationService, NotificationService, IEditorStateExt } from '@ttt/common';
-import { ExitReasonsService, ExitReason, Profile, ProgramExit } from '@ttt/core';
-
+import {IEditorStateExt, INotificationService} from '../../../../../../common/interfaces';
+import {ExitReason, ProgramExit} from '../../../../../../core/model/properties';
+import {NotificationService} from '../../../../../../common/services';
+import {Profile} from '../../../../../../core/model';
+import {ExitReasonsService} from '../../../../../../core/data';
 
 @Component({
-    // tslint:disable-next-line:component-selector
-    selector: 'exits',
+    selector: 'app-exits',
     templateUrl: './exits.component.html',
     styleUrls: ['./exits.component.scss'],
 })
@@ -17,8 +18,8 @@ export class ExitsComponent implements OnInit {
     @Output() onError = new EventEmitter();
 
     originalItemEdit: ProgramExit;
-    showLoadData: boolean = false;
-    exitProgram: boolean = false;
+    showLoadData  = false;
+    exitProgram = false;
     exit = new ProgramExit();
     exitReasons: ExitReason[];
 
@@ -51,11 +52,11 @@ export class ExitsComponent implements OnInit {
     restore(data: IEditorStateExt): void {
         if (data && data.editingItem) {
             this.exitProgram = true;
-            this.exit = data.editingItem; 
+            this.exit = data.editingItem;
         }
     }
 
-    navigate(itemEdit: ExitReason) {
+    navigate(itemEdit: ExitReason): void {
         const data: IEditorStateExt = {
             editingItem: itemEdit,
             itemBkp: this.originalItemEdit,

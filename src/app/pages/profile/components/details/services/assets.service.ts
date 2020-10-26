@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { UrlProvider } from '@ttt/common';
+import {UrlProvider} from '../../../../../common/utils';
+
 
 @Injectable()
 export class AssetsService {

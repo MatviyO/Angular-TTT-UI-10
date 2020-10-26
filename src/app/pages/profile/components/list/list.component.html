@@ -1,4 +1,4 @@
-<div class="horizontal-scroll card " scroll-spy (onPageEnd)="loadMore()">
+<div class="horizontal-scroll card " appScrollSpy (onPageEnd)="loadMore()">
   <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
     <a (click)="showfilter = !showfilter" class="filter-icon">
       <i class="fa fa-filter" aria-hidden="true"></i>
@@ -12,12 +12,12 @@
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterName">Name</label>
-        <input type="text" [(ngModel)]="filter.name" class="form-control" name="filterName" placeholder="Name">
+        <input id="filterName" type="text" [(ngModel)]="filter.name" class="form-control" name="filterName" placeholder="Name">
       </div>
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterRank">Email</label>
-        <input type="text" [(ngModel)]="filter.email" class="form-control" name="filterEmail" placeholder="Email">
+        <input id="filterRank" type="text" [(ngModel)]="filter.email" class="form-control" name="filterEmail" placeholder="Email">
       </div>
 
       <div class="form-group col-xs-12 col-lg-2 group-box center">
@@ -66,12 +66,12 @@
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterPhone">Phone</label>
-        <input type="text" [textMask]="{mask: mask, guide: false}" [(ngModel)]="filter.phone" class="form-control" name="filterPhone" placeholder="Phone">
+        <input id="filterPhone" type="text"  [(ngModel)]="filter.phone" class="form-control" name="filterPhone" placeholder="Phone">
       </div>
 
       <div class="form-group col-xs-12 col-lg-4">
-        <label for="trade">Trade</label>
-        <select class="form-control" name="trades" [(ngModel)]="filter.trade">
+        <label  for="trade">Trade</label>
+        <select id="trade" class="form-control" name="trades" [(ngModel)]="filter.trade">
           <option hidden [ngValue]="undefined">select...</option>
           <option [ngValue]="null">select...</option>
           <option *ngFor="let t of trades" [ngValue]="t.id">
@@ -114,11 +114,6 @@
       <div class="form-group  col-sm-12 search">
         <button class="btn btn-default" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
       </div>
-
-      <!-- <div class="form-group col-xs-12 ">
-        <button class="btn btn-default" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-      </div> -->
-
     </div>
   </div>
   <div class="addNewItem">
@@ -199,8 +194,6 @@
             <i class="fa {{item.registrationCompletionDate ? 'fa-check-square-o' : 'fa-square-o'}} check-icon" [ngClass]="addStatusColor(item.id)"
               aria-hidden="true"></i>
           </td>
-
-          <!-- ---------------------------------btnOpptions----------------------------- -->
           <td class="btnOpptions">
             <i class="fa fa-ellipsis-h fa-2x dot" aria-hidden="true"></i>
             <div class="moreOptions">
@@ -220,7 +213,6 @@
                 <span>Employments</span>
                 <i class="fa fa-history" aria-hidden="true" title="Job Tracking"></i>
               </a>
-              <!-- <a class="btn" routerLink="{{'/ride-along/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}"> -->
               <a class="btn" routerLink="{{'/ride-along/list/' + item.firstName +' '+ item.lastName }}">
                 <span>Ride Along</span>
                 <i class="fa fa-car" aria-hidden="true" title="Ride Along"></i>
@@ -258,12 +250,10 @@
               </a>
             </div>
           </td>
-
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>
 
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

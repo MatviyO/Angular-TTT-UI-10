@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-
-import { ProgramExit } from '@ttt/core/model';
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
+import {ProgramExit} from '../../../../../../core/model/properties';
 
 @Injectable()
 export class ExitsService {
     private url = 'api/Applications';  // URL to web api
-    private headers = new Headers({ 'Content-Type': 'application/json' });
+    private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    constructor(private http: Http) { }
-    
+    constructor(private http: HttpClient) { }
+
     exit(profileId: number, rowVersion: string, exit: ProgramExit): Promise<ProgramExit> {
         return this.http
             .post(`${this.url}/${profileId}/ExitProgram?rv=${encodeURIComponent(rowVersion)}`,
@@ -33,7 +31,7 @@ export class ExitsService {
     }
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 
