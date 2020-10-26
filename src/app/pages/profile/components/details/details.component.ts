@@ -15,7 +15,7 @@ import {
   Trade, Trigger
 } from '../../../../core/model';
 import {ApplicationAffiliationService} from '../../../../core/data/application-affiliation.service';
-import {SelectCountryStateComponent} from '../../../../common/components/selectCountryState';
+import {SelectCountryStateComponent} from '../../../../common/components/selectCountryState/selectCountryState.component';
 import {
   AffiliationTypesService,
   CommunicationHistoryResourceService,

@@ -7,7 +7,7 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {FormsModule} from '@angular/forms';
 import {
   InfoBoxComponentComponent, ProgressLoadDataComponent,
-  EditorComponent, AddNewItemComponent, SelectCountryStateComponent
+  EditorComponent, AddNewItemComponent
 } from './Components/';
 import {ScrollSpyDirective, ContainerDirective, AddNewItemDirective, VisabilitySsnDirective} from './directives';
 // import { MemoryCache, MemoryDataStorage } from './utils';
@@ -15,6 +15,7 @@ import {CallbackPipe, OrderByPipe} from './pipes';
 import {EnumKeyValueListPipe} from './pipes/keyValue.pipe';
 import {FileUploaderComponent} from './components/upload-file';
 import {ConfirmComponent} from './components/confirm';
+import {SelectCountryStateComponent} from './components/selectCountryState';
 
 @NgModule({
   imports: [

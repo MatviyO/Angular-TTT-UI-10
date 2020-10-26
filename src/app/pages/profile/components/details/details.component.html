@@ -607,9 +607,9 @@
                   <div class="row" *ngFor="let location of entity.preferredLocations;let i=index">
 
                     <div class="col-sm-12 col-md-6">
-                      <select-country-state [country]="location.country" [state]="location.state"
+                      <app-select-country-state [country]="location.country" [state]="location.state"
                         (onChangeCompany)="changeLocationCompany($event, i)">
-                      </select-country-state>
+                      </app-select-country-state>
                     </div>
 
                     <div class="col-sm-6 col-md-3">
