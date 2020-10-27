@@ -52,7 +52,7 @@
             <br> Drag & Drop files here
         </p>
 
-        <input id="fileUpload" #fileUpload type="file" ngFileSelect multiple hidden="hidden"  ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"
+        <input id="fileUpload" #fileUpload type="file" ngFileSelect  multiple hidden="hidden"  (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"
             >
         <div class="all-btn">
             <button class="btn btn-default" (click)="bringFileSelector()">

@@ -4,31 +4,32 @@ import { HttpClient } from '@angular/common/http';
 import {isPlatformBrowser} from '@angular/common';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-    selector: 'ba-picture-uploader',
-    styleUrls: ['./baPictureUploader.scss'],
-    templateUrl: './baPictureUploader.html',
+    selector: 'app-ba-picture-uploader',
+    styleUrls: ['./BaPictureUploader.component.scss'],
+    templateUrl: './BaPictureUploader.component.html',
 })
-// tslint:disable-next-line:component-class-suffix
-export class BaPictureUploader {
+export class BaPictureUploaderComponent {
 
-    @Input() defaultPicture: string = 'assets/img/theme/no-photo.png';
+    @Input() defaultPicture = 'assets/img/theme/no-photo.png';
     @Input() objType: string;
     @Input() photoAvailable: string;
 
-    picture: string = '';
-    isUpdated: boolean = false;
+    picture = '';
+    isUpdated = false;
     _objId: number;
 
-    get objId() {
+    // @ts-ignore
+  get objId(): any {
         return this._objId;
     }
 
-    @Input() set objId(id: number) {
+    // @ts-ignore
+  @Input() set objId(id: number): any {
         this._objId = id;
         if (id && id > 0 && this.photoAvailable) {
-            if(!this.picture)
+            if (!this.picture) {
             this.picture = `api/${this.objType}/${id}/assets/extag:ava/preview`;
+            }
         } else {
             this.picture = '';
         }
@@ -40,13 +41,13 @@ export class BaPictureUploader {
     @ViewChild('fileUpload') _fileUpload: ElementRef;
 
     uploadInProgress: boolean;
-    previewImg: string = '';
+    previewImg = '';
 
     options: UploaderOptions;
     formData: FormData;
     files: UploadFile[] = [];
     uploadInput: EventEmitter<UploadInput> = new EventEmitter<UploadInput>();
-    humanizeBytes: Function = humanizeBytes;
+    humanizeBytes = humanizeBytes;
     dragOver: boolean;
 
     constructor(private renderer: Renderer2, private http: HttpClient) {
@@ -65,21 +66,18 @@ export class BaPictureUploader {
             const index = this.files.findIndex(file => typeof output.file !== 'undefined' && file.id === output.file.id);
             this.files[index] = output.file;
         } else if (output.type === 'done') {
-            //this.onUploadCompleted.emit(output.file);
         }
     }
 
-    startUpload(id?:number): Promise<any> {
+    startUpload(id?: number): Promise<any> {
         if (!this._objId && !id || this.files.length < 1) {
             return Promise.resolve(null);
         }
 
         const formData = new FormData();
-        //this.files.forEach(file => {
-        formData.append('files', this.files[this.files.length-1].nativeFile);
-        //});
+        formData.append('files', this.files[this.files.length - 1].nativeFile);
 
-        return this.http.post(`api/${this.objType}/${id?id:this._objId}/assets?extag=ava&isPublic=true`, formData)
+        return this.http.post(`api/${this.objType}/${id ? id : this._objId}/assets?extag=ava&isPublic=true`, formData)
             .toPromise();
     }
 
@@ -87,23 +85,23 @@ export class BaPictureUploader {
         if (!this._objId) {
             return Promise.resolve(null);
         }
-        const headers= {'Content-Type': 'application/json'};
+        const headers = {'Content-Type': 'application/json'};
         const httpOptions = {
             headers: { 'Content-Type': 'application/json' },
-            body: ["extag:ava"],
+            body: ['extag:ava'],
         };
         return this.http.delete(`api/${this.objType}/${this._objId}/assets`, httpOptions)
             .toPromise();
     }
-  // tslint:disable-next-line:typedef
-  invokeElementMethod(eleRef: ElementRef, method: string) {
-    if (isPlatformBrowser(this._fileUpload)) {
-      eleRef.nativeElement[method]();
+    invokeElementMethod(eleRef: ElementRef, method: string): void {
+      if (isPlatformBrowser(this._fileUpload)) {
+        eleRef.nativeElement[method]();
+      }
     }
-  }
 
     bringFileSelector(): boolean {
         this.invokeElementMethod(this._fileUpload.nativeElement, 'click');
+        document.getElementById('fileUpload').click();
         return false;
     }
 
@@ -111,15 +109,13 @@ export class BaPictureUploader {
         this.picture = '';
         this.isUpdated = true;
         this.onRemove.emit();
-        // return this.http.delete(`api/${this.objType}/${this._objId}/assets?extag=ava&isPublic=true`, formData)
-        //     .toPromise();
         return false;
     }
 
     _changePicture(file: File): void {
         const reader = new FileReader();
         reader.addEventListener('load', (event: Event) => {
-            this.picture = (<any>event.target).result;
+            this.picture = (event.target as any).result;
         }, false);
         reader.readAsDataURL(file);
     }

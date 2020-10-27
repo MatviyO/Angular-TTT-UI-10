@@ -9,9 +9,12 @@ import { BaThemeConfigProvider } from './theme.configProvider';
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
 import {BaScrollPosition, BaSlimScroll, BaThemeRunDirective} from './directives';
 import { BaMenuService, BaThemePreloader, BaThemeSpinner } from './services';
-import { BaBackTopComponent, BaCardComponent, BaContentTopCommponent, BaMenuItem, BaMenu,
-  BaMsgCenter, BaPageTopComponent, BaPictureUploader, BaSidebarComponent } from './components';
+import {
+  BaBackTopComponent, BaCardComponent, BaContentTopCommponent, BaMenuItem, BaMenu,
+  BaMsgCenter, BaPageTopComponent, BaSidebarComponent
+} from './components';
 import {Common_Module} from '../common';
+import {BaPictureUploaderComponent} from './components/baPictureUploader/baPictureUploader.component';
 
 
 const NGA_COMPONENTS = [
@@ -22,7 +25,7 @@ const NGA_COMPONENTS = [
   BaMenu,
   BaMsgCenter,
   BaPageTopComponent,
-  BaPictureUploader,
+  BaPictureUploaderComponent,
   BaSidebarComponent,
 ];
 

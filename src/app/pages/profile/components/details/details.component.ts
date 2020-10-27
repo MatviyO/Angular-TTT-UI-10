@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { BaPictureUploader } from '../../../../theme/components/baPictureUploader/baPictureUploader.component';
 import { AssetsService } from './services';
 import { ExitsComponent, CommunicationCompanyComponent, ApplicationNoteComponent } from './components';
 import { ProfileDetailsConfig } from './details.config';
@@ -28,6 +27,7 @@ import {AffiliationType} from '../../../../core/model/properties/application-aff
 import {IEditorStatefulWithTriggersConfig, IResourceService} from '../../../../common/interfaces';
 import {ConfirmComponent} from '../../../../common/components/confirm';
 import {ApplicationNoteService} from './components/communication-notes/communication-notes.service';
+import {BaPictureUploaderComponent} from '../../../../theme/components/baPictureUploader/baPictureUploader.component';
 
 
 class TradeAppl extends Trade {
@@ -53,7 +53,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
     @ViewChild(ApplicationNoteComponent) applNoteComponent: ApplicationNoteComponent;
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     @ViewChild(ExitsComponent) exitsComponent: ExitsComponent;
-    @ViewChild(BaPictureUploader) photoUploader: BaPictureUploader;
+    @ViewChild(BaPictureUploaderComponent) photoUploader: BaPictureUploaderComponent;
     @ViewChild(SelectCountryStateComponent) selectCountryState: SelectCountryStateComponent;
 
     maskUS = ['(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
