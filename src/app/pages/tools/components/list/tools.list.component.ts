@@ -15,7 +15,6 @@ import {AddNewItemComponent} from '../../../../common/components/add-new-item/ad
 
 export class ToolsListComponent extends BaseSortableListWithTriggersDirective<Tools> {
     @ViewChild(AddNewItemComponent) addNewItem: AddNewItemComponent;
-    // @ViewChild(FileUploader) _fileUploader: FileUploader;
     phone: any;
     filterNewItem = `type="3" or type="2"`;
 
