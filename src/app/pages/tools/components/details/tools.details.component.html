@@ -1,0 +1,116 @@
+<p *ngIf="toolsForbidden">Tools can not be order for selected profile.</p>
+<div ngForm #toolsForm="ngForm" (keydown.control.s)="onSave(toolsForm)" *ngIf="!toolsForbidden">
+
+  <ba-card cardTitle="General">
+    <div class="row">
+
+      <div class="form-group col-sm-2 group-box center col-xs-6">
+          <label class="labelTxt">Tools needed</label>
+          <br />
+          <div [class]="entity.processTerminated ? 'disable':''">
+            <i style="font-size:42px" [class]="entity.toolsNeeded ? 'ion-toggle-filled':'ion-toggle'"
+            (click)="entity.toolsNeeded = !entity.toolsNeeded"></i>
+          </div>
+        </div>
+
+      <div class="form-group col-sm-5 ">
+        <label for="toolsassigned">Tools assigned</label>
+        <input id="toolsassigned" [disabled]="!entity.toolsNeeded" type="date" class="form-control" name="toolsassigned"
+          [ngModel]="entity.toolsAssigned | date:'yyyy-MM-dd'" (blur)="entity.toolsAssigned = $event.target.value">
+      </div>
+      <div class="form-group col-sm-5">
+        <label for="toolsNeededBy">Tools needed by</label>
+        <input id="toolsNeededBy" [disabled]="!entity.toolsNeeded" type="date" class="form-control" name="toolsNeededBy"
+          [ngModel]="entity.toolsNeededBy | date:'yyyy-MM-dd'" (blur)="entity.toolsNeededBy = $event.target.value">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-2 group-box center col-xs-6">
+        <label class="labelTxt">Process Terminated</label>
+        <br />
+        <i style="font-size:42px" [class]="entity.processTerminated ? 'ion-toggle-filled':'ion-toggle'"
+          (click)="deactivateTriggers()"></i>
+      </div>
+      <div class="form-group col-sm-5">
+        <label for="toolsNeededBy">Termination Date</label>
+        <input [disabled]="true" type="date" class="form-control" name="processTerminated"
+          [ngModel]="entity.processTerminated | date:'yyyy-MM-dd'">
+      </div>
+    </div>
+  </ba-card>
+  <fieldset [disabled]="!entity.toolsNeeded">
+
+    <ba-card cardTitle="Informations">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="poNumber">PO #</label>
+          <input id="poNumber" type="text" class="form-control" name="poNumber" [(ngModel)]="entity.poNumber">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="invoiceNumber">Invoice #</label>
+          <input id="invoiceNumber" type="text" class="form-control" name="invoiceNumber" [(ngModel)]="entity.invoiceNumber">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="checkNumber">Check #</label>
+          <input id="checkNumber" type="text" class="form-control" name="checkNumber" [(ngModel)]="entity.checkNumber">
+        </div>
+      </div>
+    </ba-card>
+
+    <ba-card cardTitle="Dates">
+      <div class="row">
+        <i *ngIf="entity.hasTrigger" class="fa fa-exclamation-circle  triggIcon" aria-hidden="true"></i>
+        <div class="form-group col-sm-4">
+
+
+          <label for="poReceived1">PO received</label>
+          <input id="poReceived1" type="date" class="form-control" name="poReceived" [ngModel]="entity.poReceived |  date:'yyyy-MM-dd' "
+            (blur)="entity.poReceived = $event.target.value">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="invoiceSent">Invoice sent</label>
+          <!-- disable _tools as entity -->
+          <input id="invoiceSent" type="date" [disabled]="!entity.poReceived" min="{{entity.poReceived | date:'yyyy-MM-dd'}}"
+            class="form-control" name="invoiceSent" [ngModel]="entity.invoiceSent | date:'yyyy-MM-dd'"
+            (blur)="entity.invoiceSent = $event.target.value">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="toolsOrdered">Tools ordered</label>
+          <input id="toolsOrdered" type="date" [disabled]="!entity.invoiceSent" min="{{entity.invoiceSent | date:'yyyy-MM-dd'}}"
+            class="form-control" name="toolsOrdered" [ngModel]="entity.toolsOrdered | date:'yyyy-MM-dd'"
+            (blur)="entity.toolsOrdered = $event.target.value">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="checkReceived">Check received</label>
+          <input id="checkReceived" type="date" [disabled]="!entity.toolsOrdered" min="{{entity.toolsOrdered | date:'yyyy-MM-dd'}}"
+            class="form-control" name="checkReceived" [ngModel]="entity.checkReceived | date:'yyyy-MM-dd'"
+            (blur)="entity.checkReceived = $event.target.value">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="checkSent">Check sent</label>
+          <input id="checkSent" type="date" [disabled]="!entity.checkReceived" min="{{entity.checkReceived | date:'yyyy-MM-dd'}}"
+            class="form-control" name="checkSent" [ngModel]="entity.checkSent | date:'yyyy-MM-dd'"
+            (blur)="entity.checkSent = $event.target.value">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="toolsReceived">Tools received</label>
+          <input id="toolsReceived" type="date" [disabled]="!entity.checkSent" min="{{entity.checkSent | date:'yyyy-MM-dd'}}"
+            class="form-control " name="toolsReceived" [ngModel]="entity.toolsReceived | date:'yyyy-MM-dd'"
+            (blur)="entity.toolsReceived = $event.target.value">
+        </div>
+      </div>
+    </ba-card>
+
+  </fieldset>
+
+  <!-- ---------files----------- -->
+  <app-file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/ToolsOrders'"></app-file-uploader>
+  <button type="submit" class="btn btn-primary" (click)="onSave(toolsForm)">
+    <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+  </button>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

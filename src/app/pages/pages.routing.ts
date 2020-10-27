@@ -19,7 +19,7 @@ const routes: Routes = [
       // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       //   { path: 'todo-dashboard', loadChildren: './todo/todo-dashboard.module#TodoDashboardModule' },
       { path: 'profile', loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule), },
-      // { path: 'tools', loadChildren: './tools/tools.module#ToolsModule' },
+      { path: 'tools', loadChildren: () => import('./tools/tools.module').then((m) => m.ToolsModule), },
       // { path: 'classes', loadChildren: './classes/classes.module#ClassesModule' },
       // { path: 'ride-along', loadChildren: './ride-along/ride-along.module#RideAlongModule' },
       // { path: 'mentorship', loadChildren: './mentorship/mentorship.module#MentorshipModule' },

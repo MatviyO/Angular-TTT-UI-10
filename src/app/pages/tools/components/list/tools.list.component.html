@@ -1,0 +1,118 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="name">Name</label>
+        <input id="name" type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="poNumber">PO #</label>
+        <input id="poNumber" type="text" [(ngModel)]="filter.poNumber" class="form-control" name="poNumber" placeholder="PO #">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="invoiceNumber">Invoice #</label>
+        <input id="invoiceNumber" type="text" [(ngModel)]="filter.invoiceNumber" class="form-control" name="invoiceNumber"
+          placeholder="Invoice #">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="checkNumber">Check #</label>
+        <input id="checkNumber" type="text" [(ngModel)]="filter.checkNumber" class="form-control" name="checkNumber"
+          placeholder="Check #">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="status">Status</label>
+        <select id="status" class="form-control" name="status" [(ngModel)]="filter.status">
+          <option [ngValue]="undefined" hidden>select...</option>
+          <option [ngValue]="null">select...</option>
+          <option [ngValue]="'New'">New</option>
+          <option [ngValue]="'POReceived'">PO received</option>
+          <option [ngValue]="'InvoiceSent'">Invoice sent</option>
+          <option [ngValue]="'ToolsOrdered'">Tools ordered</option>
+          <option [ngValue]="'CheckReceived'">Check received</option>
+          <option [ngValue]="'CheckSent'">Check sent</option>
+          <option [ngValue]="'ToolsReceived'">Tools received</option>
+          <option [ngValue]="'ProcessTerminated'">Process terminated</option>
+        </select>
+      </div>
+
+      <div class="form-group col-lg-2 col-sm-12">
+        <div class="search-btn">
+          <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addNewItem">
+    <a (click)="showWindow()">
+      <i class="fa fa-briefcase" aria-hidden="true"></i>
+      <span>Add new tools </span>
+    </a>
+  </div>
+  <app-add-new-item [forType]="'tools'" [link]="'/tools/details/appl/'" [filter]="this.filterNewItem"></app-add-new-item>
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('application.firstName')" class="sorting-hover">
+              Name
+              <span class="iconsForName" *ngIf="sort.column =='application.firstName'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th> PO #</th>
+          <th>Invoice #</th>
+          <th>Check # </th>
+          <th>
+            <a (click)="onSort('lastDateSet')" class="sorting-hover">
+              Status
+              <span class="iconsForName" *ngIf="sort.column =='lastDateSet'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>Recent Action</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.application.isActive}">
+          <td>
+            <span class="circle-trigger">
+              <i class="fa fa-circle" [ngClass]="addStatusColor(item.id)" aria-hidden="true"></i>
+            </span>
+            {{item.application.firstName + ' ' + item.application.lastName}}
+          </td>
+          <td>{{item.poNumber}}</td>
+          <td>{{item.invoiceNumber}}</td>
+          <td>{{item.checkNumber}}</td>
+
+          <td>{{addSpace(item.lastDateSet)}}</td>
+          <td>{{item.lastDateSetValue | date:'MM/dd/yyyy'}}</td>
+
+          <td>
+            <a class="btnHover" routerLink="{{'/tools/details/' + item.id}}">
+              <span></span>
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

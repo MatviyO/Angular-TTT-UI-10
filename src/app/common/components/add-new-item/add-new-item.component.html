@@ -1,0 +1,20 @@
+<div *ngIf="!hide" class="main">
+  <div class="item">
+    <p class="head-title"> Please select soldier to create a new record </p>
+
+    <div class="form-control search">
+      <label for="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </label>
+      <input class="form-control input" name="search" max-num-list='10' value-formatter="firstName lastName" list-formatter="firstName lastName" autocomplete="off"  auto-complete [(ngModel)]="sourceCompany"
+             [source]="observableSource(sourceCompany)" min-chars="3" placeholder='search' match-formatted="true"/>
+    </div>
+
+    <p [ngClass]="{'show': showErr}" class="error"> <i class="fa fa-info-circle" aria-hidden="true"></i> Please select a soldier </p>
+
+    <div class="buttons">
+      <button class="btn btn-default" (click)="cancel()">CANCEL</button>
+      <button class="btn btn-default" (click)="onOk()">OK</button>
+    </div>
+  </div>
+</div>

@@ -12,36 +12,45 @@
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterName">Name</label>
-        <input id="filterName" type="text" [(ngModel)]="filter.name" class="form-control" name="filterName" placeholder="Name">
+        <input id="filterName" type="text" [(ngModel)]="filter.name" class="form-control" name="filterName"
+               placeholder="Name">
       </div>
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterRank">Email</label>
-        <input id="filterRank" type="text" [(ngModel)]="filter.email" class="form-control" name="filterEmail" placeholder="Email">
+        <input id="filterRank" type="text" [(ngModel)]="filter.email" class="form-control" name="filterEmail"
+               placeholder="Email">
       </div>
 
       <div class="form-group col-xs-12 col-lg-2 group-box center">
         <label class="labelTxt">Profile is complete</label>
         <br>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary btn-sm" (click)="filter.complete = true" [ngClass]="{'active': filter.complete === true}">
+          <label class="btn btn-primary btn-sm" (click)="filter.complete = true"
+                 [ngClass]="{'active': filter.complete === true}">
             <input type="radio" name="pc"> Yes
           </label>
-          <label class="btn btn-primary btn-sm " (click)="filter.complete = false" [ngClass]="{'active': filter.complete === false}">
+          <label class="btn btn-primary btn-sm " (click)="filter.complete = false"
+                 [ngClass]="{'active': filter.complete === false}">
             <input type="radio" name="pc"> No
           </label>
-          <label class="btn btn-primary btn-sm border-radius-right" (click)="filter.complete = null" [ngClass]="{'active': filter.complete === null}">
+          <label class="btn btn-primary btn-sm border-radius-right" (click)="filter.complete = null"
+                 [ngClass]="{'active': filter.complete === null}">
             <input type="radio" name="pc"> N/A
           </label>
 
-          <div class="btn-group showSectionFilter" data-toggle="buttons" [ngClass]="{'animation_filterSection' : filter.complete === false}">
-            <label class="btn btn-primary border-radius-left btn-sm" (click)="filter.pActive = 0" [ngClass]="{'active': filter.pActive === 0}">
+          <div class="btn-group showSectionFilter" data-toggle="buttons"
+               [ngClass]="{'animation_filterSection' : filter.complete === false}">
+            <label class="btn btn-primary border-radius-left btn-sm" (click)="filter.pActive = 0"
+                   [ngClass]="{'active': filter.pActive === 0}">
               <input type="radio" name="pa"> All
             </label>
-            <label class="btn btn-primary btn-sm noYellow" (click)="filter.pActive = 1" [ngClass]="{'active': filter.pActive === 1}">
+            <label class="btn btn-primary btn-sm noYellow" (click)="filter.pActive = 1"
+                   [ngClass]="{'active': filter.pActive === 1}">
               <input type="radio" name="pa"> 2 w
             </label>
-            <label class="btn btn-primary btn-sm noRed" (click)="filter.pActive = 2" [ngClass]="{'active': filter.pActive === 2}">
+            <label class="btn btn-primary btn-sm noRed" (click)="filter.pActive = 2"
+                   [ngClass]="{'active': filter.pActive === 2}">
               <input type="radio" name="pa"> 3 w
             </label>
           </div>
@@ -52,13 +61,16 @@
         <label class="labelTxt">Program is active</label>
         <br>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary btn-sm" (click)="filter.prActive = true" [ngClass]="{'active': filter.prActive === true}">
+          <label class="btn btn-primary btn-sm" (click)="filter.prActive = true"
+                 [ngClass]="{'active': filter.prActive === true}">
             <input type="radio" name="pa"> Yes
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.prActive = false" [ngClass]="{'active': filter.prActive === false}">
+          <label class="btn btn-primary btn-sm" (click)="filter.prActive = false"
+                 [ngClass]="{'active': filter.prActive === false}">
             <input type="radio" name="pa"> No
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.prActive = null" [ngClass]="{'active': filter.prActive === null}">
+          <label class="btn btn-primary btn-sm" (click)="filter.prActive = null"
+                 [ngClass]="{'active': filter.prActive === null}">
             <input type="radio" name="pa"> N/A
           </label>
         </div>
@@ -66,11 +78,12 @@
 
       <div class="form-group col-xs-6 col-lg-4">
         <label for="filterPhone">Phone</label>
-        <input id="filterPhone" type="text"  [(ngModel)]="filter.phone" class="form-control" name="filterPhone" placeholder="Phone">
+        <input id="filterPhone" type="text" [(ngModel)]="filter.phone" class="form-control" name="filterPhone"
+               placeholder="Phone">
       </div>
 
       <div class="form-group col-xs-12 col-lg-4">
-        <label  for="trade">Trade</label>
+        <label for="trade">Trade</label>
         <select id="trade" class="form-control" name="trades" [(ngModel)]="filter.trade">
           <option hidden [ngValue]="undefined">select...</option>
           <option [ngValue]="null">select...</option>
@@ -84,13 +97,16 @@
         <label class="labelTxt">SM profiles</label>
         <br>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = true" [ngClass]="{'active': filter.smProfile === true}">
+          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = true"
+                 [ngClass]="{'active': filter.smProfile === true}">
             <input type="radio" name="pa"> Yes
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = false" [ngClass]="{'active': filter.smProfile === false}">
+          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = false"
+                 [ngClass]="{'active': filter.smProfile === false}">
             <input type="radio" name="pa"> No
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = null" [ngClass]="{'active': filter.smProfile === null}">
+          <label class="btn btn-primary btn-sm" (click)="filter.smProfile = null"
+                 [ngClass]="{'active': filter.smProfile === null}">
             <input type="radio" name="pa"> N/A
           </label>
         </div>
@@ -100,19 +116,23 @@
         <label class="labelTxt">Has Photo</label>
         <br>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = true" [ngClass]="{'active': filter.hasPhoto === true}">
+          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = true"
+                 [ngClass]="{'active': filter.hasPhoto === true}">
             <input type="radio" name="pa"> Yes
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = false" [ngClass]="{'active': filter.hasPhoto === false}">
+          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = false"
+                 [ngClass]="{'active': filter.hasPhoto === false}">
             <input type="radio" name="pa"> No
           </label>
-          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = null" [ngClass]="{'active': filter.hasPhoto === null}">
+          <label class="btn btn-primary btn-sm" (click)="filter.hasPhoto = null"
+                 [ngClass]="{'active': filter.hasPhoto === null}">
             <input type="radio" name="pa"> N/A
           </label>
         </div>
       </div>
       <div class="form-group  col-sm-12 ">
-        <button class="btn btn-default" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        <button class="btn btn-default" (click)="onSearch()"><i class="fa fa-search" aria-hidden="true"></i> Search
+        </button>
       </div>
     </div>
   </div>
@@ -125,132 +145,140 @@
   <div class="allTable padd-bottom">
     <table class="table table-hover table-line-height col-sm-12">
       <thead>
-        <tr class="black-muted-bg">
-          <th></th>
-          <th>
-            <a (click)="onSort('firstname')" class="sorting-hover">
-              Name
-              <span class="iconsForName" *ngIf="sort.column =='firstname'">
+      <tr class="black-muted-bg">
+        <th></th>
+        <th>
+          <a (click)="onSort('firstname')" class="sorting-hover">
+            Name
+            <span class="iconsForName" *ngIf="sort.column =='firstname'">
                 <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
               </span>
-            </a>
-          </th>
-          <th>
-            Trade
-          </th>
-          <th>
-            <a (click)="onSort('email')" class="sorting-hover">
-              Email
-              <span class="iconsForEmail" *ngIf="sort.column == 'email'">
+          </a>
+        </th>
+        <th>
+          Trade
+        </th>
+        <th>
+          <a (click)="onSort('email')" class="sorting-hover">
+            Email
+            <span class="iconsForEmail" *ngIf="sort.column == 'email'">
                 <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
               </span>
-            </a>
-          </th>
-          <th>
-            <a (click)="onSort('phone')" class="sorting-hover">
-              Phone
-              <span class="iconsForPhone" *ngIf="sort.column =='phone'">
+          </a>
+        </th>
+        <th>
+          <a (click)="onSort('phone')" class="sorting-hover">
+            Phone
+            <span class="iconsForPhone" *ngIf="sort.column =='phone'">
                 <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
               </span>
-            </a>
-          </th>
-          <th>
-            <a (click)="onSort('isActive')" class="sorting-hover">
-              Program active
-              <span class="iconsForPhone" *ngIf="sort.column =='isActive'">
+          </a>
+        </th>
+        <th>
+          <a (click)="onSort('isActive')" class="sorting-hover">
+            Program active
+            <span class="iconsForPhone" *ngIf="sort.column =='isActive'">
                 <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
               </span>
-            </a>
-          </th>
-          <th>
-            <a (click)="onSort('registrationCompletionDate')" class="sorting-hover">
-              Completed
-              <span class="iconsForPhone" *ngIf="sort.column =='registrationCompletionDate'">
+          </a>
+        </th>
+        <th>
+          <a (click)="onSort('registrationCompletionDate')" class="sorting-hover">
+            Completed
+            <span class="iconsForPhone" *ngIf="sort.column =='registrationCompletionDate'">
                 <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
               </span>
-            </a>
-          </th>
-          <th></th>
-        </tr>
+          </a>
+        </th>
+        <th></th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.isActive}">
-          <td class="foto">
-            <img *ngIf="item.hasPhoto" src="/api/applications/{{ item.id }}/assets/extag:ava/preview" width="40">
-            <i *ngIf="!item.hasPhoto" class="fa fa-user-o fa-2x" aria-hidden="true"></i>
-          </td>
-          <td>{{item.firstName + ' ' + item.lastName}}</td>
-          <td>{{getTrades(item.programsAdmittedTo)}}
-            <br />
-          </td>
-          <td>
-            <a class="mail" href="mailto:{{item.email}}">{{item.email}}</a>
-          </td>
-          <td>{{item.phone}}</td>
-          <td>
-            <i class="fa check-icon {{item.isActive ? 'fa-check-square-o' : 'fa-square-o'}}" aria-hidden="true"></i>
-          </td>
-          <td>
-            <i class="fa {{item.registrationCompletionDate ? 'fa-check-square-o' : 'fa-square-o'}} check-icon" [ngClass]="addStatusColor(item.id)"
-              aria-hidden="true"></i>
-          </td>
-          <td class="btnOpptions">
-            <i class="fa fa-ellipsis-h fa-2x dot" aria-hidden="true"></i>
-            <div class="moreOptions">
-              <a class="btn" routerLink="{{'/profile/details/' + item.id }}">
-                <span>Edit</span>
-                <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
-              </a>
-              <a class="btn" routerLink="{{'/tools/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}" *ngIf="true">
-                <span>Tools</span>
-                <i class="fa fa-briefcase" aria-hidden="true" title="Tools"></i>
-              </a>
-              <a class="btn" routerLink="{{'/classes/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
-                <span>Classes</span>
-                <i class="fa fa-leanpub" aria-hidden="true" title="Classes"></i>
-              </a>
-              <a class="btn" routerLink="{{'/job-tracking/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
-                <span>Employments</span>
-                <i class="fa fa-history" aria-hidden="true" title="Job Tracking"></i>
-              </a>
-              <a class="btn" routerLink="{{'/ride-along/list/' + item.firstName +' '+ item.lastName }}">
-                <span>Ride Along</span>
-                <i class="fa fa-car" aria-hidden="true" title="Ride Along"></i>
-              </a>
-              <a class="btn" routerLink="{{'/mentorship/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
-                <span>Mentorship</span>
-                <i class="fa fa-male" aria-hidden="true" title="Mentorship"></i>
-              </a>
-              <a class="btn" routerLink="{{'/housing-allowance/details/empl/' + item.properties.HillerEmploymentId +'/'+ item.firstName +' '+ item.lastName}}"
-                *ngIf="item.properties && item.properties.CanHillerHousingAllowance">
-                <span>Housing allowance</span>
-                <i class="fa fa-umbrella" aria-hidden="true" title="Housing allowance"></i>
-              </a>
-              <a class="btn" routerLink="{{'/workforce-personal/details/empl/' + item.properties.HillerEmploymentId +'/'+ item.firstName +' '+ item.lastName}}"
-                *ngIf="item.properties && item.properties.CanHillerHousingAllowance">
-                <span>Workforce training</span>
-                <i class="fa fa-id-badge" aria-hidden="true" title="Workforce training"></i>
-              </a>
-              <a class="btn" (click)="navigate()" *ngIf="item.registrationEvent && item.registrationEvent.eventId" routerLink="/events/registration-event/details/{{item.registrationEvent.eventId}}">
-                <span>Registration Event</span>
-                <i class="fa fa-calendar-plus-o" aria-hidden="true" title="Workforce training"></i>
-              </a>
+      <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.isActive}">
+        <td class="foto">
+          <img *ngIf="item.hasPhoto" src="/api/applications/{{item.id}}/assets/extag:ava/preview" width="40">
+          <i *ngIf="!item.hasPhoto" class="fa fa-user-o fa-2x" aria-hidden="true"></i>
+        </td>
+        <td>{{item.firstName + ' ' + item.lastName}}</td>
+        <td>{{getTrades(item.programsAdmittedTo)}}
+          <br/>
+        </td>
+        <td>
+          <a class="mail" href="mailto:{{item.email}}">{{item.email}}</a>
+        </td>
+        <td>{{item.phone}}</td>
+        <td>
+          <i class="fa check-icon {{item.isActive ? 'fa-check-square-o' : 'fa-square-o'}}" aria-hidden="true"></i>
+        </td>
+        <td>
+          <i class="fa {{item.registrationCompletionDate ? 'fa-check-square-o' : 'fa-square-o'}} check-icon"
+             [ngClass]="addStatusColor(item.id)"
+             aria-hidden="true"></i>
+        </td>
+        <td class="btnOpptions">
+          <i class="fa fa-ellipsis-h fa-2x dot" aria-hidden="true"></i>
+          <div class="moreOptions">
+            <a class="btn" routerLink="{{'/profile/details/' + item.id }}">
+              <span>Edit</span>
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+            <a class="btn" routerLink="{{'/tools/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}"
+               *ngIf="true">
+              <span>Tools</span>
+              <i class="fa fa-briefcase" aria-hidden="true" title="Tools"></i>
+            </a>
+            <a class="btn" routerLink="{{'/classes/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
+              <span>Classes</span>
+              <i class="fa fa-leanpub" aria-hidden="true" title="Classes"></i>
+            </a>
+            <a class="btn"
+               routerLink="{{'/job-tracking/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
+              <span>Employments</span>
+              <i class="fa fa-history" aria-hidden="true" title="Job Tracking"></i>
+            </a>
+            <a class="btn" routerLink="{{'/ride-along/list/' + item.firstName +' '+ item.lastName }}">
+              <span>Ride Along</span>
+              <i class="fa fa-car" aria-hidden="true" title="Ride Along"></i>
+            </a>
+            <a class="btn"
+               routerLink="{{'/mentorship/details/appl/' + item.id +'/'+ item.firstName +' '+ item.lastName}}">
+              <span>Mentorship</span>
+              <i class="fa fa-male" aria-hidden="true" title="Mentorship"></i>
+            </a>
+            <a class="btn"
+               routerLink="{{'/housing-allowance/details/empl/' + item.properties.HillerEmploymentId +'/'+ item.firstName +' '+ item.lastName}}"
+               *ngIf="item.properties && item.properties.CanHillerHousingAllowance">
+              <span>Housing allowance</span>
+              <i class="fa fa-umbrella" aria-hidden="true" title="Housing allowance"></i>
+            </a>
+            <a class="btn"
+               routerLink="{{'/workforce-personal/details/empl/' + item.properties.HillerEmploymentId +'/'+ item.firstName +' '+ item.lastName}}"
+               *ngIf="item.properties && item.properties.CanHillerHousingAllowance">
+              <span>Workforce training</span>
+              <i class="fa fa-id-badge" aria-hidden="true" title="Workforce training"></i>
+            </a>
+            <a class="btn" (click)="navigate()" *ngIf="item.registrationEvent && item.registrationEvent.eventId"
+               routerLink="/events/registration-event/details/{{item.registrationEvent.eventId}}">
+              <span>Registration Event</span>
+              <i class="fa fa-calendar-plus-o" aria-hidden="true" title="Workforce training"></i>
+            </a>
 
-              <a class="btn" *ngIf="item.orientationEvent && item.orientationEvent.eventId" routerLink="/events/orientation-event/details/{{item.orientationEvent.eventId}}">
-                <span>Orientation Event</span>
-                <i class="fa fa-calendar-check-o" aria-hidden="true" title="Workforce training"></i>
-              </a>
-              <a class="btn"  routerLink="/dashboard/class-activity/{{item.firstName}} {{item.lastName}}/{{item.id}}">
-                <span>Class activity</span>
-                <i class="fa fa-line-chart stats" aria-hidden="true" title="Class activity"></i>
-              </a>
-              <a class="btn"  routerLink="/housing-transportation/{{item.firstName}} {{item.lastName}}/{{item.id}}">
-                <span>Housing & <br/> Transportation</span>
-                <i class="fa fa-building-o align-midle" aria-hidden="true" title="Class activity"></i>
-              </a>
-            </div>
-          </td>
-        </tr>
+            <a class="btn" *ngIf="item.orientationEvent && item.orientationEvent.eventId"
+               routerLink="/events/orientation-event/details/{{item.orientationEvent.eventId}}">
+              <span>Orientation Event</span>
+              <i class="fa fa-calendar-check-o" aria-hidden="true" title="Workforce training"></i>
+            </a>
+            <a class="btn" routerLink="/dashboard/class-activity/{{item.firstName}} {{item.lastName}}/{{item.id}}">
+              <span>Class activity</span>
+              <i class="fa fa-line-chart stats" aria-hidden="true" title="Class activity"></i>
+            </a>
+            <a class="btn" routerLink="/housing-transportation/{{item.firstName}} {{item.lastName}}/{{item.id}}">
+              <span>Housing & <br/> Transportation</span>
+              <i class="fa fa-building-o align-midle" aria-hidden="true" title="Class activity"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
