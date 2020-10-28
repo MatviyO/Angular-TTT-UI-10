@@ -1,0 +1,25 @@
+﻿tr{
+    th,
+    td{
+        padding-left: 20px;
+        .fa-car{
+            margin: 0 3px;  
+            padding: 5px;  
+            background-color: rgba(255, 255, 255, 0.10);     
+        }
+     }
+}
+
+.min-width{
+    min-width: 150px;
+}
+
+.status-1{ color: #2a5fad; }
+.status-2{ color: #ecc839; }
+.status-3{ color: #00c128; }
+.status-4{ color: #d17f8e; }
+.status-5{ color: #ff8fa4; }
+
+.height{margin-bottom: -34px !important}
+.addNewItem{a{cursor: pointer}}
+.filter-icon{z-index: 5 !important}

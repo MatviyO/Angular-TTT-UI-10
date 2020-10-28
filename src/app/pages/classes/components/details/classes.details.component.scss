@@ -1,0 +1,75 @@
+.classes {
+  margin: 10px 20px;
+  h4 {
+    text-align: center;
+    color: #eaf3f9;
+  }
+}
+
+.pref {
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+}
+
+.moreLink {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.relative {
+  position: relative;
+}
+
+.withdrawn {
+  color: #bbb;
+}
+
+.withdrawn-info {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  right: 0;
+  i {
+    color: white;
+    cursor: pointer;
+  }
+  .withdrawn-note {
+    display: none;
+    position: relative;
+    border: 1px solid #85a6d0;
+    background-color: #4885c6;
+    border-radius: 6px;
+    padding: 6px 10px;
+    top: -1px;
+    right: -50px;
+    color: white;
+    line-height: normal;
+    width: 300px;
+    min-height: 37px;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0px 4px 35px -16px #000000;
+  }
+  &:hover .withdrawn-note {
+    display: block;
+  }
+  &:hover i {
+    display: none;
+  }
+}
+
+.position-relative{
+  position: relative;
+  text-align: center;
+}
+
+.class-pm-icon{
+  position: absolute;
+  left: 8px;
+  top: 0px;
+}
+
+.width-110{
+  min-width: 130px;
+}

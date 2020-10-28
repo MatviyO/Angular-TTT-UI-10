@@ -1,0 +1,133 @@
+<div ngForm #classesForm="ngForm" (keydown.control.s)="onSave(classesForm)">
+  <app-ba-card cardTitle="Graduation">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="expectedDateId">Graduation date (Expected)</label>
+          <select id="expectedDateId" class="form-control" name="expectedDateId" [(ngModel)]="entity.graduationExpectedDateId"
+            [ngClass]="{'ng-submit' : classesForm._submitted}" addNewItem ref="events/graduations"
+            (onclick)="navigate()">
+            <option hidden [ngValue]="undefined">select...</option>
+            <option [ngValue]="null">select...</option>
+            <option *ngFor="let g of graduations" [ngValue]="g.id" [ngClass]="{'grey': disableDate(g.date)}">{{g.date |
+              date:'MM/dd/yyyy'}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="invitationSentDate">Invitations send date</label>
+          <input id="invitationSentDate" type="date" class="form-control" name="graduationInitationSentDate"
+            [ngModel]="entity.graduationInvitationSentDate | date:'yyyy-MM-dd'"
+            (blur)="entity.graduationInvitationSentDate = $event.target.value">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="graduationLocation">Graduation location (Home base)</label>
+          <select id="graduationLocation" addNewItem ref="settings/graduation-locations" (onclick)="navigate()" class="form-control"
+            name="graduationLocation" [(ngModel)]="entity.graduationLocationId">
+            <option hidden [ngValue]="undefined">select...</option>
+            <option [ngValue]="null">select...</option>
+            <ng-container *ngFor="let loc of locations">
+              <option *ngIf="loc.isActive || loc.id == entity.graduationLocationId" [ngClass]="{'grey': !loc.isActive}"
+                [ngValue]="loc.id">{{loc.name}}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="form-group center">
+          <label for="pa">Attending graduation</label>
+          <br>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary btn-sm" (click)="entity.isAttendingGraduation = true"
+              [ngClass]="{'active':entity.isAttendingGraduation }">
+              <input id="pa" type="radio" name="pa"> Yes
+            </label>
+            <label class="btn btn-primary btn-sm" (click)="entity.isAttendingGraduation  = false"
+              [ngClass]="{'active':!entity.isAttendingGraduation }">
+              <input type="radio" name="pa"> No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes" class="form-control bo-pre" name="notes" rows="8" [(ngModel)]="entity.graduationNotes"></textarea>
+        </div>
+      </div>
+    </div>
+  </app-ba-card>
+
+  <app-ba-card cardTitle="Student's classes">
+    <div class="addNewItem moreLink" *ngIf="entity.application && entity.application.isActive">
+      <a (click)="addingReservation()">
+        <span>Reserve a class spot</span>
+        <i class="fa fa-user-plus plus" aria-hidden="true"></i>
+      </a>
+    </div>
+    <addNewSelectItem (dataLoaded)="dataLoadedForNewItem()" (clickOk)="addNewReservation($event)"></addNewSelectItem>
+    <div class="allTable">
+      <table class="table table-hover">
+        <thead>
+          <tr class="black-muted-bg">
+            <th> Class name</th>
+            <th> Trade </th>
+            <th class="width-110"> Start date </th>
+            <th> End date </th>
+            <th> Level </th>
+            <th> Status </th>
+            <th> Withdrew date </th>
+            <th> Withdrew reason </th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let cl of classes" [ngClass]="{'withdrawn' : cl.status.description == studentStatus.withdraw}">
+            <td> {{cl.program? cl.program.name: ''}}  </td>
+            <td> {{cl.program? getTradesById(cl.program.trade): ''}} </td>
+            <td class="position-relative">
+              <span class="class-pm-icon" *ngIf="cl.laterClassId > 0 || cl.priorClassId > 0">
+                <i class={{getClassIconSchedulingType(cl.schedulingType)}}
+                    title={{getSchedulingType(cl.schedulingType)}} aria-hidden="true"></i>
+            </span>
+              {{cl.startDate| date:'MM/dd/yyyy'}}
+            </td>
+            <td> {{cl.endDate| date:'MM/dd/yyyy'}} </td>
+            <td> {{cl.techLevel}} </td>
+            <td> {{cl.status.description}} </td>
+            <td> {{cl.status.details | date:'MM/dd/yyyy'}} </td>
+            <td class="relative">
+              {{cl.status.reason}}
+              <!-- --------------withdrawn-note ----------- -->
+              <div class="withdrawn-info" *ngIf="cl.status.note">
+                <i class="fa fa-commenting-o" aria-hidden="true"> </i>
+                <div class="withdrawn-note">
+                  {{cl.status.note}}
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="btnHover" (click)="navigate()" routerLink="{{'/settings/classes-schedule/details/' + cl.id}}">
+                <span></span>
+                <i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" title="Scheduled class"></i>
+              </a>
+              <a *ngIf="cl.status.description == studentStatus.reserved" class="btnHover"
+                (click)="deleteReservation(cl)">
+                <span></span>
+                <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="release a spot"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
+
+  <div class="allBtn">
+    <button type="submit" class="btn btn-primary" (click)="onSave(classesForm)">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+    </button>
+  </div>
+</div>
+  <app-confirm></app-confirm>
+  <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

@@ -1,0 +1,152 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true" ></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter<i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="allInputs" *ngIf="showfilter">
+      <div class="row allInputs">
+        <div class="form-group col-lg-4 col-xs-12">
+          <label for="filterName">Name</label>
+          <input id="filterName" type="text" [(ngModel)]="filter.name" class="form-control" name="filterName" placeholder="Name">
+        </div>
+        <div class="form-group col-lg-4 col-xs-12">
+          <label for="status">Graduation Date</label>
+          <select id="status" class="form-control" name="graduationDate" [(ngModel)]="filter.graduationDate">
+            <option hidden [ngValue]="undefined">select...</option>
+            <option [ngValue]="null">select...</option>
+            <option [ngValue]="'none'">none</option>
+            <option *ngFor="let date of graduations" [ngValue]="date.id" [ngClass]="{'grey': disableDate(date.date)}">{{date.date | date:'MM/dd/yyyy'}}</option>
+          </select>
+        </div>
+        <div class="form-group col-lg-4 col-xs-12">
+          <label for="Location">Location</label>
+          <select id="Location" class="form-control" name="graduationLocation" [(ngModel)]="filter.locationId">
+            <option hidden [ngValue]="undefined">select...</option>
+            <option [ngValue]="null">select...</option>
+            <option *ngFor="let loc of locations" [ngClass]="{'grey': !loc.isActive}" [ngValue]="loc.id">{{loc.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-xs-6 col-lg-3 center">
+          <label class="labelTxt">Invited</label><br>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary btn-sm " (click)="filter.invitations = null" [ngClass]="{'active': filter.invitations === null}">
+              <input type="radio" name="pa"> All
+            </label>
+            <label class="btn btn-primary btn-sm red" (click)="filter.invitations = 1" [ngClass]="{'active': filter.invitations === 1}">
+              <input type="radio" name="pa"> 10 d
+            </label>
+            <label class="btn btn-primary btn-sm yellow" (click)="filter.invitations = 2" [ngClass]="{'active': filter.invitations === 2}">
+              <input type="radio" name="pa"> 20 d
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-xs-6 col-lg-3 center">
+          <label class="labelTxt">Attending</label><br>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary btn-sm" (click)="filter.attending = true" [ngClass]="{'active': filter.attending === true}">
+              <input type="radio" name="pa"> Yes
+            </label>
+            <label class="btn btn-primary btn-sm" (click)="filter.attending = false" [ngClass]="{'active': filter.attending === false}">
+              <input type="radio" name="pa"> No
+            </label>
+            <label class="btn btn-primary btn-sm" (click)="filter.attending = null" [ngClass]="{'active': filter.attending === null}">
+              <input type="radio" name="pa"> N/A
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-xs-6 col-lg-3 center">
+          <label class="labelTxt">Graduated</label><br>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary btn-sm" (click)="filter.graduated = true" [ngClass]="{'active': filter.graduated === true}">
+              <input type="radio" name="pa"> Yes
+            </label>
+            <label class="btn btn-primary btn-sm" (click)="filter.graduated = false" [ngClass]="{'active': filter.graduated === false}">
+              <input type="radio" name="pa"> No
+            </label>
+            <label class="btn btn-primary btn-sm " (click)="filter.graduated = null" [ngClass]="{'active': filter.graduated === null}">
+              <input type="radio" name="pa"> N/A
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group col-lg-3 col-xs-6 ">
+          <div class="search-btn">
+            <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="addNewItem ">
+    <a (click)="showWindow()">
+      <i class="fa fa-leanpub" aria-hidden="true"></i>
+      <span >Add new graduation </span>
+    </a>
+  </div>
+  <app-add-new-item [link]="'/classes/details/appl/'"></app-add-new-item>
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('application.firstName')" class="sorting-hover">
+              Name <span class="iconsForName" *ngIf="sort.column =='application.firstName'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('graduationExpectedDate.date')" class="sorting-hover">
+              Graduation Date <span class="iconsForName" *ngIf="sort.column =='graduationExpectedDate.graduationDate'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('graduationLocation.Name')" class="sorting-hover">
+              Location <span class="iconsForName" *ngIf="sort.column =='graduationLocation.Name'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('isAttendingGraduation')" class="sorting-hover">
+              Attending <span class="iconsForName" *ngIf="sort.column =='isAttendingGraduation'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.application.isActive}">
+          <td class="{{!item.hasCompletedClasses && item.application.isActive ? '': 'padding-left'}}">
+              <span *ngIf="!item.hasCompletedClasses && item.application.isActive" class="circle-trigger">
+                <i class="fa fa-circle red" aria-hidden="true" title="Not student"></i>
+              </span>
+            {{item.application.firstName + ' ' + item.application.lastName}}
+          </td>
+          <td>
+            {{(item.graduationExpectedDate ? item.graduationExpectedDate.date : '') | date:'MM/dd/yyyy' }}
+          </td>
+          <td>{{item.graduationLocationId > 0 ? item.graduationLocation.name : ''}}</td>
+          <td>
+            <i  class="fa {{item.isAttendingGraduation ? 'fa-check-square-o' : 'fa-square-o'}} check-icon" aria-hidden="true"></i>
+          </td>
+          <td>
+            <a class="btnHover" routerLink="{{'/classes/details/' + item.id}}"><span></span><i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

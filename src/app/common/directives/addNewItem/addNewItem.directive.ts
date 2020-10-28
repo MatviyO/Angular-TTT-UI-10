@@ -16,11 +16,11 @@ export class AddNewItemDirective {
     constructor(private _renderer: Renderer2, private _el: ElementRef) {
     }
 
-    @HostListener('focus') onFocus() {
+    @HostListener('focus') onFocus(): any {
         this.renderLink();
     }
 
-    @HostListener('focusout') onFocusOut() {
+    @HostListener('focusout') onFocusOut(): any {
         this.removeItem(this.parent, this.divElement );
     }
 
@@ -44,12 +44,11 @@ export class AddNewItemDirective {
         this._renderer.listen(aElement, 'click', (event) => this.addItem());
     }
 
-    addItem() { 
+    addItem(): void {
         this.onclick.emit();
     }
 
-    removeItem(parent, div) {
+    removeItem(parent, div): void {
         setTimeout(() => this._renderer.removeChild(parent, div), 1000);
     }
-  
 }

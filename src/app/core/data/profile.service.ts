@@ -1,7 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
 
-import 'rxjs/add/operator/toPromise';
-
 import { Profile } from '../model';
 import {BaseDataService} from '../../common/services';
 

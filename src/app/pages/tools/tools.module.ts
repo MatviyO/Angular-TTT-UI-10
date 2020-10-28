@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { ToolsListComponent, ToolsDetailsComponent } from './components';
 import { routing } from './tools.routing';
-// import { FileDropModule } from 'ngx-file-drop';
 import {ToolsService} from '../../core/data';
 import {Common_Module} from '../../common';
 import {NgxUploaderModule} from 'ngx-uploader';
+import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 
 
 @NgModule({
@@ -21,8 +21,7 @@ import {NgxUploaderModule} from 'ngx-uploader';
         NgaModule,
         routing,
         NgxUploaderModule,
-        // FileDropModule,
-        // FileUploader,
+        NguiAutoCompleteModule,
     ],
     declarations: [
         ToolsListComponent,

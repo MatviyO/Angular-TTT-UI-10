@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Trigger } from '../model';
-import 'rxjs/add/operator/catch';
 
 import {ITriggerHelper, ITriggerService} from '../../common/interfaces';
 import {Observable} from 'rxjs';
@@ -32,7 +31,7 @@ export class TriggerService implements ITriggerService {
     }
 
     return this.query(`${url}`)
-      .catch(this.handleError);
+      .pipe(catchError(this.handleError));
   }
 
     queryByType(type: string, filter: string): Observable<Trigger[]> {

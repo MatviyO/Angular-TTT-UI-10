@@ -1,0 +1,88 @@
+.fl-left{
+    float: left;
+    padding: 0;
+    div{
+        float: left;
+    }
+}
+
+.fl-right{
+    float: right;
+    padding: 0;
+    div{
+        float: left;
+    }
+}
+
+.min-with{
+    width: 20px;
+    text-align: center;
+    i{
+      font-size: 20px;
+      margin-top: 10px;
+      &:hover{
+        cursor: pointer;
+        color: #9bdbff;
+      }
+    }
+}
+
+.indicator-status{
+    position: absolute;
+    font-size: 12px;
+    top: 11px;
+    text-transform: uppercase;
+    color: #e8e8e8;
+    padding: 2px 15px;
+    right: 26px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #bcd0e9;
+    -webkit-box-shadow: 0px 0px 16px -5px #000000;
+    box-shadow: 0px 0px 16px -5px #000000;
+}
+
+.icon-float{
+    position: absolute;
+    top: 10px;
+    left: 175px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.icon-float:hover{
+    color: #30485480;
+}
+
+.status-1{ background-color: rgba(21, 56, 255, 0.33); }
+.status-2{ background-color: rgba(255, 201, 15, 0.4); }
+.status-3{ background-color: rgba(0, 165, 34, 0.41); }
+.status-4{ background-color: rgba(255, 15, 15, 0.32); }
+.status-5{ background-color: rgba(255, 15, 15, 0.32); }
+
+
+.table-scroll{
+    max-height: 279px;
+    overflow: auto;
+    
+}
+
+#scroll-style::-webkit-scrollbar-track
+{
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#scroll-style::-webkit-scrollbar
+{
+	width: 8px;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+
+#scroll-style::-webkit-scrollbar-thumb
+{
+    background-color: #70A6CF;
+    border-radius: 5px;
+}
+

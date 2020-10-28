@@ -2,11 +2,11 @@
   <div class="item">
     <p class="head-title"> Please select soldier to create a new record </p>
 
-    <div class="form-control search">
+    <div class="form-control search" style="position: relative;">
       <label for="search">
         <i class="fa fa-search" aria-hidden="true"></i>
       </label>
-      <input class="form-control input" name="search" max-num-list='10' value-formatter="firstName lastName" list-formatter="firstName lastName" autocomplete="off"  auto-complete [(ngModel)]="sourceCompany"
+      <input id="search" class="form-control input" name="search" max-num-list='10' value-formatter="firstName lastName" list-formatter="firstName lastName" autocomplete="off"  auto-complete [(ngModel)]="sourceCompany"
              [source]="observableSource(sourceCompany)" min-chars="3" placeholder='search' match-formatted="true"/>
     </div>
 
