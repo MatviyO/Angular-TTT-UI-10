@@ -1,122 +1,122 @@
 <div ngForm #alongForm="ngForm" (keydown.control.s)="onSave(alongForm)">
-    <app-ba-card cardTitle="Ride Along">
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="rideAlong">Trade</label>
-                <select id="rideAlong" class="form-control" name="rideAlong" [(ngModel)]="entity.programType" required
-                    [ngClass]="{'ng-submit' : alongForm._submitted}" [disabled]="entity.status != null">
-                    <option disabled hidden [ngValue]="undefined">select...</option>
-                    <option *ngFor="let trade of trades" [ngValue]="trade.id" [ngClass]="{'grey' : trade.disable}">
-                        {{trade.name}}</option>
-                </select>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="office">Office location</label>
-                <select id="office" addNewItem ref="settings/office-locations" class="form-control" name="office"
-                    [(ngModel)]="entity.officeLocationId" required [ngClass]="{'ng-submit' : alongForm._submitted}"
-                    [disabled]="entity.status > 2">
+  <app-ba-card cardTitle="Ride Along">
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="rideAlong">Trade</label>
+        <select id="rideAlong" class="form-control" name="rideAlong" [(ngModel)]="entity.programType" required
+                [ngClass]="{'ng-submit' : alongForm._submitted}" [disabled]="entity.status != null">
+          <option disabled hidden [ngValue]="undefined">select...</option>
+          <option *ngFor="let trade of trades" [ngValue]="trade.id" [ngClass]="{'grey' : trade.disable}">
+            {{trade.name}}</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="office">Office location</label>
+        <select id="office" addNewItem ref="settings/office-locations" class="form-control" name="office"
+                [(ngModel)]="entity.officeLocationId" required [ngClass]="{'ng-submit' : alongForm._submitted}"
+                [disabled]="entity.status > 2">
 
-                    <option disabled hidden [ngValue]="undefined">select...</option>
-                    <ng-container *ngFor="let office of offices">
-                        <option *ngIf="office.isActive" [ngClass]="{'grey': !office.isActive}" [ngValue]="office.id">
-                            {{office.name}}</option>
-                    </ng-container>
-                </select>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="technician">Technician rode with</label>
-                <input id="technician" type="text" name="technician" maxlength="50" class="form-control" placeholder="Enter name"
-                    [disabled]="entity.status > 2" [(ngModel)]="entity.technicianName">
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="feedback">Feedback</label>
-                <select id="feedback" addNewItem ref="settings/feedbacks" class="form-control"
-                    [ngClass]="{'ng-submit' : alongForm._submitted}" (onclick)="navigate()" required name="feedback"
-                    [(ngModel)]="entity.feedbackId" [disabled]="entity.status != 2">
+          <option disabled hidden [ngValue]="undefined">select...</option>
+          <ng-container *ngFor="let office of offices">
+            <option *ngIf="office.isActive" [ngClass]="{'grey': !office.isActive}" [ngValue]="office.id">
+              {{office.name}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="technician">Technician rode with</label>
+        <input id="technician" type="text" name="technician" maxlength="50" class="form-control" placeholder="Enter name"
+               [disabled]="entity.status > 2" [(ngModel)]="entity.technicianName">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="feedback">Feedback</label>
+        <select id="feedback" addNewItem ref="settings/feedbacks" class="form-control"
+                [ngClass]="{'ng-submit' : alongForm._submitted}" (onclick)="navigate()" required name="feedback"
+                [(ngModel)]="entity.feedbackId" [disabled]="entity.status != 2">
 
-                    <option hidden [ngValue]="undefined">select...</option>
-                    <option [ngValue]="null">select...</option>
-                    <ng-container *ngFor="let feedback of feedbacks">
-                        <option *ngIf="feedback.isActive || feedback.id == item.feedbackId"
-                            [ngClass]="{'grey': !feedback.isActive}" [ngValue]="feedback.id">{{feedback.description}}
-                        </option>
-                    </ng-container>
-                </select>
-            </div>
+          <option hidden [ngValue]="undefined">select...</option>
+          <option [ngValue]="null">select...</option>
+          <ng-container *ngFor="let feedback of feedbacks">
+            <option *ngIf="feedback.isActive || feedback.id == item.feedbackId"
+                    [ngClass]="{'grey': !feedback.isActive}" [ngValue]="feedback.id">{{feedback.description}}
+            </option>
+          </ng-container>
+        </select>
+      </div>
 
-            <div *ngIf="entity.status != null" class="form-group col-sm-12 notes">
-                <label for="note">Notes</label>
-                <textarea id="note" class="form-control" name="note" rows="8" [(ngModel)]="entity.notes"></textarea>
-            </div>
+      <div *ngIf="entity.status != null" class="form-group col-sm-12 notes">
+        <label for="note">Notes</label>
+        <textarea id="note" class="form-control" name="note" rows="8" [(ngModel)]="entity.notes"></textarea>
+      </div>
 
-            <!-- -------------------Messenger-------------------- -->
-            <div class="col-sm-12 col-lg-6">
-                <div *ngIf="entity.id">
+      <!-- -------------------Messenger-------------------- -->
+      <div class="col-sm-12 col-lg-6">
+        <div *ngIf="entity.id">
 
-                    <app-messenger [whoiswho]="'ADMIN'" [userMessages]="entity.userNotes" [user]="entity.application"
-                        (onAdded)="addMessage($event)"></app-messenger>
-                </div>
-            </div>
-            <!-- -------------------Approved Dates-------------------- -->
-            <div class="col-sm-12 col-lg-6">
-                <ba-card *ngIf="!showCalendar" cardTitle="Approved Dates">
+          <app-messenger [whoiswho]="'ADMIN'" [userMessages]="entity.userNotes" [user]="entity.application"
+                         (onAdded)="addMessage($event)"></app-messenger>
+        </div>
+      </div>
+      <!-- -------------------Approved Dates-------------------- -->
+      <div class="col-sm-12 col-lg-6">
+        <app-ba-card *ngIf="!showCalendar" cardTitle="Approved Dates">
                     <span class="status-ra">
                         <i *ngIf="entity.status < 2" class="fa fa-calendar-plus-o icon-float"
-                            (click)="showCalendar = true">
+                           (click)="showCalendar = true">
                         </i>
                         <div class="indicator-status {{setColorStatus(entity.status)}}">
                             {{getStatusById(entity.status) }}
                         </div>
                     </span>
-                    <div id="scroll-style" class="allTable table-scroll">
-                        <table class="table table-hover" [ngClass]="{'disable' : (entity.status > 1)}">
-                            <thead>
-                                <tr class="black-muted-bg">
-                                    <th>Dates</th>
-                                    <th class="min-with">Approved</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of allDates | orderBy : 'date'">
-                                    <td>
-                                        {{item.date | date:'MM/dd/yyyy'}}
-                                    </td>
-                                    <td class="min-with">
-                                        <i class="{{item.approved ? 'fa fa-check-square-o': 'fa fa-square-o'}}"
-                                            (click)="approvedDate(item.date)" aria-hidden="true"></i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </ba-card>
-                <!--Calendar -->
-                <ba-card *ngIf="showCalendar" cardTitle="Calendar">
-                    <app-calendar [daysAll]="allDates" [requestDates]="entity.requestedDates"
+          <div id="scroll-style" class="allTable table-scroll">
+            <table class="table table-hover" [ngClass]="{'disable' : (entity.status > 1)}">
+              <thead>
+              <tr class="black-muted-bg">
+                <th>Dates</th>
+                <th class="min-with">Approved</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of allDates | orderBy : 'date'">
+                <td>
+                  {{item.date | date:'MM/dd/yyyy'}}
+                </td>
+                <td class="min-with">
+                  <i class="{{item.approved ? 'fa fa-check-square-o': 'fa fa-square-o'}}"
+                     (click)="approvedDate(item.date)" aria-hidden="true"></i>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </app-ba-card>
+        <!--Calendar -->
+        <app-ba-card *ngIf="showCalendar" cardTitle="Calendar">
+          <app-calendar [daysAll]="allDates" [requestDates]="entity.requestedDates"
                         (addDay)="addDateToApprove($event)" (onCancel)="showCalendar = false; generateDates()"
                         (onSelect)="showCalendar = false"></app-calendar>
-                </ba-card>
+        </app-ba-card>
 
-                <div class="allBtn">
-                    <button class="btn btn-danger" *ngIf="entity.status <= 3 && entity.status != null"
-                        (click)="cancelRA()">
-                        Cancel RA
-                    </button>
-                    <button class="btn btn-danger" *ngIf="entity.status > 1" (click)="saveNotes()">
-                        Save
-                    </button>
-                    <button type="submit" class="btn btn-primary" (click)="onSave(alongForm)" *ngIf="entity.status < 3">
-                        {{entity.status === null || entity.status === 0 || entity.status === 1 ? (entity.status === 1 ? 'Save' : 'Approve'):
-                        'Complete'}}
-                    </button>
-                    <button type="submit" class="btn btn-default" (click)="confirmRA(alongForm)"
-                        *ngIf="entity.status == null">
-                        Confirm by student
-                    </button>
-                </div>
-            </div>
+        <div class="allBtn">
+          <button class="btn btn-danger" *ngIf="entity.status <= 3 && entity.status != null"
+                  (click)="cancelRA()">
+            Cancel RA
+          </button>
+          <button class="btn btn-danger" *ngIf="entity.status > 1" (click)="saveNotes()">
+            Save
+          </button>
+          <button type="submit" class="btn btn-primary" (click)="onSave(alongForm)" *ngIf="entity.status < 3">
+            {{entity.status === null || entity.status === 0 || entity.status === 1 ? (entity.status === 1 ? 'Save' : 'Approve'):
+            'Complete'}}
+          </button>
+          <button type="submit" class="btn btn-default" (click)="confirmRA(alongForm)"
+                  *ngIf="entity.status == null">
+            Confirm by student
+          </button>
         </div>
-    </app-ba-card>
+      </div>
+    </div>
+  </app-ba-card>
 </div>
 
 <app-confirm></app-confirm>

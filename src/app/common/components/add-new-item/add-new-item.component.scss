@@ -74,7 +74,7 @@ ngui-auto-complete {
         position: relative;
         border: none;
         background-color: transparent;
-         padding-left: 1rem;
+         padding-left: 2rem;
     }
 }
 
@@ -86,4 +86,21 @@ ngui-auto-complete {
 }
 .serach input {
   width: 100%!important;
+}
+.searchh {
+  height: 43px;
+  margin: 0 auto;
+
+  i{
+    float: left !important;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.582);
+  }
+  .input{
+    padding-top: 10px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    padding-left: 1.5rem;
+  }
 }

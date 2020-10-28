@@ -7,6 +7,7 @@ import { RideAlongListComponent } from './components/list/ride-along.list.compon
 import { routing } from './ride-along.routing';
 import {FeedbacksService, OfficeLocationService, RideAlongService, RideAlongStatusService, TradesService} from '../../core/data';
 import {Common_Module} from '../../common';
+import {CoreModule} from '../../core';
 
 @NgModule({
     providers: [
@@ -16,14 +17,15 @@ import {Common_Module} from '../../common';
         OfficeLocationService,
         FeedbacksService,
     ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        NgaModule,
-        Common_Module,
-        routing,
-        // Ng2AutoCompleteModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgaModule,
+    Common_Module,
+    routing,
+    CoreModule,
+    // Ng2AutoCompleteModule,
+  ],
     declarations: [
         RideAlongDetailsComponent,
         RideAlongListComponent,

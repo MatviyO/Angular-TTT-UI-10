@@ -1,43 +1,37 @@
 <div>
-    <div class="calendar-ride-along">
-        <div class="calendar">
-            <div class="header row-cal flex-middle">
-                <div class="col-cal col-start" (click)="prevMonth()">
-                    <i class="fa fa-chevron-left icon-left"></i>
-                </div>
-                <div class="col-cal col-center">
-                    <span>{{dateFns.format(currentMonth, dateFormat)}}</span>
-                </div>
-                <div class="col-cal col-end" (click)="nextMonth()">
-                    <i class="fa fa-chevron-right icon-right"></i>
-                </div>
-            </div>
-            <div class="days row-cal">
-                <div *ngFor="let i of [1,2,3,4,5,6,7]" class="col-cal col-center">
-                    {{dateFns.format(dateFns.addDays(daysStartDate, i), daysFormat)}}
-                </div>
-            </div>
-            <div class="body">
-                <div *ngFor="let row of calendar.row" class="row-cal">
-                    <div *ngFor="let date of row.date" class="col-calendar col-cal cell {{dateFns.isSameMonth(date.date, currentMonth)? '' : 'out-month'}} 
+  <div class="calendar-ride-along">
+    <div class="calendar">
+      <div class="header row-cal flex-middle">
+        <div class="col-cal col-start" (click)="prevMonth()">
+          <i class="fa fa-chevron-left icon-left"></i>
+        </div>
+        <div class="col-cal col-center">
+          <span>{{dateFns.format(currentMonth, dateFormat)}}</span>
+        </div>
+        <div class="col-cal col-end" (click)="nextMonth()">
+          <i class="fa fa-chevron-right icon-right"></i>
+        </div>
+      </div>
+      <div class="days row-cal">
+        <div *ngFor="let i of [1,2,3,4,5,6,7]" class="col-cal col-center">
+          {{dateFns.format(dateFns.addDays(daysStartDate, i), daysFormat)}}
+        </div>
+      </div>
+      <div class="body">
+        <div *ngFor="let row of calendar.row" class="row-cal">
+          <div *ngFor="let date of row.date" class="col-calendar col-cal cell {{dateFns.isSameMonth(date.date, currentMonth)? '' : 'out-month'}}
                                         {{dateFns.isToday(date.date)? 'current-day' : ''}}"
-                        (click)="selectDate(date.date)">
-                        <span class="day number">{{dateFns.format(date.date, "DD")}}</span>
-                        <span *ngIf="date.approved" class="approved-day">approve</span>
-                        <span *ngIf="date.requested" class="request-day">request</span>
-                    </div>
-                </div>
-            </div>
+               (click)="selectDate(date.date)">
+            <span class="day number">{{dateFns.format(date.date, "DD")}}</span>
+            <span *ngIf="date.approved" class="approved-day">approve</span>
+            <span *ngIf="date.requested" class="request-day">request</span>
+          </div>
         </div>
-        <div class="btns-schedule">
-            <i class="fa fa-check icon-ok" (click)="selectEvent()"></i>
-            <i class="fa fa-close icon-close" (click)="cancelEvent()"></i>
-            <!-- <button type="button" class="btn-size btn btn-primary btn-sm" (click)="selectEvent()">
-                OK
-            </button> -->
-            <!-- <button type="button" class="btn-size btn btn-secondary btn-sm" (click)="cancelEvent()">
-                CANCEL
-            </button> -->
-        </div>
+      </div>
     </div>
+    <div class="btns-schedule">
+      <i class="fa fa-check icon-ok" (click)="selectEvent()"></i>
+      <i class="fa fa-close icon-close" (click)="cancelEvent()"></i>
+    </div>
+  </div>
 </div>
