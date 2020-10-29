@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Trigger } from '../model';
 
 @Injectable()
 export class LocationMapService {
-    url: string;
-    constructor(protected http: HttpClient) {
-    }
+  url: string;
 
-    query(id: number, distance: number): Promise<any[]> {
-        const url = `api/Applications/${id}/ClosestCompanies/${distance}`;
+  constructor(protected http: HttpClient) { }
 
-        return this.http.get<any[]>(`${url}`)
-            .toPromise()
-            .catch(this.handleError);
-    }
+  query(id: number, distance: number): Promise<any[]> {
+    const url = `api/Applications/${id}/ClosestCompanies/${distance}`;
 
-    protected handleError(error: any): Promise<any> {
-        return Promise.reject(error.message || error);
-    }
+    return this.http.get<any[]>(`${url}`)
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  protected handleError(error: any): Promise<any> {
+    return Promise.reject(error.message || error);
+  }
 }

@@ -1,6 +1,6 @@
 <div ngForm #mentorForm="ngForm" (keydown.control.s)="onSave(mentorForm)">
     <fieldset>
-        <ba-card cardTitle="Meeting #{{i+1}}" *ngFor="let item of entity.feedbacks; let i=index">
+        <app-ba-card cardTitle="Meeting #{{i+1}}" *ngFor="let item of entity.feedbacks; let i=index">
             <div class="row">
 
                 <div class="col-sm-4 fl-left">
@@ -57,7 +57,7 @@
                 </div>
 
             </div>
-        </ba-card>
+        </app-ba-card>
     </fieldset>
 
     <div class="allBtn">

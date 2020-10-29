@@ -1,5 +1,5 @@
 import { Component, Output, Input, EventEmitter, OnInit, ViewChild } from '@angular/core';
-import { BaseState } from './baseStage.component';
+import { BaseStateDirective } from './baseStage.component';
 import {ConfirmComponent} from '../../../../../common/components/confirm';
 import {
   ApplicationProgram,
@@ -18,7 +18,7 @@ import {
     styleUrls: ['../job-tracking.details.component.scss'],
 })
 
-export class EmploymentStageComponent extends BaseState implements OnInit {
+export class EmploymentStageComponent extends BaseStateDirective implements OnInit {
 
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     @Output() onSaved = new EventEmitter();

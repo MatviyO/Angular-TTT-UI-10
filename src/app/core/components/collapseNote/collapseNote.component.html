@@ -1,51 +1,53 @@
-  <div class="card" [ngClass]="{'opasity': !showNotes }">
+<div class="card" [ngClass]="{'opasity': !showNotes }">
 
-    <div class="card-header itemHeader" (click)="showNote()">
-      <i *ngIf="noteArray.length > 0 && !noCollapse"class="fa iconForColappse" data-toggle="tooltip" title="show/hide" aria-hidden="true" [ngClass]="{'fa-chevron-up': showNotes, 'fa-chevron-down': !showNotes }"></i>
-        NOTES <span class="length-note" *ngIf="noteArray.length > 0">{{noteArray.length}}</span>
-        <div *ngIf="!addNote" class="linkInCard" (click)='$event.stopPropagation(); newNote()'>
-          <i class="fa fa-plus-square" aria-hidden="true"></i>
-          <a >Add notes</a> 
-        </div>
+  <div class="card-header itemHeader" (click)="showNote()">
+    <i *ngIf="noteArray.length > 0 && !noCollapse" class="fa iconForColappse" data-toggle="tooltip" title="show/hide"
+       aria-hidden="true" [ngClass]="{'fa-chevron-up': showNotes, 'fa-chevron-down': !showNotes }"></i>
+    NOTES <span class="length-note" *ngIf="noteArray.length > 0">{{noteArray.length}}</span>
+    <div *ngIf="!addNote" class="linkInCard" (click)='$event.stopPropagation(); newNote()'>
+      <i class="fa fa-plus-square" aria-hidden="true"></i>
+      <a>Add notes</a>
     </div>
+  </div>
 
-    <div class="itemList" *ngIf="showNotes">
-      <div class="card-body">
-        <div *ngFor="let note of noteArray;let i=index">
-          <div class="notes">
-            <div class="date">
+  <div class="itemList" *ngIf="showNotes">
+    <div class="card-body">
+      <div *ngFor="let note of noteArray;let i=index">
+        <div class="notes">
+          <div class="date">
               <span>
                 <!-- <i *ngIf="!note.created" class="fa fa-calendar" aria-hidden="true">
                   {{ new Date() | date:'MM/dd/yyyy'}}
                 </i> -->
-                <i  class="fa fa-calendar" aria-hidden="true">
+                <i class="fa fa-calendar" aria-hidden="true">
                   {{ note.created | date:'MM/dd/yyyy'}}
                 </i>
               </span>
-            </div>
-            <div class="noteBtn">
-              <a *ngIf="!note.edit" class="btnHover" (click)="editNote(note);">
-                <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
-              </a>
-              <a *ngIf="note.edit" class="btnHover" (click)="cancelNote(note, i)">
-                <i class="fa fa-ban" aria-hidden="true" title="Cancel"></i>
-              </a>
-              <a *ngIf="note.edit && itemSaved" class="btnHover" (click)="saved(note, i)">
-                  <i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i>
-                </a>
-            </div>
-            <div class="text">
-              <p class="bo-pre" *ngIf="!note.edit">{{note.note}}</p>
-              <textarea *ngIf="note.edit" class="form-control" name="notes-{{i}}" rows="8" [(ngModel)]="note.note" required ></textarea>
-            </div>
+          </div>
+          <div class="noteBtn">
+            <a *ngIf="!note.edit" class="btnHover" (click)="editNote(note);">
+              <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+            </a>
+            <a *ngIf="note.edit" class="btnHover" (click)="cancelNote(note, i)">
+              <i class="fa fa-ban" aria-hidden="true" title="Cancel"></i>
+            </a>
+            <a *ngIf="note.edit && itemSaved" class="btnHover" (click)="saved(note, i)">
+              <i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i>
+            </a>
+          </div>
+          <div class="text">
+            <p class="bo-pre" *ngIf="!note.edit">{{note.note}}</p>
+            <textarea *ngIf="note.edit" class="form-control" name="notes-{{i}}" rows="8" [(ngModel)]="note.note"
+                      required></textarea>
           </div>
         </div>
       </div>
     </div>
   </div>
-          <button *ngIf="!addNote && showBtnAddNote" class="btn btn-default btn-add-notes" (click)='newNote()'>
-              <i class="fa fa-plus-square" aria-hidden="true"></i>
-              <a >Add notes</a> 
-          </button>
+</div>
+<button *ngIf="!addNote && showBtnAddNote" class="btn btn-default btn-add-notes" (click)='newNote()'>
+  <i class="fa fa-plus-square" aria-hidden="true"></i>
+  <a>Add notes</a>
+</button>
 
 

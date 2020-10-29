@@ -18,6 +18,7 @@ import { NonPlacementReasonComponent } from './non-placement-reason/non-placemen
 import { ClassesScheduleComponent } from './classes-schedule/classes-schedule.component';
 import {MilitaryBaseComponent} from './military-base';
 import {MilitaryBranchComponent} from './military-branch';
+import {RankComponent} from './rank';
 
 const routes: Routes = [
     {
@@ -40,6 +41,7 @@ const routes: Routes = [
             { path: 'interview-type', component: InterviewTypeComponent },
             { path: 'interview-outcome', component: InterviewOutcomeComponent },
             { path: 'employment-status', component: EmploymentStatusComponent },
+            { path: 'rank', component: RankComponent },
         ],
     },
 ];

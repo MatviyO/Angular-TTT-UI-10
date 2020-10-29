@@ -2,7 +2,7 @@ import { Directive, Input, Output, EventEmitter, Renderer2, ElementRef, HostList
 
 
 @Directive({
-    selector: '[addNewItem]',
+    selector: '[appAddNewItem]',
 
 })
 

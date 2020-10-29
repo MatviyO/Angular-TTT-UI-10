@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
+
 import {EmploymentRecord, EmploymentStageV2, InterviewStageV2, JobStage, JobStageNote, NonEmploymentStage} from '../model';
 import {BaseDataService} from '../../common/services';
-
 
 @Injectable()
 export class CompanyEmploymentService extends BaseDataService<EmploymentRecord> {
@@ -24,6 +24,10 @@ export class JobTrackingService extends BaseDataService<JobStage | JobStageNote>
     super(injector, 'api/JobTracking', '(Stages.Any(recordType == "EmploymentStage") or Stages.Any(recordType == "NonEmploymentStage" )) and (application.type=="3" or application.type=="2") ');
   }
 
+  // getEmployments(userId: number, urlTypeRecords: URLEmploymentTypeRecord): Promise<EmploymentRecord[]> {
+  //     const param = `${urlTypeRecords}and applicationId=${userId})&includes=Application,Stages.Status,Stages.Notes,Stages.Location,Stages.NonPlacementReason,CompanyTrade.Company.Trades,CompanyTrade.Company.AlternateLocations`;
+  //     return super.query(param).then((res: EmploymentRecord[]) => res);
+  // }
 
   createInterviewStage(userId: number, obj: InterviewStageV2): Promise<InterviewStageV2> {
     const url = `${this.url}/${userId}/Stages/Interviews`;

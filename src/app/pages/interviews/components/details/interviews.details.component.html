@@ -2,30 +2,30 @@
     <div class="row">
         <div class="col-md-12">
 
-            <ba-card cardTitle="Interview stages">
+            <app-ba-card cardTitle="Interview stages">
                 <div class="row" *ngIf="companyTrade && companyTrade.id">
 
                     <div class="form-group col-sm-6">
-                        <label for="trade">Company</label>
-                        <input class="form-control disableSelect" type="text" name="company"
+                        <label for="Company">Company</label>
+                        <input id="Company" class="form-control disableSelect" type="text" name="company"
                             [ngModel]="companyTrade.company.name">
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="trade">Trade</label>
-                        <input class="form-control disableSelect" type="text" name="trade"
+                        <input id="trade" class="form-control disableSelect" type="text" name="trade"
                             [ngModel]="getTradeById(companyTrade)">
                     </div>
                 </div>
 
                 <div class="row" *ngIf="companyTrade && !companyTrade.id">
                     <div class="form-group col-sm-6">
-                        <label for="mentorCompany">Company</label>
+                        <label >Company</label>
                         <div class="form-control search"
                             [ngClass]="{'disableSelect': false, 'ng-submit' : interviewStageForm._submitted && !selectCompany}">
                             <label for="search">
                                 <i class="fa fa-search" [ngClass]="{'no-visible': false}" aria-hidden="true"></i>
                             </label>
-                            <input autocomplete="off" [ngClass]="{'disableSelect': false}" class="form-control input"
+                            <input id="search" autocomplete="off" [ngClass]="{'disableSelect': false}" class="form-control input"
                                 name="search" (blur)="companyChanged(selectCompany)" max-num-list='100'
                                 value-formatter="name" list-formatter="name" auto-complete [(ngModel)]="selectCompany"
                                 [source]="observableSource(selectCompany)" min-chars="3" placeholder='search'
@@ -117,14 +117,15 @@
 
                     <!----------- notes --------- -->
                     <ng-container *ngIf="itemEdit.id">
-                        <collapseNote [noteArray]="itemEdit.notes" [itemSaved]="true" [forEmployment]="true"
-                            (onSaved)="saveNote($event)" (onDelete)="deleteNote($event)"></collapseNote>
+                        <app-collapse-note [noteArray]="itemEdit.notes" [itemSaved]="true" [forEmployment]="true"
+                            (onSaved)="saveNote($event)" (onDelete)="deleteNote($event)"></app-collapse-note>
                     </ng-container>
                 </div>
 
                 <!-----------MAP --------- -->
-                <googleMap [getCompanyTrades]="true" [showMap]="showMaps" [canSelectCompany]="!entity.id"
-                    (onChanged)="selectComp($event)"></googleMap>
+                <app-google-map  [showMap]="showMaps" [canSelectCompany]="!entity.id"
+                    (onChanged)="selectComp($event)"></app-google-map>
+<!--              getCompanyTrades="true"-->
 
 
                 <!-- ---------- stages list ---------- -->
@@ -221,11 +222,11 @@
                     <button *ngIf="!editing && entity && entity.applicationId" type="button" class="btn btn-default" routerLink="{{'/job-tracking/details/appl/' + entity.applicationId }}">
                         <i class="fa fa-ban" aria-hidden="true"></i> cancel
                     </button>
-                  
+
                         <!-- <button *ngIf="!editing"  class="btn btn-default" (click)="redirect()">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> back
                         </button> -->
-                  
+
                     <button
                         *ngIf="!editing && entity.stages && entity.stages.length > 0 && !entity.stages[entity.stages.length - 1].interviewOutcomeId"
                         type="submit" class="btn btn-success" (click)="onHired()">
@@ -244,9 +245,9 @@
                     </div>
                 </div>
 
-            </ba-card>
+            </app-ba-card>
         </div>
     </div>
 </div>
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
-<confirm></confirm>
+<app-confirm></app-confirm>

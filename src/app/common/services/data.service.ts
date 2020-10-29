@@ -5,7 +5,6 @@ import { IDataService, IUrlProvider, ICache } from '../interfaces';
 import { BaseEntity, BaseEntityUnDeletable, BaseEntityCollection } from '../entities';
 import { MemoryCache, UrlProvider, genKey } from '../utils';
 
-
 export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
 
   private readonly headers = new HttpHeaders({ 'Content-Type': 'application/json' });

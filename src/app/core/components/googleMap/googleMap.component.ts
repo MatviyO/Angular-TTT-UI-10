@@ -3,7 +3,7 @@ import { LocationMapService } from '../../data';
 import { MapLocation, EmploymentCompany } from '../../model';
 
 @Component({
-    selector: 'app-googleMap',
+    selector: 'app-google-map',
     templateUrl: 'googleMap.component.html',
     styleUrls: ['googleMap.component.scss'],
     providers: [LocationMapService],
@@ -14,13 +14,13 @@ export class GoogleMapComponent {
     @Output() onChanged = new EventEmitter();
     @Input() showMap: any;
     @Input() canSelectCompany: boolean;
-    noFound: boolean = false;
+    noFound = false;
     location: MapLocation[] = [];
-    centerLat: number = 36.1626638;
-    centerLon: number = -86.7816016;
-    zoom: number = 12;
-    _distance: number = 2;
-    setZoom: boolean = false;
+    centerLat = 36.1626638;
+    centerLon = -86.7816016;
+    zoom = 12;
+    _distance = 2;
+    setZoom = false;
     applId: number;
 
     constructor( private locationMapSvc: LocationMapService ) {

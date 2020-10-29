@@ -32,7 +32,9 @@ export class JobTrackingListComponent extends BaseSortableListDirective<any> imp
     nonEmploymentStatus: NonPlacementReason[] = [];
     employments: EmploymentRecord[] = [];
     feedbacks: Feedback[] = [];
+  // tslint:disable-next-line:variable-name
     _companies: Company[] = [];
+    _order: string;
 
 
     constructor(
@@ -44,6 +46,7 @@ export class JobTrackingListComponent extends BaseSortableListDirective<any> imp
         private countryStateSvc: CountryStatesService = new CountryStatesService(),
     ) {
         super(config);
+      // tslint:disable-next-line:variable-name
         super.onDataLoaded((_data, res) => this.dataLoaded(res));
     }
 
@@ -150,7 +153,11 @@ export class JobTrackingListComponent extends BaseSortableListDirective<any> imp
     getLatestStage = (stages: EmploymentStageV2[]): EmploymentStageV2 => {
         if (stages && stages.length > 0) {
             stages = stages.filter(x => x.recordType !== 'InterviewStage');
-            const _stages = stages.sort((b, a) => a.index - b.index).sort((b, a) => Date.parse((a.date as string).split('/').reverse().join('-')) - Date.parse((b.date as string).split('/').reverse().join('-')));
+          // tslint:disable-next-line:variable-name
+            const _stages = stages.sort((b, a) => a.index - b.index)
+              .sort((b, a) => Date.parse((a.date as string)
+                .split('/').reverse().join('-')) - Date.parse((b.date as string)
+                .split('/').reverse().join('-')));
             return _stages[0];
         }
         return new EmploymentStageV2();

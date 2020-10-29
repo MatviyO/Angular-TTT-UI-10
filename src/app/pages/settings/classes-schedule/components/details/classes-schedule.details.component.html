@@ -1,299 +1,282 @@
 <div ngForm #classSchedForm="ngForm" (keydown.control.s)="onSave(classSchedForm)">
-
-    <app-ba-card cardTitle="Class Info">
-        <fieldset [disabled]=true>
-            <div class="row ">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="classname">Name</label>
-                        <input id="classname" type="text" class="form-control" name="classname" [(ngModel)]="entity.program.name"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="startDate">Start Date</label>
-                        <input id="startDate" type="date" class="form-control" name="startDate"
-                            [ngModel]="entity.startDate | date:'yyyy-MM-dd'"
-                            (blur)="entity.startDate = $event.target.value"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="endDate">End Date</label>
-                        <input id="endDate" type="date" class="form-control" name="endDate"
-                            [ngModel]="entity.endDate | date:'yyyy-MM-dd'" (blur)="entity.endDate = $event.target.value"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="milSpotsLeft">Military spots left</label>
-                        <input id="milSpotsLeft" type="text" class="form-control" name="milSpotsLeft"
-                            [(ngModel)]="entity.militarySpotsLeft"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="trade">Trade</label>
-                        <select id="trade" class="form-control" name="trade" [(ngModel)]="entity.program.trade"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}">
-                            <option disabled hidden [value]="undefined">select...</option>
-                            <option *ngFor="let trade of trades" [value]="trade.id"
-                                [ngClass]="{'grey' : trade.disable}">{{trade.name}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="campus">Campus</label>
-                        <select id="campus" addNewItem ref="settings/campuses" (onclick)="navigate()" class="form-control"
-                            name="campus" [(ngModel)]="entity.campusId"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}">
-                            <option disabled hidden [value]="undefined">select...</option>
-                            <option *ngFor="let campus of campuses" [value]="campus.id"
-                                [ngClass]="{'grey' : !campus.isActive}">{{campus.name}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="schedulingType">Scheduling Type</label>
-                        <select  id="schedulingType" class="form-control"
-                            name="schedulingType" [(ngModel)]="+entity.schedulingType"
-                            [ngClass]="{'ng-submit' : classSchedForm._submitted}">
-                            <option [value]=0>AM</option>
-                            <option [value]=1>PM1</option>
-                            <option [value]=2>PM2</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- <div class="col-sm-3">
-                    <div class="form-group center disable">
-                        <label for="pa">Is PM class</label>
-                        <br>
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary btn-sm" [ngClass]="{'active':entity.isPmClass }">
-                                <input type="radio" name="pa"> Yes
-                            </label>
-                            <label class="btn btn-primary btn-sm" [ngClass]="{'active':!entity.isPmClass }">
-                                <input type="radio" name="pa"> No
-                            </label>
-                        </div>
-                    </div>
-                </div> -->
-
-
-            </div>
-        </fieldset>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label for="endDate">Notes</label>
-                    <textarea class="form-control" name="note" rows="4" [(ngModel)]="entity.notes"></textarea>
-                </div>
-            </div>
-            <div class="col-sm-12 ">
-                <button type="submit" class="btn btn-primary float-right" (click)="onSave(classSchedForm)">
-                    <i class="fa fa-floppy-o" aria-hidden="true"></i> save
-                </button>
-            </div>
+  <app-ba-card cardTitle="Class Info">
+    <fieldset [disabled]=true>
+      <div class="row ">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="classname">Name</label>
+            <input id="classname" type="text" class="form-control" name="classname" [(ngModel)]="entity.program.name"
+                   [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
+          </div>
         </div>
-    </app-ba-card>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input id="startDate" type="date" class="form-control" name="startDate"
+                   [ngModel]="entity.startDate | date:'yyyy-MM-dd'"
+                   (blur)="entity.startDate = $event.target.value"
+                   [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input id="endDate" type="date" class="form-control" name="endDate"
+                   [ngModel]="entity.endDate | date:'yyyy-MM-dd'" (blur)="entity.endDate = $event.target.value"
+                   [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="endDate">Military spots left</label>
+            <input type="text" class="form-control" name="milSpotsLeft"
+                   [(ngModel)]="entity.militarySpotsLeft"
+                   [ngClass]="{'ng-submit' : classSchedForm._submitted}" />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="trade">Trade</label>
+            <select id="trade" class="form-control" name="trade" [(ngModel)]="entity.program.trade"
+                    [ngClass]="{'ng-submit' : classSchedForm._submitted}">
+              <option disabled hidden [value]="undefined">select...</option>
+              <option *ngFor="let trade of trades" [value]="trade.id"
+                      [ngClass]="{'grey' : trade.disable}">{{trade.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="campus">Campus</label>
+            <select id="campus" appAddNewItem ref="settings/campuses" (onclick)="navigate()" class="form-control"
+                    name="campus" [(ngModel)]="entity.campusId"
+                    [ngClass]="{'ng-submit' : classSchedForm._submitted}">
+              <option disabled hidden [value]="undefined">select...</option>
+              <option *ngFor="let campus of campuses" [value]="campus.id"
+                      [ngClass]="{'grey' : !campus.isActive}">{{campus.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="schedulingType">Scheduling Type</label>
+            <select id="schedulingType"  class="form-control"
+                     name="schedulingType" [(ngModel)]="+entity.schedulingType"
+                     [ngClass]="{'ng-submit' : classSchedForm._submitted}">
+              <option [value]=0>AM</option>
+              <option [value]=1>PM1</option>
+              <option [value]=2>PM2</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="endDate">Notes</label>
+          <textarea class="form-control" name="note" rows="4" [(ngModel)]="entity.notes"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-12 ">
+        <button type="submit" class="btn btn-primary float-right" (click)="onSave(classSchedForm)">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+        </button>
+      </div>
+    </div>
+  </app-ba-card>
 </div>
 <!-- Edit notes__________________________________________________________ -->
 <div *ngIf="editAttendeeNote">
-    <div class="main">
-        <div class="item">
-            <p class="head-title"> Please select notes for {{editAttendeeNote.appUser.firstName}}
-                {{editAttendeeNote.appUser.lastName}}</p>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
+  <div class="main">
+    <div class="item">
+      <p class="head-title"> Please select notes for {{editAttendeeNote.appUser.firstName}}
+        {{editAttendeeNote.appUser.lastName}}</p>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
                         <textarea class="form-control" name="note" rows="4"
-                            [(ngModel)]="editAttendeeNote.notes"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="btn btn-default" (click)="cancelEdit(true)">CANCEL</button>
-                <button class="btn btn-default" (click)="updateNotes()">OK</button>
-            </div>
+                                  [(ngModel)]="editAttendeeNote.notes"></textarea>
+          </div>
         </div>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-default" (click)="cancelEdit(true)">CANCEL</button>
+        <button class="btn btn-default" (click)="updateNotes()">OK</button>
+      </div>
     </div>
+  </div>
 </div>
 <div *ngIf="editReservationNote">
-    <div class="main">
-        <div class="item">
-            <p class="head-title"> Please select notes for {{editReservationNote.appUser.firstName}}
-                {{editReservationNote.appUser.lastName}}</p>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
+  <div class="main">
+    <div class="item">
+      <p class="head-title"> Please select notes for {{editReservationNote.appUser.firstName}}
+        {{editReservationNote.appUser.lastName}}</p>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
                         <textarea class="form-control" name="note" rows="4"
-                            [(ngModel)]="editReservationNote.notes"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="btn btn-default" (click)="cancelEdit(false)">CANCEL</button>
-                <button class="btn btn-default" (click)="updateNotes()">OK</button>
-            </div>
+                                  [(ngModel)]="editReservationNote.notes"></textarea>
+          </div>
         </div>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-default" (click)="cancelEdit(false)">CANCEL</button>
+        <button class="btn btn-default" (click)="updateNotes()">OK</button>
+      </div>
     </div>
+  </div>
 </div>
 <!-- __________________________________________________________Edit notes -->
 
 <app-ba-card cardTitle="Students" *ngIf="entity.id">
-    <div class="card">
-        <div class="allTable scrool-y">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="black-muted-bg">
-                        <th>Name</th>
-                        <th>Tech Level</th>
-                        <th>Score, %</th>
-                        <th>Withdraw Date</th>
-                        <th>Withdraw Reason</th>
-                        <th>Note</th>
-                        <th class="edit-icons"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of entity.attendees | callback: filterMilitary;let i=index"
-                        [ngClass]="{'inactive-record' : !item.appUser.isActive}">
-                        <td>{{item.appUser.firstName}} {{item.appUser.lastName}}</td>
-                        <td>{{item.techLevel}}</td>
-                        <!-- <td>{{item.score}}%</td> -->
-                        <td>{{ploatPercent(item.score)}}%</td>
-                        <td>{{item.withdrawnDate | date:'MM/dd/yyyy'}}</td>
-                        <td class="relative">
-                            {{item.classWithdrawnReason ? item.classWithdrawnReason.description : ''}}
-                            <div class="withdrawn-info" *ngIf="item.classWithdrawnNote">
-                                <i class="fa fa-commenting-o" aria-hidden="true"> </i>
-                                <div class="withdrawn-note">
-                                    {{item.classWithdrawnNote}}
-                                </div>
-                            </div>
-                        </td>
-                        <td>{{item.notes}}</td>
-                        <td>
-                            <a class="btnHover" (click)="navigate()"
-                                routerLink="{{'/classes/details/appl/' + item.appUserId}}">
-                                <span></span>
-                                <i class="fa fa-graduation-cap " aria-hidden="true" data-toggle="tooltip"
-                                    title="Graduation date"></i>
-                            </a>
-                            <a class="btnHover" (click)="navigate()"
-                                routerLink="{{'/profile/details/' + item.appUserId}}">
-                                <span></span>
-                                <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"></i>
-                            </a>
-                            <a class="btnHover" (click)="deleteAttendee(item)">
-                                <span></span>
-                                <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip"
-                                    title="release a spot"></i>
-                            </a>
-                            <a class="btnHover" (click)="editNote(i, true)">
-                                <span></span>
-                                <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit note"></i>
-                            </a>
-                        </td>
+  <div class="card">
+    <div class="allTable scrool-y">
+      <table class="table table-hover">
+        <thead>
+        <tr class="black-muted-bg">
+          <th>Name</th>
+          <th>Tech Level</th>
+          <th>Score, %</th>
+          <th>Withdraw Date</th>
+          <th>Withdraw Reason</th>
+          <th>Note</th>
+          <th class="edit-icons"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of entity.attendees | callback: filterMilitary;let i=index"
+            [ngClass]="{'inactive-record' : !item.appUser.isActive}">
+          <td>{{item.appUser.firstName}} {{item.appUser.lastName}}</td>
+          <td>{{item.techLevel}}</td>
+          <!-- <td>{{item.score}}%</td> -->
+          <td>{{ploatPercent(item.score)}}%</td>
+          <td>{{item.withdrawnDate | date:'MM/dd/yyyy'}}</td>
+          <td class="relative">
+            {{item.classWithdrawnReason ? item.classWithdrawnReason.description : ''}}
+            <div class="withdrawn-info" *ngIf="item.classWithdrawnNote">
+              <i class="fa fa-commenting-o" aria-hidden="true"> </i>
+              <div class="withdrawn-note">
+                {{item.classWithdrawnNote}}
+              </div>
+            </div>
+          </td>
+          <td>{{item.notes}}</td>
+          <td>
+            <a class="btnHover" (click)="navigate()"
+               routerLink="{{'/classes/details/appl/' + item.appUserId}}">
+              <span></span>
+              <i class="fa fa-graduation-cap " aria-hidden="true" data-toggle="tooltip"
+                 title="Graduation date"></i>
+            </a>
+            <a class="btnHover" (click)="navigate()"
+               routerLink="{{'/profile/details/' + item.appUserId}}">
+              <span></span>
+              <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"></i>
+            </a>
+            <a class="btnHover" (click)="deleteAttendee(item)">
+              <span></span>
+              <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip"
+                 title="release a spot"></i>
+            </a>
+            <a class="btnHover" (click)="editNote(i, true)">
+              <span></span>
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit note"></i>
+            </a>
+          </td>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </app-ba-card>
 
 <app-ba-card cardTitle="Reservations" *ngIf="entity.id">
-    <div class="addNewItem moreLink">
-        <a (click)="addParticipants = true">
-            <i class="fa fa-user-plus plus" aria-hidden="true"></i>
-            <span>Reserve class spot </span>
-        </a>
-    </div>
-    <div class="row" *ngIf="addParticipants">
-        <div class="col-sm-4">
-            <div class="form-group">
-              <label class="labelTxt">Soldier name</label>
-                <div class="form-control searchh">
-                    <label for="search">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </label>
-                    <input id="search" autocomplete="off" class="form-control input" name="search" max-num-list='10'
-                        value-formatter="firstName lastName" list-formatter="firstName lastName" auto-complete
-                        [(ngModel)]="application" [source]="observableSource(application)" display-property-name=name
-                        min-chars="3" placeholder='search' match-formatted="true" />
-                </div>
-            </div>
+  <div class="addNewItem moreLink">
+    <a (click)="addParticipants = true">
+      <i class="fa fa-user-plus plus" aria-hidden="true"></i>
+      <span>Reserve class spot </span>
+    </a>
+  </div>
+  <div class="row" *ngIf="addParticipants">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label class="labelTxt">Soldier name</label>
+        <div class="form-control search">
+          <label for="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </label>
+          <input id="search" autocomplete="off" class="form-control input" name="search" max-num-list='10'
+                 value-formatter="firstName lastName" list-formatter="firstName lastName" auto-complete
+                 [(ngModel)]="application" [source]="observableSource(application)" display-property-name=name
+                 min-chars="3" placeholder='search' match-formatted="true" />
         </div>
-        <div class="col-sm-4 allBtn ">
-            <button type="button" class="btn btn-primary" (click)="reserveClassSpot()">
-                <i class="fa fa-user-plus plus" aria-hidden="true"></i> add
-            </button>
-            <button type="button" class="btn btn-default" (click)="addParticipants = false">
-                <i class="fa fa-ban" aria-hidden="true"></i> cancel
-            </button>
-        </div>
+      </div>
     </div>
-    <div class="card">
+    <div class="col-sm-4 allBtn ">
+      <button type="button" class="btn btn-primary" (click)="reserveClassSpot()">
+        <i class="fa fa-user-plus plus" aria-hidden="true"></i> add
+      </button>
+      <button type="button" class="btn btn-default" (click)="addParticipants = false">
+        <i class="fa fa-ban" aria-hidden="true"></i> cancel
+      </button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="allTable">
+      <table class="table table-hover">
+        <thead>
+        <tr class="black-muted-bg">
+          <th>Name</th>
+          <th>Date</th>
+          <th>Note</th>
+          <th class="edit-icons"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of entity.reservations | callback: filterMilitary;let i=index"
+            [ngClass]="{'inactive-record' : !item.appUser.isActive}">
+          <td>{{item.appUser.firstName}} {{item.appUser.lastName}}</td>
+          <td>{{item.created | date}}</td>
+          <td>{{item.notes}}</td>
+          <td>
+            <a class="btnHover" (click)="navigate()"
+               routerLink="{{'/classes/details/appl/' + item.appUser.id}}">
+              <span></span>
+              <i class="fa fa-graduation-cap " aria-hidden="true" data-toggle="tooltip"
+                 title="Graduation date"></i>
+            </a>
+            <a class="btnHover" (click)="navigate()"
+               routerLink="{{'/profile/details/' + item.appUser.id}}">
+              <span></span>
+              <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"></i>
+            </a>
+            <a class="btnHover" (click)="deleteReservation(item)">
+              <span></span>
+              <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip"
+                 title="Release a spot"></i>
+            </a>
+            <a class="btnHover" (click)="editNote(i, false)">
+              <span></span>
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit note"></i>
+            </a>
+          </td>
 
-        <div class="allTable">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="black-muted-bg">
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Note</th>
-                        <th class="edit-icons"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of entity.reservations | callback: filterMilitary;let i=index"
-                        [ngClass]="{'inactive-record' : !item.appUser.isActive}">
-                        <td>{{item.appUser.firstName}} {{item.appUser.lastName}}</td>
-                        <td>{{item.created | date}}</td>
-                        <td>{{item.notes}}</td>
-                        <td>
-                            <a class="btnHover" (click)="navigate()"
-                                routerLink="{{'/classes/details/appl/' + item.appUser.id}}">
-                                <span></span>
-                                <i class="fa fa-graduation-cap " aria-hidden="true" data-toggle="tooltip"
-                                    title="Graduation date"></i>
-                            </a>
-                            <a class="btnHover" (click)="navigate()"
-                                routerLink="{{'/profile/details/' + item.appUser.id}}">
-                                <span></span>
-                                <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"></i>
-                            </a>
-                            <a class="btnHover" (click)="deleteReservation(item)">
-                                <span></span>
-                                <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip"
-                                    title="Release a spot"></i>
-                            </a>
-                            <a class="btnHover" (click)="editNote(i, false)">
-                                <span></span>
-                                <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit note"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </app-ba-card>
 
-
 <div class="search-btn">
-    <button class="btn btn-default" (click)="navigate()" routerLink="/dashboard/class-activity/{{entity.id}}">
-        <i class="fa fa-line-chart stats" aria-hidden="true" title=" Class activity"></i>
-        Class activity
-    </button>
+  <button class="btn btn-default" (click)="navigate()" routerLink="/dashboard/class-activity/{{entity.id}}">
+    <i class="fa fa-line-chart stats" aria-hidden="true" title=" Class activity"></i>
+    Class activity
+  </button>
 </div>
 <app-confirm></app-confirm>
 

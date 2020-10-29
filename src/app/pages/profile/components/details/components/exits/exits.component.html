@@ -4,7 +4,7 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label for="exitreason">Exit Reason</label>
-          <select addNewItem ref="settings/exits" (onclick)="navigate(exit)" class="form-control" name="exitreason"
+          <select appAddNewItem ref="settings/exits" (onclick)="navigate(exit)" class="form-control" name="exitreason"
                   id="exitreason" [(ngModel)]="exit.exitReasonId" required
                   [ngClass]="{'ng-submit' : exirForm._submitted}">
             <option disabled hidden [ngValue]="undefined">select...</option>

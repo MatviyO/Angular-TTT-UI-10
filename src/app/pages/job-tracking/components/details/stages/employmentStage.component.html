@@ -98,12 +98,12 @@
 
     <!-- --------Notes --------- -->
     <ng-container *ngIf="mode === 'edit'">
-      <collapseNote [itemSaved]="true" [forEmployment]="true" [(noteArray)]="stage.notes" (onDelete)="deleteNote($event)"  (onSaved)="saveNote($event)"></collapseNote>
+      <app-collapse-note [itemSaved]="true" [forEmployment]="true" [(noteArray)]="stage.notes" (onDelete)="deleteNote($event)"  (onSaved)="saveNote($event)"></app-collapse-note>
     </ng-container>
 
     <!-----------MAP --------- -->
-    <googleMap [showMap]="showMaps" [getCompanyTrades]="true" [canSelectCompany]="!_employment.id" (onChanged)="selectComp($event)">
-    </googleMap>
+    <app-google-map [showMap]="showMaps" [getCompanyTrades]="true" [canSelectCompany]="!_employment.id" (onChanged)="selectComp($event)">
+    </app-google-map>
 
     <div class="allBtn">
       <button type="submit" class="btn btn-primary" (click)="save(employmentStageForm)">
@@ -123,4 +123,4 @@
 
 </app-ba-card>
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
-<confirm></confirm>
+<app-confirm></app-confirm>

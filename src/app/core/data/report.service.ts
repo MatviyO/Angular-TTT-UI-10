@@ -1,11 +1,10 @@
 import { Injectable, Injector } from '@angular/core';
 
+import { EmploymentReport, InterviewReport } from '../model/reports';
 import * as moment from 'moment';
-import {EmploymentReport, InterviewReport} from '../model/reports';
 import {BaseEntity} from '../../common/entities';
 import {BaseDataService} from '../../common/services';
 
-@Injectable()
 export class ReportService<T extends BaseEntity> extends BaseDataService<T> {
 
   getReport(arg: { key: string, value: string }[], fileName: string = null): Promise<EmploymentReport | any> {

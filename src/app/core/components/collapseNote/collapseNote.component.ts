@@ -7,34 +7,24 @@ class NoteDTO extends BaseNotes {
 }
 
 @Component({
-    // tslint:disable-next-line:component-selector
-    selector: 'collapseNote',
+    selector: 'app-collapse-note',
     templateUrl: 'collapseNote.component.html',
     styleUrls: ['collapseNote.component.scss'],
 })
 
 export class CollapseNoteComponent implements OnInit {
 
-    // emiter for save item in array;
     @Output() onSaved = new EventEmitter();
-
-    // array notes
     @Input() noteArray;
-
-    // add button for save item in array;
     @Input() itemSaved;
-
-    // for no callapse
     @Input() noCollapse;
-
-    // for double btn new note; position - after array with scrolling;
     @Input() doubleBtnNewNote;
 
     scrolled: number;
     _notes: any[] = [];
-    showNotes: boolean = true;
-    addNote: boolean = false;
-    showBtnAddNote: boolean = false;
+    showNotes = true;
+    addNote = false;
+    showBtnAddNote = false;
 
     constructor() { }
 
@@ -47,7 +37,7 @@ export class CollapseNoteComponent implements OnInit {
 
     @HostListener('window:scroll')
 
-    onWindowScroll() {
+    onWindowScroll(): any {
         if (this.doubleBtnNewNote) {
             this.scrolled = (window.pageYOffset || document.documentElement.scrollTop);
             this.showBtnAddNote = (this.scrolled > 150);

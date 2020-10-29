@@ -1,6 +1,6 @@
 // import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
 // import { EmploymentCompany, ApplicationProgram, InterviewType, InterviewOutcomeService, InterviewOutcome, InterviewStage, EmploymentStage, CompanyContactsService } from 'app/core';
-// import { BaseState } from './baseStage.component';
+// import { BaseStateDirective } from './baseStage.component';
 
 
 // @Component({
@@ -10,7 +10,7 @@
 //     providers: [InterviewOutcomeService, CompanyContactsService],
 // })
 
-// export class InterviewStageComponent extends BaseState implements OnInit {
+// export class InterviewStageComponent extends BaseStateDirective implements OnInit {
 //     @Output() onSaved = new EventEmitter();
 //     @Output() onCancel = new EventEmitter();
 //     @Output() onError = new EventEmitter();
@@ -87,7 +87,7 @@
 //                         this.notHired();
 //                         return;
 //                     } else {
-//                         const stIndex = this.employmentCompany.interviewStages.findIndex((x: InterviewStage) => x.id === editStage.id); 
+//                         const stIndex = this.employmentCompany.interviewStages.findIndex((x: InterviewStage) => x.id === editStage.id);
 //                         this.employmentCompany.interviewStages[stIndex] = editStage;
 //                     }
 //                 } else {

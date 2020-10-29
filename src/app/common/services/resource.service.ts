@@ -7,52 +7,52 @@ import { MemoryCache, UrlProvider, genKey } from '../utils';
 
 export class ResourceServiceBase<T extends BaseEntity> implements IResourceService<T> {
 
-    protected http: HttpClient;
-    protected cache: ICache;
-    protected urlProvider: IUrlProvider;
+  protected http: HttpClient;
+  protected cache: ICache;
+  protected urlProvider: IUrlProvider;
 
-    constructor(
-        protected injector: Injector,
-        private url: string,
-        protected dependencies: string[] = [],
-        protected cacheMinutes: number = 10,
-        protected defaultFilter = null,
-    ) {
-        this.http = injector.get(HttpClient);
-        this.cache = injector.get(MemoryCache);
-        this.urlProvider = injector.get(UrlProvider);
+  constructor(
+    protected injector: Injector,
+    private url: string,
+    protected dependencies: string[] = [],
+    protected cacheMinutes: number = 10,
+    protected defaultFilter = null,
+  ) {
+    this.http = injector.get(HttpClient);
+    this.cache = injector.get(MemoryCache);
+    this.urlProvider = injector.get(UrlProvider);
+  }
+
+  query(filter: string = '', order: string = '', args: any[] = [], includes: string = null, selectJSONPath: string = null, noCaching: boolean = false): Promise<T[]> {
+    const key = genKey([this.url, filter, order]);
+    if (this.cache.keyExist(key) && !noCaching) {
+      return Promise.resolve(this.cache.get(key));
     }
 
-    query(filter: string = '', order: string = '', args: any[] = [], includes: string = null, selectJSONPath: string = null, noCaching: boolean = false): Promise<T[]> {
-        const key = genKey([this.url, filter, order]);
-        if (this.cache.keyExist(key) && !noCaching) {
-            return Promise.resolve(this.cache.get(key));
-        }
-      
-        return this.http.get<T[]>(this.urlProvider.query(this.url, filter, order, null, null, args, this.defaultFilter, includes, selectJSONPath))
-            .toPromise()
-            .then( response => { 
-                    this.cache.cache(key, response, this.cacheMinutes, this.dependencies);
-                    return response;
-                },
-        )
-            .catch(this.handleError);
-    }
+    return this.http.get<T[]>(this.urlProvider.query(this.url, filter, order, null, null, args, this.defaultFilter, includes, selectJSONPath))
+      .toPromise()
+      .then( response => {
+          this.cache.cache(key, response, this.cacheMinutes, this.dependencies);
+          return response;
+        },
+      )
+      .catch(this.handleError);
+  }
 
-    count(filter: string): Promise<number> {
-        return this.http.get<BaseEntityCollection<T>>(this.urlProvider.count(this.url, filter, this.defaultFilter))
-            .toPromise()
-            .then(response => {
-                const x = response.data || response;
-                return x;
-            },
-        )
-            .catch(this.handleError);
+  count(filter: string): Promise<number> {
+    return this.http.get<BaseEntityCollection<T>>(this.urlProvider.count(this.url, filter, this.defaultFilter))
+      .toPromise()
+      .then(response => {
+          const x = response.data || response;
+          return x;
+        },
+      )
+      .catch(this.handleError);
 
-    }
+  }
 
 
-    protected handleError(error: any): Promise<any> {
-        return Promise.reject(error);
-    }
+  protected handleError(error: any): Promise<any> {
+    return Promise.reject(error);
+  }
 }

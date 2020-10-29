@@ -1,4 +1,4 @@
-import { OnInit, Inject, ViewChild } from '@angular/core';
+import {OnInit, Inject, ViewChild, Directive} from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -23,8 +23,9 @@ import {NotificationService, ObservableService} from '../../../../../common/serv
 import {ConfirmComponent} from '../../../../../common/components/confirm';
 import {IResourceService} from '../../../../../common/interfaces';
 
+@Directive()
 
-export class BaseState implements OnInit {
+export class BaseStateDirective implements OnInit {
     @ViewChild(GoogleMapComponent) googleMapComponent: GoogleMapComponent;
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
 

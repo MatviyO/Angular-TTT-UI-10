@@ -22,3 +22,4 @@ export * from './map-location';
 export * from './setting';
 export * from './non-placement-reason';
 export * from './military-branch';
+export * from './rank';

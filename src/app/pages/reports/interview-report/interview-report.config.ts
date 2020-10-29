@@ -4,13 +4,12 @@ import {EmploymentReport} from '../../../core/model/reports';
 import {InterviewReportService} from '../../../core/data';
 
 
-
 @Injectable()
 export class InterviewReportConfig implements IComponentConfig<EmploymentReport> {
-    componentTitle = 'Interview report';
+  componentTitle = 'Interview report';
 
-    constructor(
-        @Inject(InterviewReportService) public dataSvc: IDataService<EmploymentReport>,
-        public injector: Injector,
-    ) { }
+  constructor(
+    @Inject(InterviewReportService) public dataSvc: IDataService<EmploymentReport>,
+    public injector: Injector,
+  ) { }
 }

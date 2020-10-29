@@ -24,6 +24,7 @@ import { NguiAutoCompleteModule} from '@ngui/auto-complete';
 import { CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-affiliates';
 import { CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
+import {RankComponent, RankService} from './rank';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         FeedbacksComponent,
         InterviewTypeComponent,
         InterviewOutcomeComponent,
-        EmploymentStatusComponent
+        EmploymentStatusComponent,
+        RankComponent
     ],
     providers: [
         NonPlacementReasonService,
@@ -80,7 +82,8 @@ import { MilitaryBranchComponent, MilitaryBranchService } from './military-branc
         InterviewOutcomeService,
         EmploymentStatusService,
         MilitaryBranchService,
-        CountryStatesService
+        CountryStatesService,
+        RankService
     ],
 })
 export class SettingsModule { }

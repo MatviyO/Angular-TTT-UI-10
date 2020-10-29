@@ -1,80 +1,80 @@
 <div class="card" appScrollSpy (onPageEnd)="loadMore()">
-    <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
-        <a (click)="showfilter = !showfilter" class="filter-icon">
-            <i class="fa fa-filter" aria-hidden="true"></i>
-            <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
-        </a>
-        <a *ngIf="showfilter" (click)="resetFilter()" class="btn resetFilter">reset filter
-            <i class="fa fa-times" aria-hidden="true"></i>
-        </a>
-        <div class="row allInputs" *ngIf="showfilter">
-            <div class="form-group col-lg-4 col-sm-6">
-                <label for="filterName">Start Date</label>
-                <input id="filterName" type="date" class="form-control" name="startDate" [ngClass]="{'ng-submit' : !filter.startDate}"
-                    [ngModel]="filter.startDate | date:'yyyy-MM-dd'" required (blur)="filter.startDate = $event.target.value">
-            </div>
-            <div class="form-group col-lg-4 col-sm-6">
-                <label for="Date">End Date</label>
-                <input id="Date" type="date" class="form-control" required name="endDate" [ngClass]="{'ng-submit' : !filter.endDate}" [ngModel]="filter.endDate | date:'yyyy-MM-dd'"
-                    (blur)="filter.endDate = $event.target.value">
-            </div>
-            <div class="form-group col-lg-4 col-sm-6 group-box center">
-                <label class="labelTxt">Application Type</label>
-                <br>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn-primary btn-sm hover-types"
-                        (click)="filter.applicationTypes[0] == 'Veteran' ? filter.applicationTypes[0] = '' : filter.applicationTypes[0] = 'Veteran'" [ngClass]="{'active': filter.applicationTypes[0] == 'Veteran'}">
-                        Veteran
-                    </label>
-                    <label class="btn-primary btn-sm hover-types"
-                        (click)="filter.applicationTypes[1] == 'Military' ? filter.applicationTypes[1] = '' : filter.applicationTypes[1] = 'Military'"  [ngClass]="{'active': filter.applicationTypes[1] == 'Military'}">
-                        Military
-                    </label>
-                </div>
-            </div>
-            <div class="form-group  col-sm-12 search-btn search-padding-top">
-                <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="addNewItem">
-        <a (click)="downloadReport()">
-            <i class="fa fa-download" aria-hidden="true" data-toggle="tooltip" title="download report"></i>
-          <span >Download report</span>
-        </a>
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="resetFilter()" class="btn resetFilter">reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-4 col-sm-6">
+        <label for="filterName">Start Date</label>
+        <input id="filterName" type="date" class="form-control" name="startDate" [ngClass]="{'ng-submit' : !filter.startDate}"
+               [ngModel]="filter.startDate | date:'yyyy-MM-dd'" required (blur)="filter.startDate = $event.target.value">
       </div>
-
-    <div class="allTable">
-        <table class="table table-hover table-line-height table-bordered">
-            <thead>
-                <tr class="black-muted-bg">
-                    <th>Student Name</th>
-                    <th>Company Name</th>
-                    <th>Company Address</th>
-                    <th>Company Phone</th>
-                    <th>Company Source</th>
-                    <th class="align-center">Date</th>
-                    <th class="align-center">Outcome</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of entities">
-                    <td>{{item.firstName}} {{item.lastName}}</td>
-                    <td>{{item.companyName}}</td>
-                    <td>{{item.companyCountry}} | {{item.companyState}} | {{item.companyCity}} | {{item.companyAddress}}
-                        | {{item.companyZip}}</td>
-                    <td class="align-center">{{item.companyPhone}}</td>
-                    <td>{{item.companySource}}</td>
-                    <td class="align-center">
-                        <span *ngIf="item.date"> {{item.date | date:'MM/dd/yyyy'}}</span>
-                        <span *ngIf="!item.date"> - </span>
-                    </td>
-                    <td class="align-center">{{item.outcome}}</td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="form-group col-lg-4 col-sm-6">
+        <label for="filterName">End Date</label>
+        <input type="date" class="form-control" required name="endDate" [ngClass]="{'ng-submit' : !filter.endDate}" [ngModel]="filter.endDate | date:'yyyy-MM-dd'"
+               (blur)="filter.endDate = $event.target.value">
+      </div>
+      <div class="form-group col-lg-4 col-sm-6 group-box center">
+        <label class="labelTxt">Application Type</label>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn-primary btn-sm hover-types"
+                 (click)="filter.applicationTypes[0] == 'Veteran' ? filter.applicationTypes[0] = '' : filter.applicationTypes[0] = 'Veteran'" [ngClass]="{'active': filter.applicationTypes[0] == 'Veteran'}">
+            Veteran
+          </label>
+          <label class="btn-primary btn-sm hover-types"
+                 (click)="filter.applicationTypes[1] == 'Military' ? filter.applicationTypes[1] = '' : filter.applicationTypes[1] = 'Military'"  [ngClass]="{'active': filter.applicationTypes[1] == 'Military'}">
+            Military
+          </label>
+        </div>
+      </div>
+      <div class="form-group  col-sm-12 search-btn search-padding-top">
+        <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+      </div>
     </div>
+  </div>
+
+  <div class="addNewItem">
+    <a (click)="downloadReport()">
+      <i class="fa fa-download" aria-hidden="true" data-toggle="tooltip" title="download report"></i>
+      <span >Download report</span>
+    </a>
+  </div>
+
+  <div class="allTable">
+    <table class="table table-hover table-line-height table-bordered">
+      <thead>
+      <tr class="black-muted-bg">
+        <th>Student Name</th>
+        <th>Company Name</th>
+        <th>Company Address</th>
+        <th>Company Phone</th>
+        <th>Company Source</th>
+        <th class="align-center">Date</th>
+        <th class="align-center">Outcome</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of entities">
+        <td>{{item.firstName}} {{item.lastName}}</td>
+        <td>{{item.companyName}}</td>
+        <td>{{item.companyCountry}} | {{item.companyState}} | {{item.companyCity}} | {{item.companyAddress}}
+          | {{item.companyZip}}</td>
+        <td class="align-center">{{item.companyPhone}}</td>
+        <td>{{item.companySource}}</td>
+        <td class="align-center">
+          <span *ngIf="item.date"> {{item.date | date:'MM/dd/yyyy'}}</span>
+          <span *ngIf="!item.date"> - </span>
+        </td>
+        <td class="align-center">{{item.outcome}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

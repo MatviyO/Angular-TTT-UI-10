@@ -1,7 +1,7 @@
 <div class="row">
         <div class="col-sm-12">
           <div ngForm #noteForm="ngForm">
-            <collapseNote [noteArray]="notes" [noCollapse]="noCollapse" [doubleBtnNewNote]="true" [itemSaved]="true" (onSaved)="onSaved($event)"></collapseNote>
+            <app-collapse-note [noteArray]="notes" [noCollapse]="noCollapse" [doubleBtnNewNote]="true" [itemSaved]="true" (onSaved)="onSaved($event)"></app-collapse-note>
           </div>
         </div>
       </div>
