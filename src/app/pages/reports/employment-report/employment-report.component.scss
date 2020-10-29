@@ -1,0 +1,35 @@
+.align-center {
+    text-align: center;
+}
+
+.addNewItem{
+    margin-top: -32px;
+}
+
+.filter{  
+    .filter-icon{
+        z-index: 5;
+    }
+}
+.search-padding-top{
+    margin-bottom: 40px;
+}
+
+.hover-types {
+    margin-left: 1px;
+    cursor: pointer;
+    color: #dedede;
+    min-width: 70px;
+    &.active {
+        transition: .2s;
+        color: white;
+        box-shadow: 0px 2px 8px -3px #ffffff;
+    }
+    &:hover {
+        color: white;
+        background-color: transparent;
+    }
+    .active:hover {
+        background-color: #36608e !important;
+    }
+}

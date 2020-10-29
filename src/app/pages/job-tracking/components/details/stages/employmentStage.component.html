@@ -1,0 +1,126 @@
+<app-ba-card cardTitle="Employment stage" *ngIf="stage">
+  <div ngForm #employmentStageForm="ngForm" (keydown.control.s)="save(employmentStageForm)">
+    <div class="row" *ngIf="_employment.id">
+
+      <div class="form-group col-sm-6">
+        <label for="Company">Company</label>
+        <input id="Company" class="form-control disableSelect" type="text" name="company"
+          [ngModel]="_employment.companyTrade.company.name">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="trade">Trade</label>
+        <input id="trade" class="form-control disableSelect" type="text" name="trade"
+          [ngModel]="getTradeById(_employment.companyTrade)">
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!_employment.id">
+
+      <div class="form-group col-sm-6">
+        <label >Company</label>
+        <div class="form-control search"
+          [ngClass]="{'disableSelect': false, 'ng-submit' : employmentStageForm._submitted && !selectCompany}">
+          <label for="search">
+            <i class="fa fa-search" [ngClass]="{'no-visible': false}" aria-hidden="true"></i>
+          </label>
+          <input id="search" autocomplete="off" [ngClass]="{'disableSelect': false}" class="form-control input" name="search"
+            (blur)="companyChanged(selectCompany)" max-num-list='100' value-formatter="name" list-formatter="name"
+            auto-complete [(ngModel)]="selectCompany" [source]="observableSource(selectCompany)" min-chars="3"
+            placeholder='search' match-formatted="true" />
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <label for="trade">Trade</label>
+        <select class="form-control" name="trade" [(ngModel)]="selectCompany && selectCompany.companyTradeId" required
+          [ngClass]="{'ng-submit' : employmentStageForm._submitted, 'disableSelect': stage.employmentCompanyId}">
+          <option disabled hidden [value]="undefined">select...</option>
+          <ng-container *ngIf="selectCompanyTrades">
+            <option *ngFor="let tr of selectCompanyTrades" [ngClass]="{'grey': tr.disable}" [value]="tr.id">
+              {{getTradeById(tr)}} <span *ngIf="!tr.disable">&#x2713;</span>
+            </option>
+            <optgroup *ngIf="selectCompanyOtherTrades && selectCompanyOtherTrades.length > 0"
+              label="Other trades...........................">
+              <option *ngFor="let tr of selectCompanyOtherTrades" [value]="tr.id">
+                {{tr.name}} <span *ngIf="!tr.disable">&#x2713;</span>
+              </option>
+            </optgroup>
+          </ng-container>
+
+        </select>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <label for="company">Date:</label>
+        <input class="form-control" type="date" name="date" [ngModel]="stage.date | date:'yyyy-MM-dd'" required
+          (blur)="stage.date = $event.target.value" [ngClass]="{'ng-submit' : employmentStageForm._submitted}">
+      </div>
+      <div class="form-group col-sm-2" *ngIf="mode !=='promote'">
+        <label for="company">Status</label>
+        <select class="form-control" name="status" [(ngModel)]="stage.statusId" required
+          [ngClass]="{'ng-submit' : employmentStageForm._submitted}">
+          <option [ngValue]="null">select...</option>
+          <option *ngFor="let status of statuses" [value]="status.id">{{status.description}}</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3" *ngIf="mode==='new' || mode==='edit' || mode==='add'">
+        <label for="altLocations">Alternative locations</label>
+        <select id="altLocations" addNewItem
+          ref="settings/company/details/{{selectCompany? selectCompany.id: ''}}/altLocations"
+          (onclick)="navigate()" class="form-control " name="altLocations" [(ngModel)]="stage.locationId">
+          <option [value]=null>select...</option>
+          <ng-container *ngIf="selectCompany">
+            <ng-container *ngFor="let altLocation of selectCompany.alternateLocations">
+              <option *ngIf="altLocation.isActive || altLocation.id == stage.locationId"
+                [ngClass]="{'grey': !altLocation.isActive}" [value]="altLocation.id">
+                {{altLocation.name}}
+              </option>
+            </ng-container>
+          </ng-container>
+        </select>
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="company">Title</label>
+        <input class="form-control" type="text" name="title" placeholder="Title" [(ngModel)]="stage.title">
+      </div>
+      <div class="form-group col-sm-2" *ngIf="mode !== 'leave'">
+        <label for="company">Wages</label>
+        <input class="form-control" type="text" name="wage" placeholder="Wages" [(ngModel)]="stage.wage">
+      </div>
+      <div class="form-group col-sm-12" *ngIf="mode !== 'edit'">
+        <label for="company">Note</label>
+        <textarea class="form-control" name="note" [(ngModel)]="stage.note"></textarea>
+      </div>
+    </div>
+
+    <!-- --------Notes --------- -->
+    <ng-container *ngIf="mode === 'edit'">
+      <collapseNote [itemSaved]="true" [forEmployment]="true" [(noteArray)]="stage.notes" (onDelete)="deleteNote($event)"  (onSaved)="saveNote($event)"></collapseNote>
+    </ng-container>
+
+    <!-----------MAP --------- -->
+    <googleMap [showMap]="showMaps" [getCompanyTrades]="true" [canSelectCompany]="!_employment.id" (onChanged)="selectComp($event)">
+    </googleMap>
+
+    <div class="allBtn">
+      <button type="submit" class="btn btn-primary" (click)="save(employmentStageForm)">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+      </button>
+      <button class="btn btn-default" (click)="cancel()">
+        <i class="fa fa-ban" aria-hidden="true"></i> cancel
+      </button>
+      <div class="allBtn right">
+        <button class="btn btn-default" (click)="showMaps ? showMaps = false : showMap()">{{!showMaps ? 'Show map':
+          'Hide map'}}
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</app-ba-card>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
+<confirm></confirm>

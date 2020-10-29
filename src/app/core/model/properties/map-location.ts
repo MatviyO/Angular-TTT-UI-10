@@ -8,7 +8,7 @@ export class MapLocation extends BaseEntityUnDeletable {
     name: string;
     priority: number;
 
-    constructor () {
+    constructor() {
         super();
         this.closestCompanies = new Array<ClosestCompanies>();
     }

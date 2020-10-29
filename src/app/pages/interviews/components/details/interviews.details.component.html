@@ -1,0 +1,252 @@
+<div ngForm #interviewStageForm="ngForm" (keydown.control.s)="onSave(itemEdit, interviewStageForm)">
+    <div class="row">
+        <div class="col-md-12">
+
+            <ba-card cardTitle="Interview stages">
+                <div class="row" *ngIf="companyTrade && companyTrade.id">
+
+                    <div class="form-group col-sm-6">
+                        <label for="trade">Company</label>
+                        <input class="form-control disableSelect" type="text" name="company"
+                            [ngModel]="companyTrade.company.name">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="trade">Trade</label>
+                        <input class="form-control disableSelect" type="text" name="trade"
+                            [ngModel]="getTradeById(companyTrade)">
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="companyTrade && !companyTrade.id">
+                    <div class="form-group col-sm-6">
+                        <label for="mentorCompany">Company</label>
+                        <div class="form-control search"
+                            [ngClass]="{'disableSelect': false, 'ng-submit' : interviewStageForm._submitted && !selectCompany}">
+                            <label for="search">
+                                <i class="fa fa-search" [ngClass]="{'no-visible': false}" aria-hidden="true"></i>
+                            </label>
+                            <input autocomplete="off" [ngClass]="{'disableSelect': false}" class="form-control input"
+                                name="search" (blur)="companyChanged(selectCompany)" max-num-list='100'
+                                value-formatter="name" list-formatter="name" auto-complete [(ngModel)]="selectCompany"
+                                [source]="observableSource(selectCompany)" min-chars="3" placeholder='search'
+                                match-formatted="true" />
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="trade">Trade</label>
+                        <select class="form-control" name="trade"
+                            [(ngModel)]="selectCompany && selectCompany.companyTradeId" required
+                            [ngClass]="{'ng-submit' : interviewStageForm._submitted }">
+                            <option disabled hidden [value]="undefined">select...</option>
+                            <ng-container *ngIf="selectCompanyTrades">
+                                <option *ngFor="let tr of selectCompanyTrades" [ngClass]="{'grey': tr.disable}"
+                                    [value]="tr.id">
+                                    {{getTradeById(tr)}} <span *ngIf="!tr.disable">&#x2713;</span>
+                                </option>
+                                <optgroup *ngIf="selectCompanyOtherTrades && selectCompanyOtherTrades.length > 0"
+                                    label="Other trades...........................">
+                                    <option *ngFor="let tr of selectCompanyOtherTrades" [value]="tr.id">
+                                        {{tr.name}} <span *ngIf="!tr.disable">&#x2713;</span>
+                                    </option>
+                                </optgroup>
+                            </ng-container>
+
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ---------- STAGES --------- -->
+                <div *ngIf="editing" class="stages">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="date">Date of action</label>
+                            <input type="date" class="form-control" name="date"
+                                [ngModel]="itemEdit.date | date:'yyyy-MM-dd'"
+                                (blur)="itemEdit.date = $event.target.value" required
+                                [ngClass]="{'ng-submit' : interviewStageForm._submitted}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="type">Interview type</label>
+                            <select addNewItem ref="settings/interview-type" (onclick)="navigate()" class="form-control"
+                                name="type" [(ngModel)]="itemEdit.typeId" required
+                                [ngClass]="{'ng-submit' : interviewStageForm._submitted}">
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <ng-container *ngFor="let type of interviewTypes">
+                                    <option *ngIf="type.isActive || type.id == itemEdit.typeId"
+                                        [ngClass]="{'grey': !type.isActive}" [value]="type.id">{{type.description}}
+                                    </option>
+                                </ng-container>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="altLocations">Alternative locations</label>
+                            <select addNewItem
+                                ref="settings/company/details/{{selectCompany? selectCompany.id: ''}}/altLocations"
+                                (onclick)="navigate()" class="form-control" name="altLocations"
+                                [(ngModel)]="itemEdit.locationId">
+                                <option disabled hidden [value]=undefined>select...</option>
+                                <option [ngValue]='null'>select...</option>
+                                <ng-container *ngIf="selectCompany">
+                                    <option *ngFor="let alt of selectCompany.alternateLocations"
+                                        [value]="alt.id">{{alt.name}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="contact">Contact</label>
+                            <select addNewItem
+                                ref="settings/company/details/{{selectCompany ? selectCompany.id: ''}}/contacts"
+                                (onclick)="navigate()" class="form-control" name="contact"
+                                [(ngModel)]="itemEdit.contactId">
+                                <option [ngValue]="null">select...</option>
+                                <option disabled hidden [value]="undefined">select...</option>
+                                <ng-container *ngIf="selectCompany">
+                                    <option *ngFor="let cont of selectCompany.contacts" [value]="cont.id">
+                                        {{cont.firstName}}
+                                        {{cont.lastName}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12" *ngIf="!itemEdit.id">
+                            <label for="company">Note</label>
+                            <textarea class="form-control" name="note" [(ngModel)]="itemEdit.note"></textarea>
+                        </div>
+                    </div>
+
+                    <!----------- notes --------- -->
+                    <ng-container *ngIf="itemEdit.id">
+                        <collapseNote [noteArray]="itemEdit.notes" [itemSaved]="true" [forEmployment]="true"
+                            (onSaved)="saveNote($event)" (onDelete)="deleteNote($event)"></collapseNote>
+                    </ng-container>
+                </div>
+
+                <!-----------MAP --------- -->
+                <googleMap [getCompanyTrades]="true" [showMap]="showMaps" [canSelectCompany]="!entity.id"
+                    (onChanged)="selectComp($event)"></googleMap>
+
+
+                <!-- ---------- stages list ---------- -->
+                <div *ngIf="!editing" class="allTable listTable">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="black-muted-bg">
+                                <th>Interview type</th>
+                                <th>Contact</th>
+                                <th>Location</th>
+                                <th>Date of action</th>
+                                <th>Outcome</th>
+                                <th>
+                                    <div class="addNewItem on-table">
+                                        <a (click)="editStage()">
+                                            <span>Add new</span>
+                                            <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of entity.stages; let i = index"
+                                [ngClass]="{'disable' : item.isActive === false, 'editing': editing && num == i }">
+                                <td>
+                                    {{getInterviewType(item.typeId)}}
+                                </td>
+                                <td class="min-width">
+                                    <!-- <span *ngIf="item.contactId"> -->
+                                        {{getCompanyContact(item.contact, item.contactId)}}
+                                        <!-- {{item.contact.firstName}} {{item.contact.lastName}}  {{item.contact.phone}} -->
+                                    <!-- </span> -->
+                                    <!-- <span *ngIf="!item.contactId"> - </span> -->
+                                </td>
+                                <td>
+                                    {{getCompanyLocation(item.location, item.locationId)}}
+                                    <!-- <span *ngIf="item.location">{{item.location.name}}, {{item.location.city}},
+                                        {{item.location.state}}</span>
+                                    <span *ngIf="!item.location">
+                                        {{employmentCompany ? employmentCompany.company.city : selectCompany && selectCompany.city}},
+                                        {{employmentCompany ? employmentCompany.company.state : selectCompany && selectCompany.state}}
+                                    </span> -->
+                                </td>
+                                <td>
+                                    {{item.date | date:'MM/dd/yyyy'}}
+                                </td>
+                                <td>
+                                    {{getOutcomeById(+item.interviewOutcomeId)}}
+                                </td>
+                                <td>
+                                    <a class="btnHover" (click)="num = i; editStage(item)">
+                                        <i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+                                    </a>
+                                    <a class="btnHover" (click)="deleteStage(item)">
+                                        <i class="fa fa-trash" aria-hidden="true" title="Delete"></i>
+                                    </a>
+                                    <i *ngIf="item.hasTrigger" class="fa fa-exclamation-circle  triggIcon"
+                                        aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- -------- outcome --------- -->
+                <div *ngIf="!editing" class="row">
+                    <div class="col-sm-4 offset-sm-4 ">
+                        <label for="outcome">Outcome</label>
+                        <select
+                            [disabled]="entity.stages && entity.stages.length > 0 && entity.stages[entity.stages.length - 1].interviewOutcomeId"
+                            class="form-control" name="outcome" [(ngModel)]="outComeId">
+                            <!-- [ngClass]="{'disableSelect': employmentCompany.interviewOutcome && employmentCompany.interviewOutcome.isHired }" -->
+                            <option [ngValue]="null || underfined">select...</option>
+                            <ng-container *ngFor="let out of outcomes">
+                                <option
+                                    *ngIf="out.id !== 1 || entity.stages && entity.stages.length > 0 && entity.stages[entity.stages.length - 1].interviewOutcomeId && entity.stages[entity.stages.length - 1].interviewOutcomeId == 1"
+                                    [value]="out.id">{{out.description}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- -------------------- buttons --------------------------- -->
+                <div class="allBtn">
+                    <button
+                        *ngIf="editing || (entity.stages && entity.stages.length > 0 &&  !entity.stages[entity.stages.length - 1].interviewOutcomeId)"
+                        type="submit" class="btn btn-primary" (click)="onSave(itemEdit, interviewStageForm)">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+                    </button>
+                    <button *ngIf="editing" type="submit" class="btn btn-default" (click)="cancelEditing()">
+                        <i class="fa fa-ban" aria-hidden="true"></i> cancel
+                    </button>
+                    <button *ngIf="!editing && entity && entity.applicationId" type="button" class="btn btn-default" routerLink="{{'/job-tracking/details/appl/' + entity.applicationId }}">
+                        <i class="fa fa-ban" aria-hidden="true"></i> cancel
+                    </button>
+                  
+                        <!-- <button *ngIf="!editing"  class="btn btn-default" (click)="redirect()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> back
+                        </button> -->
+                  
+                    <button
+                        *ngIf="!editing && entity.stages && entity.stages.length > 0 && !entity.stages[entity.stages.length - 1].interviewOutcomeId"
+                        type="submit" class="btn btn-success" (click)="onHired()">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> Hired
+                    </button>
+                    <!-- <button
+                        *ngIf="employmentCompany.id && employmentCompany.interviewOutcome && employmentCompany.interviewOutcome.isHired"
+                        type="submit" class="btn btn-info" (click)="notHired()">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i> Not hired
+                    </button> -->
+                    <div class="allBtn right">
+                        <button class="btn btn-default" (click)="showMaps ? showMaps = false : showMap()">
+                            {{!showMaps ? 'Show map': 'Hide map'}}
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </ba-card>
+        </div>
+    </div>
+</div>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
+<confirm></confirm>

@@ -1,0 +1,93 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true" ></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="name">Name </label>
+        <input id="name" type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="mentorName">Mentor name</label>
+        <input id="mentorName" type="text" [(ngModel)]="filter.mentorName" class="form-control" name="mentorName" placeholder="Enter full name">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="mentorCompany">Company</label>
+
+        <select id="mentorCompany" class="form-control" name="company-{{i}}" [(ngModel)]="filter.company">
+        <option [ngValue]="undefined">select...</option>
+
+        <option *ngFor="let comp of _companies" [ngValue]="comp.id">{{comp.name}}</option>
+       </select>
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+          <label for="feedback">Feedback</label>
+          <select id="feedback" class="form-control" name="feedback-{{i}}" [(ngModel)]="filter.feedbackId">
+            <option  [ngValue]="undefined">select...</option>
+            <option *ngFor="let feedback of feedbacks" [ngClass]="{'grey': !feedback.isActive}" [ngValue]="feedback.id">{{feedback.description}}</option>
+          </select>
+        </div>
+
+      <div class="form-group offset-lg-1 col-lg-3 col-sm-12 search-btn">
+        <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="addNewItem">
+    <a (click)="showWindow()">
+      <i class="fa fa-male" aria-hidden="true"></i>
+      <span >Add new mentorship </span>
+    </a>
+  </div>
+  <addNewItem [link]="'/mentorship/details/appl/'"></addNewItem>
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('application.lastName')" class="sorting-hover">
+              Name
+              <span class="iconsForName" *ngIf="sort.column =='application.lastName'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('meetings')" class="sorting-hover">
+              Meetings count
+              <span class="iconsForName" *ngIf="sort.column =='meetings'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true" ></i>
+              </span>
+            </a>
+          </th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.application.isActive}">
+          <td>
+            {{item.application.firstName}} {{item.application.lastName}}
+          </td>
+          <td> <i *ngFor="let items of item.feedbacks" class="fa fa-handshake-o" aria-hidden="true"> </i>
+
+          </td>
+          <td>
+            <a class="btnHover" routerLink="{{'/mentorship/details/' + item.id}}">
+
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

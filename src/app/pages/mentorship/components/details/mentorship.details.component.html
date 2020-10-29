@@ -1,0 +1,72 @@
+<div ngForm #mentorForm="ngForm" (keydown.control.s)="onSave(mentorForm)">
+    <fieldset>
+        <ba-card cardTitle="Meeting #{{i+1}}" *ngFor="let item of entity.feedbacks; let i=index">
+            <div class="row">
+
+                <div class="col-sm-4 fl-left">
+                    <div class="form-group col-sm-12">
+                        <label for="mentorName-{{i}}">Mentor name</label>
+                        <input id="mentorName-{{i}}" type="text" name="mentorName-{{i}}" maxlength="50" class="form-control" [(ngModel)]="item.mentorName" placeholder="Mentor name"
+                            required [ngClass]="{'ng-submit' : mentorForm._submitted}">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="feedback-{{i}}">Feedback</label>
+                        <select id="feedback-{{i}}" addNewItem ref="settings/feedbacks" (onclick)="navigate()" class="form-control" name="feedback-{{i}}" [(ngModel)]="item.feedbackId">
+                            <option hidden [ngValue]="undefined">select...</option>
+                            <option [ngValue]="null">select...</option>
+                            <ng-container *ngFor="let feedback of _feedbacks">
+                                <option *ngIf="feedback.isActive || feedback.id == item.feedbackId" [ngClass]="{'grey': !feedback.isActive}" [ngValue]="feedback.id">{{feedback.description}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="date-{{i}}">Date</label>
+                        <input id="date-{{i}}" type="date" class="form-control" name="date-{{i}}" [ngModel]="item.date | date:'yyyy-MM-dd'" (blur)="item.date = $event.target.value"
+                            required [ngClass]="{'ng-submit' : mentorForm._submitted}">
+                    </div>
+                </div>
+
+                <div class="col-sm-8 fl-right">
+                    <div class="form-group col-sm-6">
+                        <label for="mentorCompany-{{i}}">Company</label>
+                        <select id="mentorCompany-{{i}}" addNewItem ref="settings/company/details" (onclick)="navigate()" (change)="item.companyAlternateLocationId = undefined"
+                            class="form-control" name="mentorCompany-{{i}}" [(ngModel)]="item.companyId" required [ngClass]="{'ng-submit' : mentorForm._submitted}">
+                            <option disabled hidden [ngValue]="undefined">select...</option>
+                            <ng-container *ngFor="let comp of _companies">
+                                <option [ngValue]="comp.id">{{comp.name}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="altLocations-{{i}}">Alternative locations</label>
+                        <select id="altLocations-{{i}}" addNewItem ref="settings/company/details/{{item.companyId}}/altLocations" (onclick)="navigate()" class="form-control "
+                            name="altLocations-{{i}}" [(ngModel)]="item.companyAlternateLocationId">
+                            <option hidden [ngValue]="undefined">select...</option>
+                            <option [ngValue]="null">select...</option>
+                            <ng-container *ngFor="let altLocation of getAltLocation(item.companyId)">
+                                <option *ngIf="altLocation.isActive || altLocation.id == item.companyAlternateLocationId " [ngClass]="{'grey': !altLocation.isActive}"
+                                    [ngValue]="altLocation.id">{{altLocation.name}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-12 notes">
+                        <label for="notes-{{i}}">Notes</label>
+                        <textarea id="notes-{{i}}" class="form-control" name="notes-{{i}}" rows="8" [(ngModel)]="item.notes"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </ba-card>
+    </fieldset>
+
+    <div class="allBtn">
+        <button *ngIf="entity.feedbacks.length > 0" type="submit" class="btn btn-primary" (click)="onSave(mentorForm)">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>
+        <button class="btn btn-default" (click)="addMeeting()">
+            <i class="fa fa-plus" aria-hidden="true"></i> Meeting</button>
+    </div>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

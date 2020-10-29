@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { InterviewStage, InterviewStatusDto } from '../model';
+import {InterviewStage, InterviewStageV2, InterviewStatusDto} from '../model';
 import {BaseDataService} from '../../common/services';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class InterviewStageService extends BaseDataService<InterviewStage> {
 
 @Injectable()
 export class InterviewStatusHelper {
-    get(interviewStages: InterviewStage[]): InterviewStatusDto {
+  get(interviewStages: InterviewStageV2[]): InterviewStatusDto {
         const s = new InterviewStatusDto();
 
         if (interviewStages.length > 0) {

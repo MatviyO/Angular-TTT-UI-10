@@ -1,0 +1,138 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+    <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+        <a (click)="showfilter = !showfilter" class="filter-icon">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+            <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+        <div class="allInputs" *ngIf="showfilter">
+            <div class="row">
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="filterName">Name</label>
+                    <input id="filterName" type="text" [(ngModel)]="filter.name" class="form-control" name="filterName"
+                        placeholder="Name">
+                </div>
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="company">Company</label>
+                    <select id="company" class="form-control" name="company-{{i}}" [(ngModel)]="filter.companyId">
+                        <option [ngValue]="undefined">select...</option>
+                        <ng-container *ngFor="let comp of companies">
+                            <option *ngIf="!comp.isProspect" [value]="comp.id" [ngClass]="{'grey': !comp.isActive}">
+                                {{comp.name}}
+                            </option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="trade">Trade</label>
+                    <select id="trade" class="form-control" name="trades-{{i}}" [(ngModel)]="filter.trade">
+                        <option [ngValue]="undefined">select...</option>
+                        <option *ngFor="let trade of trades" [value]="trade.id">
+                            {{trade.name}}
+                        </option>
+                        <option value="-10">Other trade in field</option>
+                        <option value="-1">Other trade</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-sm-12 center">
+                    <label class="labelTxt">Complete</label>
+                    <br>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary btn-sm" (click)="filter.hasOutcome = true"
+                            [ngClass]="{'active': filter.hasOutcome === true}">
+                            <input type="radio" name="pa"> Yes
+                        </label>
+                        <label class="btn btn-primary btn-sm" (click)="filter.hasOutcome = null"
+                            [ngClass]="{'active': filter.hasOutcome === null}">
+                            <input type="radio" name="pa"> No
+                        </label>
+                        <label class="btn btn-primary btn-sm" (click)="filter.hasOutcome = false"
+                            [ngClass]="{'active': filter.hasOutcome === false}">
+                            <input type="radio" name="pa"> N/A
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="trade">Outcome</label>
+                    <select class="form-control" name="trade" [(ngModel)]="filter.outcomeId">
+                        <option [ngValue]="undefined">select...</option>
+                        <option value="-1">pending</option>
+                        <option value="-3">in process</option>
+                        <option value="-2">waiting</option>
+                        <option *ngFor="let out of outcomes" [value]="out.id">{{out.description}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="dateFrom">Date from</label>
+                    <input id="dateFrom" type="date" class="form-control" name="dateFrom"
+                        [ngModel]="filter.dateFrom | date:'yyyy-MM-dd'" (blur)="filter.dateFrom = $event.target.value">
+                </div>
+                <div class="form-group col-lg-3 col-sm-12">
+                    <label for="dateTo">Date to</label>
+                    <input id="dateTo" type="date" class="form-control" name="dateTo" [ngModel]="filter.dateTo | date:'yyyy-MM-dd'"
+                        (blur)="filter.dateTo = $event.target.value">
+                </div>
+                <div class="form-group col-lg-3 col-sm-12 search-btn">
+                    <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="addNewItem">
+        <a (click)="showWindow()">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <span>Add Interview </span>
+        </a>
+      </div>
+      <addNewItem [addId]="true" [addVeteran]="true" [link]="'/interviews/details/appl/'"></addNewItem>
+
+    <div class="allTable">
+        <table class="table table-hover table-line-height">
+
+            <thead>
+                <tr class="black-muted-bg">
+                    <th>
+                        <a (click)="onSort('application.lastName')" class="sorting-hover">
+                            Name
+                            <span class="iconsForName" *ngIf="sort.column =='application.lastName'">
+                                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}"
+                                    aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </th>
+                    <th>Company</th>
+                    <th>Trade</th>
+                    <th>Location</th>
+                    <th>Outcome</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of entities">
+                    <td>
+                        <span class="circle-trigger"><i class="fa fa-circle" [ngClass]="addStatusColor(item.id)"
+                                aria-hidden="true"></i></span>
+                        {{item.application.firstName}} {{item.application.lastName}}
+                    </td>
+                    <td>  {{item.companyTrade && item.companyTrade.company.name}}</td>
+                    <td>  {{getTradeOfCompany(item.companyTrade && item.companyTrade)}}</td>
+                    <td> {{getFullAddress(item.companyTrade && item.companyTrade.company)}} </td>
+                    <td>   {{getStatusProcess(item.stages)}}
+                    </td>
+                    <td>
+                        <a class="btnHover"
+                        routerLink="{{'/job-tracking/details/appl/' + item.application.id}}">
+                            <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

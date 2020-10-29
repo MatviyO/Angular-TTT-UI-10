@@ -1,0 +1,276 @@
+<div *ngIf="!_stage && !nonEmploymentStage" scroll-spy>
+
+  <!-- -------------------------------Stages --------------------- -->
+  <ba-card cardTitle="Job Tracking">
+    <div class="expand-btn" *ngIf="employments && employments.length > 0">
+      <button class="btn btn-default collaps-btn" (click)="clickCollapseAll()">
+        {{!collapseAll ? 'Expand all' : 'Collapse all'}}
+        <i class="fa {{!collapseAll? 'fa-angle-down' : 'fa-angle-up'}}" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="jt-dots-menu" [ngClass]="{'disable': hasPlacementReason}">
+      <i class="fa fa-ellipsis-h fa-1x dot" aria-hidden="true">
+        <div class="moreOptionsJT">
+          <a (click)='editEmploymentStage("new", null)'>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <span>New employment</span>
+          </a>
+          <a (click)='editNonEmployment("new", null)'>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <span>New non employment</span>
+          </a>
+        </div>
+      </i>
+    </div>
+
+    <div class="collapses">
+      <div class="allTable">
+        <table class="table table-hover table-line-height table-centered">
+          <tr class="table-header-1">
+            <th colSpan="2">Company</th>
+            <th>Trade</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th colSpan="2">Duration</th>
+            <th colSpan="2">Status</th>
+            <th></th>
+          </tr>
+
+          <ng-container *ngFor="let employment of employments; let i=index">
+            <tr class="table-body-1" (click)="employment.open = !employment.open"
+              [ngClass]="{'bo-border': employment.open}" ngForm #reseivedForm="ngForm">
+              <td colSpan="2">
+                <span *ngIf="employment.recordType == 'NonEmploymentRecord'"> Non Employment Record </span>
+                <span *ngIf="employment.recordType != 'NonEmploymentRecord'">
+                  {{ employment.companyTrade && employment.companyTrade.company.name}} </span>
+              </td>
+              <td> {{getTradeOfCompany(employment.companyTrade)}} </td>
+              <td> {{employment.startDate &&  employment.startDate | date:'MM/dd/yyyy' }} </td>
+              <td> {{employment.endDate && employment.endDate | date:'MM/dd/yyyy' }} </td>
+              <td colSpan="2"> {{getEmploymentDuration(employment)}} </td>
+              <td colSpan="2">
+                <span *ngIf="employment.recordType == 'EmploymentRecord' && employment.stages[0].status">
+                  {{employment.stages[0].status.description}}
+                </span>
+                <span *ngIf="employment.recordType == 'NonEmploymentRecord'">
+                  {{getNonEmploymentReasonName(employment.stages[0].nonPlacementReasonId)}} </span>
+              </td>
+              <td>
+                <a class="btnHover">
+                  <i class="fa fa-ellipsis-h fa-1x dot" aria-hidden="true">
+                    <div class="moreOptionsJT emp-stages" *ngIf="employment.recordType != 'NonEmploymentRecord'">
+                      <a (click)='editEmploymentStage("leave", employment)'>
+                        <span>Leave</span>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      </a>
+                      <a (click)='editEmploymentStage("add", employment)'>
+                        <span>Add stage</span>
+                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                      </a>
+                      <a (click)='editEmploymentStage("promote", employment)'>
+                        <span>Promote</span>
+                        <i class="fa fa-child" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                    <div class="moreOptionsJT emp-stages" *ngIf="employment.recordType == 'NonEmploymentRecord'">
+                      <a (click)='editEmploymentStage("add", employment)'>
+                        <span>Add stage</span>
+                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </i>
+                  <i class="fa" aria-hidden="true"
+                    [ngClass]="{'fa-chevron-up': employment.open, 'fa-chevron-down': !employment.open }"></i>
+                </a>
+              </td>
+            </tr>
+
+            <ng-container *ngIf="employment.open">
+              <tr class="table-header-2">
+                <th>Title</th>
+                <th>{{employment.recordType == 'NonEmploymentRecord' ? 'Reason' : 'Location'}}</th>
+                <th>Rate</th>
+                <th colSpan="3">Date of action</th>
+                <th>Duration</th>
+                <th colSpan="2">Status</th>
+                <th></th>
+              </tr>
+              <tr class="table-body-2" *ngFor="let stage of employment.stages; let i = index"
+                [ngClass]="{'interview-list': stage.recordType === 'InterviewStage'}">
+                <td> {{stage.recordType === 'InterviewStage' ? 'Interview' :  stage.title}} </td>
+                <td>
+                  <span *ngIf="stage.location">
+                    {{getFullAddress(stage.location)}}
+                  </span>
+                  <span *ngIf="!stage.location">
+                    <span *ngIf="stage.recordType == 'NonEmploymentStage'">
+                      {{getNonEmploymentReasonName(stage.nonPlacementReasonId)}}
+                    </span>
+                    <span *ngIf="stage.recordType != 'NonEmploymentStage'">
+                      {{getFullAddress(employment.companyTrade.company)}}
+                    </span>
+                  </span>
+                </td>
+                <td>{{stage.wage | currency:'USD'}}</td>
+                <td colSpan="3">{{stage.date | date:'MM/dd/yyyy'}}</td>
+                <td>{{getStageDuration(employment, i)}} </td>
+                <td colSpan="2">
+                  <span *ngIf="stage.recordType == 'NonEmploymentStage'">
+                    Non Employment
+                  </span>
+                  <span *ngIf="stage.recordType == 'InterviewStage'">
+                    {{stage.interviewOutcomeId ? getStatusProcess(employment.stages) : "waiting for outcome, last interview stage" }} <span *ngIf="!stage.interviewOutcomeId">{{stage.lastStageDate | date:'MM/dd/yyyy'}}</span>
+                  </span>
+                  <span *ngIf="stage.recordType == 'EmploymentStage'">
+                    {{stage.status && stage.status.description}}
+                  </span>
+                </td>
+                <td>
+                  <a *ngIf="stage.recordType != 'InterviewStage'" class="btnHover"
+                    (click)="editEmploymentStage('edit', employment, stage )">
+                    <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+                  </a>
+                  <a *ngIf="stage.recordType == 'InterviewStage'" class="btnHover"
+                    routerLink="{{'/interviews/details/appl/' + employment.applicationId + '/'  + employment.application.firstName + ' ' + employment.application.lastName + '/' + employment.id }}">
+                    <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+                  </a>
+
+                  <a class="btnHover" (click)="deleteStage(stage)">
+                    <i class="fa fa-trash" aria-hidden="true" title="Delete"></i>
+                  </a>
+                </td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </table>
+      </div>
+    </div>
+  </ba-card>
+
+
+  <!-- _____________Total employment duration___________ -->
+  <ba-card cardTitle="Total employment duration" *ngIf="employments && employments.length > 0">
+    <div class="allTable">
+      <table class="table table-bordered table-hover">
+        <tr class="black-muted-bg bo-border">
+          <td>Company name</td>
+          <td class="align-center">Duration</td>
+        </tr>
+        <tr *ngFor="let item of getUniqueArrayOfCompanies() ; let i=index">
+          <td> {{item.companyTrade.company.name}} </td>
+          <td class="align-center"> {{getCompanyDuration(item.companyTrade.companyId).toFixed(2)}} month(s) </td>
+        </tr>
+        <tr class="black-muted-bg bo-border">
+          <td>Trade</td>
+          <td class="align-center">Duration</td>
+        </tr>
+        <tr *ngFor="let item of getUniqueArrayOfTrades() ; let i=index">
+          <td *ngIf="item.companyTrade.trade > 0">{{getTradeById(item.companyTrade)}}</td>
+          <td *ngIf="item.companyTrade.trade < 1">{{item.companyTrade.name}}
+           <span class="grey-title"> {{item.companyTrade.trade == 0 ? '(in field)' : '(not in field)'}} </span>
+          </td>
+          <td colspan="2"  class="align-center"> {{getTradeDuration(item.companyTrade, item.companyTrade.trade < 1).toFixed(2)}}
+            month(s) </td>
+        </tr>
+      </table>
+    </div>
+  </ba-card>
+</div>
+
+<!-- _____________Non placement reason___________ -->
+<ba-card ngForm #nonEmploymentForm="ngForm" cardTitle="NON EMPLOYMENT STAGE" *ngIf="nonEmploymentStage">
+  <div class="row">
+    <div class="form-group col-md-6 col-sm-12 ">
+      <label for="reason">Non placement reason</label>
+      <select id="reason" class="form-control bottom-padding" name="reason" (change)="onChangeNonPlasementReason()"
+        [(ngModel)]="nonEmploymentStage.nonPlacementReasonId" required
+        [ngClass]="{'ng-submit' : nonEmploymentForm._submitted}">
+        <option hidden [ngValue]="underfined">select...</option>
+        <ng-container *ngFor="let reason of nonPlacementReasons">
+          <option
+            *ngIf="(reason.isActive) || (nonEmploymentStage && nonEmploymentStage.nonPlacementReasonId == reason.id)"
+            [value]="+reason.id" [disabled]="!reason.isActive">{{reason.description}}</option>
+          <!-- reason.type &&  -->
+        </ng-container>
+      </select>
+    </div>
+    <div class="form-group col-md-6 col-sm-12">
+      <label for="company">Date</label>
+      <input id="company" class="form-control" type="date" name="date" [ngModel]="nonEmploymentStage.date | date:'yyyy-MM-dd'"
+        required (blur)="nonEmploymentStage.date = $event.target.value"
+        [ngClass]="{'ng-submit' : nonEmploymentForm._submitted}">
+    </div>
+
+    <ng-container *ngIf="nonEmploymentStage.nonPlacementReason && nonEmploymentStage.nonPlacementReason.type">
+      <div class="form-group col-md-4 ">
+        <label for="program">Program name</label>
+        <input id="program" type="text" name="program" class="form-control" [(ngModel)]="nonEmploymentStage.schoolingProgramName"
+          placeholder="Program name" />
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="bs-state">Country</label>
+        <select id="bs-state" class="form-control" name="adreess-country" [(ngModel)]="nonEmploymentStage.schoolingCountry"
+          (change)="changeCompany()" [ngClass]="{'ng-submit' : nonEmploymentForm._submitted}">
+          <option hidden [ngValue]="undefined">select...</option>
+          <option value="US">select...</option>
+          <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">
+            {{country.countryName}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="bs-state">State</label>
+        <select class="form-control" name="adreess-state" [(ngModel)]="nonEmploymentStage.schoolingState"
+          [ngClass]="{'ng-submit' : nonEmploymentForm._submitted}">
+          <option hidden [ngValue]="undefined">select...</option>
+          <option [ngValue]="null">select...</option>
+          <option *ngFor="let state of states" [ngValue]="state.shortCode">{{state.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="city">City</label>
+        <input id="city" type="text" name="city" class="form-control" [(ngModel)]="nonEmploymentStage.schoolingCity"
+          placeholder="City" />
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="address">Location</label>
+        <input id="address" type="text" name="location" class="form-control" [(ngModel)]="nonEmploymentStage.schoolingLocationName"
+          placeholder="Location" />
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="address">Address</label>
+        <input type="text" name="address" class="form-control" [(ngModel)]="nonEmploymentStage.schoolingAddress"
+          placeholder="Address" />
+      </div>
+      <div class="form-group col-md-4 ">
+        <label for="zip">Zip</label>
+        <input id="zip" type="number" name="zip" class="form-control" [(ngModel)]="nonEmploymentStage.schoolingZip"
+          placeholder="Zip" onkeypress='return event.charCode == 0?null:
+          event.charCode >= 48 && event.charCode <= 57' [ngClass]="{'ng-submit' : nonEmploymentForm._submitted}" />
+      </div>
+    </ng-container>
+
+    <div class="allBtn col-md-12">
+      <button class="btn btn-primary" (click)="saveNonEmployment(nonEmploymentForm)">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+      </button>
+      <button class="btn btn-default" (click)="cancelEditStage()">
+        <i class="fa fa-ban" aria-hidden="true"></i> cancel
+      </button>
+    </div>
+
+  </div>
+</ba-card>
+
+<span *ngIf="!nonEmploymentStage">
+  <app-employment-stage [statuses]="employmentStatuses" [applTrades]="applTrades" [mode]="_mode" [stage]="_stage"
+    [employmentCompany]="employmentCompany"
+    [selectCompany]="_employment && _employment.companyTrade? _employment.companyTrade.company : null"
+    (onSaved)="saveEmploymnetStage($event)" (onCancel)="cancelEditStage($event)" (onNavigate)="navigate()"
+    [_employment]="_employment">
+  </app-employment-stage>
+</span>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
+<app-confirm></app-confirm>
