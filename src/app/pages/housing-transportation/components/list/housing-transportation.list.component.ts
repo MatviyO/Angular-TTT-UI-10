@@ -1,12 +1,17 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { IEditorConfig, IResourceService } from '@ttt/common/interfaces';
-import { BaseEditableSortableList, ObservableService, ConfirmComponent } from '@ttt/common';
-import { HousingTransportationListConfig } from './housing-transportation.list.config';
-import { HousingTransportation, HouseTransportationOptions, Transportation } from 'app/core/model/housing-transportation';
-import { HousingtranportationOptionsService, Profile, ScheduledClass, TransportationService, ClassesScheduleService } from 'app/core';
+
 import { Observable } from 'rxjs';
-import { CountryStatesService } from 'app/core/data/country-state.service';
+import {HouseTransportationOptions, HousingTransportation, Transportation} from '../../../../core/model/housing-transportation';
+import {ClassesScheduleService, HousingtranportationOptionsService, TransportationService} from '../../../../core/data';
+import {Profile, ScheduledClass} from '../../../../core/model';
+import {CountryStatesService} from '../../../../core/data/country-state.service';
+import {ConfirmComponent} from '../../../../common/components/confirm';
+import {ObservableService} from '../../../../common/services';
+import {IEditorConfig, IResourceService} from '../../../../common/interfaces';
+import {HousingTransportationListConfig} from './housing-transportation.list.config';
+import {BaseEditableSortableListDirective} from '../../../../common/base-classes';
+
 
 @Component({
     selector: 'app-housing-transportation-list',
@@ -15,7 +20,7 @@ import { CountryStatesService } from 'app/core/data/country-state.service';
     providers: [HousingTransportationListConfig, CountryStatesService],
 })
 
-export class HousingTransportationListComponent extends BaseEditableSortableList<HousingTransportation> implements OnInit {
+export class HousingTransportationListComponent extends BaseEditableSortableListDirective<HousingTransportation> implements OnInit {
     @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
     protected route: ActivatedRoute;
     protected queryParams: Params;
@@ -27,8 +32,8 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
     errorMessage: string;
     participantId: number;
     newHousingClassId: number;
-    classesLoaded: boolean = false;
-    awaitClassesLoaded: boolean = false;
+    classesLoaded = false;
+    awaitClassesLoaded = false;
 
     constructor(
         @Inject(HousingTransportationListConfig) config: IEditorConfig<HousingTransportation>,
@@ -69,7 +74,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
     }
 
     onDelete(item: HousingTransportation): void {
-      
+
         this.confirm.show('confirm', `Are you sure you\'d like to delte this item?`)
             .then(result => {
                 if (result) {
@@ -96,7 +101,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         return this.observableSvc.observableSourceProfile.bind(keyword);
     }
 
-    getClassesForUser() {
+    getClassesForUser(): any {
         if (this.sourceProfile && this.sourceProfile.id) {
             this.classesSvc.query(`attendees.any(appUserId=${this.sourceProfile.id}) or reservations.any(appUserId=${this.sourceProfile.id})`, 'id desc', [], 'Program, Participants')
                 .then(res => {
@@ -107,7 +112,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         }
     }
 
-    cancelNewHousing() {
+    cancelNewHousing(): void {
         this.errorMessage = '';
         this.sourceProfile = null;
         this.addNewHousing = null;
@@ -115,7 +120,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         this.newHousingClassId = null;
     }
 
-    createNewHousing() {
+    createNewHousing(): any {
         if (!this.sourceProfile || !this.sourceProfile.id) {
             this.errorMessage = 'Please select a soldier';
             return;
@@ -127,7 +132,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         this.router.navigate([`housing-transportation/details/${this.sourceProfile.id}/${this.sourceProfile.firstName} ${this.sourceProfile.lastName}/null/${this.participantId}`]);
     }
 
-    setParticipantId() {
+    setParticipantId(): any {
         const userClass = this.classes.find((x: ScheduledClass) => x.id === this.newHousingClassId);
         if (userClass && userClass.attendees) {
             const _attendee = userClass.attendees.find((x: any) => x.appUserId === this.sourceProfile.id);
@@ -145,7 +150,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         }
     }
 
-    dataLoaded(data: HousingTransportation[]) {
+    dataLoaded(data: HousingTransportation[]): any {
         if (this.filter.name) {
             if (data.length > 0) {
                 let isDiferentUsers: boolean = false;
@@ -163,7 +168,7 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
         }
     }
 
-    addAutoFocus() {
+    addAutoFocus(): any {
         if (this.sourceProfile) {
             setTimeout(() => document.getElementById('autoSearch').focus(), 1000);
         }
@@ -227,7 +232,6 @@ export class HousingTransportationListComponent extends BaseEditableSortableList
                     }
                 }
             }
-
             if (item.city) {  _address += ` | ${item.city}`; }
             if (item.address) {  _address += ` | ${item.address}`; }
             if (item.zip) {  _address += ` | ${item.zip}`; }

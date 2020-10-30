@@ -1,0 +1,41 @@
+.addNewItem a:hover{
+    cursor: pointer;
+}
+.addNewItem{
+    padding: 0;
+    i{
+    top: -1px;
+    right: 12px;
+    }
+}
+
+.btn-ok{
+    margin-top: 29px;
+}
+
+.disableSelect{
+    border: none;
+    color: white;
+    font-size: 14px;
+}
+.first-th{
+    min-width: 70px;
+}
+
+.second-th{
+    min-width: 132px;
+}
+
+
+.all-total{
+    border-top: 1px solid white;
+    // height: 44px;;
+    .total{
+        text-align: center;
+        padding: 13px 5px;
+        margin-left: 0.5%;
+        float: left;
+        background-color: rgba(0, 0, 0, 0.068);
+        width: 32.8%;
+    }
+}

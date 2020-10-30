@@ -1,18 +1,17 @@
 import { Injectable, Inject, Injector } from '@angular/core';
+import {HousingtranportationService, TriggerHelper, TriggerService} from '../../../../core/data';
+import {IDataService, IEditorStatefulWithTriggersConfig, ITriggerHelper, ITriggerService} from '../../../../common/interfaces';
+import {HousingTransportation} from '../../../../core/model/housing-transportation';
 
-import { IEditorStatefulConfig, IDataService, ITriggerService, ITriggerHelper, IEditorStatefulWithTriggersConfig } from '@ttt/common/interfaces';
-
-import { HousingtranportationService, TriggerService, TriggerHelper } from '@ttt/core';
-import { HousingTransportation } from 'app/core/model/housing-transportation';
 
 @Injectable()
 export class HousingTransportationDetailsConfig implements IEditorStatefulWithTriggersConfig<HousingTransportation> {
-    triggerCategory: string = 'Housing';
-    navigationTitle: string = 'Housing Transportation';
-    navigationUrlPrefix: string = 'housing-transportation';
-    cls: { new (): any } = HousingTransportation;
+    triggerCategory = 'Housing';
+    navigationTitle = 'Housing Transportation';
+    navigationUrlPrefix = 'housing-transportation';
+    cls: new () => any = HousingTransportation;
     componentTitle = 'Housing Transportation';
-    includes: string = 'ClassParticipant, HousingOption';
+    includes = 'ClassParticipant, HousingOption';
 
     constructor(
         @Inject(HousingtranportationService) public dataSvc: IDataService<HousingTransportation>,

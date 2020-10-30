@@ -1,0 +1,47 @@
+  .all-btn{
+    width: 120px;
+  }
+  tbody > tr > td:last-child {
+    padding-right: 0px !important;
+  }
+
+ 
+  .bo-border{
+    border-bottom: 1px solid #86a3c9;
+    border-top: 2px solid rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.23);
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.23) !important;
+    }
+  }
+
+  .sub-body{
+    border-top: 2px solid rgb(255, 255, 255);
+  }
+
+  .table-header-1{
+    background-color: rgba(0, 0, 0, 0.23);
+    color: rgb(76, 192, 252);
+  }
+
+  .table-body-1{
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.11);
+    }
+  }
+
+  .table-header-2{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgb(234, 222, 171);
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .table-body-2{
+    background-color: rgba(0, 0, 0, 0.1);
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+  }

@@ -1,0 +1,89 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {trade: 'null'}; onSearch()" class="btn resetFilter">reset filter<i class="fa fa-times"
+                                                                                                                aria-hidden="true"></i></a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-4 col-sm-6">
+        <label for="name">Name</label>
+        <input id="name" type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-lg-4 col-sm-6">
+        <label for="trade">Trade</label>
+        <select id="trade" class="form-control" name="trade" [(ngModel)]="filter.trade">
+          <option [value]='null'>select...</option>
+          <option hidden [value]='underfined'>select...</option>
+          <ng-container *ngFor="let trade of trades">
+            <option [value]="trade.id">{{trade.name}}</option>
+          </ng-container>
+          <option value="-10">Other trade in field</option>
+          <option value="-1">Other trade</option>
+        </select>
+      </div>
+      <div class="form-group col-lg-4 col-sm-12">
+        <div class="search-btn">
+          <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addNewItem">
+    <a (click)="showWindow()">
+      <i class="ion-umbrella" aria-hidden="true"></i>
+      <span>Add new housing-allowance</span>
+    </a>
+  </div>
+  <app-add-new-item [forType]="'hiller'" [isEmployment]="true" [link]="'/housing-allowance/details/empl/'"
+              [filter]="this.filterNewItem"></app-add-new-item>
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+      <tr class="black-muted-bg">
+        <th>
+          <a (click)="onSort('application.firstName')" class="sorting-hover">
+            Name <span class="iconsForName" *ngIf="sort.column =='application.firstName'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+          </a>
+        </th>
+        <th>Trade</th>
+        <th>
+          <a (click)="onSort('startDate')" class="sorting-hover">
+            Start date <span class="iconsForName" *ngIf="sort.column =='startDate'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+          </a>
+        </th>
+        <th>Duration</th>
+        <th>Amount of hours</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.employmentRecord.application.isActive}">
+        <td>
+
+          {{item.employmentRecord.application.firstName + ' ' + item.employmentRecord.application.lastName}}
+        </td>
+        <td>
+          {{item.employmentRecord.companyTrade && item.employmentRecord.companyTrade.trade > 0 ? getTrade(item.employmentRecord.companyTrade.trade) : item.employmentRecord.companyTrade.name}}
+        </td>
+        <td>{{item.startDate | date:'MM/dd/yyyy'}}</td>
+        <td>{{item.items ? item.items.length : 0}} months</td>
+        <td>{{getFullHours(item)}} hours</td>
+        <td>
+          <a class="btnHover"
+             routerLink="{{'/housing-allowance/details/empl/' + item.employmentRecordId}}"><span></span><i
+            class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

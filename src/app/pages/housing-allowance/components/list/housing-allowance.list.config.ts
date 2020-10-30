@@ -1,18 +1,19 @@
 import { Injectable, Inject, Injector } from '@angular/core';
-import { IListWithTriggersConfig, ITriggerService, IDataService } from '@ttt/common/interfaces';
-import { HousingAllowance, HousingAllowanceService, TriggerService } from '@ttt/core';
+import {IDataService, IListWithTriggersConfig, ITriggerService} from '../../../../common/interfaces';
+import {HousingAllowanceService, TriggerService} from '../../../../core/data';
+import {HousingAllowance} from '../../../../core/model';
+
 
 @Injectable()
 export class HousingAllowanceListConfig implements IListWithTriggersConfig<HousingAllowance> {
-    triggerType: string = 'HousingAllowance';
-    componentTitle = 'Housing allowance';
-    includes = 'Items,EmploymentCompany.EmploymentHistory.Application';
-    // tslint:disable-next-line:max-line-length
-    selectJSONPath = 'employmentCompanyId;items[*].hours;startDate;employmentCompany.trade;employmentCompany.employmentHistory.application.isActive;employmentCompany.employmentHistory.application.firstName;employmentCompany.employmentHistory.application.lastName';
+  triggerType = 'HousingAllowance';
+  componentTitle = 'Housing allowance';
+  includes = 'Items,EmploymentRecord.Application,EmploymentRecord.CompanyTrade';
+  selectJSONPath = 'employmentRecordId;items[*].hours;startDate;employmentRecord.companyTrade.*;employmentRecord.companyTradeId;employmentRecord.application.isActive;employmentRecord.application.firstName;employmentRecord.application.lastName';
 
-    constructor(
-        @Inject(HousingAllowanceService) public dataSvc: IDataService<HousingAllowance>,
-        @Inject(TriggerService) public triggersSvc: ITriggerService,
-        public injector: Injector,
-    ) { }
+  constructor(
+    @Inject(HousingAllowanceService) public dataSvc: IDataService<HousingAllowance>,
+    @Inject(TriggerService) public triggersSvc: ITriggerService,
+    public injector: Injector,
+  ) { }
 }

@@ -1,0 +1,87 @@
+  <div class="collapses" scroll-spy (onPageEnd)="loadMore()">
+  <div class="allTable card">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-header-1">
+          <th>Year, month</th>
+          <th>Total hours</th>
+          <th>Amount</th>
+          <th>Check number</th>
+          <th>Submitted</th>
+          <th>Received</th>
+          <th class="all-btn"></th>
+
+        </tr>
+      </thead>
+      <tbody >
+        <ng-container *ngFor="let item of entities let i=index">
+
+          <tr class="table-body-1" (click)="getForCollapse(item)" [ngClass]="{'bo-border': item.open}" ngForm #reseivedForm="ngForm">
+            <td>{{item.year}}, {{getMonth(item.month)}} </td>
+            <td>{{item.totalHours | currency:' ':'4.2-2'}}</td>
+            <td>{{item.amount | currency:' ':'4.2-2'}}</td>
+            <td>
+              <span *ngIf="!item.editing">{{item.checkNumber}}</span>
+              <input *ngIf="item.editing" type="text" class="form-control" name="checkNumber" (click)="$event.stopPropagation()" placeholder="Check number" [(ngModel)]="item.checkNumber">
+            </td>
+            <td>
+              <span *ngIf="!item.editing">{{item.submitted | date:'MM/dd/yyyy'}}</span>
+              <input *ngIf="item.editing" type="date" name="date-{{i}}" class="form-control" (click)="$event.stopPropagation()"  [ngModel]="item.submitted | date:'yyyy-MM-dd'"
+                (blur)="item.submitted = $event.target.value">
+              </td>
+                  <td>
+              <span *ngIf="!item.editing">{{item.received | date:'MM/dd/yyyy'}}</span>
+              <input *ngIf="item.editing" type="date" name="date-{{i}}" class="form-control" (click)="$event.stopPropagation()" [ngModel]="item.received | date:'yyyy-MM-dd'"
+                (blur)="item.received = $event.target.value">
+            </td>
+            <td>
+              <a class="btnHover">
+                <i class="fa iconForColappse" aria-hidden="true" [ngClass]="{'fa-chevron-up': item.open, 'fa-chevron-down': !item.open }"></i>
+              </a>
+              <a class="btnHover" (click)="item.editing = true; edits(item); $event.stopPropagation()" *ngIf="!item.editing && !item.received">
+                <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+              </a>
+              <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing">
+                <i class="fa fa-times " aria-hidden="true" title="Cancel"></i>
+              </a>
+              <a class="btnHover" (click)="onSave(item, reseivedForm); $event.stopPropagation()" *ngIf="item.editing">
+                <i class="fa fa-floppy-o" aria-hidden="true" title="Save"></i>
+              </a>
+            </td>
+          </tr>
+
+          <ng-container *ngIf="item.open && collapseData.length > 0">
+            <tr class="table-header-2">
+              <th colspan="2">Soldier name</th>
+              <th colspan="2">Reimbursement amount</th>
+              <th >Total hours</th>
+              <th colspan="2">Wage</th>
+            </tr>
+
+            <tr class="table-body-2" *ngFor="let items of collapseData" [ngClass]="{'inactive-record' : !items.hillerWorkforceTrainingPersonal.employmentRecord.application.isActive}">
+              <td colspan="2">{{items.hillerWorkforceTrainingPersonal.employmentRecord.application.firstName}} 
+                              {{items.hillerWorkforceTrainingPersonal.employmentRecord.application.lastName}}
+              </td >
+              <td colspan="2">{{items.reimbursementAmount | currency:' ':'4.2-2'}}</td>
+              <td >{{items.totalHours | currency:' ':'4.2-2'}}</td>
+              <td colspan="2">{{items.wage | currency:' ':'4.2-2'}}</td>
+            </tr>
+            <tr class="sub-body">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </ng-container>
+
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

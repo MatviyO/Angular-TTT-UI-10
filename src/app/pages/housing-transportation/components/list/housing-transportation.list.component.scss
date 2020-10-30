@@ -3,11 +3,26 @@
     td{
         padding-left: 20px;
         .fa-handshake-o{
-            margin: 0 3px;  
-            padding: 5px;  
-            background-color: rgba(255, 255, 255, 0.10);  
+            margin: 0 3px;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.10);
         }
      }
+}
+.searchh {
+  height: 42.5px;
+  i {
+    float: left;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.582);
+
+  }
+  .input {
+    padding-top: 10px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+  }
 }
 
 .td-icons{
@@ -84,10 +99,10 @@
     }
     .input{
         padding-top: 7px;
-        position: relative; 
+        position: relative;
         border: none;
         background-color: transparent;
-    } 
+    }
 }
 
 @media only screen and (max-width: 660px) {

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { NgaModule } from '../../theme/nga.module';
-import { Common_Module } from '@ttt/common';
-import { HousingAllowanceService } from '@ttt/core/data';
+
 import { HousingAllowanceListComponent, HousingAllowanceDetailsComponent } from './components';
 import { routing } from './housing-allowance.routing';
+import {Common_Module} from '../../common';
+import {HousingAllowanceService} from '../../core/data';
 
 @NgModule({
     providers: [
@@ -20,10 +21,10 @@ import { routing } from './housing-allowance.routing';
         routing,
     ],
     declarations: [
-        HousingAllowanceListComponent, 
+        HousingAllowanceListComponent,
         HousingAllowanceDetailsComponent,
     ],
 })
 export class HousingAllowanceModule {
-     
+
 }

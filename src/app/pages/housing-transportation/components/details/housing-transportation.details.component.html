@@ -1,6 +1,6 @@
 <div ngForm #mentorForm="ngForm" (keydown.control.s)="onSave(mentorForm)">
     <fieldset>
-        <ba-card>
+        <app-ba-card>
             <div class="row">
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="houseOption">Hotel</label>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="houseOption">Transportation</label>
-                    <select class="form-control" name="transportation" [(ngModel)]="entity.transportationId">
+                    <select id="houseOption" class="form-control" name="transportation" [(ngModel)]="entity.transportationId">
                         <option hidden [ngValue]="undefined">select...</option>
                         <option [ngValue]="null">select...</option>
                         <ng-container *ngFor="let transport of transportations">
@@ -27,7 +27,7 @@
 
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="toolsNeededBy">Start Date</label>
-                    <input type="date" class="form-control" name="startDate"
+                    <input id="toolsNeededBy" type="date" class="form-control" name="startDate"
                         [ngModel]="entity.startDate | date:'yyyy-MM-dd'"
                         (blur)="entity.startDate = $event.target.value">
                 </div>
@@ -44,19 +44,15 @@
                     </div>
                 </div>
             </div>
-        </ba-card>
+        </app-ba-card>
     </fieldset>
 
     <div class="allBtn">
         <button class="btn btn-default" (click)="goBack()">
             Cancel
-            <!-- <a class="btnHover" routerLink="{{'/housing-transportation/list'}}">back</a> -->
         </button>
         <button type="submit" class="btn btn-primary" (click)="onSave(mentorForm)">
             <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>
-
     </div>
-
 </div>
-
 <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

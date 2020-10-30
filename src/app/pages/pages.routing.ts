@@ -22,9 +22,10 @@ const routes: Routes = [
       { path: 'job-tracking', loadChildren: () => import('./job-tracking/job-tracking.module').then((m) => m.JobTrackingModule), },
       // { path: 'workforce-personal', loadChildren: './workforce-training/personal/workforce-personal.module#WorkforcePersonalModule' },
       // { path: 'workforce-company', loadChildren: './workforce-training/company/workforce-company.module#WorkforceCompanyModule' },
-      // { path: 'housing-allowance', loadChildren: './housing-allowance/housing-allowance.module#HousingAllowanceModule' },
-      // tslint:disable-next-line:max-line-length
-      // { path: 'housing-transportation', loadChildren: './housing-transportation/housing-transportation.module#HousingTransportationModule' },
+      { path: 'housing-allowance', loadChildren: () => import('./housing-allowance/housing-allowance.module')
+          .then((m) => m.HousingAllowanceModule), },
+      { path: 'housing-transportation', loadChildren: () => import('./housing-transportation/housing-transportation.module')
+          .then((m) => m.HousingTransportationModule), },
       // { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'events', loadChildren: () => import('../pages/events/events.module').then((m) => m.EventsModule), },
     ],

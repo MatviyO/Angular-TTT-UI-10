@@ -1,9 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { IResourceService, DetailsStatefulWithTriggers, IEditorStatefulWithTriggersConfig } from '@ttt/common';
-import { HousingtranportationOptionsService, TransportationService, Trigger } from 'app/core';
 import { HousingTransportationDetailsConfig } from './housing-transportation.details.config';
-import { HousingTransportation, HouseTransportationOptions, Transportation } from 'app/core/model/housing-transportation';
-import { CountryStatesService } from 'app/core/data/country-state.service';
+import {DetailsStatefulWithTriggersDirective} from '../../../../common/base-classes';
+import {HouseTransportationOptions, HousingTransportation, Transportation} from '../../../../core/model/housing-transportation';
+import {HousingtranportationOptionsService, TransportationService} from '../../../../core/data';
+import {IEditorStatefulWithTriggersConfig, IResourceService} from '../../../../common/interfaces';
+import {CountryStatesService} from '../../../../core/data/country-state.service';
+import {Trigger} from '../../../../core/model';
+
 
 @Component({
     selector: 'app-housing-transportation-details',
@@ -12,7 +15,7 @@ import { CountryStatesService } from 'app/core/data/country-state.service';
     providers: [HousingTransportationDetailsConfig, CountryStatesService],
 })
 
-export class HousingTransportationDetailsComponent extends DetailsStatefulWithTriggers<HousingTransportation> implements OnInit {
+export class HousingTransportationDetailsComponent extends DetailsStatefulWithTriggersDirective<HousingTransportation> implements OnInit {
     houseOptions: HouseTransportationOptions[] = [];
     transportations: Transportation[] = [];
 
@@ -35,8 +38,7 @@ export class HousingTransportationDetailsComponent extends DetailsStatefulWithTr
         this.transportSvc.query()
             .then((res: Transportation[]) => this.transportations = res)
             .catch((e) => this.onHttpError(e));
-
-            super.ngOnInit();
+        super.ngOnInit();
     }
 
     hasTrigger(triggers: Trigger[]): void {
@@ -105,7 +107,6 @@ export class HousingTransportationDetailsComponent extends DetailsStatefulWithTr
                         }
                     }
                 }
-
                 if (item.city) {  _address += ` | ${item.city}`; }
                 if (item.address) {  _address += ` | ${item.address}`; }
                 if (item.zip) {  _address += ` | ${item.zip}`; }

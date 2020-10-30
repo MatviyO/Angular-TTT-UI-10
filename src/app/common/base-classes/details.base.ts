@@ -1,4 +1,4 @@
-import {OnInit, Injector, Directive, Injectable} from '@angular/core';
+import {OnInit, Injector, Directive} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -15,21 +15,22 @@ import {
   IEditorState, IEditorStateExt,
 } from '../interfaces';
 import { MemoryDataStorage, NavigationHelper, applyMixins } from '../utils';
-
 import { Trigger } from '../../core';
 import {ComponentBaseDirective} from './componentBase';
 
 @Directive()
 export class DetailsBaseClassDirective<T extends BaseEntity>
   extends ComponentBaseDirective implements OnInit, IInstanceCreator<T>, IEditor<T> {
-
   protected dataSvc: IDataService<T>;
   protected injector: Injector;
   protected cls: new() => T;
+
   protected storage: IDataStorage;
   protected route: ActivatedRoute;
   protected router: Router;
+
   protected queryParams: Params;
+
   protected loadlisteners: ((x: T) => void)[] = [];
   protected savelisteners: ((x: T) => void)[] = [];
   protected includes: string;
@@ -49,6 +50,7 @@ export class DetailsBaseClassDirective<T extends BaseEntity>
   }
 
   ngOnInit(): void {
+
     this.entity = this.createInstance();
     this.route.params
       .subscribe(
@@ -127,6 +129,7 @@ export class DetailsStatefulDirective<T extends BaseEntity>
   protected navigation: INavigationHelper;
   protected navigationTitle: string;
   protected navigationUrlPrefix: string;
+
   protected state: IEditorState;
 
   constructor(
@@ -142,7 +145,6 @@ export class DetailsStatefulDirective<T extends BaseEntity>
   }
 
   ngOnInit(): void {
-
     this.entity = this.createInstance();
     this.route.params
       .subscribe(
@@ -165,6 +167,7 @@ export class DetailsStatefulDirective<T extends BaseEntity>
       query: this.queryParams,
       data,
     };
+
 
     this.storage.store(key, this.state);
     if (data && data.section) {

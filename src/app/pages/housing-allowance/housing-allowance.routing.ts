@@ -4,10 +4,8 @@ import { HousingAllowanceListComponent, HousingAllowanceDetailsComponent } from 
 
 const routes: Routes = [
     { path: 'details/:id', component: HousingAllowanceDetailsComponent },
-    // { path: 'details', component: HousingAllowanceDetailsComponent },
     { path: 'details/:selector/:id', component: HousingAllowanceDetailsComponent },
     { path: 'details/:selector/:id/:name', component: HousingAllowanceDetailsComponent },
-    // { path: 'details/:selector/:id/:employmentId', component: HousingAllowanceDetailsComponent },
     { path: 'list', component: HousingAllowanceListComponent },
     { path: 'list/:filter', component: HousingAllowanceListComponent },
     {
