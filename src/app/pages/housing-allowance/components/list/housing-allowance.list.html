@@ -1,0 +1,81 @@
+<div class="card" scroll-spy (onPageEnd)="loadMore()">
+
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+        <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter<i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-4 col-sm-6">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-lg-4 col-sm-6">
+          <label for="trade">Trade</label>
+          <select class="form-control" name="trade" [(ngModel)]="filter.trade">
+            <option disabled hidden [value]="undefined">select...</option>
+            <ng-container *ngFor="let trade of trades">
+              <option [value]="trade.id">{{trade.name}}</option>
+            </ng-container>
+            <option [value]="-1">other...</option>
+          </select>
+      </div>
+      <div class="form-group col-lg-4 col-sm-12">
+        <div class="search-btn">
+          <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addNewItem">
+    <a (click)="showWindow()">
+      <i class="ion-umbrella" aria-hidden="true"></i>
+      <span >Add new housing-allowance</span> 
+    </a>
+  </div>
+  <addNewItem [forType]="'hiller'" [isEmployment]="true" [link]="'/housing-allowance/details/empl/'" [filter]="this.filterNewItem"></addNewItem>
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('application.firstName')" class="sorting-hover">
+              Name <span class="iconsForName" *ngIf="sort.column =='application.firstName'">
+                  <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>Trade</th>
+          <th>
+              <a (click)="onSort('startDate')" class="sorting-hover">
+                  Start date <span class="iconsForName" *ngIf="sort.column =='startDate'">
+                      <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+                </span>
+              </a>
+          </th>  
+          <th>Duration</th>   
+          <th>Amount of hours</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.employmentCompany.employmentHistory.application.isActive}">
+          <td>
+             <!-- <span class="circle-trigger"><i class="fa fa-circle" [ngClass]="addStatusColor(item.id)" aria-hidden="true"></i></span> -->
+             {{item.employmentCompany.employmentHistory.application.firstName + ' ' + item.employmentCompany.employmentHistory.application.lastName}}
+          </td>
+          <td>{{getTrade(item.employmentCompany.trade)}}</td>
+          <td>{{item.startDate | date:'MM/dd/yyyy'}}</td>
+          <td>{{item.items ? item.items.length : 0}} months</td>
+          <td>{{getFullHours(item)}} hours</td>
+          <td>
+            <a class="btnHover" routerLink="{{'/housing-allowance/details/empl/' + item.employmentCompanyId}}"><span></span><i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

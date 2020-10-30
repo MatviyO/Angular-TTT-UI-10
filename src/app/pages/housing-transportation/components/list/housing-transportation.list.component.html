@@ -1,0 +1,205 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; sourceProfile = null; onSearch()" class="btn resetFilter">reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-md-6 col-lg-2 col-xs-12">
+        <label for="name">Name </label>
+        <input type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-md-6 col-lg-2 col-xs-12">
+        <label for="feedback">Housing</label>
+        <select class="form-control" name="housing" [(ngModel)]="filter.housing">
+          <option [ngValue]="undefined">select...</option>
+          <option *ngFor="let houseOption of houseOptions" [ngClass]="{'grey': !houseOption.isActive}"
+            [ngValue]="houseOption.id">{{houseOption.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-6 col-lg-2 col-xs-12">
+        <label for="feedback">Transportation</label>
+        <select class="form-control" name="transportation" [(ngModel)]="filter.transportation">
+          <option [ngValue]="undefined">select...</option>
+          <option *ngFor="let houseOption of transportations" [ngClass]="{'grey': !houseOption.isActive}"
+            [ngValue]="houseOption.id">{{houseOption.description}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6 col-lg-2 col-xs-12">
+        <label for="dateFrom">Date from</label>
+        <input type="date" class="form-control" name="dateFrom" [ngModel]="filter.dateFrom | date:'yyyy-MM-dd'"
+          (blur)="filter.dateFrom = $event.target.value">
+      </div>
+      <div class="form-group col-md-6 col-lg-2 col-xs-12">
+        <label for="dateTo">Date to</label>
+        <input type="date" class="form-control" name="dateTo" [ngModel]="filter.dateTo | date:'yyyy-MM-dd'"
+          (blur)="filter.dateTo = $event.target.value">
+      </div>
+      <div class="form-group col-md-6 col-lg-2 col-lg-2  group-box center">
+        <label class="labelTxt"> Booked</label>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary btn-sm" (click)="filter.booked = true"
+            [ngClass]="{'active': filter.booked === true}">
+            <input type="radio" name="pa"> Yes
+          </label>
+          <label class="btn btn-primary btn-sm" (click)="filter.booked = false"
+            [ngClass]="{'active': filter.booked === false}">
+            <input type="radio" name="pa"> No
+          </label>
+          <label class="btn btn-primary btn-sm" (click)="filter.booked = null"
+            [ngClass]="{'active': filter.booked === null}">
+            <input type="radio" name="pa"> N/A
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group  col-lg-12 col-sm-12 search-btn">
+        <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="addNewItem">
+    <a (click)="addNewHousing = true; addAutoFocus()">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <span>Housing & Transportation</span>
+    </a>
+  </div>
+
+  <!-- Adding new housing______________________________________________________ -->
+  <div *ngIf="addNewHousing" class="main">
+    <div class="item">
+      <p class="head-title"> Creating new housing</p>
+      <label>Please select a soldier</label>
+      <div class="form-control search">
+        <label for="search">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </label>
+        <input autocomplete="off" class="form-control input" id="autoSearch" name="search" max-num-list='10' value-formatter="firstName lastName"
+          list-formatter="firstName lastName" auto-complete [(ngModel)]="sourceProfile"
+          [source]="observableSource(sourceProfile)" min-chars="3" placeholder='search' match-formatted="true" />
+      </div>
+      <label *ngIf="sourceProfile && sourceProfile.id && !classesLoaded" class="indicator-load-classes">Classes
+        loading...<i class="fa fa-spinner fa-spin fa-2x fa-fw"></i> </label>
+      <div *ngIf="classesLoaded" class="select-new-housing">
+        <label>Please select a class</label>
+        <select class="form-control" name="housing" [(ngModel)]="newHousingClassId"
+          (ngModelChange)="setParticipantId($event)">
+          <option [ngValue]="null">select...</option>
+          <option *ngFor="let cl of classes" [ngValue]="cl.id">{{cl.program.name}}
+          </option>
+        </select>
+      </div>
+      <p [ngClass]="{'show': errorMessage}" class="error">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        {{errorMessage}}
+      </p>
+      <div class="buttons">
+        <button class="btn btn-default" (click)="cancelNewHousing()">CANCEL</button>
+        <button class="btn btn-default" (click)="createNewHousing()">OK</button>
+      </div>
+    </div>
+  </div>
+  <!-- ______________________________________________________Adding new housing -->
+
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>
+            <a (click)="onSort('classParticipant.appUser.lastName')" class="sorting-hover">
+              Name
+              <span class="iconsForName" *ngIf="sort.column =='classParticipant.appUser.lastName'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('housingOptionId')" class="sorting-hover">
+              Housing
+              <span class="iconsForName" *ngIf="sort.column =='housingOptionId'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('transportationId')" class="sorting-hover">
+              Transportation
+              <span class="iconsForName" *ngIf="sort.column =='transportationId'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a (click)="onSort('startDate')" class="sorting-hover">
+              Start Date
+              <span class="iconsForName" *ngIf="sort.column =='startDate'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('endDate')" class="sorting-hover">
+              End Date
+              <span class="iconsForName" *ngIf="sort.column =='endDate'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th>
+            <a (click)="onSort('isBooked')" class="sorting-hover">
+              Booked
+              <span class="iconsForName" *ngIf="sort.column =='isBooked'">
+                <i class="fa {{sort.direction ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
+              </span>
+            </a>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities">
+          <td>
+            {{item.classParticipant.appUser.firstName}} {{item.classParticipant.appUser.lastName}}
+          </td>
+          <td>
+            {{item.housingOption ? getFullAddress(item.housingOption) : '' }}
+          </td>
+          <td>
+            {{item.transportation ? item.transportation.description : '' }}
+          </td>
+
+          <td>
+            {{item.startDate | date:'MM/dd/yyyy'}}
+          </td>
+          <td>
+            {{item.endDate | date:'MM/dd/yyyy'}}
+          </td>
+          <td>
+            <i class="fa check-icon {{item.isBooked ? 'fa-check-square-o' : 'fa-square-o'}}" aria-hidden="true"></i>
+          </td>
+          <td class="td-icons">
+            <a class="btnHover"
+              routerLink="{{'/housing-transportation/details/'+ item.classParticipant.appUserId +'/' +item.classParticipant.appUser.firstName + ' ' + item.classParticipant.appUser.lastName + '/' + item.id + '/' + 'null'}}">
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+            <a class="btnHover" (click)="onDelete(item)">
+              <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<confirm></confirm>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

@@ -1,0 +1,109 @@
+<div ngForm #housingForm="ngForm" (keydown.control.s)="onSave(entity, housingForm)">
+    <fieldset [disabled]="canNotHousing">
+        <ba-card cardTitle="">
+            <div class="row">
+                <div *ngIf="entity && entity.employmentCompany" class="form-group col-sm-3">
+                    <label for="trade">Trade</label>
+                    <select class="form-control" name="trade" [(ngModel)]="entity.employmentCompany.trade" required [ngClass]="{'ng-submit' : housingForm._submitted, 'disableSelect': entity.employmentCompany.trade}">
+                        <option disabled hidden [value]="undefined">select...</option>
+                        <option *ngFor="let tr of trades" [value]="tr.id">{{tr.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="date">Start date</label>
+                    <input type="month" class="form-control" name="date" [ngModel]="_startDate | date:'yyyy-MM'" (blur)="_startDate = $event.target.value"
+                        min="2010-01" max="2050-01" required [ngClass]="{'ng-submit' : housingForm._submitted, 'disableSelect': entity.startDate}">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="a-date">Application date</label>
+                    <input type="date" class="form-control" name="a-date" [ngModel]="entity.applicationDate | date:'yyyy-MM-dd'" (blur)="entity.applicationDate = $event.target.value">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="t-date">Termination date</label>
+                    <input type="date" class="form-control" name="t-date" [ngModel]="entity.terminationDate | date:'yyyy-MM-dd'" (blur)="entity.terminationDate = $event.target.value"
+                        [ngClass]="{'ng-submit' : housingForm._submitted}">
+                </div>
+                <!--<div *ngIf="!(entity.items.length > 0)" class="btn-ok form-group col-sm-3">
+                    <button class="btn btn-default" (click)="onSave(entity, housingForm)">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+                    </button>
+                </div>-->
+            </div>
+
+            <div *ngIf="entity.startDate" class="allTable">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="black-muted-bg">
+                            <th class="first-th">Period</th>
+                            <th>Paperwork received date</th>
+                            <th>Paperwork submitted date</th>
+                            <th>Hours</th>
+                            <th>Payrate</th>
+                            <th>
+                                <div *ngIf="!addNewField" class="addNewItem">
+                                    <a (click)="addField()">
+                                        <span>Add new</span>
+                                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of entity.items let i=index">
+                            <td>
+                                <span *ngIf="!item.editing">{{getMonthById(item.period)}}</span>
+                                <!-- <input *ngIf="item.editing" type="month" class="form-control" name="period-{{i}}" [ngModel]="item.period | date:'yyyy-MM'"
+                                    (blur)="item.period = $event.target.value" min="2010-01" max="2050-01" required [ngClass]="{'ng-submit' : housingForm._submitted}"> -->
+                                <select *ngIf="item.editing" class="form-control" name="period-{{i}}" [(ngModel)]="item.period" required [ngClass]="{'ng-submit' : housingForm._submitted}">
+                                    <option disabled hidden [value]="undefined">select...</option>
+                                    <option *ngFor="let m of _months" [value]="m.id">{{m.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <span *ngIf="!item.editing">{{item.paperworkReceivedDate | date:'MM/dd/yyyy'}}</span>
+                                <input *ngIf="item.editing" type="date" name="date-{{i}}" class="form-control" [ngModel]="item.paperworkReceivedDate | date:'yyyy-MM-dd'"
+                                    (blur)="item.paperworkReceivedDate = $event.target.value" required [ngClass]="{'ng-submit' : housingForm._submitted}">
+                            </td>
+                            <td>
+                                <span *ngIf="!item.editing">{{item.paperworkSubmittedDate | date:'MM/dd/yyyy'}}</span>
+                                <input *ngIf="item.editing" type="date" name="dateSubmitted-{{i}}" class="form-control" [ngModel]="item.paperworkSubmittedDate | date:'yyyy-MM-dd'"
+                                    (blur)="item.paperworkSubmittedDate = $event.target.value" required [ngClass]="{'ng-submit' : housingForm._submitted}">
+                            </td>
+                            <td>
+                                <span *ngIf="!item.editing">{{item.hours}}</span>
+                                <input *ngIf="item.editing" type="text" name="hours-{{i}}" class="form-control" pattern="[0-9]{1,3}" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                    [(ngModel)]="item.hours" placeholder="Hours" required [ngClass]="{'ng-submit' : housingForm._submitted}">
+                            </td>
+                            <td>
+                                <span *ngIf="!item.editing">{{item.payrate}}</span>
+                                <input *ngIf="item.editing" type="text" name="rate-{{i}}" class="form-control" pattern="\d+(\.\d{1,2})?" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46'
+                                    [(ngModel)]="item.payrate" placeholder="Payrate" required [ngClass]="{'ng-submit' : housingForm._submitted}">
+                            </td>
+
+                            <td>
+                                <a class="btnHover" (click)="item.editing = true; edit(item)" *ngIf="!item.editing">
+                                    <i class="fa fa-pencil " aria-hidden="true" title="Edit"></i>
+                                </a>
+                                <a class="btnHover" (click)="cancelEdit(item, i)" *ngIf="item.editing">
+                                    <i class="fa fa-times " aria-hidden="true" title="Cancel"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ba-card>
+
+        <!-- ---------files----------- -->
+        <file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/HousingAllowance'"></file-uploader>
+
+        <button type="submit" class="btn btn-primary" (click)="onSave(entity, housingForm)">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+        </button>
+    </fieldset>
+</div>
+
+<confirm></confirm>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

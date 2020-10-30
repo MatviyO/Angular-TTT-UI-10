@@ -1,0 +1,62 @@
+<div ngForm #mentorForm="ngForm" (keydown.control.s)="onSave(mentorForm)">
+    <fieldset>
+        <ba-card>
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="houseOption">Hotel</label>
+                    <select class="form-control" name="houseOption" [(ngModel)]="entity.housingOptionId">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <ng-container *ngFor="let houseOption of houseOptions">
+                            <option *ngIf="houseOption.isActive || houseOption.id == entity.housingOptionId"
+                                [ngValue]="houseOption.id">{{getFullAddress(houseOption)}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="houseOption">Transportation</label>
+                    <select class="form-control" name="transportation" [(ngModel)]="entity.transportationId">
+                        <option hidden [ngValue]="undefined">select...</option>
+                        <option [ngValue]="null">select...</option>
+                        <ng-container *ngFor="let transport of transportations">
+                            <option *ngIf="transport.isActive || transport.id == entity.transportationId"
+                                [ngValue]="transport.id">{{transport.description}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="toolsNeededBy">Start Date</label>
+                    <input type="date" class="form-control" name="startDate"
+                        [ngModel]="entity.startDate | date:'yyyy-MM-dd'"
+                        (blur)="entity.startDate = $event.target.value">
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="toolsNeededBy">End Date</label>
+                    <input type="date" class="form-control" name="endDate"
+                        [ngModel]="entity.endDate | date:'yyyy-MM-dd'" (blur)="entity.endDate = $event.target.value">
+                </div>
+                <div class="form-group col-sm-4 col-md-2 group-box col-xs-6">
+                    <div class="box booked-box" (click)="entity.isBooked = !entity.isBooked">
+                        <span class="span-txt">Booked</span>
+                        <i style="font-size:20px"
+                            [class]="entity.isBooked ? 'fa fa-check-square-o':'fa fa-square-o'"></i>
+                    </div>
+                </div>
+            </div>
+        </ba-card>
+    </fieldset>
+
+    <div class="allBtn">
+        <button class="btn btn-default" (click)="goBack()">
+            Cancel
+            <!-- <a class="btnHover" routerLink="{{'/housing-transportation/list'}}">back</a> -->
+        </button>
+        <button type="submit" class="btn btn-primary" (click)="onSave(mentorForm)">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>
+
+    </div>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
