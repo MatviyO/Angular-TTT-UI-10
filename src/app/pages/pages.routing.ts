@@ -20,13 +20,14 @@ const routes: Routes = [
       { path: 'mentorship', loadChildren: () => import('./mentorship/mentorship.module').then((m) => m.MentorshipModule), },
       { path: 'interviews', loadChildren: () => import('./interviews/interviews.module').then((m) => m.InterviewsModule), },
       { path: 'job-tracking', loadChildren: () => import('./job-tracking/job-tracking.module').then((m) => m.JobTrackingModule), },
-      // { path: 'workforce-personal', loadChildren: './workforce-training/personal/workforce-personal.module#WorkforcePersonalModule' },
-      // { path: 'workforce-company', loadChildren: './workforce-training/company/workforce-company.module#WorkforceCompanyModule' },
+      { path: 'workforce-personal', loadChildren: () => import('./workforce-training/personal/workforce-personal.module')
+          .then((m) => m.WorkforcePersonalModule), },
+      { path: 'workforce-company', loadChildren: () => import('./workforce-training/company/workforce-company.module')
+          .then((m) => m.WorkforceCompanyModule), },
       { path: 'housing-allowance', loadChildren: () => import('./housing-allowance/housing-allowance.module')
           .then((m) => m.HousingAllowanceModule), },
       { path: 'housing-transportation', loadChildren: () => import('./housing-transportation/housing-transportation.module')
           .then((m) => m.HousingTransportationModule), },
-      // { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'events', loadChildren: () => import('../pages/events/events.module').then((m) => m.EventsModule), },
     ],
   },

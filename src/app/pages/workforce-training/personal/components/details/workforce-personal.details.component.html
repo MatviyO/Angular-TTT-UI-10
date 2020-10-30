@@ -1,7 +1,6 @@
 <div ngForm #housingForm="ngForm" (keydown.control.s)="onSave(housingForm)">
   <fieldset [disabled]="canNotHousing">
-    <ba-card>
-  
+    <app-ba-card>
       <div *ngIf="entity && entity.items && entity.items.length > 0" class="allTable">
         <table class="table table-hover">
           <thead>
@@ -81,7 +80,7 @@
           </div>
         </div>
       </div>
-    </ba-card>
+    </app-ba-card>
 
     <button *ngIf="entity.items.length > 0" type="submit" class="btn btn-primary" (click)="onSave(housingForm)">
       <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>

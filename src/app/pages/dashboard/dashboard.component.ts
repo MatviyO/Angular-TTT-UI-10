@@ -8,4 +8,15 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
 
   title = 'ttt-new-ui';
+  loginText = 'Login';
+  signUpText = 'Sign Up';
+  lessons = ['Lesson 1', 'Lessons 2'];
+
+  login(): void {
+    console.log('Login');
+  }
+
+  signUp(): void {
+    console.log('Sign Up');
+  }
 }

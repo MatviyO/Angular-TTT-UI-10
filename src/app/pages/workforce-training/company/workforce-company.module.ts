@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { NgaModule } from '../../../theme/nga.module';
-import { Common_Module } from '@ttt/common';
-import { WorkforceTrainingCompanyService } from '@ttt/core/data';
 import { WorkforceCompanyListComponent } from '../company/components/list';
 import { routing } from './workforce-company.routing';
+import {WorkforceTrainingCompanyService} from '../../../core/data';
+import {Common_Module} from '../../../common';
 
 @NgModule({
     providers: [
@@ -20,9 +20,8 @@ import { routing } from './workforce-company.routing';
         routing,
     ],
     declarations: [
-        WorkforceCompanyListComponent, 
+        WorkforceCompanyListComponent,
     ],
 })
 export class WorkforceCompanyModule {
-     
 }

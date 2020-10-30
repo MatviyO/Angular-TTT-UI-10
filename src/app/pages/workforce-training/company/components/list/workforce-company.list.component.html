@@ -1,4 +1,4 @@
-  <div class="collapses" scroll-spy (onPageEnd)="loadMore()">
+  <div class="collapses" appScrollSpy (onPageEnd)="loadMore()">
   <div class="allTable card">
     <table class="table table-hover">
       <thead>
@@ -15,7 +15,6 @@
       </thead>
       <tbody >
         <ng-container *ngFor="let item of entities let i=index">
-
           <tr class="table-body-1" (click)="getForCollapse(item)" [ngClass]="{'bo-border': item.open}" ngForm #reseivedForm="ngForm">
             <td>{{item.year}}, {{getMonth(item.month)}} </td>
             <td>{{item.totalHours | currency:' ':'4.2-2'}}</td>
@@ -59,7 +58,7 @@
             </tr>
 
             <tr class="table-body-2" *ngFor="let items of collapseData" [ngClass]="{'inactive-record' : !items.hillerWorkforceTrainingPersonal.employmentRecord.application.isActive}">
-              <td colspan="2">{{items.hillerWorkforceTrainingPersonal.employmentRecord.application.firstName}} 
+              <td colspan="2">{{items.hillerWorkforceTrainingPersonal.employmentRecord.application.firstName}}
                               {{items.hillerWorkforceTrainingPersonal.employmentRecord.application.lastName}}
               </td >
               <td colspan="2">{{items.reimbursementAmount | currency:' ':'4.2-2'}}</td>
