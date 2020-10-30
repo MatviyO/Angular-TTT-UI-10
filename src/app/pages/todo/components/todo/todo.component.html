@@ -1,0 +1,135 @@
+<app-ba-card cardTitle=" To do ">
+
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="search()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {category: 'All'}; search()" class="btn resetFilter">
+      reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-3 col-sm-6">
+        <label for="category">Category</label>
+        <select id="category" class="form-control" name="category" [(ngModel)]="filter.category">
+          <option value="All">select...</option>
+          <option value="1">Profiles</option>
+          <option value="2">Tools</option>
+          <option value="3">Graduations</option>
+          <option value="4">Ride Along</option>
+          <option value="5">Interviews</option>
+          <option value="7">Employment</option>
+          <option value="8">Housing</option>
+        </select>
+      </div>
+      <div class="form-group col-lg-3 col-sm-6">
+        <label for="type">Type</label>
+        <select id="type" class="form-control" name="type" [(ngModel)]="filter.type">
+          <option [value]="undefined">select...</option>
+          <optgroup label="Profiles.............................................">
+            <option value="0">Registration not completed</option>
+          </optgroup>
+          <optgroup label="Tools.................................................">
+            <option value="1">Invoice not sent</option>
+            <option value="2">Not ordered</option>
+            <option value="3">Check not received</option>
+            <option value="4">Check not sent</option>
+            <option value="5">Needed not received</option>
+          </optgroup>
+          <optgroup label="Graduation.......................................">
+            <option value="6">Invitation not sent</option>
+            <option value="7">Class starts application not registraction</option>
+            <!-- <option value="8">Ends feedback not provided</option> -->
+          </optgroup>
+          <optgroup label="Ride alongs......................................">
+            <option value="8">Feedback not provided</option>
+          </optgroup>
+          <optgroup label="Interviews.........................................">
+            <option value="9">Interview outcome not provided</option>
+          </optgroup>
+          <optgroup label="Employment.........................................">
+            <option value="11">No Employment after completed classes</option>
+          </optgroup>
+          <optgroup label="Housing.........................................">
+            <option value="12">No Booked housing</option>
+          </optgroup>
+          <optgroup label="Hiller..................................................">
+            <option value="10">Hiller bonus</option>
+          </optgroup>
+
+        </select>
+      </div>
+      <div class="form-group col-lg-3 col-sm-12 center">
+        <label class="labelTxt">Status</label>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary btn-sm" (click)="filter.status = 0" [ngClass]="{'active': filter.status === 0}">
+            <input type="radio" name="pa"> All
+          </label>
+          <label class="btn btn-primary btn-sm red" (click)="filter.status = 2"
+            [ngClass]="{'active': filter.status === 2}">
+            <input type="radio" name="pa"> Critical
+          </label>
+          <label class="btn btn-primary btn-sm yellow" (click)="filter.status = 1"
+            [ngClass]="{'active': filter.status === 1}">
+            <input type="radio" name="pa"> Warning
+          </label>
+
+        </div>
+      </div>
+      <div class="form-group col-lg-3 col-sm-12 search-btn">
+        <button class="btn btn-default" (click)="search()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <app-ba-card class="item" *ngFor="let item of triggers | orderBy: 'name': 'asc'">
+    <div class="row">
+      <div class="name col-md-2">
+
+        <h5 routerLink="{{'/profile/details/' + item.applicationId }}">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <br> {{item.name}}
+        </h5>
+
+      </div>
+      <div class="links col-md-10">
+        <a *ngFor="let items of item.triggers" routerLink={{getLinkToDetails(items)}}
+          class="severity-{{items.severity}} alert col-xs-10">
+          <div [ngClass]="{'hiller-item' : items.triggerCategory == 6}" data-id="{{item.id}}">
+            <div class="moreOptions">
+              <a routerLink="{{'/profile/details/' + item.applicationId }}" class="">
+                <span>Profile</span>
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+              <a routerLink="{{'/job-tracking/details/appl/' + item.applicationId }}" class="">
+                <span>Job tracking</span>
+                <i class="fa fa-history" aria-hidden="true"></i>
+              </a>
+            </div>
+            <h6>
+              <i *ngIf="items.triggerCategory == 1" class="fa fa-user" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 2" class="fa fa-briefcase" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 3" class="fa fa-leanpub" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 4" class="fa fa-car" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 5" class="ion-person-stalker" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 6" class="fa fa-smile-o" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 7" class="fa fa-smile-o" aria-hidden="true"></i>
+              <i *ngIf="items.triggerCategory == 8" class="fa fa-building-o" aria-hidden="true"></i>
+              {{ getTriggerCat(items.triggerCategory).title }}
+            </h6>
+            <span>{{ getTriggerType(items.triggerType) }}</span>
+            <br>
+            <span *ngIf="!(items.triggerCategory === 6)">{{ getDays(items.value, items.isApproaching) }}</span>
+            <span> </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </app-ba-card>
+  <br>
+
+</app-ba-card>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

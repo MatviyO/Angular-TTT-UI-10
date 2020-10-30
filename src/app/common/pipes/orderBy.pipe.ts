@@ -6,6 +6,5 @@ import { orderBy } from 'lodash';
 })
 export class OrderByPipe implements PipeTransform {
   transform = orderBy;
- 
 }
 

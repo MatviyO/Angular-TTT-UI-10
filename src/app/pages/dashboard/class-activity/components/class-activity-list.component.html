@@ -1,0 +1,167 @@
+<div class="card" appScrollSpy (onPageEnd)="loadMore()">
+  <div class="filter" [ngClass]="{'height' : !showfilter}" (keyup.enter)="onSearch()">
+    <a (click)="showfilter = !showfilter" class="filter-icon">
+      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa {{showfilter ? 'fa-chevron-up' : 'fa-chevron-down'}} chevron-icon" aria-hidden="true"></i>
+    </a>
+    <a *ngIf="showfilter" (click)="filter = {}; onSearch()" class="btn resetFilter">reset filter
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="row allInputs" *ngIf="showfilter">
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="name">Name</label>
+        <input id="name" type="text" [(ngModel)]="filter.name" class="form-control" name="name" placeholder="Name">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+          <label for="status">Status</label>
+          <select id="status" class="form-control" name="status" [(ngModel)]="filter.status">
+            <option [value]="undefined">select...</option>
+            <optgroup label="Custom...........................">
+            <option [value]="-1">Admin's records</option>
+          </optgroup>
+            <optgroup label="System...........................">
+
+              <option [value]="item.key" *ngFor="let item of logType | keyValue"> {{item.value}}</option>
+            </optgroup>
+          </select>
+        </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="poNumber">Class</label>
+        <select id="poNumber" class="form-control" name="class" [(ngModel)]="filter.class">
+          <option [value]="undefined">select...</option>
+          <option [value]="cl.id" *ngFor="let cl of classes"> {{cl.program.name}} ({{cl.startDate | date:'MM/dd/yyyy'}}
+            - {{cl.endDate | date:'MM/dd/yyyy'}}) {{cl.priorClass || cl.laterClass ? getSchedulingType(cl.schedulingType) : ''}}</option>
+        </select>
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="invoiceNumber">From date</label>
+        <input id="invoiceNumber" type="date" [(ngModel)]="filter.fromDate" class="form-control" name="fromDate">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6">
+        <label for="checkNumber">To date</label>
+        <input id="checkNumber" type="date" [(ngModel)]="filter.toDate" class="form-control" name="toDate"  >
+      </div>
+
+      <div class="form-group col-lg-2 col-sm-12">
+        <div class="search-btn">
+          <button class="btn btn-default" (click)="onSearch(filter)">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addNewItem">
+    <a (click)="newActivity()">
+      <i class="fa fa-line-chart" aria-hidden="true"></i>
+      <span >Add new activity</span>
+    </a>
+  </div>
+  <div class="main new-item-activity" *ngIf="newLogItem">
+    <div class="item">
+      <p class="head-title"> <span *ngIf="!newLogItem.id">NEW</span> <span *ngIf="newLogItem.id">EDIT</span> ACTIVITY </p>
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="poNumber">Student</label>
+        <div class="form-control search">
+          <label for="search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+          </label>
+          <input id="search" autocomplete="off" class="form-control input" name="search" max-num-list='10' value-formatter="firstName lastName" list-formatter="firstName lastName"
+          auto-complete [(ngModel)]="newLogItem.subject" [source]="observableSource()"
+          display-property-name=name min-chars="3" placeholder='search' match-formatted="true" />
+      </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="poNumber">Class</label>
+        <select class="form-control" name="class" [(ngModel)]="newLogItem.itemId">
+          <option hidden [value]="undefined">select...</option>
+          <option hidden [value]="null">select...</option>
+          <option [value]="0">select...</option>
+          <option [value]="cl.id" *ngFor="let cl of classes"> {{cl.program.name}} ({{cl.startDate | date:'MM/dd/yyyy'}}
+            - {{cl.endDate | date:'MM/dd/yyyy'}}) {{cl.priorClass || cl.laterClass ? getSchedulingType(cl.schedulingType) : ''}}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <label for="checkNumber">Note</label>
+        <textarea class="form-control" [(ngModel)]="newLogItem.userData"></textarea>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-default" (click)="newLogItem = null">CANCEL</button>
+        <button class="btn btn-default" [ngClass]="{'disable' : isValid()}" (click)="saveNewActivity()">SAVE</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="allTable">
+    <table class="table table-hover">
+      <thead>
+        <tr class="black-muted-bg">
+          <th>Name</th>
+          <th>Status</th>
+          <th>Class</th>
+          <th>Note</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of entities">
+          <td>
+            <a class="link-item" routerLink="{{'/profile/details/' + item.subjectId}}">
+              {{item.subject?.firstName}} {{item.subject?.lastName}}
+            </a>
+          </td>
+          <td>{{this.getLogStatus(item.type)}}</td>
+          <td class="class-name-td">
+              <!-- item.itemId ?  -->
+              <div *ngIf="item.itemId">
+                <i class={{getClassIconSchedulingType(getSchedulingTypeLog(item))}}  data-toggle="tooltip"
+                 title={{getSchedulingType(getSchedulingTypeLog(item))}} aria-hidden="true"> </i> {{getSchedulingTypeLog(item)}}
+                <a class="link-item" routerLink="{{'/settings/classes-schedule/details/' + item.itemId}}">
+                  {{this.getClassName(item).trade}}/ {{this.getClassName(item).name}} <br />
+                </a>
+                <span>
+                  ({{this.getClassName(item).dateStart | date:'MM/dd/yyyy'}} -
+                  {{this.getClassName(item).dateEnd | date:'MM/dd/yyyy'}})
+                </span>
+              </div>
+
+          </td>
+
+          <td class="icon-note-td">
+            <div *ngIf="this.isFullNote(item.id); else showLessNote">{{item.userData}}
+              <a href="javascript:void(0)" (click)="this.hideNote(item.id)">less</a>
+            </div>
+            <ng-template #showLessNote>
+              {{this.getNotes(item).note}}
+              <a *ngIf="this.getNotes(item).showMore" href="javascript:void(0)"
+                (click)="this.showMoreNote(item.id)">...more
+              </a>
+            </ng-template>
+          </td>
+          <td>{{item.created | date:'MM/dd/yyyy'}}</td>
+          <td id="min-with">
+            <a class="btnHover" href="javascript:void(0)" (click)="onDelete(item)" [ngClass]="{'disable': !item.isUserProvided }">
+              <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i>
+            </a>
+            <a class="btnHover" href="javascript:void(0)" (click)="newActivity(item)">
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="itemEdit" class="main">
+      <div class="item">
+        <p class="head-title"> Please type note </p>
+        <textarea class="form-control" [(ngModel)]="itemEdit.userData"></textarea>
+        <div class="buttons">
+          <button class="btn btn-default" (click)="itemEdit = null">CANCEL</button>
+          <button class="btn btn-default" (click)="saveNote()">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm></app-confirm>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

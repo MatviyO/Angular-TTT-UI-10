@@ -1,0 +1,26 @@
+<div class="row">
+  <app-ba-card cardTitle="Interviews feedback" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+          <tr>
+            <th class="bo-width"></th>
+            <th>Historic</th>
+            <th>Last year</th>
+            <th>YTD</th>
+          </tr>
+          <tr>
+            <th scope="col">Quantity of feedback <br /> calls performed</th>
+            <td class="bo-ver-align">-</td>
+            <td class="bo-ver-align">-</td>
+            <td class="bo-ver-align">-</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

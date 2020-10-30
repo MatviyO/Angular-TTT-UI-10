@@ -1,0 +1,91 @@
+﻿#min-with {
+  min-width: 72px !important;
+  padding: 0px !important;
+  padding-right: 1px !important;
+}
+
+.link-item {
+  color: #ffffff;
+  text-decoration: underline !important;
+}
+
+.class-name-td {
+  line-height: 1.7;
+  i {
+    margin-right: 4px;
+    color: #ffffffa6;
+  }
+  span {
+    color: #ffffffa6;
+    margin-left: 20px;
+  }
+}
+
+.icon-note-td {
+  width: 350px;
+  min-width: 350px;
+  line-height: 1.5;
+  word-break: break-word;
+  a {
+    color: #0638f9;
+    padding-left: 10px;
+    cursor: pointer !important;
+    float: right;
+    text-decoration: underline !important;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.main .item {
+  height: 235px !important;
+  .buttons {
+    margin-top: 10px;
+  }
+}
+
+.height {
+  margin-bottom: -34px !important;
+}
+.addNewItem {
+  a {
+    cursor: pointer;
+  }
+}
+.filter-icon {
+  z-index: 5 !important;
+}
+
+.new-item-activity {
+  .item {
+    width: 60% !important;
+    position: absolute !important;
+    left: 23% !important;
+    height: auto !important;
+    .form-group {
+      float: left;
+      textarea {
+        height: 90px;
+        resize: none;
+        // padding: 3px 10px;
+      }
+    }
+    .buttons{
+      float: right;
+      padding-right: 10px;
+    }
+    .search {
+      margin-top: 2px;
+      .input {
+        padding-top: 15px;
+      }
+    }
+  }
+}
+
+.menu-collapsed .new-item-activity {
+  .item {
+    width: 50% !important;
+  }
+}

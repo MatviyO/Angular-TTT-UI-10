@@ -1,0 +1,28 @@
+<div class="row">
+    <app-ba-card cardTitle="Tools requests" class="bo-card">
+      <div class="allTable">
+        <table class="table table-bordered table-hover bo-table">
+          <thead>
+            <tr>
+              <th scope="row">Historic - qty of soldiers <br />who earned sign on bonus</th>
+              <th scope="row" class="bo-ver-align">Qty earned last year</th>
+              <th scope="col" class="bo-ver-align">Projected this year</th>
+              <th scope="col" class="bo-ver-align">Earned this year (YTD)</th>
+              <th scope="col" class="bo-ver-align">Percent change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{resData.allEarnedBonus}}</td>
+              <td>{{resData.earnedLast}}</td>
+              <td>{{progectedYTD}}</td>
+              <td>{{resData.earnedYTD}}</td>
+              <td>{{perCentChange}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-ba-card>
+  </div>
+
+  <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

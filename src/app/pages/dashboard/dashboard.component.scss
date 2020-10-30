@@ -1,11 +1,43 @@
-.all-p {
-  font-weight: 400;
-  color: #fff;
-  float: left;
-  width: auto;
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  text-transform: uppercase;
-  opacity: .9;
+:host /deep/.bo-ver-align{
+    vertical-align: middle;
+}
+
+:host /deep/.bo-width{
+    width: 250px;
+}
+
+:host /deep/.bo-width2{
+    width: 200px;
+}
+:host /deep/.bo-width3{
+    width: 300px;
+}
+
+:host /deep/.bo-card{
+    width: 100%;   
+}
+
+:host /deep/.bo-card-half{
+    width: 49%;
+    margin: 0 auto;   
+}
+
+:host /deep/.bo-table{
+    text-align: center;
+    border:1px solid rgba(255, 255, 255, 0.3);
+    th{
+        font-size: 12px;
+        text-align: center;
+        color: #b5e2f9;
+        text-transform: uppercase;
+        border:1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(0, 0, 0, 0.08);
+       &:first-child{
+            text-align: center !important;
+           
+        }
+    }
+    td:first-child{
+        text-align: center !important;
+    }
 }

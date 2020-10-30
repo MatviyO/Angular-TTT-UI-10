@@ -7,11 +7,10 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: '',  redirectTo: 'dashboard', pathMatch: 'full', },
+      { path: '',  redirectTo: 'todo-dashboard', pathMatch: 'full', },
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule), },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule), },
-      // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-      //   { path: 'todo-dashboard', loadChildren: './todo/todo-dashboard.module#TodoDashboardModule' },
+      { path: 'todo-dashboard', loadChildren: () => import('./todo/todo-dashboard.module').then((m) => m.TodoDashboardModule), },
       { path: 'profile', loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule), },
       { path: 'tools', loadChildren: () => import('./tools/tools.module').then((m) => m.ToolsModule), },
       { path: 'classes', loadChildren: () => import('./classes/classes.module').then((m) => m.ClassesModule), },

@@ -1,0 +1,116 @@
+<div class="row">
+  <app-ba-card cardTitle="Graduating students" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+          <tr>
+            <th scope="col" class="bo-width3"></th>
+            <th scope="row">{{previousDate | date:'MM/dd/yyyy'}}<br /> (Previous)</th>
+            <th scope="col">{{nextDate | date:'MM/dd/yyyy'}}<br /> (Next)</th>
+            <th scope="col">{{futureDate | date:'MM/dd/yyyy'}}<br /> (Future)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Number of students</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Soldiers that have requested assistance</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>% of soldiers that have requested assistance</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Interviews set up</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Hiller interviews</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Praxis interviews</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Third party</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Plumbing</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>HVAC</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Electrical</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
+
+  <app-ba-card cardTitle="Interviews feedback" class="bo-card">
+      <div class="allTable">
+        <table class="table table-bordered table-hover bo-table">
+          <thead>
+            <tr>
+              <th class="bo-width3"></th>
+              <th>Historic</th>
+              <th>Last year</th>
+              <th>YTD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Average number of interviews per students</th>
+              <td class="bo-ver-align">{{resData.allInterviews}}</td>
+              <td class="bo-ver-align">{{resData.lastInterviews}}</td>
+              <td class="bo-ver-align">{{resData.ytdInterviews}}</td>
+
+            </tr>
+            <tr>
+              <th scope="col">Total interviews set up</th>
+              <td class="bo-ver-align">-</td>
+              <td class="bo-ver-align">-</td>
+              <td class="bo-ver-align">-</td>
+            </tr>
+            <tr>
+              <th scope="col">Average qty of intervews before hired?</th>
+              <td class="bo-ver-align">-</td>
+              <td class="bo-ver-align">-</td>
+              <td class="bo-ver-align">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-ba-card>
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

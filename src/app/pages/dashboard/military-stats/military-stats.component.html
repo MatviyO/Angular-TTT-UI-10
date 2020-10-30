@@ -1,0 +1,49 @@
+<div class="row">
+    <app-ba-card cardTitle="Military Branch Stats" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table">
+                <thead>
+                    <tr>
+                        <th class="bo-width" scope="row">Name</th>
+                        <th scope="row">Total Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of stats.byBranch">
+                        <td>
+                            {{ item.name }}
+                        </td>
+                        <td>
+                            {{ item.count }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+</div>
+
+<div class="row">
+    <app-ba-card cardTitle="Military Base Stats" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table">
+                <thead>
+                    <tr>
+                        <th class="bo-width" scope="row">Name</th>
+                        <th scope="row">Total Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of stats.byBase">
+                        <td>
+                            {{ item.name }}
+                        </td>
+                        <td>
+                            {{ item.count }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+</div>

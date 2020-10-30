@@ -1,0 +1,117 @@
+<div class="row">
+
+    <app-ba-card cardTitle="" class="bo-card">
+        <div class="allTable">
+          <table class="table table-bordered table-hover bo-table">
+            <thead>
+              <tr>
+                <th scope="row" class="bo-width2" >Total <br /> packets submitted</th>
+                <th scope="col">Last year <br /> total packets submitted</th>
+                <th scope="col">This year <br /> total packets submitted</th>
+                <th scope="col">Average <br /> percent change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-ba-card>
+
+    <app-ba-card cardTitle="" class="bo-card">
+      <div class="allTable">
+        <table class="table table-bordered table-hover bo-table">
+          <thead>
+            <tr>
+
+              <th scope="row" class="bo-width2" >Month</th>
+              <th scope="col">Last year</th>
+              <th scope="col">This year</th>
+              <th scope="col">Percent change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th >January</th>
+              <td>{{resData.lastYear1}}</td>
+              <td>{{resData.yearThis1}}</td>
+              <td>{{perCentArr.perCentChange1}}</td>
+            </tr>
+            <tr>
+              <th>February</th>
+              <td>{{resData.lastYear2}}</td>
+              <td>{{resData.yearThis2}}</td>
+              <td>{{perCentArr.perCentChange2}}</td>
+            </tr>
+            <tr>
+              <th>March</th>
+              <td>{{resData.lastYear3}}</td>
+              <td>{{resData.yearThis3}}</td>
+              <td>{{perCentArr.perCentChange3}}</td>
+            </tr>
+            <tr>
+              <th>April</th>
+              <td>{{resData.lastYear4}}</td>
+              <td>{{resData.yearThis4}}</td>
+              <td>{{perCentArr.perCentChange4}}</td>
+            </tr>
+            <tr>
+              <th>May</th>
+              <td>{{resData.lastYear5}}</td>
+              <td>{{resData.yearThis5}}</td>
+              <td>{{perCentArr.perCentChange5}}</td>
+            </tr>
+            <tr>
+              <th>June</th>
+              <td>{{resData.lastYear6}}</td>
+              <td>{{resData.yearThis6}}</td>
+              <td>{{perCentArr.perCentChange6}}</td>
+            </tr>
+            <tr>
+              <th>July</th>
+              <td>{{resData.lastYear7}}</td>
+              <td>{{resData.yearThis7}}</td>
+              <td>{{perCentArr.perCentChange7}}</td>
+            </tr>
+            <tr>
+              <th>August</th>
+              <td>{{resData.lastYear8}}</td>
+              <td>{{resData.yearThis8}}</td>
+              <td>{{perCentArr.perCentChange8}}</td>
+            </tr>
+            <tr>
+              <th>September</th>
+              <td>{{resData.lastYear9}}</td>
+              <td>{{resData.yearThis9}}</td>
+              <td>{{perCentArr.perCentChange9}}</td>
+            </tr>
+            <tr>
+              <th>October</th>
+              <td>{{resData.lastYear10}}</td>
+              <td>{{resData.yearThis10}}</td>
+              <td>{{perCentArr.perCentChange10}}</td>
+            </tr>
+            <tr>
+              <th>November</th>
+              <td>{{resData.lastYear11}}</td>
+              <td>{{resData.yearThis11}}</td>
+              <td>{{perCentArr.perCentChange11}}</td>
+            </tr>
+            <tr>
+              <th>December</th>
+              <td>{{resData.lastYear12}}</td>
+              <td>{{resData.yearThis12}}</td>
+              <td>{{perCentArr.perCentChange12}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-ba-card>
+  </div>
+
+  <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

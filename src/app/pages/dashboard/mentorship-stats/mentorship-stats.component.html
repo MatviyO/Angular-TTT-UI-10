@@ -1,0 +1,28 @@
+<div class="row">
+    <app-ba-card cardTitle="" class="bo-card">
+      <div class="allTable">
+        <table class="table table-bordered table-hover bo-table">
+          <thead>
+            <tr>
+              <th class="bo-width" scope="row">Qty of soldiers who have participated</th>
+              <th scope="col">Average qty of meets per soldier</th>
+              <th scope="col">LY qty of meetings</th>
+              <th class="bo-ver-align" scope="col">YTD qty of meetings</th>
+              <th class="bo-ver-align" scope="col">% change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{resData.allHaveParticipated}}</td>
+              <td>{{resData.allMeets}}</td>
+              <td>{{resData.meetingLast}}</td>
+              <td>{{resData.meetingYtd}}</td>
+              <td>{{perCentChange}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-ba-card>
+  </div>
+  <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

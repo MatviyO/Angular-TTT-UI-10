@@ -1,0 +1,62 @@
+<div class="row">
+  <app-ba-card cardTitle="Tools requests" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+          <tr>
+            <th scope="row">Total qty of times
+              <br /> process completed?</th>
+            <th scope="row">% of soldiers who
+              <br /> get tools (Historic) </th>
+            <th scope="col">Last year % of soldiers
+              <br /> who get tools</th>
+            <th scope="col">Year to date % of soldiers
+              <br /> who get tools </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{resData.totalCompleted}}</td>
+            <td>{{perCentHistoric}}</td>
+            <td>{{perCentLastYear}}</td>
+            <td>{{perCentNowYear}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
+
+  <app-ba-card cardTitle="How many soldiers are in each status?" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+          <tr>
+            <th class="bo-ver-align" scope="row">Wants tools?</th>
+            <th scope="row">Received PO from work force
+              <br /> essentials?</th>
+            <th scope="col">Send invoice to work force
+              <br /> essentials? </th>
+            <th scope="col">Ordered tools from
+              <br /> ferguson? </th>
+            <th class="bo-ver-align" scope="col">Received check </th>
+            <th scope="col">Soldier received
+              <br /> tools? </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{resData.toolsNeeded}}</td>
+            <td>{{resData.poReceived}}</td>
+            <td>{{resData.invoiceSend}}</td>
+            <td>{{resData.toolsOrdered}}</td>
+            <td>{{resData.checkReceived}}</td>
+            <td>{{resData.toolsReceived}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
+
+</div>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

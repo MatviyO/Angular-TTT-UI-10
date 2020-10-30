@@ -1,0 +1,23 @@
+<app-ba-card cardTitle="Graduation Invitations ">
+        <div class="section">
+                <app-ba-card>
+                    <div class="body">
+                        <a routerLink="/classes/list/wrn" class="link">
+                            <span class="number red"> {{pie.red}}</span>
+                            <h5>No send invitations under 10 days</h5>
+                        </a>
+                    </div>
+                </app-ba-card>
+            </div>
+    <div class="section">
+        <app-ba-card>
+            <div class="body">
+                <a routerLink="/classes/list/alert" class="link">
+                    <span class="number yellow"> {{pie.yellow}}</span>
+                    <h5>No send invitations between 10 and 20 days </h5>
+                </a>
+            </div>
+        </app-ba-card>
+    </div>
+    <load-data *ngIf="showLoadData"></load-data>
+</app-ba-card>

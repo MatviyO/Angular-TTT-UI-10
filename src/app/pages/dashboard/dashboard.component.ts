@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  template: '<router-outlet></router-outlet>',
+  styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
-  title = 'ttt-new-ui';
-  loginText = 'Login';
-  signUpText = 'Sign Up';
-  lessons = ['Lesson 1', 'Lessons 2'];
+  constructor() { }
 
-  login(): void {
-    console.log('Login');
+  ngOnInit(): void {
   }
 
-  signUp(): void {
-    console.log('Sign Up');
-  }
 }

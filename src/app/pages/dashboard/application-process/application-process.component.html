@@ -1,0 +1,231 @@
+<div class="row">
+    <app-ba-card cardTitle="Age STATS" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table table-colspan-2">
+                <thead>
+                    <tr>
+                        <th colspan="2">18 - 24</th>
+                        <th colspan="2">25 - 29</th>
+                        <th colspan="2">30 - 35</th>
+                        <th colspan="2">40+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{studentStats.ageGroups ? studentStats.ageGroups['18-24'].count  : 0}}</td>
+                        <td>{{studentStats.ageGroups ? (studentStats.ageGroups['18-24'].percentage * 100).toFixed(2) : 0}}&nbsp;% </td>
+
+                        <td>{{studentStats.ageGroups ? studentStats.ageGroups['25-29'].count : 0}}</td>
+                        <td>{{studentStats.ageGroups ? (studentStats.ageGroups['25-29'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ageGroups ? studentStats.ageGroups['30-35'].count : 0}}</td>
+                        <td>{{studentStats.ageGroups ? (studentStats.ageGroups['30-35'].percentage * 100).toFixed(2) : 0}}&nbsp;% </td>
+
+                        <td>{{studentStats.ageGroups ? studentStats.ageGroups['40+'].count : 0}}</td>
+                        <td>{{studentStats.ageGroups ? (studentStats.ageGroups['40+'].percentage * 100).toFixed(2) : 0}}&nbsp;% </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+
+    <app-ba-card cardTitle="ASVAB GT TEST STATS" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table table-colspan-2">
+                <thead>
+                    <tr>
+                        <th colspan="2"> 0 - 100 </th>
+                        <th colspan="2">101 - 110</th>
+                        <th colspan="2">111 - 120</th>
+                        <th colspan="2">121 - 130</th>
+                        <th colspan="2">131 - 140</th>
+                        <th colspan="2">Unspecified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['100-'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['100-'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['101-110'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['101-110'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['111-120'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['111-120'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['121-130'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['121-130'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['131-140'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['131-140'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.ASVAB_GT ? studentStats.ASVAB_GT['Unspecified'].count : 0}}</td>
+                        <td>{{studentStats.ASVAB_GT ? (studentStats.ASVAB_GT['Unspecified'].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+
+    <app-ba-card cardTitle="Military Status STATS" class="bo-card">
+        <div class="allTable">
+            <!-- <table class="table table-bordered table-hover bo-table">
+                <thead>
+                    <tr>
+                        <th class="bo-width">Status</th>
+                        <th>Count</th>
+                        <th>percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>National Guard</th>
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus[1].count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus[1].percentage * 100).toFixed(2) : 0}}
+                            %
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Reserves</th>
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus[2].count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus[2].percentage * 100).toFixed(2) : 0}}
+                            %
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Unspecified</th>
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus.Unspecified.count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus.Unspecified.percentage * 100).toFixed(2) : 0}}
+                            % </td>
+                    </tr>
+                </tbody>
+            </table> -->
+            <table class="table table-bordered table-hover bo-table table-colspan-2">
+                <thead>
+                    <tr>
+                        <th colspan="2">National Guard</th>
+                        <th colspan="2">Reserves</th>
+                        <th colspan="2">Unspecified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus[1].count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus[1].percentage * 100).toFixed(2) : 0}}&nbsp;% </td>
+
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus[2].count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus[2].percentage * 100).toFixed(2) : 0}}&nbsp;%</td>
+
+                        <td>{{studentStats.militaryStatus ? studentStats.militaryStatus.Unspecified.count : 0}}</td>
+                        <td>{{studentStats.militaryStatus ? (studentStats.militaryStatus.Unspecified.percentage * 100).toFixed(2) : 0}}&nbsp;% </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+
+    <app-ba-card cardTitle="Rank STATS" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table ">
+                <thead>
+                    <tr>
+                        <th class="bo-width">Rank</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="studentStats.rank && studentStats.rank.keys">
+                    <tr *ngFor="let item of studentStats.rank.keys">
+                        <th>{{item}}</th>
+                        <td>{{studentStats.rank[item].count}}</td>
+                        <td>{{(studentStats.rank[item].percentage * 100).toFixed(2)}}&nbsp;%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+
+
+
+    <app-ba-card cardTitle="Applications stats (only active profiles)" class="bo-card">
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table">
+                <thead>
+                    <tr>
+                        <th class="bo-width" scope="row">Stats</th>
+                        <th scope="row">Historic </th>
+                        <th scope="col">Last year </th>
+                        <th scope="col">YTD </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Incomplete applications</th>
+                        <td>{{resData.incomplete}}</td>
+                        <td>{{resData.incompleteLast}}</td>
+                        <td>{{resData.incompletePresent}}</td>
+                    </tr>
+                    <tr>
+                        <th>Total completed applications</th>
+                        <td>{{resData.complete}}</td>
+                        <td>{{resData.completeLast}}</td>
+                        <td>{{resData.completePresent}}</td>
+                    </tr>
+                    <tr>
+                        <th>Plumbing</th>
+                        <td>{{resData.plumbing}}</td>
+                        <td>{{resData.plumbingLast}}</td>
+                        <td>{{resData.plumbingPresent}}</td>
+                    </tr>
+                    <tr>
+                        <th>HVAC</th>
+                        <td>{{resData.hvac}}</td>
+                        <td>{{resData.hvacLast}}</td>
+                        <td>{{resData.hvacPresent}}</td>
+                    </tr>
+                    <tr>
+                        <th>Electrical</th>
+                        <td>{{resData.electrical}}</td>
+                        <td>{{resData.electricalLast}}</td>
+                        <td>{{resData.electricalPresent}}</td>
+                    </tr>
+                    <tr>
+                        <th>HVAC Install</th>
+                        <td>{{resData.hvacInstall}}</td>
+                        <td>{{resData.hvacInstallLast}}</td>
+                        <td>{{resData.hvacInstallPresent}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+
+    <app-ba-card cardTitle="Employments in State" class="bo-card">
+        <span class="btn-show-zero" (click)="showZeroEmploymentsCoutn()">{{showZero? 'hide': 'show'}} zero</span>
+        <div class="allTable">
+            <table class="table table-bordered table-hover bo-table">
+                <thead>
+                    <tr>
+                        <th class="bo-width" scope="row">State Name</th>
+                        <th scope="row">Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of epmploymentsInStates">
+                        <th>{{item.state}}</th>
+                        <td>{{item.count}}</td>
+                    </tr>
+                    <tr>
+                        <th>TOTAL</th>
+                        <th>{{epmploymentsInStatesTotal}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </app-ba-card>
+</div>
+
+<app-military-stats></app-military-stats>
+
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
