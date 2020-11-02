@@ -8,15 +8,24 @@
       <i class="fa fa-times" aria-hidden="true"></i>
     </a>
     <div class="row allInputs" *ngIf="showfilter">
-      <div class="form-group col-lg-4 col-sm-6">
+      <div class="form-group col-lg-3 col-sm-6">
         <label for="filterName">Start Date</label>
         <input id="filterName" type="date" class="form-control" name="startDate" [ngClass]="{'ng-submit' : !filter.startDate}"
                [ngModel]="filter.startDate | date:'yyyy-MM-dd'" required (blur)="filter.startDate = $event.target.value">
       </div>
-      <div class="form-group col-lg-4 col-sm-6">
+      <div class="form-group col-lg-3 col-sm-6">
         <label for="filterName">End Date</label>
         <input type="date" class="form-control" required name="endDate" [ngClass]="{'ng-submit' : !filter.endDate}" [ngModel]="filter.endDate | date:'yyyy-MM-dd'"
                (blur)="filter.endDate = $event.target.value">
+      </div>
+      <div class="form-group col-lg-2 col-sm-6 group-box center">
+        <label class="labelTxt">Campbell Strong</label>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn-primary btn-sm hover-types" (click)="filter.campbellStrong = !filter.campbellStrong"  [ngClass]="{'active': filter.campbellStrong}">
+            Yes
+          </label>
+        </div>
       </div>
       <div class="form-group col-lg-4 col-sm-6 group-box center">
         <label class="labelTxt">Application Type</label>

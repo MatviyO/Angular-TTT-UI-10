@@ -9,14 +9,14 @@ import {AffiliationType} from '../../../core/model/properties/application-affili
 import {BaseSortableListDirective} from '../../../common/base-classes';
 
 
-export interface EmploymentReportFilter {
+export interface JobReportFilter {
   startDate: moment.Moment;
   endDate: moment.Moment;
   campbellStrong: boolean;
   applicationTypes: string[];
 }
 
-export const getDefaultFilter = (): EmploymentReportFilter => {
+export const getDefaultFilter = (): JobReportFilter => {
   return {
     startDate: moment().subtract(2, 'years'),
     endDate: moment(),

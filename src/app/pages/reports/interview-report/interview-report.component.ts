@@ -2,41 +2,33 @@ import { Component, OnInit, Inject } from '@angular/core';
 import * as moment from 'moment';
 
 import { InterviewReportConfig } from './interview-report.config';
+import {AffiliationTypesService, InterviewReportService} from '../../../core/data';
 import {InterviewReport} from '../../../core/model/reports';
 import {IEditorConfig} from '../../../common/interfaces';
-import {InterviewReportService} from '../../../core/data';
+import {getDefaultFilter, JobReportFilter} from '../employment-report/employment-report.component';
+import {AffiliationType} from '../../../core/model/properties/application-affiliation';
 import {BaseSortableListDirective} from '../../../common/base-classes';
 
 
-export interface InterviewReportFilter {
-  startDate: moment.Moment ;
-  endDate: moment.Moment;
-  applicationTypes: string[];
-}
-
-export const getDefaultFilter = (): InterviewReportFilter => {
-  return {
-    startDate: moment().subtract(2, 'years'),
-    endDate: moment(),
-    applicationTypes: ['Veteran', 'Military'],
-  };
-};
 
 @Component({
   selector: 'app-interview-report',
   templateUrl: './interview-report.component.html',
   styleUrls: ['./interview-report.component.scss'],
-  providers: [InterviewReportConfig],
+  providers: [InterviewReportConfig, AffiliationTypesService],
 })
 
 export class InterviewReportComponent extends BaseSortableListDirective<InterviewReport> implements OnInit {
+  campbelStrongAffiliation: AffiliationType;
   showfilter = true;
-  filter = getDefaultFilter();
+  filter: JobReportFilter = getDefaultFilter();
   take = null;
   skip = null;
 
+
   constructor(
     @Inject(InterviewReportConfig) config: IEditorConfig<InterviewReport>,
+    private affiliationTypesSvc: AffiliationTypesService,
     private reportSvc: InterviewReportService,
   ) {
     super(config);
@@ -51,6 +43,9 @@ export class InterviewReportComponent extends BaseSortableListDirective<Intervie
   }
 
   ngOnInit(): void {
+    this.affiliationTypesSvc.query('description.contains("Campbell")', '', null, 'null')
+      .then(res => this.campbelStrongAffiliation = res && res.length > 0 ? res[0] : null)
+      .catch((e) => this.onHttpError(e));
     super.ngOnInit();
   }
 
@@ -73,6 +68,9 @@ export class InterviewReportComponent extends BaseSortableListDirective<Intervie
     }
     if (this.filter.applicationTypes) {
       this.filter.applicationTypes.forEach(type => type && filterArg.push({ key: 'appTypes', value: type }));
+    }
+    if (this.filter.campbellStrong && this.campbelStrongAffiliation) {
+      filterArg.push({ key: 'appAffTypeId', value: this.campbelStrongAffiliation.id });
     }
     if (downlooad) {
       filterArg.push({ key: 'export', value: 'empl_report' });

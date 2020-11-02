@@ -31,10 +31,6 @@
         <label class="labelTxt">Application Type</label>
         <br>
         <div class="btn-group" data-toggle="buttons">
-          <!-- <label class="btn-primary btn-sm hover-types"
-              (click)="filter.applicationTypes[0] == 'Civilian' ? filter.applicationTypes[0] = '' : filter.applicationTypes[0] = 'Civilian'"[ngClass]="{'active': filter.applicationTypes[0] == 'Civilian'}">
-              Civilian
-          </label> -->
           <label class="btn-primary btn-sm hover-types"
                  (click)="filter.applicationTypes[0] == 'Veteran' ? filter.applicationTypes[0] = '' : filter.applicationTypes[0] = 'Veteran'" [ngClass]="{'active': filter.applicationTypes[0] == 'Veteran'}">
             Veteran

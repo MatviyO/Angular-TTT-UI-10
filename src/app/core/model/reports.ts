@@ -15,6 +15,7 @@ export class JobReport extends BaseEntity {
 }
 
 export class EmploymentReport extends JobReport {
+  endDate: string | Date;
   startDate: string | Date;
   tenure: number;
   title: string;
