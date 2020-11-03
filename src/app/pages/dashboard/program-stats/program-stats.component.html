@@ -1,634 +1,745 @@
 <div class="row">
-    <app-ba-card cardTitle="Graduates" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <td colspan="1"></td>
-                        <td colspan="2" class="bo-hover" [ngClass]="{'active': h}" (click)="h=true; p=false; t=false">
-                            Graduates
-                            hired into Hiller </td>
-                        <td colspan="2" class="bo-hover" [ngClass]="{'active': p}" (click)="h=false; p=true; t=false">
-                            Graduates
-                            hired into a Praxis affiliate </td>
-                        <td colspan="2" class="bo-hover" [ngClass]="{'active': t}" (click)="h=false; p=false; t=true">
-                            Graduates
-                            hired into a third party </td>
-                        <td>Tenure</td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Total <br /> Employments </th>
-                        <th scope="col">Total soldiers <br /> who have graduated </th>
-                        <ng-container *ngIf="h">
-                            <th scope="col">Total students hired <br /> by Hiller</th>
-                            <th scope="col">% of students hired <br /> by Hiller</th>
-                            <th scope="col">% of EMPLOYMENTS <br /> IN Hiller</th>
-                            <th scope="col">Average tenure <br /> in months</th>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <th scope="col">Total students hired <br /> by a Praxis affiliate </th>
-                            <th scope="col">% of students hired <br /> by a Praxis affiliate</th>
-                            <th scope="col">% of employments <br /> in a Praxis affiliate</th>
-                            <th scope="col">Average tenure <br /> in months</th>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <th scope="col">Total students hired <br /> by another company</th>
-                            <th scope="col">% of students hired <br /> by another company</th>
-                            <th scope="col">% of employments <br /> in another company</th>
-                            <th scope="col">Average tenure <br /> in months</th>
-                        </ng-container>
-                        <th scope="col">Average tenure <br /> in months</th>
-                    </tr>
-                </thead>
-                <tbody *ngIf="statsProgram">
-                    <tr>
-                        <th>Total</th>
-                        <td>{{statsProgram.totalEmployments || '0'}}</td>
-                        <td>{{statsProgram.totalGraduates || '0'}}</td>
-                        <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
-                            <td>{{statsProgram.employers.Hiller.total || '0'}}</td>
-                            <td>
+
+  <app-ba-card cardTitle="Graduates" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+        <tr>
+          <td colspan="1"></td>
+          <td colspan="2" class="bo-hover" [ngClass]="{'active': h}" (click)="h=true; p=false; t=false">
+            Graduates
+            hired into Hiller </td>
+          <td colspan="2" class="bo-hover" [ngClass]="{'active': p}" (click)="h=false; p=true; t=false">
+            Graduates
+            hired into a Praxis affiliate </td>
+          <td colspan="2" class="bo-hover" [ngClass]="{'active': t}" (click)="h=false; p=false; t=true">
+            Graduates
+            hired into a third party </td>
+          <td>Tenure</td>
+        </tr>
+        <tr>
+          <th></th>
+          <th scope="col">Total <br /> Employments </th>
+          <th scope="col">Total soldiers <br /> who have graduated </th>
+          <ng-container *ngIf="h">
+            <th scope="col">Total students hired <br /> by Hiller</th>
+            <th scope="col">% of students hired <br /> by Hiller</th>
+            <th scope="col">% of EMPLOYMENTS <br /> IN Hiller</th>
+            <th scope="col">Average tenure <br /> in months</th>
+          </ng-container>
+          <ng-container *ngIf="p">
+            <th scope="col">Total students hired <br /> by a Praxis affiliate </th>
+            <th scope="col">% of students hired <br /> by a Praxis affiliate</th>
+            <th scope="col">% of employments <br /> in a Praxis affiliate</th>
+            <th scope="col">Average tenure <br /> in months</th>
+          </ng-container>
+          <ng-container *ngIf="t">
+            <th scope="col">Total students hired <br /> by another company</th>
+            <th scope="col">% of students hired <br /> by another company</th>
+            <th scope="col">% of employments <br /> in another company</th>
+            <th scope="col">Average tenure <br /> in months</th>
+          </ng-container>
+          <th scope="col">Average tenure <br /> in months</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="statsProgram">
+        <tr>
+          <th>Total</th>
+          <td>{{statsProgram.totalEmployments || '0'}}</td>
+          <td>{{statsProgram.totalGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.total || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.totalStudentP">
                                     {{statsProgram.employers.Hiller.totalStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.totalStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.totalStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.totalEmplP">
                                     {{statsProgram.employers.Hiller.totalEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.totalEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Hiller.totalAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
-                            <td>{{statsProgram.employers.Praxis.total || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.totalEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.totalAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.total || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.totalStudentP">
                                     {{statsProgram.employers.Praxis.totalStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.totalStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.totalStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.totalEmplP">
                                     {{statsProgram.employers.Praxis.totalEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.totalEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Praxis.totalAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
-                            <td>{{statsProgram.employers['3rdParty'].total || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.totalEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.totalAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].total || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].totalStudentP">
                                     {{statsProgram.employers['3rdParty'].totalStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].totalStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].totalStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].totalEmplP">
                                     {{statsProgram.employers['3rdParty'].totalEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].totalEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers['3rdParty'].totalAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{statsProgram.totalAverageTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>Plumbing</th>
-                        <td>{{statsProgram.totalPlumbingEmployments || '0'}}</td>
-                        <td>{{statsProgram.totalPlumbingGraduates || '0'}}</td>
-                        <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
-                            <td>{{statsProgram.employers.Hiller.plumbing || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].totalEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].totalAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>Plumbing</th>
+          <td>{{statsProgram.totalPlumbingEmployments || '0'}}</td>
+          <td>{{statsProgram.totalPlumbingGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.plumbing || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.plumbingStudentP">
                                     {{statsProgram.employers.Hiller.plumbingStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.plumbingStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.plumbingStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.plumbingEmplP">
                                     {{statsProgram.employers.Hiller.plumbingEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.plumbingEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Hiller.plumbingAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
-                            <td>{{statsProgram.employers.Praxis.plumbing || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.plumbingEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.plumbingAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.plumbing || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.plumbingStudentP">
                                     {{statsProgram.employers.Praxis.plumbingStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.plumbingStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.plumbingStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.plumbingEmplP">
                                     {{statsProgram.employers.Praxis.plumbingEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.plumbingEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Praxis.plumbingAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
-                            <td>{{statsProgram.employers['3rdParty'].plumbing || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.plumbingEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.plumbingAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].plumbing || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].plumbingStudentP">
                                     {{statsProgram.employers['3rdParty'].plumbingStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].plumbingStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].plumbingStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].plumbingEmplP">
                                     {{statsProgram.employers['3rdParty'].plumbingEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].plumbingEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers['3rdParty'].plumbingAverageTenure || '0' | number : '1.0-2'}}
-                            </td>
-                        </ng-container>
-                        <td>{{statsProgram.totalAveragePlumbingTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>HVAC</th>
-                        <td>{{statsProgram.totalHVACEmployments || '0'}}</td>
-                        <td>{{statsProgram.totalHVACGraduates || '0'}}</td>
-                        <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
-                            <td>{{statsProgram.employers.Hiller.hvac || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].plumbingEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].plumbingAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <td>{{statsProgram.totalAveragePlumbingTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>HVAC</th>
+          <td>{{statsProgram.totalHVACEmployments || '0'}}</td>
+          <td>{{statsProgram.totalHVACGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.hvac || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.hvacStudentP">
                                     {{statsProgram.employers.Hiller.hvacStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.hvacStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.hvacStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.hvacEmplP">
                                     {{statsProgram.employers.Hiller.hvacEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.hvacEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Hiller.hvacAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
-                            <td>{{statsProgram.employers.Praxis.hvac || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.hvacEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.hvacAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.hvac || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.hvacStudentP">
                                     {{statsProgram.employers.Praxis.hvacStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.hvacStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.hvacStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.hvacEmplP">
                                     {{statsProgram.employers.Praxis.hvacEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.hvacEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Praxis.hvacAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
-                            <td>{{statsProgram.employers['3rdParty'].hvac || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.hvacEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.hvacAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].hvac || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].hvacStudentP">
                                     {{statsProgram.employers['3rdParty'].hvacStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].hvacStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].hvacStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].hvacEmplP">
                                     {{statsProgram.employers['3rdParty'].hvacEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].hvacEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers['3rdParty'].hvacAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{statsProgram.totalAverageHVACTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>HVAC Install</th>
-                        <td>{{statsProgram.totalHVACInstallEmployments || '0'}}</td>
-                        <td>{{statsProgram.totalHVACInstallGraduates || '0'}}</td>
-                        <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
-                            <td>{{statsProgram.employers.Hiller.hvacInstall || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].hvacEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].hvacAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageHVACTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>HVAC Install</th>
+          <td>{{statsProgram.totalHVACInstallEmployments || '0'}}</td>
+          <td>{{statsProgram.totalHVACInstallGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.hvacInstall || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.hvacInstallStudentP">
                                     {{statsProgram.employers.Hiller.hvacInstallStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.hvacInstallStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.hvacInstallStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.hvacInstallEmplP">
                                     {{statsProgram.employers.Hiller.hvacInstallEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.hvacInstallEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Hiller.hvacInstallAverageTenure || '0' | number : '1.0-2'}}
-                            </td>
-                        </ng-container>
-                        <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
-                            <td>{{statsProgram.employers.Praxis.hvacInstall || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.hvacInstallEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.hvacInstallAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.hvacInstall || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.hvacInstallStudentP">
                                     {{statsProgram.employers.Praxis.hvacInstallStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.hvacInstallStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.hvacInstallStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.hvacInstallEmplP">
                                     {{statsProgram.employers.Praxis.hvacInstallEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.hvacInstallEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Praxis.hvacInstallAverageTenure || '0' | number : '1.0-2'}}
-                            </td>
-                        </ng-container>
-                        <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
-                            <td>{{statsProgram.employers['3rdParty'].hvacInstall || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.hvacInstallEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.hvacInstallAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].hvacInstall || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].hvacInstallStudentP">
                                     {{statsProgram.employers['3rdParty'].hvacInstallStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].hvacInstallStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].hvacInstallStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].hvacInstallEmplP">
                                     {{statsProgram.employers['3rdParty'].hvacInstallEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].hvacInstallEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers['3rdParty'].hvacInstallAverageTenure || '0' | number : '1.0-2'}} %
-                            </td>
-                        </ng-container>
-                        <td>{{statsProgram.totalAverageHVACInstallTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>Electrical</th>
-                        <td>{{statsProgram.totalElectricEmployments || '0'}}</td>
-                        <td>{{statsProgram.totalElectricGraduates || '0'}}</td>
-                        <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
-                            <td>{{statsProgram.employers.Hiller.electric || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].hvacInstallEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].hvacInstallAverageTenure || '0' | number : '1.0-2'}} %
+            </td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageHVACInstallTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>Electrical</th>
+          <td>{{statsProgram.totalElectricEmployments || '0'}}</td>
+          <td>{{statsProgram.totalElectricGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.electric || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.electricStudentP">
                                     {{statsProgram.employers.Hiller.electricStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.electricStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.electricStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Hiller.electricEmplP">
                                     {{statsProgram.employers.Hiller.electricEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Hiller.electricEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Hiller.electricAverageTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
-                            <td>{{statsProgram.employers.Praxis.electric || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Hiller.electricEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.electricAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.electric || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.electricStudentP">
                                     {{statsProgram.employers.Praxis.electricStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.electricStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.electricStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers.Praxis.electricEmplP">
                                     {{statsProgram.employers.Praxis.electricEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers.Praxis.electricEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers.Praxis.electricAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
-                            <td>{{statsProgram.employers['3rdParty'].electric || '0'}}</td>
-                            <td>
+              <span *ngIf="!statsProgram.employers.Praxis.electricEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.electricAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].electric || '0'}}</td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].electricStudentP">
                                     {{statsProgram.employers['3rdParty'].electricStudentP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].electricStudentP"> 0 </span>
-                            </td>
-                            <td>
+              <span *ngIf="!statsProgram.employers['3rdParty'].electricStudentP"> 0 </span>
+            </td>
+            <td>
                                 <span *ngIf="statsProgram.employers['3rdParty'].electricEmplP">
                                     {{statsProgram.employers['3rdParty'].electricEmplP * 100  | number : '1.0-2'}} %
                                 </span>
-                                <span *ngIf="!statsProgram.employers['3rdParty'].electricEmplP"> 0 </span>
-                            </td>
-                            <td>{{statsProgram.employers['3rdParty'].electricAverageTenure || '0' | number : '1.0-2'}}
-                            </td>
-                        </ng-container>
-                        <td>{{statsProgram.totalAverageElectricTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </app-ba-card>
+              <span *ngIf="!statsProgram.employers['3rdParty'].electricEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].electricAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageElectricTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>Other (in filds)</th>
+          <td>{{statsProgram.totalOtherInFieldsEmployments || '0'}}</td>
+          <td>{{statsProgram.totalOtherInFieldsGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.otherInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Hiller.otherInFieldsStudentP">
+                                    {{statsProgram.employers.Hiller.otherInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Hiller.otherInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Hiller.otherInFieldsEmplP">
+                                    {{statsProgram.employers.Hiller.otherInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Hiller.otherInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.otherInFieldsAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.otherInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Praxis.otherInFieldsStudentP">
+                                    {{statsProgram.employers.Praxis.otherInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Praxis.otherInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Praxis.otherInFieldsEmplP">
+                                    {{statsProgram.employers.Praxis.otherInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Praxis.otherInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.otherInFieldsAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].otherInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers['3rdParty'].otherInFieldsStudentP">
+                                    {{statsProgram.employers['3rdParty'].otherInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers['3rdParty'].otherInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers['3rdParty'].otherInFieldsEmplP">
+                                    {{statsProgram.employers['3rdParty'].otherInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers['3rdParty'].otherInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].otherInFieldsAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageOtherInFieldsTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+          <th>Other (not in filds)</th>
+          <td>{{statsProgram.totalOtherNotInFieldsEmployments || '0'}}</td>
+          <td>{{statsProgram.totalOtherNotInFieldsGraduates || '0'}}</td>
+          <ng-container *ngIf="h && statsProgram.employers && statsProgram.employers.Hiller">
+            <td>{{statsProgram.employers.Hiller.otherNotInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Hiller.otherNotInFieldsStudentP">
+                                    {{statsProgram.employers.Hiller.otherNotInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Hiller.otherNotInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Hiller.otherNotInFieldsEmplP">
+                                    {{statsProgram.employers.Hiller.otherNotInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Hiller.otherNotInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Hiller.otherNotInFieldsAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="p && statsProgram.employers && statsProgram.employers.Praxis">
+            <td>{{statsProgram.employers.Praxis.otherNotInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Praxis.otherNotInFieldsStudentP">
+                                    {{statsProgram.employers.Praxis.otherNotInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Praxis.otherNotInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers.Praxis.otherNotInFieldsEmplP">
+                                    {{statsProgram.employers.Praxis.otherNotInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers.Praxis.otherNotInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers.Praxis.otherNotInFieldsAverageTenure || '0' | number : '1.0-2'}}</td>
+          </ng-container>
+          <ng-container *ngIf="t && statsProgram.employers && statsProgram.employers['3rdParty']">
+            <td>{{statsProgram.employers['3rdParty'].otherNotInFields || '0'}}</td>
+            <td>
+                                <span *ngIf="statsProgram.employers['3rdParty'].otherNotInFieldsStudentP">
+                                    {{statsProgram.employers['3rdParty'].otherNotInFieldsStudentP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers['3rdParty'].otherNotInFieldsStudentP"> 0 </span>
+            </td>
+            <td>
+                                <span *ngIf="statsProgram.employers['3rdParty'].otherNotInFieldsEmplP">
+                                    {{statsProgram.employers['3rdParty'].otherNotInFieldsEmplP * 100  | number : '1.0-2'}} %
+                                </span>
+              <span *ngIf="!statsProgram.employers['3rdParty'].otherNotInFieldsEmplP"> 0 </span>
+            </td>
+            <td>{{statsProgram.employers['3rdParty'].otherNotInFieldsAverageTenure || '0' | number : '1.0-2'}}
+            </td>
+          </ng-container>
+          <td>{{statsProgram.totalAverageOtherNotInFieldsTenure || '0' | number : '1.0-2'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
 
 
-    <!-- <ba-card cardTitle="Graduates" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td class="bo-hover" [ngClass]="{'active': h}" (click)="h=true; p=false; t=false">Graduates hired into Hiller </td>
-                        <td class="bo-hover" [ngClass]="{'active': p}" (click)="h=false; p=true; t=false">Graduates hired into a Praxis affiliate </td>
-                        <td class="bo-hover" [ngClass]="{'active': t}" (click)="h=false; p=false; t=true">Graduates hired into a third party </td>
-                        <td>Tenure</td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Total soldiers
-                            <br /> who have graduated</th>
+  <!-- <ba-card cardTitle="Graduates" class="bo-card">
+      <div class="allTable">
+          <table class="table table-bordered table-hover bo-table">
+              <thead>
+                  <tr>
+                      <td colspan="2"></td>
+                      <td class="bo-hover" [ngClass]="{'active': h}" (click)="h=true; p=false; t=false">Graduates hired into Hiller </td>
+                      <td class="bo-hover" [ngClass]="{'active': p}" (click)="h=false; p=true; t=false">Graduates hired into a Praxis affiliate </td>
+                      <td class="bo-hover" [ngClass]="{'active': t}" (click)="h=false; p=false; t=true">Graduates hired into a third party </td>
+                      <td>Tenure</td>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th scope="col">Total soldiers
+                          <br /> who have graduated</th>
 
-                        <ng-container *ngIf="h">
-                            <th scope="col">Total students hired
-                                <br /> by Hiller</th>
-                            <th scope="col">% of students hired
-                                <br /> by Hiller</th>
-                            <th scope="col">Average tenure
-                                <br /> in months</th>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <th scope="col">Total students hired
-                                <br /> by a Praxis affiliate</th>
-                            <th scope="col">% of students hired
-                                <br /> by a Praxis affiliate</th>
-                            <th scope="col">Average tenure
-                                <br /> in months</th>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <th scope="col">Total students hired
-                                <br /> by another company</th>
-                            <th scope="col">% of students hired
-                                <br /> by another company</th>
-                            <th scope="col">Average tenure
-                                <br /> in months</th>
-                        </ng-container>
+                      <ng-container *ngIf="h">
+                          <th scope="col">Total students hired
+                              <br /> by Hiller</th>
+                          <th scope="col">% of students hired
+                              <br /> by Hiller</th>
+                          <th scope="col">Average tenure
+                              <br /> in months</th>
+                      </ng-container>
+                      <ng-container *ngIf="p">
+                          <th scope="col">Total students hired
+                              <br /> by a Praxis affiliate</th>
+                          <th scope="col">% of students hired
+                              <br /> by a Praxis affiliate</th>
+                          <th scope="col">Average tenure
+                              <br /> in months</th>
+                      </ng-container>
+                      <ng-container *ngIf="t">
+                          <th scope="col">Total students hired
+                              <br /> by another company</th>
+                          <th scope="col">% of students hired
+                              <br /> by another company</th>
+                          <th scope="col">Average tenure
+                              <br /> in months</th>
+                      </ng-container>
 
-                        <th scope="col">Average tenure
-                            <br /> in months</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>Total</th>
-                        <td>{{programStats.total.graduatesCount || '0'}}</td>
-                        <ng-container *ngIf="h">
-                            <td>{{programStats.total.hillerCount || '0'}}</td>
-                            <td>{{programStats.total.hillerCountP || 0 | number : '1.0-2'}}
-                                <span *ngIf="programStats.total.hillerCountP">%</span>
-                            </td>
-                            <td>{{programStats.total.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <td>{{programStats.total.praxisCount || '0'}}</td>
-                            <td>{{programStats.total.praxisCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.total.praxisCountP">%</span>
-                            </td>
-                            <td>{{programStats.total.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <td>{{programStats.total.otherCount || '0'}}</td>
-                            <td>{{programStats.total.otherCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.total.otherCountP">%</span>
-                            </td>
-                            <td>{{programStats.total.otherAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{programStats.total.wAvgTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>Plumbing</th>
-                        <td>{{programStats.plumbing.graduatesCount || '0'}}</td>
-                        <ng-container *ngIf="h">
-                            <td>{{programStats.plumbing.hillerCount || '0'}}</td>
-                            <td>{{programStats.plumbing.hillerCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.plumbing.hillerCountP">%</span>
-                            </td>
-                            <td>{{programStats.plumbing.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <td>{{programStats.plumbing.praxisCount || '0'}}</td>
-                            <td>{{programStats.plumbing.praxisCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.plumbing.praxisCountP">%</span>
-                            </td>
-                            <td>{{programStats.plumbing.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <td>{{programStats.plumbing.otherCount || '0'}}</td>
-                            <td>{{programStats.plumbing.otherCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.plumbing.otherCountP">%</span>
-                            </td>
-                            <td>{{programStats.plumbing.otherAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{programStats.plumbing.wAvgTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <th>HVAC</th>
-                        <td>{{programStats.hvac.graduatesCount || '0'}}</td>
-                        <ng-container *ngIf="h">
-                            <td>{{programStats.hvac.hillerCount || '0'}}</td>
-                            <td>{{programStats.hvac.hillerCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.hvac.hillerCountP">%</span>
-                            </td>
-                            <td>{{programStats.hvac.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <td>{{programStats.hvac.praxisCount || '0'}}</td>
-                            <td>{{programStats.hvac.praxisCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.hvac.praxisCountP">%</span>
-                            </td>
-                            <td>{{programStats.hvac.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <td>{{programStats.hvac.otherCount || '0'}}</td>
-                            <td>{{programStats.hvac.otherCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.hvac.otherCountP">%</span>
-                            </td>
-                            <td>{{programStats.hvac.otherAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{programStats.hvac.wAvgTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                    <tr>
-                            <th>HVAC Install</th>
-                            <td>{{programStats.hvacInstall.graduatesCount || '0'}}</td>
-                            <ng-container *ngIf="h">
-                                <td>{{programStats.hvacInstall.hillerCount || '0'}}</td>
-                                <td>{{programStats.hvacInstall.hillerCountP || '0' | number : '1.0-2'}}
-                                    <span *ngIf="programStats.hvacInstall.hillerCountP">%</span>
-                                </td>
-                                <td>{{programStats.hvacInstall.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
-                            </ng-container>
-                            <ng-container *ngIf="p">
-                                <td>{{programStats.hvacInstall.praxisCount || '0'}}</td>
-                                <td>{{programStats.hvacInstall.praxisCountP || '0' | number : '1.0-2'}}
-                                    <span *ngIf="programStats.hvacInstall.praxisCountP">%</span>
-                                </td>
-                                <td>{{programStats.hvacInstall.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
-                            </ng-container>
-                            <ng-container *ngIf="t">
-                                <td>{{programStats.hvacInstall.otherCount || '0'}}</td>
-                                <td>{{programStats.hvacInstall.otherCountP || '0' | number : '1.0-2'}}
-                                    <span *ngIf="programStats.hvacInstall.otherCountP">%</span>
-                                </td>
-                                <td>{{programStats.hvacInstall.otherAvgTenure || '0' | number : '1.0-2'}}</td>
-                            </ng-container>
-                            <td>{{programStats.hvacInstall.wAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </tr>
-                    <tr>
-                        <th>Electrical</th>
-                        <td>{{programStats.electrical.graduatesCount || '0'}}</td>
-                        <ng-container *ngIf="h">
-                            <td>{{programStats.electrical.hillerCount || '0'}}</td>
-                            <td>{{programStats.electrical.hillerCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.electrical.hillerCountP">%</span>
-                            </td>
-                            <td>{{programStats.electrical.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="p">
-                            <td>{{programStats.electrical.praxisCount || '0'}}</td>
-                            <td>{{programStats.electrical.praxisCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.electrical.praxisCountP">%</span>
-                            </td>
-                            <td>{{programStats.electrical.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <ng-container *ngIf="t">
-                            <td>{{programStats.electrical.otherCount || '0'}}</td>
-                            <td>{{programStats.electrical.otherCountP || '0' | number : '1.0-2'}}
-                                <span *ngIf="programStats.electrical.otherCountP">%</span>
-                            </td>
-                            <td>{{programStats.electrical.otherAvgTenure || '0' | number : '1.0-2'}}</td>
-                        </ng-container>
-                        <td>{{programStats.electrical.wAvgTenure || '0' | number : '1.0-2'}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </ba-card> -->
+                      <th scope="col">Average tenure
+                          <br /> in months</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th>Total</th>
+                      <td>{{programStats.total.graduatesCount || '0'}}</td>
+                      <ng-container *ngIf="h">
+                          <td>{{programStats.total.hillerCount || '0'}}</td>
+                          <td>{{programStats.total.hillerCountP || 0 | number : '1.0-2'}}
+                              <span *ngIf="programStats.total.hillerCountP">%</span>
+                          </td>
+                          <td>{{programStats.total.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="p">
+                          <td>{{programStats.total.praxisCount || '0'}}</td>
+                          <td>{{programStats.total.praxisCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.total.praxisCountP">%</span>
+                          </td>
+                          <td>{{programStats.total.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="t">
+                          <td>{{programStats.total.otherCount || '0'}}</td>
+                          <td>{{programStats.total.otherCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.total.otherCountP">%</span>
+                          </td>
+                          <td>{{programStats.total.otherAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <td>{{programStats.total.wAvgTenure || '0' | number : '1.0-2'}}</td>
+                  </tr>
+                  <tr>
+                      <th>Plumbing</th>
+                      <td>{{programStats.plumbing.graduatesCount || '0'}}</td>
+                      <ng-container *ngIf="h">
+                          <td>{{programStats.plumbing.hillerCount || '0'}}</td>
+                          <td>{{programStats.plumbing.hillerCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.plumbing.hillerCountP">%</span>
+                          </td>
+                          <td>{{programStats.plumbing.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="p">
+                          <td>{{programStats.plumbing.praxisCount || '0'}}</td>
+                          <td>{{programStats.plumbing.praxisCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.plumbing.praxisCountP">%</span>
+                          </td>
+                          <td>{{programStats.plumbing.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="t">
+                          <td>{{programStats.plumbing.otherCount || '0'}}</td>
+                          <td>{{programStats.plumbing.otherCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.plumbing.otherCountP">%</span>
+                          </td>
+                          <td>{{programStats.plumbing.otherAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <td>{{programStats.plumbing.wAvgTenure || '0' | number : '1.0-2'}}</td>
+                  </tr>
+                  <tr>
+                      <th>HVAC</th>
+                      <td>{{programStats.hvac.graduatesCount || '0'}}</td>
+                      <ng-container *ngIf="h">
+                          <td>{{programStats.hvac.hillerCount || '0'}}</td>
+                          <td>{{programStats.hvac.hillerCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.hvac.hillerCountP">%</span>
+                          </td>
+                          <td>{{programStats.hvac.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="p">
+                          <td>{{programStats.hvac.praxisCount || '0'}}</td>
+                          <td>{{programStats.hvac.praxisCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.hvac.praxisCountP">%</span>
+                          </td>
+                          <td>{{programStats.hvac.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="t">
+                          <td>{{programStats.hvac.otherCount || '0'}}</td>
+                          <td>{{programStats.hvac.otherCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.hvac.otherCountP">%</span>
+                          </td>
+                          <td>{{programStats.hvac.otherAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <td>{{programStats.hvac.wAvgTenure || '0' | number : '1.0-2'}}</td>
+                  </tr>
+                  <tr>
+                          <th>HVAC Install</th>
+                          <td>{{programStats.hvacInstall.graduatesCount || '0'}}</td>
+                          <ng-container *ngIf="h">
+                              <td>{{programStats.hvacInstall.hillerCount || '0'}}</td>
+                              <td>{{programStats.hvacInstall.hillerCountP || '0' | number : '1.0-2'}}
+                                  <span *ngIf="programStats.hvacInstall.hillerCountP">%</span>
+                              </td>
+                              <td>{{programStats.hvacInstall.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
+                          </ng-container>
+                          <ng-container *ngIf="p">
+                              <td>{{programStats.hvacInstall.praxisCount || '0'}}</td>
+                              <td>{{programStats.hvacInstall.praxisCountP || '0' | number : '1.0-2'}}
+                                  <span *ngIf="programStats.hvacInstall.praxisCountP">%</span>
+                              </td>
+                              <td>{{programStats.hvacInstall.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
+                          </ng-container>
+                          <ng-container *ngIf="t">
+                              <td>{{programStats.hvacInstall.otherCount || '0'}}</td>
+                              <td>{{programStats.hvacInstall.otherCountP || '0' | number : '1.0-2'}}
+                                  <span *ngIf="programStats.hvacInstall.otherCountP">%</span>
+                              </td>
+                              <td>{{programStats.hvacInstall.otherAvgTenure || '0' | number : '1.0-2'}}</td>
+                          </ng-container>
+                          <td>{{programStats.hvacInstall.wAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </tr>
+                  <tr>
+                      <th>Electrical</th>
+                      <td>{{programStats.electrical.graduatesCount || '0'}}</td>
+                      <ng-container *ngIf="h">
+                          <td>{{programStats.electrical.hillerCount || '0'}}</td>
+                          <td>{{programStats.electrical.hillerCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.electrical.hillerCountP">%</span>
+                          </td>
+                          <td>{{programStats.electrical.hillerAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="p">
+                          <td>{{programStats.electrical.praxisCount || '0'}}</td>
+                          <td>{{programStats.electrical.praxisCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.electrical.praxisCountP">%</span>
+                          </td>
+                          <td>{{programStats.electrical.praxisAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <ng-container *ngIf="t">
+                          <td>{{programStats.electrical.otherCount || '0'}}</td>
+                          <td>{{programStats.electrical.otherCountP || '0' | number : '1.0-2'}}
+                              <span *ngIf="programStats.electrical.otherCountP">%</span>
+                          </td>
+                          <td>{{programStats.electrical.otherAvgTenure || '0' | number : '1.0-2'}}</td>
+                      </ng-container>
+                      <td>{{programStats.electrical.wAvgTenure || '0' | number : '1.0-2'}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </ba-card> -->
 
-    <!-- <ba-card cardTitle="Average time in weeks and wage at time of" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <td colspan="4">Time weeks from graduation date to being hired</td>
-                        <td colspan="3">Wage at time of</td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Hiller</th>
-                        <th scope="col">Praxis Affiliate</th>
-                        <th scope="col">Another company</th>
-                        <th scope="col">Hire date</th>
-                        <th scope="col">6 months of employment</th>
-                        <th scope="col">1 year of employment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>Average</th>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th>Plumbing</th>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th>HVAC</th>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </ba-card> -->
+  <!-- <ba-card cardTitle="Average time in weeks and wage at time of" class="bo-card">
+      <div class="allTable">
+          <table class="table table-bordered table-hover bo-table">
+              <thead>
+                  <tr>
+                      <td colspan="4">Time weeks from graduation date to being hired</td>
+                      <td colspan="3">Wage at time of</td>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th scope="col">Hiller</th>
+                      <th scope="col">Praxis Affiliate</th>
+                      <th scope="col">Another company</th>
+                      <th scope="col">Hire date</th>
+                      <th scope="col">6 months of employment</th>
+                      <th scope="col">1 year of employment</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th>Average</th>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                  </tr>
+                  <tr>
+                      <th>Plumbing</th>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                  </tr>
+                  <tr>
+                      <th>HVAC</th>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </ba-card> -->
 
-    <app-ba-card cardTitle="Pipeline & Current" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <th scope="col">
+  <app-ba-card cardTitle="Pipeline & Current" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+        <tr>
+          <th scope="col">
                             <span class="with-link" routerLink="/profile/incomplete">
                                 Current incomplete
                                 <br /> applications
                             </span>
-                        </th>
-                        <th scope="col">Current accepted students waiting
-                            <br /> for the first class to start</th>
-                        <th scope="col">Current active soldiers
-                            <br /> attending classes</th>
-                        <th scope="col">HVAC</th>
-                        <th scope="col">Plumbing</th>
-                        <th scope="col">Electrical</th>
-                        <th scope="col">HVAC Install</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{apllComplete}}</td>
-                        <td>{{resData.waitingFirstClass}}</td>
-                        <td>{{allActiveClasses}} </td>
-                        <td>{{hvacActiveClass}}</td>
-                        <td>{{plumbingActiveClass}}</td>
-                        <td>{{electricalActiveClass}}</td>
-                        <td>{{hvacInstallActiveClass}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </app-ba-card>
+          </th>
+          <th scope="col">Current accepted students waiting
+            <br /> for the first class to start</th>
+          <th scope="col">Current active soldiers
+            <br /> attending classes</th>
+          <th scope="col">HVAC</th>
+          <th scope="col">Plumbing</th>
+          <th scope="col">Electrical</th>
+          <th scope="col">HVAC Install</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{apllComplete}}</td>
+          <td>{{resData.waitingFirstClass}}</td>
+          <td>{{allActiveClasses}} </td>
+          <td>{{hvacActiveClass}}</td>
+          <td>{{plumbingActiveClass}}</td>
+          <td>{{electricalActiveClass}}</td>
+          <td>{{hvacInstallActiveClass}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
 
-    <app-ba-card cardTitle="Soldier performance" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Total students who have <br /> graduated</th>
-                        <th scope="col">Total students who have <br /> exited the program without graduating</th>
-                        <th scope="col">% of students who have <br /> exited the program without graduating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{resData.hasGraduations}}</td>
-                        <td>{{exitsGraduation}}</td>
-                        <td>{{exitsGraduation / resData.hasGraduations * 100 | number : '1.0-2'}} % </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </app-ba-card>
+  <app-ba-card cardTitle="Soldier performance" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+        <tr>
+          <th scope="col">Total students who have <br /> graduated</th>
+          <th scope="col">Total students who have <br /> exited the program without graduating</th>
+          <th scope="col">% of students who have <br /> exited the program without graduating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{resData.hasGraduations}}</td>
+          <td>{{exitsGraduation}}</td>
+          <td>{{exitsGraduation / resData.hasGraduations * 100 | number : '1.0-2'}} % </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
 
-    <app-ba-card cardTitle="Graduating students" class="bo-card">
-        <div class="allTable">
-            <table class="table table-bordered table-hover bo-table">
-                <thead>
-                    <tr>
-                        <th *ngFor="let item of gradArray" class="with-link" scope="col"
-                            routerLink="{{'/classes/' + item.id }}">{{item.date | date:'MM/dd/yyyy'}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td *ngFor="let item of gradArray">{{item.count}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </app-ba-card>
+  <app-ba-card cardTitle="Graduating students" class="bo-card">
+    <div class="allTable">
+      <table class="table table-bordered table-hover bo-table">
+        <thead>
+        <tr>
+          <th *ngFor="let item of gradArray" class="with-link" scope="col"
+              routerLink="{{'/classes/' + item.id }}">{{item.date | date:'MM/dd/yyyy'}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td *ngFor="let item of gradArray">{{item.count}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-ba-card>
 
 </div>
 

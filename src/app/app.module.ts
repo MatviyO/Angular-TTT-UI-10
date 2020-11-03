@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
 import {GlobalState} from './global.state';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Interceptor} from './interceptors';
-// import {PagesModule} from './pages/pages.module';
 import {LoginComponent} from './pages/login/login.component';
 import {NgaModule} from './theme/nga.module';
 import {MemoryCache, MemoryDataStorage, NavigationHelper, UrlProvider} from './common/utils';
@@ -20,7 +19,7 @@ import {TriggerHelper, TriggerService} from './core/data';
 import {NotificationService} from './common/services';
 import {AuthenticationService} from './core/auth';
 import {Common_Module} from './common';
-
+import {AgmCoreModule} from '@agm/core';
 
 const APP_PROVIDERS = [
   AppState,
@@ -44,7 +43,6 @@ export type StoreType = {
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    // PagesModule,
     RouterModule,
     ReactiveFormsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {
@@ -52,6 +50,9 @@ export type StoreType = {
     }),
     NgaModule,
     Common_Module,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCmii2YaZXw2Rxw7FlqFYqZf-5DX64y0Rw',
+    }),
   ],
   providers: [APP_PROVIDERS,
     AuthenticationService ,

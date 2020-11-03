@@ -1,7 +1,7 @@
-<div *ngIf="!_stage && !nonEmploymentStage" scroll-spy>
+<div *ngIf="!_stage && !nonEmploymentStage" appScrollSpy>
 
   <!-- -------------------------------Stages --------------------- -->
-  <ba-card cardTitle="Job Tracking">
+  <app-ba-card cardTitle="Job Tracking">
     <div class="expand-btn" *ngIf="employments && employments.length > 0">
       <button class="btn btn-default collaps-btn" (click)="clickCollapseAll()">
         {{!collapseAll ? 'Expand all' : 'Collapse all'}}
@@ -146,11 +146,11 @@
         </table>
       </div>
     </div>
-  </ba-card>
+  </app-ba-card>
 
 
   <!-- _____________Total employment duration___________ -->
-  <ba-card cardTitle="Total employment duration" *ngIf="employments && employments.length > 0">
+  <app-ba-card cardTitle="Total employment duration" *ngIf="employments && employments.length > 0">
     <div class="allTable">
       <table class="table table-bordered table-hover">
         <tr class="black-muted-bg bo-border">
@@ -175,11 +175,11 @@
         </tr>
       </table>
     </div>
-  </ba-card>
+  </app-ba-card>
 </div>
 
 <!-- _____________Non placement reason___________ -->
-<ba-card ngForm #nonEmploymentForm="ngForm" cardTitle="NON EMPLOYMENT STAGE" *ngIf="nonEmploymentStage">
+<app-ba-card ngForm #nonEmploymentForm="ngForm" cardTitle="NON EMPLOYMENT STAGE" *ngIf="nonEmploymentStage">
   <div class="row">
     <div class="form-group col-md-6 col-sm-12 ">
       <label for="reason">Non placement reason</label>
@@ -261,7 +261,7 @@
     </div>
 
   </div>
-</ba-card>
+</app-ba-card>
 
 <span *ngIf="!nonEmploymentStage">
   <app-employment-stage [statuses]="employmentStatuses" [applTrades]="applTrades" [mode]="_mode" [stage]="_stage"

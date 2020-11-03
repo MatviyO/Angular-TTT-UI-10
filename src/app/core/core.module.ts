@@ -1,19 +1,17 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-// import { NgaModule } from '../theme/nga.module';
 import {CommonModule} from '@angular/common';
 import {GoogleMapComponent, CollapseNoteComponent, AddNewSelectItemComponent, MessengerComponent, CalendarComponent} from './components/';
-// import { AgmCoreModule } from '@agm/core';
 import {ToolsService} from './data';
 import {NgaModule} from '../theme/nga.module';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgaModule,
-    // NgaModule,
-    // AgmCoreModule,
+    AgmCoreModule,
   ],
   declarations: [
     GoogleMapComponent,

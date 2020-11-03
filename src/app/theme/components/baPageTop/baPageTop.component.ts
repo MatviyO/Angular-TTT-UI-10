@@ -42,13 +42,6 @@ export class BaPageTopComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  toggleMenu() {
-    this.isMenuCollapsed = !this.isMenuCollapsed;
-    this.state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
-    return false;
-  }
-
-  // tslint:disable-next-line:typedef
   scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
   }
@@ -62,6 +55,12 @@ export class BaPageTopComponent implements OnInit {
       .catch(error => {
         this.router.navigate(['/login']);
       });
+  }
+
+  toggleMenu(): any {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+    this.state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+    return false;
   }
   clickTheme(): any {
     const el = document.getElementsByTagName('main')[0];

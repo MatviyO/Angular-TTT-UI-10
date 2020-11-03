@@ -19,6 +19,7 @@ import {Common_Module, ObservableService} from '../../common';
 import {CoreModule} from '../../core';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 
+
 @NgModule({
     providers: [
         CompanyResourceService,
@@ -36,7 +37,8 @@ import {NguiAutoCompleteModule} from '@ngui/auto-complete';
         CoreModule,
         routing,
         CompanyModule,
-        NguiAutoCompleteModule
+        NguiAutoCompleteModule,
+
     ],
     declarations: [
         JobTrackingListComponent,

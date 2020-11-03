@@ -37,7 +37,6 @@ import {RankComponent, RankService} from './rank';
         NgaModule,
         SettingsRoutingModule,
         NguiAutoCompleteModule,
-        // TextMaskModule,
     ],
     declarations: [
         NonPlacementReasonComponent,

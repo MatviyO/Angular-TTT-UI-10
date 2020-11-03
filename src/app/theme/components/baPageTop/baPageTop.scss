@@ -1,7 +1,17 @@
 @import '../../sass/conf/conf';
 @import '../../components/baMsgCenter/baMsgCenter';
+:host {
 
-
+}
+.btn-group {
+  background-color: #282828!important;
+}
+.dropdown-menu {
+  min-width: 0px!important;
+}
+button {
+  background-color: #282828!important;
+}
 .log-name{
   color: white !important;
 }

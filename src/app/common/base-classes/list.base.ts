@@ -4,24 +4,25 @@ import {
   IDataStorage, IDataService, ITriggerService,
   IComponentConfig, IListWithTriggersConfig, IEditorConfig, INavigationHelper,
 } from '../interfaces';
-import {MemoryDataStorage, applyMixins, NavigationHelper} from '../utils';
-import {BaseEntity} from '../entities';
+import { MemoryDataStorage, applyMixins, NavigationHelper } from '../utils';
+import { BaseEntity } from '../entities';
+
+import * as moment from 'moment';
 import {ComponentBaseDirective} from './componentBase';
-
-
 @Directive()
 export abstract class BaseListDirective<T extends BaseEntity> extends ComponentBaseDirective implements OnInit, IList<T> {
 
   protected dataSvc: IDataService<T>;
   protected loadlisteners: ((data: T, response: T) => void)[] = [];
-
-  skip = 0;
-  take = 25;
-  total = 0;
-  totalLoaded = 0;
+  moment = moment;
+  skip: number = 0;
+  take: number = 25;
+  total: number = 0;
+  totalLoaded: number = 0;
   entities: T[] = [];
   includes: string;
   selectJSONPath: string;
+  _order: string;
 
   constructor(
     config: IComponentConfig<T>,
@@ -35,7 +36,6 @@ export abstract class BaseListDirective<T extends BaseEntity> extends ComponentB
   onDataLoaded(callback: (data: T, response: T) => void): void {
     this.loadlisteners.push(callback);
   }
-
   protected propagateEvent(listeners: ((data: T, response: T) => void)[], data: any, res: any = null): void {
     listeners.forEach(cb => cb(data, res));
   }
@@ -53,8 +53,8 @@ export abstract class BaseListDirective<T extends BaseEntity> extends ComponentB
     this.getData();
   }
 
-  getData(args: any[] = null): void {
-    this.getDataInternal('', '', this.take, this.skip, args);
+  getData(args: any[] = null, filter: string = ''): void {
+    this.getDataInternal(filter, this._order, this.take, this.skip, args);
   }
 
   protected getDataInternal(filter: string, order: string, take: number, skip: number, args: any[]): void {
@@ -65,6 +65,10 @@ export abstract class BaseListDirective<T extends BaseEntity> extends ComponentB
     this.showLoadData = true;
     if (!order && (skip > 0 || take > 0)) {
       order = 'id desc';
+    }
+    if (this._order) {
+      order = this._order;
+
     }
     this.dataSvc.query(filter, order, take, skip, args, this.includes, this.selectJSONPath)
       .then(response => {
@@ -79,18 +83,16 @@ export abstract class BaseListDirective<T extends BaseEntity> extends ComponentB
     });
   }
 }
-
 @Directive()
 export abstract class BaseSortableListDirective<T extends BaseEntity>
   extends BaseListDirective<T> implements IList<T>, ISortableList<T>, OnInit {
 
-  private filterStorageKey = `${this.componentTitle.replace(' ', '')}_filter`;
-  private sortStorageKey = `${this.componentTitle.replace(' ', '')}_sort`;
+  private filterStorageKey: string = `${this.componentTitle.replace(' ', '')}_filter`;
+  private sortStorageKey: string = `${this.componentTitle.replace(' ', '')}_sort`;
   protected storage: IDataStorage;
-
-  showfilter = false;
+  showfilter: boolean = false;
   filter: any = {};
-  sort: any = {direction: true, column: ''};
+  sort: any = { direction: true, column: '' };
 
   abstract getFilterFormatted(): string;
 
@@ -127,7 +129,7 @@ export abstract class BaseSortableListDirective<T extends BaseEntity>
     if (this.sort.column === column) {
       this.sort.direction = !this.sort.direction;
     } else {
-      this.sort = {column, direction: true};
+      this.sort = { column, direction: true };
     }
     this.entities = new Array<T>();
 
@@ -140,10 +142,11 @@ export abstract class BaseSortableListDirective<T extends BaseEntity>
       return '';
     }
     return `${this.sort.column} ${this.sort.direction ? 'ascending' : 'descending'}`;
+
   }
 
   replaceSpecialCharacters(attribute: string): string {
-    attribute = attribute.replace(/'/g, '\'\'');
+    attribute = attribute.replace(/'/g, "''");
     attribute = attribute.replace(/"/g, '');
     attribute = attribute.replace(/%/g, '%25');
     attribute = attribute.replace(/\+/g, '%2B');
@@ -157,6 +160,7 @@ export abstract class BaseSortableListDirective<T extends BaseEntity>
   getData(args: any[] = null): void {
     this.storage.store(this.filterStorageKey, this.filter);
     this.storage.store(this.sortStorageKey, this.sort);
+
     super.getDataInternal(this.getFilterFormatted(), this.getSortFormatted(), this.take, this.skip, args);
   }
 }
@@ -180,6 +184,7 @@ export abstract class BaseListWithTriggersDirective<T extends BaseEntity>
 
   ngOnInit(): void {
     super.ngOnInit();
+    // this.getTriggers(this.triggerType);
   }
 
   ngAfterContentInit(): void {
@@ -195,6 +200,7 @@ export abstract class BaseListWithTriggersDirective<T extends BaseEntity>
   }
 
   addStatusColor(itemId: number, sub?: boolean): string {
+
     let color = 'white';
     let trig;
     if (sub) {
@@ -343,6 +349,12 @@ export abstract class BaseSortableListWithTriggersDirective<T extends BaseEntity
     this.triggerType = config.triggerType;
     this.triggerSvc = config.triggersSvc;
   }
+
+  // ngOnInit(): void {
+  //    //super.ngOnInit();
+  //    //this.getTriggers(this.triggerType);
+  // }
+
   getTriggers: (triggersType: string) => void;
 
   addStatusColor: (itemId: number, sub?: boolean) => string;
@@ -353,6 +365,18 @@ export abstract class BaseSortableListWithTriggersDirective<T extends BaseEntity
 export abstract class BaseEditableSortableListDirective<T extends BaseEntity> extends BaseEditableListDirective<T>
   implements IList<T>, IEditableList<T>, ISortableList<T>, OnInit {
 
+  private filterStorageKey: string = `${this.constructor.name}_filter`;
+  private sortStorageKey: string = `${this.constructor.name}_sort`;
+
+  protected storage: IDataStorage;
+
+  showfilter: boolean = false;
+
+  filter: any = {};
+  sort: any = { direction: true, column: '' };
+
+  abstract getFilterFormatted(): string;
+
   constructor(
     config: IEditorConfig<T>,
   ) {
@@ -360,29 +384,15 @@ export abstract class BaseEditableSortableListDirective<T extends BaseEntity> ex
     this.storage = config.injector.get(MemoryDataStorage);
   }
 
-  private filterStorageKey = `${this.constructor.name}_filter`;
-  private sortStorageKey = `${this.constructor.name}_sort`;
-
-  protected storage: IDataStorage;
-
-  showfilter = false;
-
-  filter: any = {};
-  sort: any = {direction: true, column: ''};
+  ngOnInit(): void {
+    super.ngOnInit();
+  }
 
   onSearch: () => void;
   onSort: (column: string) => void;
 
   getSortFormatted: () => string;
-
-  abstract getFilterFormatted(): string;
-
-  ngOnInit(): void {
-    super.ngOnInit();
-  }
-
-  getData(args: any[]): void {
-  }
+  getData(args: any[]): void { }
 
 }
 

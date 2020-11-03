@@ -3,14 +3,14 @@ import {CountryStatesService, State} from '../../../core/data/country-state.serv
 
 
 @Component({
-    selector: 'app-select-country-state',
-    styleUrls: ['selectCountryState.scss'],
-    template: `
+  selector: 'app-select-country-state',
+  styleUrls: ['selectCountryState.scss'],
+  template: `
 
     <div class="form-group select-st">
       <label>Country</label>
       <select class="form-control" name="addreess-country" [(ngModel)]="country" required
-        (change)="changeCompany()">
+              (change)="changeCompany()">
         <option hidden [ngValue]="undefined">select...</option>
         <option [ngValue]="null">select...</option>
         <option *ngFor="let country of countries" [ngValue]="country.countryShortCode">
@@ -28,41 +28,40 @@ import {CountryStatesService, State} from '../../../core/data/country-state.serv
       </select>
     </div>
 
-    `,
+  `,
 })
 
 
 export class SelectCountryStateComponent implements OnInit {
-    countries = this.countrySvc.getCounries();
-    states: State[] = [];
+  countries = this.countrySvc.getCounries();
+  states: State[] = [];
 
-    constructor(private countrySvc: CountryStatesService) { }
+  constructor(private countrySvc: CountryStatesService) { }
 
-    @Output() onChangeCompany = new EventEmitter();
-    @Input() country: string;
-    @Input() state: string;
+  @Output() onChangeCompany = new EventEmitter();
+  @Input() country: string;
+  @Input() state: string;
 
-    ngOnInit(): void {
-        this.changeCompany(true);
+  ngOnInit(): void {
+    this.changeCompany(true);
+  }
+
+  changeCompany(firstLoad: boolean = false): void {
+    if (this.country) {
+      const _country = this.countries.find(x => x.countryShortCode === this.country);
+      if (_country) {
+        this.states = _country.regions;
+      }
+      if (!firstLoad) { this.state = null; }
+    } else {
+      this.state = null;
+      this.states = [];
     }
+    this.changedValue();
+  }
 
-    changeCompany(firstLoad: boolean = false): void {
-        if (this.country) {
-          // tslint:disable-next-line:variable-name
-            const _country = this.countries.find(x => x.countryShortCode === this.country);
-            if (_country) {
-                this.states = _country.regions;
-            }
-            if (!firstLoad) { this.state = null; }
-        } else {
-            this.state = null;
-            this.states = [];
-        }
-        this.changedValue();
-    }
-
-    changedValue(): void {
-        this.onChangeCompany.emit({ country: this.country, state: this.state });
-    }
+  changedValue(): void {
+    this.onChangeCompany.emit({ country: this.country, state: this.state });
+  }
 
 }

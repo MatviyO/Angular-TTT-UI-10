@@ -1,90 +1,90 @@
 ﻿optgroup{
-    color: rgb(186, 186, 187);
+  color: rgb(186, 186, 187);
 }
 .addNewItem a:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 .addNewItem{
-    padding: 0;
-    i{
-      top: -1px;
-      right: 12px;
-    }
+  padding: 0;
+  i{
+    top: -1px;
+    right: 12px;
+  }
 }
 .min-width{
-    min-width: 150px;
-    word-break: break-word;
+  min-width: 150px;
+  word-break: break-word;
 }
 
 .showBtnMap{
-    float: right;
+  float: right;
 }
 
 .listTable{
-    border-bottom: 1px solid #8ab0d9;
-    margin-bottom: 15px;
+  border-bottom: 1px solid #8ab0d9;
+  margin-bottom: 15px;
 }
 
 .stages{
-    border-top: 1px solid rgba(255, 255, 255, 0.295);
-    margin-top: 15px;
-    padding-top: 15px;
-    .titleStaged{  
-        font-size: 17px;
-        position: relative;
-        top: -21px;
-        color: rgba(255, 255, 255, 0.44);
-    }
+  border-top: 1px solid rgba(255, 255, 255, 0.295);
+  margin-top: 15px;
+  padding-top: 15px;
+  .titleStaged{
+    font-size: 17px;
+    position: relative;
+    top: -21px;
+    color: rgba(255, 255, 255, 0.44);
+  }
 }
 
 .outcome{
-    background: rgba(0, 0, 0, 0.473);
-    position: absolute;
-    width: 50%;
-    height: 23%;
-    top: 41%;
-    left: 25%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 36px 0px #000000;
-    .inp{
-        margin-top: 5%;
+  background: rgba(0, 0, 0, 0.473);
+  position: absolute;
+  width: 50%;
+  height: 23%;
+  top: 41%;
+  left: 25%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 36px 0px #000000;
+  .inp{
+    margin-top: 5%;
+  }
+  .outComeBtn{
+    float: right;
+    button{
+      margin: 5px;
     }
-    .outComeBtn{
-        float: right;
-        button{
-            margin: 5px;
-        }
-    }
+  }
 }
 
 .triggIcon{
-    position: relative;
-    float: right;
-    font-size: 20px;
-    left: 50px;
-    top: 7px;
+  position: relative;
+  float: right;
+  font-size: 20px;
+  left: 50px;
+  top: 7px;
 }
 
 .forInputAddItem{
-    top: -4px;
+  top: -4px;
 }
 
 .search{
-    height: 42.5px;
-    margin-top: 2px;
-    i{
-        float: left;
-        padding: 5px 0;
-        color: rgba(255, 255, 255, 0.582);
-    }
-    .input{
-        padding-top: 15px;
-        position: relative; 
-        border: none;
-        background-color: transparent;
-    } 
+  height: 42.5px;
+  margin-top: 2px;
+  i{
+    float: left;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.582);
+  }
+  .input{
+    padding-top: 15px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+  }
 }
 
 .no-visible{
-    visibility: hidden;
-  }
+  visibility: hidden;
+}
