@@ -1,18 +1,18 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 
-
 import { ExitsComponent, CommunicationCompanyComponent, ApplicationNoteComponent } from './components';
 import { ProfileDetailsConfig } from './details.config';
 import {DetailsStatefulWithTriggersDirective} from '../../../../common/base-classes';
 import {
+  ApplicationProgram, ApplicationType,
   CompanyCommunicationHistory,
-  MilitaryBase,
-  MilitaryBranch,
-  ProgramExit,
-  Rank,
+  MilitaryBase, MilitaryBranch,
+  Profile, ProgramExit,
+  Rank, Location,
   Reference,
-  Trade
-} from '../../../../core/model/properties';
+  RegistrationEvent, RegistrationEventApplication,
+  Trade, Trigger
+} from '../../../../core/model';
 import {SelectCountryStateComponent} from '../../../../common/components/selectCountryState';
 import {
   AffiliationTypesService,
@@ -21,15 +21,6 @@ import {
   RankResourceService,
   TradesService
 } from '../../../../core/data';
-import {
-  ApplicationProgram,
-  ApplicationType,
-  Profile,
-  Location,
-  RegistrationEvent,
-  RegistrationEventApplication,
-  Trigger
-} from '../../../../core/model';
 import {ApplicationAffiliationService} from '../../../../core/data/application-affiliation.service';
 import {Params} from '@angular/router';
 import {CountryStatesService, State} from '../../../../core/data/country-state.service';
@@ -69,14 +60,14 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
   dateBonus: Date = new Date();
   photo: any;
   activePage: boolean;
-  asvab: boolean = false;
-  showSsn: boolean = false;
-  military: boolean = false;
-  locition: boolean = false;
-  hillerProgres: number = 0;
+  asvab = false;
+  showSsn = false;
+  military = false;
+  locition = false;
+  hillerProgres = 0;
   _hillerProgres: string;
-  hasCampbellStrong: boolean = false;
-  awaitingCreateCampbellStrong: boolean = false;
+  hasCampbellStrong = false;
+  awaitingCreateCampbellStrong = false;
 
   ranks: Rank[] = [];
   states: State[] = [];
@@ -129,8 +120,8 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
     this.route.params
       .subscribe(
         (params: Params) => {
-          if (params['key'] && params['section']) {
-            this.section = params['section'];
+          if (params.key && params.section) {
+            this.section = params.section;
           }
         },
       );
@@ -338,9 +329,7 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
     if (this.entity.linkedInProfile === '') {
       this.entity.linkedInProfile = null;
     }
-    if (this.entity.rank === '') {
-      this.entity.rank = null;
-    }
+
     if (this.photo) {
       this.showLoadData = true;
       this.entity.hasPhoto = true;
@@ -371,11 +360,11 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
     }
   }
 
-  onPhotoUpdated(data: any): void {
+  onPhotoUpdated(data: any): any {
     this.photo = data;
   }
 
-  onPhotoRemoved(event: any): void {
+  onPhotoRemoved(event: any): any {
     this.entity.hasPhoto = false;
     this.photo = null;
     // super.save();

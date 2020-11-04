@@ -451,14 +451,6 @@
 
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
-                        <label for="rank">Rank (Will be deleted)</label>
-                        <input type="text" name="rank1" maxlength="250" class="form-control" id="rank-old"
-                               placeholder="Rank" [(ngModel)]="entity.rank">
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4">
-                      <div class="form-group">
                         <label for="ets">ETS Date</label>
                         <input type="date" name="etsDate" class="form-control" id="ets"
                                [ngModel]="entity.etsDate | date:'yyyy-MM-dd'" (blur)="entity.etsDate = $event.target.value">
@@ -658,7 +650,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="row">
           <div class="col-sm-12 col-lg-6">
