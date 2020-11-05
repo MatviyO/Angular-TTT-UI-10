@@ -4,7 +4,7 @@
         <div class="row">
             <div class="form-group col-sm-4">
                 <label for="military">Military Base</label>
-                <select id="military" class="form-control" name="military" [(ngModel)]="entity.baseId" addNewItem
+                <select id="military" class="form-control" name="military" [(ngModel)]="entity.baseId" appAddNewItem
                     ref="settings/base-name" (onclick)="navigate()" (change)="changeMilitaryBase()">
                     <option hidden [ngValue]="undefined">select...</option>
                     <option [ngValue]="null">select...</option>
@@ -68,7 +68,7 @@
         </div>
 
 
-        <ba-card cardTitle="Attendees" *ngIf="entity.id">
+        <app-ba-card cardTitle="Attendees" *ngIf="entity.id">
             <div class="addNewItem moreLink">
                 <a (click)="createNewItem()">
                     <i class="fa fa-user-plus plus" aria-hidden="true"></i>
@@ -94,7 +94,7 @@
                                 <td>
                                     <div class="form-group">
                                         <label class="labelTxt">Soldier name</label>
-                                        <div class="form-control search">
+                                        <div class="form-control searchh">
                                             <label for="search">
                                                 <i class="fa fa-search" aria-hidden="true"></i>
                                             </label>
@@ -206,7 +206,7 @@
                     </table>
                 </div>
             </div>
-        </ba-card>
+        </app-ba-card>
 
     </app-ba-card>
     <button type="submit" class="btn btn-primary" (click)="onSave(registrationForm)">

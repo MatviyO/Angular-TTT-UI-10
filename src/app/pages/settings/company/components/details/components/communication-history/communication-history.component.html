@@ -1,5 +1,5 @@
 ﻿<div *ngIf="editing" ngForm #communicationForm="ngForm" (keydown.control.s)="onSave(itemEdit, communicationForm)">
-    <ba-card cardTitle="History editing">
+    <app-ba-card cardTitle="History editing">
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
@@ -20,7 +20,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="call">Call reason</label>
-                    <select id="call" addNewItem ref="settings/call-reasons" (onclick)="navigate(itemEdit)" class="form-control" name="call" [(ngModel)]="itemEdit.companyCallReasonId"
+                    <select id="call" appAddNewItem ref="settings/call-reasons" (onclick)="navigate(itemEdit)" class="form-control" name="call" [(ngModel)]="itemEdit.companyCallReasonId"
                         required [ngClass]="{'ng-submit' : communicationForm._submitted}">
                         <option disabled hidden [value]="undefined">select...</option>
                         <ng-container *ngFor="let call of callReasons">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label class="labelTxt">Soldier name</label>
-                    <div class="form-control search">
+                    <div class="form-control searchh">
                         <label for="search">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </label>
@@ -52,7 +52,7 @@
                 <i class="fa fa-floppy-o" aria-hidden="true"></i> save</button>
             <button class="btn btn-default" (click)="cancelEdit(itemEdit, num); editing = false"> Cancel</button>
         </div>
-    </ba-card>
+    </app-ba-card>
 </div>
 
 <app-ba-card cardTitle="" baCardClass="with-scroll">
