@@ -122,31 +122,32 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let item of entities">
-                    <td>{{item.name}}</td>
-                    <td>{{item.affiliate? item.affiliate.description : ''}}</td>
-                    <td>{{countrySvc.getFullCountryName(item.country)}}</td>
-                    <td>{{countrySvc.getFullStateName(item.country, item.state)}}</td>
-                    <td>{{item.city}}</td>
-                    <td>{{item.address}}</td>
-
-                    <td >
+          <tbody>
+          <tr *ngFor="let item of entities">
+            <td>{{item.name}}</td>
+            <td>{{item.affiliate? item.affiliate.description : ''}}</td>
+            <td>{{countrySvc.getFullCountryName(item.country)}}</td>
+            <td>{{countrySvc.getFullStateName(item.country, item.state)}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.address}}</td>
+            <td >
                         <span *ngFor="let cl of item.trades let i=index">
-                            <span *ngIf="i !== 0">, </span>
-                            {{cl.trade < 1 ? cl.name : getTradesById(cl.trade) }}</span>
-                    </td>
-                    <td>
-                        <i class="fa check-icon {{item.isActive ? 'fa-check-square-o' : 'fa-square-o'}}"
-                            aria-hidden="true"></i>
-                    </td>
-                    <td>
-                        <a class="btnHover" routerLink="{{'/settings/company/details/'+ item.id}}">
-                            <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
+                            <span *ngIf="cl.isActive">
+                                {{cl.trade < 1 ? cl.name : getTradesById(cl.trade) }},
+                            </span>
+                        </span>
+            </td>
+            <td>
+              <i class="fa check-icon {{item.isActive ? 'fa-check-square-o' : 'fa-square-o'}}"
+                 aria-hidden="true"></i>
+            </td>
+            <td>
+              <a class="btnHover" routerLink="{{'/settings/company/details/'+ item.id}}">
+                <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
         </table>
     </div>
 </div>

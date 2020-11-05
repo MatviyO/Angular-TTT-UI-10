@@ -1,0 +1,57 @@
+<app-ba-card cardTitle="{{companyName}}" baCardClass="with-scroll">
+  <div class="card">
+    <div class="allTable">
+      <table class="table table-hover table-line-height">
+        <thead>
+        <tr class="black-muted-bg">
+          <th>User Name</th>
+          <th>Trade</th>
+          <th>Location</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of entities" [ngClass]="{'inactive-record' : !item.application.isActive}">
+          <td>
+            {{item.application.firstName}} {{item.application.lastName}}
+          </td>
+          <td>
+            {{getTradeOfCompany(item.companyTrade && item.companyTrade)}}
+          </td>
+          <td>
+              <span *ngIf="item.recordType !== 'NonEmploymentRecord'">
+                {{getFullAddress(item.companyTrade && item.companyTrade.company)}}
+              </span>
+          </td>
+          <td>
+              <span *ngIf="item.stages && item.stages.length > 0">
+                {{getLatestStage(item.stages) && getLatestStage(item.stages).title}}
+              </span>
+          </td>
+          <td>
+              <span *ngIf="item.recordType == 'NonEmploymentRecord'">
+                <span *ngIf="item.stages && item.stages.length > 0">
+                  {{getNonEmploymentReasonName(getLatestStage(item.stages).nonPlacementReasonId)}}
+                </span>
+              </span>
+            <span *ngIf="item.recordType != 'NonEmploymentRecord'">
+                <span *ngIf="item.stages && item.stages.length > 0">
+                  {{getStatusProcess(item.stages)}}
+                </span>
+              </span>
+          </td>
+          <td>
+            <a class="btnHover" (click)="showDetails(item)" routerLink="{{'/job-tracking/details/appl/' + item.application.id}}" >
+              <i class="fa fa-pencil " aria-hidden="true" data-toggle="tooltip" title="Edit"></i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-ba-card>
+<app-confirm></app-confirm>
+<load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>

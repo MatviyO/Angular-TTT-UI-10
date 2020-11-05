@@ -36,7 +36,7 @@
           [ngClass]="{'ng-submit' : employmentStageForm._submitted, 'disableSelect': stage.employmentCompanyId}">
           <option disabled hidden [value]="undefined">select...</option>
           <ng-container *ngIf="selectCompanyTrades">
-            <option *ngFor="let tr of selectCompanyTrades" [ngClass]="{'grey': tr.disable}" [value]="tr.id">
+            <option *ngFor="let tr of selectCompanyTrades" [hidden]="!tr.isActive" [ngClass]="{'grey': tr.disable}" [value]="tr.id">
               {{getTradeById(tr)}} <span *ngIf="!tr.disable">&#x2713;</span>
             </option>
             <optgroup *ngIf="selectCompanyOtherTrades && selectCompanyOtherTrades.length > 0"

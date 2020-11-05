@@ -12,10 +12,10 @@ import { CompanyContactsService } from './components/details/components/contacts
 import { CommunicationHistoryService } from './components/details/components/communication-history/communication-history.service';
 import {Common_Module, ListenerService} from '../../../common';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
-import {CompanyService, StatesService, TradesService} from '../../../core/data';
+import {CompanyEmploymentService, CompanyService, StatesService, TradesService} from '../../../core/data';
 import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
 import {NgxUploaderModule} from 'ngx-uploader';
-import {ConfirmComponent} from '../../../common/components/confirm';
+import {EmploymentComponent} from './components/details/components/employments';
 
 @NgModule({
   imports: [
@@ -35,13 +35,15 @@ import {ConfirmComponent} from '../../../common/components/confirm';
         CompanyComponent,
         AlternativeLocationsComponent,
         CompanyContactsComponent,
-        CompanyCommunicationHistoryComponent
+        CompanyCommunicationHistoryComponent,
+        EmploymentComponent
     ],
     providers: [
         CompanyService,
         TradesService,
         StatesService,
         ListenerService,
+        CompanyEmploymentService,
         AlternativeLocationService,
         CompanyContactsService,
         CommunicationHistoryService,

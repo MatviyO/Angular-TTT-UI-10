@@ -9,7 +9,7 @@ export class CompanyListConfig implements IComponentConfig<Company> {
     cls: new() => any = Company;
     componentTitle = 'Company';
     includes = 'Trades;Affiliate';
-    selectJSONPath = 'id;isActive;name;country;state;city;address;otherTrades;trades[*].trade;trades[*].name;affiliate.description';
+  selectJSONPath = 'id;isActive;name;country;state;city;address;otherTrades;trades[*].trade;trades[*].isActive;trades[*].name;affiliate.description';
 
     constructor(
         @Inject(CompanyService) public dataSvc: IDataService<Company>,
