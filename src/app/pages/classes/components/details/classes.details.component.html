@@ -5,7 +5,7 @@
         <div class="form-group">
           <label for="expectedDateId">Graduation date (Expected)</label>
           <select id="expectedDateId" class="form-control" name="expectedDateId" [(ngModel)]="entity.graduationExpectedDateId"
-            [ngClass]="{'ng-submit' : classesForm._submitted}" addNewItem ref="events/graduations"
+            [ngClass]="{'ng-submit' : classesForm._submitted}" appAddNewItem ref="events/graduations"
             (onclick)="navigate()">
             <option hidden [ngValue]="undefined">select...</option>
             <option [ngValue]="null">select...</option>
@@ -23,7 +23,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="graduationLocation">Graduation location (Home base)</label>
-          <select id="graduationLocation" addNewItem ref="settings/graduation-locations" (onclick)="navigate()" class="form-control"
+          <select id="graduationLocation" appAddNewItem ref="settings/graduation-locations" (onclick)="navigate()" class="form-control"
             name="graduationLocation" [(ngModel)]="entity.graduationLocationId">
             <option hidden [ngValue]="undefined">select...</option>
             <option [ngValue]="null">select...</option>

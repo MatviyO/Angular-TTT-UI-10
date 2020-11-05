@@ -43,7 +43,9 @@ export class SelectCountryStateComponent implements OnInit {
   @Input() state: string;
 
   ngOnInit(): void {
-    this.changeCompany(true);
+    setTimeout(() => {
+      this.changeCompany(true);
+    });
   }
 
   changeCompany(firstLoad: boolean = false): void {

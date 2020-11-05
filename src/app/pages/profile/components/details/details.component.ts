@@ -44,7 +44,6 @@ class TradeAppl extends Trade {
 
 export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirective<Profile> implements OnInit {
 
-
   @ViewChild(CommunicationCompanyComponent) commHistory: CommunicationCompanyComponent;
   @ViewChild(ApplicationNoteComponent) applNoteComponent: ApplicationNoteComponent;
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent;
@@ -425,6 +424,9 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
     this.entity.isActive = true;
     this.saveProfile();
     $('#profiles').click();
+  }
+  changeLocalShow(): any {
+    this.locition = !this.locition;
   }
 
   parsePhone = (tell: string): string => tell.slice(0, 14);

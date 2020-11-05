@@ -6,7 +6,7 @@
                 <div class="relative">
                     <div class="form-group">
                         <label class="comp">Company</label>
-                        <select addNewItem ref="settings/company/details" (onclick)="navigate(itemEdit)" class="form-control" name="comp" [(ngModel)]="itemEdit.companyId"
+                        <select appAddNewItem ref="settings/company/details" (onclick)="navigate(itemEdit)" class="form-control" name="comp" [(ngModel)]="itemEdit.companyId"
                             (change)="companyChanged()" required [ngClass]="{'ng-submit' : communicationForm._submitted}">
                             <option disabled hidden [ngValue]="undefined">select...</option>
                             <ng-container *ngFor="let comp of companies">
@@ -19,7 +19,7 @@
                 <div class="relative">
                     <div class="form-group">
                         <label for="call">Call reason</label>
-                        <select id="call" addNewItem ref="settings/call-reasons" (onclick)="navigate(itemEdit)" class="form-control" name="call" [(ngModel)]="itemEdit.companyCallReasonId"
+                        <select id="call" appAddNewItem ref="settings/call-reasons" (onclick)="navigate(itemEdit)" class="form-control" name="call" [(ngModel)]="itemEdit.companyCallReasonId"
                             required [ngClass]="{'ng-submit' : communicationForm._submitted}">
                             <option disabled hidden [ngValue]="undefined">select...</option>
                             <ng-container *ngFor="let call of callReasons">
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="contact">Contact name</label>
                     <select id="contact" class="form-control" name="contact" [(ngModel)]="itemEdit.companyContactId" required [ngClass]="{'ng-submit' : communicationForm._submitted}"
-                            addNewItem ref="settings/company/details/{{itemEdit.companyId }}/contacts" (onclick)="navigate(itemEdit)">
+                            appAddNewItem ref="settings/company/details/{{itemEdit.companyId }}/contacts" (onclick)="navigate(itemEdit)">
                         <option disabled hidden [ngValue]="undefined">select...</option>
                         <ng-container *ngFor="let cont of contacts">
                             <option *ngIf="cont.isActive || cont.id == itemEdit.callReasonId" [ngClass]="{'grey': !cont.isActive}" [ngValue]="cont.id">{{cont.firstName}} {{cont.lastName}}</option>

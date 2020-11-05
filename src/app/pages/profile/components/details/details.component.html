@@ -398,7 +398,7 @@
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <label for="basen">Base name</label>
-                        <select addNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
+                        <select id="basen" appAddNewItem ref="settings/base-name" (onclick)="navigate()" class="form-control"
                                 name="baseName" id="bases" [(ngModel)]="entity.homeBaseId">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
@@ -422,7 +422,7 @@
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <label for="militaryBranch">Military Branch</label>
-                        <select addNewItem ref="settings/military" (onclick)="navigate()" class="form-control"
+                        <select appAddNewItem ref="settings/military" (onclick)="navigate()" class="form-control"
                                 name="militaryBranchId" id="militaryBranch" [(ngModel)]="entity.militaryBranchId">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
@@ -437,7 +437,7 @@
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <label for="militaryBranch">Rank</label>
-                        <select addNewItem ref="settings/rank" (onclick)="navigate()" class="form-control"
+                        <select appAddNewItem ref="settings/rank" (onclick)="navigate()" class="form-control"
                                 name="rank-new" id="rank-n" [(ngModel)]="entity.militaryRankId">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
@@ -475,7 +475,7 @@
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <label for="completDate">BASD Date</label>
-                        <input type="date" name="basdDate" class="form-control"
+                        <input id="completDate" type="date" name="basdDate" class="form-control"
                                [ngModel]="entity.basdDate | date:'yyyy-MM-dd'" tabindex="18"
                                (blur)="entity.basdDate = $event.target.value">
                       </div>
@@ -483,7 +483,7 @@
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <label for="militaryStatus">Military Status</label>
-                        <select name="baseStatus" class="form-control" [(ngModel)]="entity.militaryStatus">
+                        <select id="militaryStatus" name="baseStatus" class="form-control" [(ngModel)]="entity.militaryStatus">
                           <option hidden [ngValue]="undefined">select...</option>
                           <option [ngValue]="null">select...</option>
                           <option [ngValue]="'1'">National Guard</option>
@@ -510,7 +510,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="gt">GT</label>
-                        <input type="text" name="gt" class="form-control" [(ngModel)]="entity.asvaB_GT" placeholder="GT"
+                        <input id="gt" type="text" name="gt" class="form-control" [(ngModel)]="entity.asvaB_GT" placeholder="GT"
                                onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
                                [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -518,7 +518,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="admin">ADMIN</label>
-                        <input type="text" name="admin" class="form-control" [(ngModel)]="entity.asvaB_ADMIN"
+                        <input id="admin" type="text" name="admin" class="form-control" [(ngModel)]="entity.asvaB_ADMIN"
                                placeholder="ADMIN" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -526,7 +526,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="cmbt">CMBT</label>
-                        <input type="text" name="cmbt" class="form-control" [(ngModel)]="entity.asvaB_CMBT"
+                        <input id="cmbt" type="text" name="cmbt" class="form-control" [(ngModel)]="entity.asvaB_CMBT"
                                placeholder="CMBT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -534,7 +534,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="elec">ELEC</label>
-                        <input type="text" name="elec" class="form-control" [(ngModel)]="entity.asvaB_ELEC"
+                        <input id="elec" type="text" name="elec" class="form-control" [(ngModel)]="entity.asvaB_ELEC"
                                placeholder="ELEC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -542,7 +542,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="fa">FA</label>
-                        <input type="text" name="fa" class="form-control" [(ngModel)]="entity.asvaB_FA" placeholder="FA"
+                        <input id="fa" type="text" name="fa" class="form-control" [(ngModel)]="entity.asvaB_FA" placeholder="FA"
                                onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" minlength="2"
                                [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -550,7 +550,7 @@
                     <div class="col-sm-6 col-md-2">
                       <div class="form-group">
                         <label for="mech">MECH</label>
-                        <input type="text" name="mech" class="form-control" [(ngModel)]="entity.asvaB_MECH"
+                        <input id="mech" type="text" name="mech" class="form-control" [(ngModel)]="entity.asvaB_MECH"
                                placeholder="MECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -561,7 +561,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="food">FOOD</label>
-                        <input type="text" name="food" class="form-control" [(ngModel)]="entity.asvaB_FOOD"
+                        <input id="food" type="text" name="food" class="form-control" [(ngModel)]="entity.asvaB_FOOD"
                                placeholder="FOOD" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -569,7 +569,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="commo">COMMO</label>
-                        <input type="text" name="commo" class="form-control" [(ngModel)]="entity.asvaB_COMMO"
+                        <input id="commo" type="text" name="commo" class="form-control" [(ngModel)]="entity.asvaB_COMMO"
                                placeholder="COMMO" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -577,7 +577,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="maint">MAINT</label>
-                        <input type="text" name="maint" class="form-control" [(ngModel)]="entity.asvaB_MAINT"
+                        <input id="maint" type="text" name="maint" class="form-control" [(ngModel)]="entity.asvaB_MAINT"
                                placeholder="MAINT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -585,7 +585,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                         <label for="tech">TECH</label>
-                        <input type="text" name="tech" class="form-control" [(ngModel)]="entity.asvaB_TECH"
+                        <input id="tech" type="text" name="tech" class="form-control" [(ngModel)]="entity.asvaB_TECH"
                                placeholder="TECH" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                maxlength="3" minlength="2" [ngClass]="{'ng-submit' : profileForm._submitted}">
                       </div>
@@ -602,12 +602,11 @@
           <div class="col-sm-12">
             <div [ngClass]="{'opasity': locition}">
               <app-ba-card cardTitle="Locations Preferences">
-                <div class="hideSection" (click)="locition = !locition">
+                <div class="hideSection" (click)="changeLocalShow()">
                   <i class="fa {{locition ? 'fa-chevron-down' : 'fa-chevron-up'}}" aria-hidden="true"></i>
                 </div>
                 <div *ngIf="!locition">
                   <div class="row" *ngFor="let location of entity.preferredLocations;let i=index">
-
                     <div class="col-sm-12 col-md-6">
                       <app-select-country-state [country]="location.country" [state]="location.state"
                                             (onChangeCompany)="changeLocationCompany($event, i)">
@@ -659,7 +658,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="programSource">How did you hear about this program</label>
-                      <select addNewItem ref="settings/references" (onclick)="navigate()" class="form-control"
+                      <select appAddNewItem ref="settings/references" (onclick)="navigate()" class="form-control"
                               name="progSource" id="programSource" [(ngModel)]="entity.hearAboutProgramId">
                         <option hidden [ngValue]="undefined">select...</option>
                         <option [ngValue]="null">select...</option>

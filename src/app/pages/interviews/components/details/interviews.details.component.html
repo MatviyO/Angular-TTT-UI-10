@@ -60,14 +60,14 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="date">Date of action</label>
-                            <input type="date" class="form-control" name="date"
+                            <input id="date" type="date" class="form-control" name="date"
                                 [ngModel]="itemEdit.date | date:'yyyy-MM-dd'"
                                 (blur)="itemEdit.date = $event.target.value" required
                                 [ngClass]="{'ng-submit' : interviewStageForm._submitted}">
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="type">Interview type</label>
-                            <select addNewItem ref="settings/interview-type" (onclick)="navigate()" class="form-control"
+                            <select id="type" appAddNewItem ref="settings/interview-type" (onclick)="navigate()" class="form-control"
                                 name="type" [(ngModel)]="itemEdit.typeId" required
                                 [ngClass]="{'ng-submit' : interviewStageForm._submitted}">
                                 <option disabled hidden [value]="undefined">select...</option>
@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="altLocations">Alternative locations</label>
-                            <select addNewItem
+                            <select id="altLocations" appAddNewItem
                                 ref="settings/company/details/{{selectCompany? selectCompany.id: ''}}/altLocations"
                                 (onclick)="navigate()" class="form-control" name="altLocations"
                                 [(ngModel)]="itemEdit.locationId">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="contact">Contact</label>
-                            <select addNewItem
+                            <select id="contact" appAddNewItem
                                 ref="settings/company/details/{{selectCompany ? selectCompany.id: ''}}/contacts"
                                 (onclick)="navigate()" class="form-control" name="contact"
                                 [(ngModel)]="itemEdit.contactId">
