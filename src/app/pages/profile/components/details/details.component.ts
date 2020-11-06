@@ -431,4 +431,5 @@ export class ProfileDetailsComponent extends DetailsStatefulWithTriggersDirectiv
 
   parsePhone = (tell: string): string => tell.slice(0, 14);
 
+
 }

@@ -1,4 +1,24 @@
-﻿#min-with {
+﻿button.btn.btn-default.active, button.btn.btn-default.focus, button.btn.btn-default:active, button.btn.btn-default:focus, button.btn.btn-default:hover {
+  background: 0 0;
+  border-color: rgba(255,255,255,.5)!important;
+}
+.searchh {
+  height: 42.5px;
+  i {
+    float: left;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.582);
+
+  }
+  .input {
+    padding-top: 16px!important;
+    position: relative;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+#min-with {
   min-width: 72px !important;
   padding: 0px !important;
   padding-right: 1px !important;

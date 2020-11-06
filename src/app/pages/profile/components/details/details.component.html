@@ -239,7 +239,7 @@
           <div class="col-sm-12 col-lg-3">
             <div class="foto col-md-12 " [ngClass]="{'disable' : !entity.isActive && entity.id > 0}">
               <app-ba-card cardTitle="Photo" class="link-btns" baCardClass="with-scroll">
-                <app-ba-picture-uploader [objType]="'Applications'" [objId]="entity.id" [photoAvailable]="entity.hasPhoto"
+                <app-ba-picture-uploader [objType]="'Applications'" [objId]="entity.id"  [photoAvailable]="entity.hasPhoto"
                                      (onPreview)="onPhotoUpdated($event)" (onRemove)="onPhotoRemoved($event)">
                 </app-ba-picture-uploader>
               </app-ba-card>

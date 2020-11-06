@@ -4,7 +4,34 @@
     vertical-align: middle;
     margin: 0;
     padding: 0;
+    width: 100px!important;
   }
+}
+.table1 td {
+  border: 1px solid rgba(255,255,255,.3)!important;
+}
+
+.searchh {
+  height: 42.5px;
+  i {
+    float: left;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.582);
+
+  }
+  .input {
+    padding-top: 19px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+  }
+}
+.table > tbody> tr > td :last-child {
+  padding-right: 0!important;
+  width: 100px!important;
+}
+.table>tbody>tr>td:last-child {
+  min-width: 100px!important;
 }
 .reason-msg{
   border: 1px solid #bad3ea;

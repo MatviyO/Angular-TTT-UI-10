@@ -239,7 +239,7 @@
           </app-ba-card>
 
           <!-- ---------files----------- -->
-          <file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/Companies'"></file-uploader>
+          <app-file-uploader *ngIf="entity.id" [objId]="entity.id" [url]="'api/Companies'"></app-file-uploader>
 
           <div class="allBtn btn-back">
             <button type="submit" class="btn btn-primary" (click)="onSave(companyForm)">
