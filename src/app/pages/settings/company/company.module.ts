@@ -16,19 +16,20 @@ import {CompanyEmploymentService, CompanyService, StatesService, TradesService} 
 import {ClassScheduleModule} from '../classes-schedule/classes-schedule.module';
 import {NgxUploaderModule} from 'ngx-uploader';
 import {EmploymentComponent} from './components/details/components/employments';
+import {TextMaskModule} from 'angular2-text-mask';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NgaModule,
-    Common_Module,
-    routing,
-    FormsModule,
-    // TextMaskModule,
-    NguiAutoCompleteModule,
-    ClassScheduleModule,
-    NgxUploaderModule
-  ],
+    imports: [
+        CommonModule,
+        NgaModule,
+        Common_Module,
+        routing,
+        FormsModule,
+        NguiAutoCompleteModule,
+        ClassScheduleModule,
+        NgxUploaderModule,
+        TextMaskModule
+    ],
     declarations: [
         CompanyDetailsComponent,
         CompanyListComponent,

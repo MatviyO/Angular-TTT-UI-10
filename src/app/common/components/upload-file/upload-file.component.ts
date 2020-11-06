@@ -42,7 +42,6 @@ export class FileUploaderComponent implements OnInit {
   }
   ngOnInit(): any {
     this.getObjId = this.objId;
-    console.log(this.objId);
     this.getUrl = this.url;
     this.getAssets();
   }
@@ -113,14 +112,12 @@ export class FileUploaderComponent implements OnInit {
     if (isPlatformBrowser(this._fileUpload)) {
       eleRef.nativeElement[method]();
     }
-    console.log('sdsd')
   }
 
   bringFileSelector(): any {
     this.addFiles = true;
     this.invokeElementMethod(this._fileUpload.nativeElement, 'click');
     document.getElementById('fileUpload').click();
-    console.log('click');
   }
 
   cancelUpload(id: string): void {

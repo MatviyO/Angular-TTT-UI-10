@@ -26,6 +26,7 @@ import { CompanyAffiliatesService, CompanyAffiliatesComponent} from './company-a
 import { CompanyModule} from './company/company.module';
 import { MilitaryBranchComponent, MilitaryBranchService } from './military-branch';
 import {RankComponent, RankService} from './rank';
+import {TextMaskModule} from 'angular2-text-mask';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {RankComponent, RankService} from './rank';
         NgaModule,
         SettingsRoutingModule,
         NguiAutoCompleteModule,
+        TextMaskModule,
     ],
     declarations: [
         NonPlacementReasonComponent,

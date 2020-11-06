@@ -24,6 +24,7 @@ import {
 import {Common_Module} from '../../common';
 import {CoreModule} from '../../core';
 import {CountryStatesService} from '../../core/data/country-state.service';
+import {TextMaskModule} from 'angular2-text-mask';
 
 @NgModule({
   providers: [
@@ -47,6 +48,7 @@ import {CountryStatesService} from '../../core/data/country-state.service';
     Common_Module,
     routing,
     CoreModule,
+    TextMaskModule,
 
   ],
   declarations: [

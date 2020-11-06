@@ -57,8 +57,6 @@ export class BaPictureUploaderComponent implements  OnInit{
   }
   ngOnInit(): void {
     setTimeout(() => {
-      console.log(this.objType);
-      console.log(this.objId);
       this.getObjId = this.objId;
       this.getAssets();
     }, 1000);

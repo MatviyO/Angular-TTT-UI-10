@@ -14,10 +14,10 @@
                 <div class="cancel-file" (click)="removeFile(item.id, item.name)">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
-                <a class="download-file" href="{{this.url +'/'+ this.id +'/assets' +'/'+ item.id +'/'+ 'download'}}"> Download
+                <a class="download-file" href="{{this.url +'/'+ this.getObjId +'/assets' +'/'+ item.id +'/'+ 'download'}}"> Download
                     <i class="fa fa-download" aria-hidden="true"></i>
                 </a>
-                <a target="_blank" href="{{this.url +'/'+ this.id +'/assets' +'/'+ item.id +'/'+ 'view'}}">
+                <a target="_blank" href="{{this.url +'/'+ this.getObjId +'/assets' +'/'+ item.id +'/'+ 'view'}}">
                     <div class="icon">
                         <i [class]="getIconforType(item.name)" aria-hidden="true"></i>
                     </div>

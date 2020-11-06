@@ -25,7 +25,7 @@
               <input type="text" name="email" class="form-control" [(ngModel)]="entity.email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
             </td>
             <td>
-              <input  name="phone" class="form-control" (blur)="entity.phone = parsePhone(entity.phone)"  [(ngModel)]="entity.phone" placeholder="Phone" minlength="10" maxlength="20" >
+              <input  name="phone" class="form-control" (blur)="entity.phone = parsePhone(entity.phone)"  [(ngModel)]="entity.phone" placeholder="Phone" minlength="10" maxlength="20" [textMask]="{mask: mask, guide: false}" >
             </td>
             <td>
               <input type="text" name="title" class="form-control" [(ngModel)]="entity.title" placeholder="Title" >
@@ -56,7 +56,7 @@
             </td>
             <td>
               <span *ngIf="!item.editing">{{item.phone}}</span>
-              <input *ngIf="item.editing"  type="text" class="form-control" name="phone-{{i}}" (blur)="item.phone = parsePhone(item.phone)"  [(ngModel)]="item.phone" minlength="10" maxlength="20">
+              <input *ngIf="item.editing"  type="text" class="form-control" name="phone-{{i}}" (blur)="item.phone = parsePhone(item.phone)"  [(ngModel)]="item.phone" minlength="10" maxlength="20" [textMask]="{mask: mask, guide: false}" />
             </td>
             <td>
               <span *ngIf="!item.editing">{{item.title}}</span>
