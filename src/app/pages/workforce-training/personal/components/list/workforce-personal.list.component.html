@@ -55,10 +55,10 @@
         <td>
           {{item.employmentRecord.application.firstName + ' ' + item.employmentRecord.application.lastName}}
         </td>
-        <td>{{getMonthLength(item.items) | currency }}</td>
-        <td>{{getTotalHours(item.items) | currency }}</td>
-        <td>{{item.maxHours - getTotalHours(item.items) | currency }}</td>
-        <td>{{item.maxHours | currency}}</td>
+        <td>{{getMonthLength(item.items)}}</td>
+        <td>{{getTotalHours(item.items) | number:'2.2-2'}}</td>
+        <td>{{item.maxHours - getTotalHours(item.items) | number:'2.2-2'}}</td>
+        <td>{{item.maxHours | number:'2.2-2'}}</td>
         <td>
           <a class="btnHover" routerLink="{{'/workforce-personal/details/empl/' + item.employmentRecordId}}">
             <span></span>

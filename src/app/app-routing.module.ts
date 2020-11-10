@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
-import {Routes, RouterModule, ExtraOptions} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './pages/login/login.component';
+import {Location } from '@angular/common';
+import { enableProdMode } from '@angular/core';
+
+
+enableProdMode();
 
 const routes: Routes = [
   {
@@ -11,7 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' },
 ];
-const config: ExtraOptions = {
+const config = {
+  provide: Location ,
   useHash: true,
 };
 

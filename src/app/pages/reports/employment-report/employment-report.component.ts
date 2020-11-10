@@ -38,6 +38,8 @@ export class EmploymentReportComponent extends BaseSortableListDirective<Employm
   filter = getDefaultFilter();
   take = null;
   skip = null;
+  _order: null;
+
 
   constructor(
     @Inject(EmploymentReportConfig) config: IEditorConfig<EmploymentReport>,

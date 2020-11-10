@@ -24,7 +24,7 @@ export class InterviewReportComponent extends BaseSortableListDirective<Intervie
   filter: JobReportFilter = getDefaultFilter();
   take = null;
   skip = null;
-
+  _order: null;
 
   constructor(
     @Inject(InterviewReportConfig) config: IEditorConfig<InterviewReport>,
@@ -34,6 +34,7 @@ export class InterviewReportComponent extends BaseSortableListDirective<Intervie
     super(config);
   }
 
+  loadMore() { }
 
   getData(): void {
     const filterArg = this.getFilterArguments();
