@@ -7,6 +7,9 @@
     width: 100px!important;
   }
 }
+.table th, .table td {
+  border: none!important;
+}
 
 .table2 td {
   border-top: 1px solid rgba(255,255,255,.3)!important;
