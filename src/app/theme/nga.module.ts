@@ -15,6 +15,7 @@ import {
 } from './components';
 import {Common_Module} from '../common';
 import {BaPictureUploaderComponent} from './components/baPictureUploader/baPictureUploader.component';
+import {ReminderComponent} from './components/reminder/reminder.component';
 
 
 const NGA_COMPONENTS = [
@@ -27,6 +28,7 @@ const NGA_COMPONENTS = [
   BaPageTopComponent,
   BaPictureUploaderComponent,
   BaSidebarComponent,
+  ReminderComponent
 ];
 
 const NGA_DIRECTIVES = [

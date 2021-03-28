@@ -6,7 +6,7 @@
 
   <div class="col-sm-12 col-md-4 offset-md-4 ">
     <div class="main">
-<!--      <app-ba-card >-->
+      <app-ba-card >
         <h3 class="title-login">Login</h3>
         <div *ngIf="error" class="alert alert-danger">{{error}}</div>
         <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" >
@@ -26,7 +26,7 @@
           </button>
 
         </form>
-<!--      </app-ba-card>-->
+      </app-ba-card>
     </div>
   </div>
 

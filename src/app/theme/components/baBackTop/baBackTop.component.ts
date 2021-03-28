@@ -1,7 +1,7 @@
 import {Component, ViewChild, HostListener, Input, ElementRef, OnInit, AfterViewInit} from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+
   selector: 'app-ba-back-top',
   styleUrls: ['./baBackTop.scss'],
   template: `

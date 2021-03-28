@@ -1,6 +1,6 @@
 import {Component, ViewChild, EventEmitter, Input, Renderer2, Output, ElementRef, OnInit} from '@angular/core';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions, NgFileSelectDirective } from 'ngx-uploader';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {isPlatformBrowser} from '@angular/common';
 
 @Component({
@@ -10,14 +10,16 @@ import {isPlatformBrowser} from '@angular/common';
 })
 export class BaPictureUploaderComponent implements  OnInit{
 
+  protected readonly headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
+
   @Input() defaultPicture = 'assets/img/theme/no-photo.png';
   @Input() objType: string;
   @Input() photoAvailable: string;
   @Input() objId: number;
   @Output() onPreview = new EventEmitter<any>();
   @Output() onRemove = new EventEmitter<any>();
-
   @ViewChild('fileUpload') _fileUpload: ElementRef;
+
 
   picture = '';
   isUpdated = false;
@@ -37,7 +39,6 @@ export class BaPictureUploaderComponent implements  OnInit{
   //     this.picture = '';
   //   }
   // }
-
 
 
   uploadInProgress: boolean;
@@ -88,16 +89,16 @@ export class BaPictureUploaderComponent implements  OnInit{
     }
   }
 
-  startUpload(id?:number): Promise<any> {
+  startUpload(id?: number): Promise<any> {
     if (!this._objId && !id || this.files.length < 1) {
       return Promise.resolve(null);
     }
 
     const formData = new FormData();
-    formData.append('files', this.files[this.files.length-1].nativeFile);
+    formData.append('files', this.files[this.files.length - 1].nativeFile);
 
 
-    return this.http.post(`api/${this.objType}/${id?id:this._objId}/assets?extag=ava&isPublic=true`, formData)
+    return this.http.post(`api/${this.objType}/${id ? id : this._objId}/assets?extag=ava&isPublic=true`, formData)
       .toPromise();
   }
 
@@ -105,7 +106,7 @@ export class BaPictureUploaderComponent implements  OnInit{
     if (!this._objId) {
       return Promise.resolve(null);
     }
-    const headers= {'Content-Type': 'application/json'};
+    const headers = {'Content-Type': 'application/json'};
     const httpOptions = {
       headers: { 'Content-Type': 'application/json' },
       body: ["extag:ava"],
@@ -137,7 +138,7 @@ export class BaPictureUploaderComponent implements  OnInit{
   _changePicture(file: File): void {
     const reader = new FileReader();
     reader.addEventListener('load', (event: Event) => {
-      this.picture = (<any>event.target).result;
+      this.picture = ( <any> event.target).result;
     }, false);
     reader.readAsDataURL(file);
   }

@@ -20,6 +20,8 @@ import {NotificationService} from './common/services';
 import {AuthenticationService} from './core/auth';
 import {Common_Module} from './common';
 import {AgmCoreModule} from '@agm/core';
+import ReminderService from './common/services/reminder.service';
+import {PagesModule} from './pages/pages.module';
 
 const APP_PROVIDERS = [
   AppState,
@@ -42,6 +44,7 @@ export type StoreType = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    PagesModule,
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
@@ -63,6 +66,7 @@ export type StoreType = {
     MemoryCache,
     TriggerService,
     TriggerHelper,
+    ReminderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor, multi: true,

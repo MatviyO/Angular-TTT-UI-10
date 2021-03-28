@@ -16,7 +16,7 @@ export class State {
 export class CountryStatesService {
 
   getFullCountryName(country: string): string {
-    let name: string = '';
+    let name = '';
     const _country = this.countries.find(x => x.countryShortCode === country);
     if (_country) {
       name = _country.countryName;
@@ -25,10 +25,10 @@ export class CountryStatesService {
   }
 
   getFullStateName(country: string, state: string): string {
-    let name: string = '';
+    let name = '';
     const _country = this.countries.find(x => x.countryShortCode === country);
     if (_country) {
-      const _state = _country.regions.find(x => x.shortCode == state);
+      const _state = _country.regions.find(x => x.shortCode === state);
       if (_state) {
         name = _state.name;
       }
@@ -110,18762 +110,18762 @@ export class CountryStatesService {
         },
         {
           'name': 'Khost',
-          'shortCode': 'KHO'
+          'shortCode': 'KHO',
         },
         {
           'name': 'Kunar',
-          'shortCode': 'KNR'
+          'shortCode': 'KNR',
         },
         {
           'name': 'Kunduz',
-          'shortCode': 'KDZ'
+          'shortCode': 'KDZ',
         },
         {
           'name': 'Laghman',
-          'shortCode': 'LAG'
+          'shortCode': 'LAG',
         },
         {
           'name': 'Logar',
-          'shortCode': 'LOW'
+          'shortCode': 'LOW',
         },
         {
           'name': 'Maidan Wardak',
-          'shortCode': 'WAR'
+          'shortCode': 'WAR',
         },
         {
           'name': 'Nangarhar',
-          'shortCode': 'NAN'
+          'shortCode': 'NAN',
         },
         {
           'name': 'Nimruz',
-          'shortCode': 'NIM'
+          'shortCode': 'NIM',
         },
         {
           'name': 'Nuristan',
-          'shortCode': 'NUR'
+          'shortCode': 'NUR',
         },
         {
           'name': 'Paktia',
-          'shortCode': 'PIA'
+          'shortCode': 'PIA',
         },
         {
           'name': 'Paktika',
-          'shortCode': 'PKA'
+          'shortCode': 'PKA',
         },
         {
           'name': 'Panjshir',
-          'shortCode': 'PAN'
+          'shortCode': 'PAN',
         },
         {
           'name': 'Parwan',
-          'shortCode': 'PAR'
+          'shortCode': 'PAR',
         },
         {
           'name': 'Samangan',
-          'shortCode': 'SAM'
+          'shortCode': 'SAM',
         },
         {
           'name': 'Sar-e Pol',
-          'shortCode': 'SAR'
+          'shortCode': 'SAR',
         },
         {
           'name': 'Takhar',
-          'shortCode': 'TAK'
+          'shortCode': 'TAK',
         },
         {
           'name': 'Urozgan',
-          'shortCode': 'ORU'
+          'shortCode': 'ORU',
         },
         {
           'name': 'Zabul',
-          'shortCode': 'ZAB'
-        }
-      ]
+          'shortCode': 'ZAB',
+        },
+      ],
     },
       {
         'countryName': 'Åland Islands',
         'countryShortCode': 'AX',
         'regions': [{
           'name': 'Brändö',
-          'shortCode': 'BR'
+          'shortCode': 'BR',
         },
           {
             'name': 'Eckerö',
-            'shortCode': 'EC'
+            'shortCode': 'EC',
           },
           {
             'name': 'Finström',
-            'shortCode': 'FN'
+            'shortCode': 'FN',
           },
           {
             'name': 'Föglö',
-            'shortCode': 'FG'
+            'shortCode': 'FG',
           },
           {
             'name': 'Geta',
-            'shortCode': 'GT'
+            'shortCode': 'GT',
           },
           {
             'name': 'Hammarland',
-            'shortCode': 'HM'
+            'shortCode': 'HM',
           },
           {
             'name': 'Jomala',
-            'shortCode': 'JM'
+            'shortCode': 'JM',
           },
           {
             'name': 'Kumlinge',
-            'shortCode': 'KM'
+            'shortCode': 'KM',
           },
           {
             'name': 'Kökar',
-            'shortCode': 'KK'
+            'shortCode': 'KK',
           },
           {
             'name': 'Lemland',
-            'shortCode': 'LE'
+            'shortCode': 'LE',
           },
           {
             'name': 'Lumparland',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Mariehamn',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Saltvik',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Sottunga',
-            'shortCode': 'ST'
+            'shortCode': 'ST',
           },
           {
             'name': 'Sund',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Vårdö',
-            'shortCode': 'VR'
-          }
-        ]
+            'shortCode': 'VR',
+          },
+        ],
       },
       {
         'countryName': 'Albania',
         'countryShortCode': 'AL',
         'regions': [{
           'name': 'Berat',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Dibër',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Durrës',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Elbasan',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Fier',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Gjirokastër',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Korçë',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Kukës',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Lezhë',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Shkodër',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Tirana',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Vlorë',
-            'shortCode': '12'
-          }
-        ]
+            'shortCode': '12',
+          },
+        ],
       },
       {
         'countryName': 'Algeria',
         'countryShortCode': 'DZ',
         'regions': [{
           'name': 'Adrar',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Aïn Defla',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Aïn Témouchent',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Algiers',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Annaba',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Batna',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Béchar',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Béjaïa',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Biskra',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Blida',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Bordj Bou Arréridj',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Bouïra',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Boumerdès',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Chlef',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Constantine',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Djelfa',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'El Bayadh',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'El Oued',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'El Tarf',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Ghardaïa',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Guelma',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Illizi',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Jijel',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Khenchela',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Laghouat',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Mascara',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Médéa',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Mila',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Mostaganem',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Msila',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Naâma',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Oran',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Ouargla',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Oum el Bouaghi',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Relizane',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Saïda',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Sétif',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Sidi Bel Abbès',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Skikda',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Souk Ahras',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Tamanghasset',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Tébessa',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Tiaret',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Tindouf',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Tipaza',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Tissemsilt',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Tizi Ouzou',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Tlemcen',
-            'shortCode': '13'
-          }
-        ]
+            'shortCode': '13',
+          },
+        ],
       },
       {
         'countryName': 'American Samoa',
         'countryShortCode': 'AS',
         'regions': [{
           'name': 'Tutuila',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': "Aunu'u",
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': "Ta'ū",
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Ofu‑Olosega',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Rose Atoll',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Swains Island',
-            'shortCode': '22'
-          }
-        ]
+            'shortCode': '22',
+          },
+        ],
       },
       {
         'countryName': 'Andorra',
         'countryShortCode': 'AD',
         'regions': [{
           'name': 'Andorra la Vella',
-          'shortCode': '07'
+          'shortCode': '07',
         },
           {
             'name': 'Canillo',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Encamp',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Escaldes-Engordany',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'La Massana',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Ordino',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Sant Julià de Lòria',
-            'shortCode': '06'
-          }
-        ]
+            'shortCode': '06',
+          },
+        ],
       },
       {
         'countryName': 'Angola',
         'countryShortCode': 'AO',
         'regions': [{
           'name': 'Bengo',
-          'shortCode': 'BGO'
+          'shortCode': 'BGO',
         },
           {
             'name': 'Benguela',
-            'shortCode': 'BGU'
+            'shortCode': 'BGU',
           },
           {
             'name': 'Bié',
-            'shortCode': 'BIE'
+            'shortCode': 'BIE',
           },
           {
             'name': 'Cabinda',
-            'shortCode': 'CAB'
+            'shortCode': 'CAB',
           },
           {
             'name': 'Cuando Cubango',
-            'shortCode': 'CCU'
+            'shortCode': 'CCU',
           },
           {
             'name': 'Cuanza Norte',
-            'shortCode': 'CNO'
+            'shortCode': 'CNO',
           },
           {
             'name': 'Cuanza Sul',
-            'shortCode': 'CUS'
+            'shortCode': 'CUS',
           },
           {
             'name': 'Cunene',
-            'shortCode': 'CNN'
+            'shortCode': 'CNN',
           },
           {
             'name': 'Huambo',
-            'shortCode': 'HUA'
+            'shortCode': 'HUA',
           },
           {
             'name': 'Huíla',
-            'shortCode': 'HUI'
+            'shortCode': 'HUI',
           },
           {
             'name': 'Luanda',
-            'shortCode': 'LUA'
+            'shortCode': 'LUA',
           },
           {
             'name': 'Lunda Norte',
-            'shortCode': 'LNO'
+            'shortCode': 'LNO',
           },
           {
             'name': 'Lunda Sul',
-            'shortCode': 'LSU'
+            'shortCode': 'LSU',
           },
           {
             'name': 'Malanje',
-            'shortCode': 'MAL'
+            'shortCode': 'MAL',
           },
           {
             'name': 'Moxico',
-            'shortCode': 'MOX'
+            'shortCode': 'MOX',
           },
           {
             'name': 'Namibe',
-            'shortCode': 'NAM'
+            'shortCode': 'NAM',
           },
           {
             'name': 'Uíge',
-            'shortCode': 'UIG'
+            'shortCode': 'UIG',
           },
           {
             'name': 'Zaire',
-            'shortCode': 'ZAI'
-          }
-        ]
+            'shortCode': 'ZAI',
+          },
+        ],
       },
       {
         'countryName': 'Anguilla',
         'countryShortCode': 'AI',
         'regions': [{
           'name': 'Anguilla',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Anguillita Island',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Blowing Rock',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Cove Cay',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Crocus Cay',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': "Deadman's Cay",
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Dog Island',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'East Cay',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Little Island',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Little Scrub Island',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Mid Cay',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'North Cay',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Prickly Pear Cays',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Rabbit Island',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Sandy Island/Sand Island',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Scilly Cay',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Scrub Island',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Seal Island',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Sombrero/Hat Island',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'South Cay',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'South Wager Island',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'West Cay',
-            'shortCode': '22'
-          }
-        ]
+            'shortCode': '22',
+          },
+        ],
       },
       {
         'countryName': 'Antarctica',
         'countryShortCode': 'AQ',
         'regions': [{
           'name': 'Antarctica',
-          'shortCode': 'AQ'
-        }]
+          'shortCode': 'AQ',
+        }],
       },
       {
         'countryName': 'Antigua and Barbuda',
         'countryShortCode': 'AG',
         'regions': [{
           'name': 'Antigua Island',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Barbuda Island',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Bird Island',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Bishop Island',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Blake Island',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Crump Island',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Dulcina Island',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Exchange Island',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Five Islands',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Great Bird Island',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Green Island',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Guiana Island',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Hawes Island',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Hells Gate Island',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Henry Island',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Johnson Island',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Kid Island',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Lobster Island',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Maiden Island',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Moor Island',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Nanny Island',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Pelican Island',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Prickly Pear Island',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Rabbit Island',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Red Head Island',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Redonda Island',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Sandy Island',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Smith Island',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'The Sisters',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Vernon Island',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Wicked Will Island',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'York Island',
-            'shortCode': '37'
-          }
-        ]
+            'shortCode': '37',
+          },
+        ],
       },
       {
         'countryName': 'Argentina',
         'countryShortCode': 'AR',
         'regions': [{
           'name': 'Buenos Aires',
-          'shortCode': 'B'
+          'shortCode': 'B',
         },
           {
             'name': 'Capital Federal',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Catamarca',
-            'shortCode': 'K'
+            'shortCode': 'K',
           },
           {
             'name': 'Chaco',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Chubut',
-            'shortCode': 'U'
+            'shortCode': 'U',
           },
           {
             'name': 'Córdoba',
-            'shortCode': 'X'
+            'shortCode': 'X',
           },
           {
             'name': 'Corrientes',
-            'shortCode': 'W'
+            'shortCode': 'W',
           },
           {
             'name': 'Entre Ríos',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Formosa',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Jujuy',
-            'shortCode': 'Y'
+            'shortCode': 'Y',
           },
           {
             'name': 'La Pampa',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'La Rioja',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Mendoza',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Misiones',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Neuquén',
-            'shortCode': 'Q'
+            'shortCode': 'Q',
           },
           {
             'name': 'Río Negro',
-            'shortCode': 'R'
+            'shortCode': 'R',
           },
           {
             'name': 'Salta',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'San Juan',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': 'San Luis',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Santa Cruz',
-            'shortCode': 'Z'
+            'shortCode': 'Z',
           },
           {
             'name': 'Santa Fe',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Santiago del Estero',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Tierra del Fuego',
-            'shortCode': 'V'
+            'shortCode': 'V',
           },
           {
             'name': 'Tucumán',
-            'shortCode': 'T'
-          }
-        ]
+            'shortCode': 'T',
+          },
+        ],
       },
       {
         'countryName': 'Armenia',
         'countryShortCode': 'AM',
         'regions': [{
           'name': 'Aragatsotn',
-          'shortCode': 'AG'
+          'shortCode': 'AG',
         },
           {
             'name': 'Ararat',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Armavir',
-            'shortCode': 'AV'
+            'shortCode': 'AV',
           },
           {
             'name': 'Gegharkunik',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Kotayk',
-            'shortCode': 'KT'
+            'shortCode': 'KT',
           },
           {
             'name': 'Lori',
-            'shortCode': 'LO'
+            'shortCode': 'LO',
           },
           {
             'name': 'Shirak',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Syunik',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Tavush',
-            'shortCode': 'TV'
+            'shortCode': 'TV',
           },
           {
             'name': 'Vayots Dzor',
-            'shortCode': 'VD'
+            'shortCode': 'VD',
           },
           {
             'name': 'Yerevan',
-            'shortCode': 'ER'
-          }
-        ]
+            'shortCode': 'ER',
+          },
+        ],
       },
       {
         'countryName': 'Aruba',
         'countryShortCode': 'AW',
         'regions': [{
           'name': 'Aruba',
-          'shortCode': 'AW'
-        }]
+          'shortCode': 'AW',
+        }],
       },
       {
         'countryName': 'Australia',
         'countryShortCode': 'AU',
         'regions': [{
           'name': 'Australian Capital Territory',
-          'shortCode': 'ACT'
+          'shortCode': 'ACT',
         },
           {
             'name': 'New South Wales',
-            'shortCode': 'NSW'
+            'shortCode': 'NSW',
           },
           {
             'name': 'Northern Territory',
-            'shortCode': 'NT'
+            'shortCode': 'NT',
           },
           {
             'name': 'Queensland',
-            'shortCode': 'QLD'
+            'shortCode': 'QLD',
           },
           {
             'name': 'South Australia',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Tasmania',
-            'shortCode': 'TAS'
+            'shortCode': 'TAS',
           },
           {
             'name': 'Victoria',
-            'shortCode': 'VIC'
+            'shortCode': 'VIC',
           },
           {
             'name': 'Western Australia',
-            'shortCode': 'WA'
-          }
-        ]
+            'shortCode': 'WA',
+          },
+        ],
       },
       {
         'countryName': 'Austria',
         'countryShortCode': 'AT',
         'regions': [{
           'name': 'Burgenland',
-          'shortCode': '1'
+          'shortCode': '1',
         },
           {
             'name': 'Kärnten',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Niederösterreich',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Oberösterreich',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Salzburg',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Steiermark',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Tirol',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Vorarlberg',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Wien',
-            'shortCode': '9'
-          }
-        ]
+            'shortCode': '9',
+          },
+        ],
       },
       {
         'countryName': 'Azerbaijan',
         'countryShortCode': 'AZ',
         'regions': [{
           'name': 'Abşeron',
-          'shortCode': 'ABS'
+          'shortCode': 'ABS',
         },
           {
             'name': 'Ağcabədi',
-            'shortCode': 'AGC'
+            'shortCode': 'AGC',
           },
           {
             'name': 'Ağdam',
-            'shortCode': 'AGM'
+            'shortCode': 'AGM',
           },
           {
             'name': 'Ağdaş',
-            'shortCode': 'AGS'
+            'shortCode': 'AGS',
           },
           {
             'name': 'Ağstafa',
-            'shortCode': 'AGA'
+            'shortCode': 'AGA',
           },
           {
             'name': 'Ağsu',
-            'shortCode': 'AGU'
+            'shortCode': 'AGU',
           },
           {
             'name': 'Astara',
-            'shortCode': 'AST'
+            'shortCode': 'AST',
           },
           {
             'name': 'Bakı',
-            'shortCode': 'BAK'
+            'shortCode': 'BAK',
           },
           {
             'name': 'Babək',
-            'shortCode': 'BAB'
+            'shortCode': 'BAB',
           },
           {
             'name': 'Balakən',
-            'shortCode': 'BAL'
+            'shortCode': 'BAL',
           },
           {
             'name': 'Bərdə',
-            'shortCode': 'BAR'
+            'shortCode': 'BAR',
           },
           {
             'name': 'Beyləqan',
-            'shortCode': 'BEY'
+            'shortCode': 'BEY',
           },
           {
             'name': 'Biləsuvar',
-            'shortCode': 'BIL'
+            'shortCode': 'BIL',
           },
           {
             'name': 'Cəbrayıl',
-            'shortCode': 'CAB'
+            'shortCode': 'CAB',
           },
           {
             'name': 'Cəlilabad',
-            'shortCode': 'CAL'
+            'shortCode': 'CAL',
           },
           {
             'name': 'Culfa',
-            'shortCode': 'CUL'
+            'shortCode': 'CUL',
           },
           {
             'name': 'Daşkəsən',
-            'shortCode': 'DAS'
+            'shortCode': 'DAS',
           },
           {
             'name': 'Füzuli',
-            'shortCode': 'FUZ'
+            'shortCode': 'FUZ',
           },
           {
             'name': 'Gədəbəy',
-            'shortCode': 'GAD'
+            'shortCode': 'GAD',
           },
           {
             'name': 'Goranboy',
-            'shortCode': 'GOR'
+            'shortCode': 'GOR',
           },
           {
             'name': 'Göyçay',
-            'shortCode': 'GOY'
+            'shortCode': 'GOY',
           },
           {
             'name': 'Göygöl',
-            'shortCode': 'GYG'
+            'shortCode': 'GYG',
           },
           {
             'name': 'Hacıqabul',
-            'shortCode': 'HAC'
+            'shortCode': 'HAC',
           },
           {
             'name': 'İmişli',
-            'shortCode': 'IMI'
+            'shortCode': 'IMI',
           },
           {
             'name': 'İsmayıllı',
-            'shortCode': 'ISM'
+            'shortCode': 'ISM',
           },
           {
             'name': 'Kəlbəcər',
-            'shortCode': 'KAL'
+            'shortCode': 'KAL',
           },
           {
             'name': 'Kǝngǝrli',
-            'shortCode': 'KAN'
+            'shortCode': 'KAN',
           },
           {
             'name': 'Kürdəmir',
-            'shortCode': 'KUR'
+            'shortCode': 'KUR',
           },
           {
             'name': 'Laçın',
-            'shortCode': 'LAC'
+            'shortCode': 'LAC',
           },
           {
             'name': 'Lənkəran',
-            'shortCode': 'LAN'
+            'shortCode': 'LAN',
           },
           {
             'name': 'Lerik',
-            'shortCode': 'LER'
+            'shortCode': 'LER',
           },
           {
             'name': 'Masallı',
-            'shortCode': 'MAS'
+            'shortCode': 'MAS',
           },
           {
             'name': 'Neftçala',
-            'shortCode': 'NEF'
+            'shortCode': 'NEF',
           },
           {
             'name': 'Oğuz',
-            'shortCode': 'OGU'
+            'shortCode': 'OGU',
           },
           {
             'name': 'Ordubad',
-            'shortCode': 'ORD'
+            'shortCode': 'ORD',
           },
           {
             'name': 'Qəbələ',
-            'shortCode': 'QAB'
+            'shortCode': 'QAB',
           },
           {
             'name': 'Qax',
-            'shortCode': 'QAX'
+            'shortCode': 'QAX',
           },
           {
             'name': 'Qazax',
-            'shortCode': 'QAZ'
+            'shortCode': 'QAZ',
           },
           {
             'name': 'Qobustan',
-            'shortCode': 'QOB'
+            'shortCode': 'QOB',
           },
           {
             'name': 'Quba',
-            'shortCode': 'QBA'
+            'shortCode': 'QBA',
           },
           {
             'name': 'Qubadli',
-            'shortCode': 'QBI'
+            'shortCode': 'QBI',
           },
           {
             'name': 'Qusar',
-            'shortCode': 'QUS'
+            'shortCode': 'QUS',
           },
           {
             'name': 'Saatlı',
-            'shortCode': 'SAT'
+            'shortCode': 'SAT',
           },
           {
             'name': 'Sabirabad',
-            'shortCode': 'SAB'
+            'shortCode': 'SAB',
           },
           {
             'name': 'Şabran',
-            'shortCode': 'SBN'
+            'shortCode': 'SBN',
           },
           {
             'name': 'Sədərək',
-            'shortCode': 'SAD'
+            'shortCode': 'SAD',
           },
           {
             'name': 'Şahbuz',
-            'shortCode': 'SAH'
+            'shortCode': 'SAH',
           },
           {
             'name': 'Şəki',
-            'shortCode': 'SAK'
+            'shortCode': 'SAK',
           },
           {
             'name': 'Salyan',
-            'shortCode': 'SAL'
+            'shortCode': 'SAL',
           },
           {
             'name': 'Şamaxı',
-            'shortCode': 'SMI'
+            'shortCode': 'SMI',
           },
           {
             'name': 'Şəmkir',
-            'shortCode': 'SKR'
+            'shortCode': 'SKR',
           },
           {
             'name': 'Samux',
-            'shortCode': 'SMX'
+            'shortCode': 'SMX',
           },
           {
             'name': 'Şərur',
-            'shortCode': 'SAR'
+            'shortCode': 'SAR',
           },
           {
             'name': 'Siyəzən',
-            'shortCode': 'SIY'
+            'shortCode': 'SIY',
           },
           {
             'name': 'Şuşa',
-            'shortCode': 'SUS'
+            'shortCode': 'SUS',
           },
           {
             'name': 'Tərtər',
-            'shortCode': 'TAR'
+            'shortCode': 'TAR',
           },
           {
             'name': 'Tovuz',
-            'shortCode': 'TOV'
+            'shortCode': 'TOV',
           },
           {
             'name': 'Ucar',
-            'shortCode': 'UCA'
+            'shortCode': 'UCA',
           },
           {
             'name': 'Xaçmaz',
-            'shortCode': 'XAC'
+            'shortCode': 'XAC',
           },
           {
             'name': 'Xızı',
-            'shortCode': 'XIZ'
+            'shortCode': 'XIZ',
           },
           {
             'name': 'Xocalı',
-            'shortCode': 'XCI'
+            'shortCode': 'XCI',
           },
           {
             'name': 'Xocavənd',
-            'shortCode': 'XVD'
+            'shortCode': 'XVD',
           },
           {
             'name': 'Yardımlı',
-            'shortCode': 'YAR'
+            'shortCode': 'YAR',
           },
           {
             'name': 'Yevlax',
-            'shortCode': 'YEV'
+            'shortCode': 'YEV',
           },
           {
             'name': 'Zəngilan',
-            'shortCode': 'ZAN'
+            'shortCode': 'ZAN',
           },
           {
             'name': 'Zaqatala',
-            'shortCode': 'ZAQ'
+            'shortCode': 'ZAQ',
           },
           {
             'name': 'Zərdab',
-            'shortCode': 'ZAR'
-          }
-        ]
+            'shortCode': 'ZAR',
+          },
+        ],
       },
       {
         'countryName': 'Bahamas',
         'countryShortCode': 'BS',
         'regions': [{
           'name': 'Acklins Island',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Berry Islands',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Bimini',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Black Point',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Cat Island',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Central Abaco',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Crooked Island and Long Cay',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'East Grand Bahama',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Exuma',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Freeport',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Fresh Creek',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': "Governor's Harbour",
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Green Turtle Cay',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Harbour Island',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'High Rock',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Inagua',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Kemps Bay',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Long Island',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Marsh Harbour',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Mayaguana',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Moore’s Island',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'New Providence',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Nichollstown and Berry Islands',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'North Abaco',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'North Andros',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'North Eleuthera',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Ragged Island',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Rock Sound',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'San Salvador and Rum Cay',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Sandy Point',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'South Abaco',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'South Andros',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'South Eleuthera',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'West Grand Bahama',
-            'shortCode': '39'
-          }
-        ]
+            'shortCode': '39',
+          },
+        ],
       },
       {
         'countryName': 'Bahrain',
         'countryShortCode': 'BH',
         'regions': [{
           'name': 'Al Janūbīyah',
-          'shortCode': '14'
+          'shortCode': '14',
         },
           {
             'name': 'Al Manāmah',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Al Muḩarraq',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Al Wusţá',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Ash Shamālīyah',
-            'shortCode': '17'
-          }
-        ]
+            'shortCode': '17',
+          },
+        ],
       },
       {
         'countryName': 'Bangladesh',
         'countryShortCode': 'BD',
         'regions': [{
           'name': 'Barisal',
-          'shortCode': 'A'
+          'shortCode': 'A',
         },
           {
             'name': 'Chittagong',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Dhaka',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Khulna',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Mymensingh',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Rajshahi',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Rangpur',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Sylhet',
-            'shortCode': 'G'
-          }
-        ]
+            'shortCode': 'G',
+          },
+        ],
       },
       {
         'countryName': 'Barbados',
         'countryShortCode': 'BB',
         'regions': [{
           'name': 'Christ Church',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Saint Andrew',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Saint George',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Saint James',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Saint John',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Saint Joseph',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Saint Lucy',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Saint Michael',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Saint Peter',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Saint Philip',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Saint Thomas',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Belarus',
         'countryShortCode': 'BY',
         'regions': [{
           'name': 'Brest voblast',
-          'shortCode': 'BR'
+          'shortCode': 'BR',
         },
           {
             'name': 'Gorod Minsk',
-            'shortCode': 'HM'
+            'shortCode': 'HM',
           },
           {
             'name': 'Homiel voblast',
-            'shortCode': 'HO'
+            'shortCode': 'HO',
           },
           {
             'name': 'Hrodna voblast',
-            'shortCode': 'HR'
+            'shortCode': 'HR',
           },
           {
             'name': 'Mahilyow voblast',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Minsk voblast',
-            'shortCode': 'MI'
+            'shortCode': 'MI',
           },
           {
             'name': 'Vitsebsk voblast',
-            'shortCode': 'VI'
-          }
-        ]
+            'shortCode': 'VI',
+          },
+        ],
       },
       {
         'countryName': 'Belgium',
         'countryShortCode': 'BE',
         'regions': [{
           'name': 'Brussels',
-          'shortCode': 'BRU'
+          'shortCode': 'BRU',
         },
           {
             'name': 'Flanders',
-            'shortCode': 'VLG'
+            'shortCode': 'VLG',
           },
           {
             'name': 'Wallonia',
-            'shortCode': 'WAL'
-          }
-        ]
+            'shortCode': 'WAL',
+          },
+        ],
       },
       {
         'countryName': 'Belize',
         'countryShortCode': 'BZ',
         'regions': [{
           'name': 'Belize District',
-          'shortCode': 'BZ'
+          'shortCode': 'BZ',
         },
           {
             'name': 'Cayo District',
-            'shortCode': 'CY'
+            'shortCode': 'CY',
           },
           {
             'name': 'Corozal District',
-            'shortCode': 'CZL'
+            'shortCode': 'CZL',
           },
           {
             'name': 'Orange Walk District',
-            'shortCode': 'OW'
+            'shortCode': 'OW',
           },
           {
             'name': 'Stann Creek District',
-            'shortCode': 'SC'
+            'shortCode': 'SC',
           },
           {
             'name': 'Toledo District',
-            'shortCode': 'TOL'
-          }
-        ]
+            'shortCode': 'TOL',
+          },
+        ],
       },
       {
         'countryName': 'Benin',
         'countryShortCode': 'BJ',
         'regions': [{
           'name': 'Alibori',
-          'shortCode': 'AL'
+          'shortCode': 'AL',
         },
           {
             'name': 'Atakora',
-            'shortCode': 'AK'
+            'shortCode': 'AK',
           },
           {
             'name': 'Atlantique',
-            'shortCode': 'AQ'
+            'shortCode': 'AQ',
           },
           {
             'name': 'Borgou',
-            'shortCode': 'BO'
+            'shortCode': 'BO',
           },
           {
             'name': 'Collines Department',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Donga',
-            'shortCode': 'DO'
+            'shortCode': 'DO',
           },
           {
             'name': 'Kouffo',
-            'shortCode': 'KO'
+            'shortCode': 'KO',
           },
           {
             'name': 'Littoral Department',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Mono Department',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Ouémé',
-            'shortCode': 'OU'
+            'shortCode': 'OU',
           },
           {
             'name': 'Plateau',
-            'shortCode': 'PL'
+            'shortCode': 'PL',
           },
           {
             'name': 'Zou',
-            'shortCode': 'ZO'
-          }
-        ]
+            'shortCode': 'ZO',
+          },
+        ],
       },
       {
         'countryName': 'Bermuda',
         'countryShortCode': 'BM',
         'regions': [{
           'name': 'City of Hamilton',
-          'shortCode': '03'
+          'shortCode': '03',
         },
           {
             'name': 'Devonshire Parish',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Hamilton Parish',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Paget Parish',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Pembroke Parish',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Sandys Parish',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': "Smith's Parish",
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Southampton Parish',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': "St. George's Parish",
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Town of St. George',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Warwick Parish',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Bhutan',
         'countryShortCode': 'BT',
         'regions': [{
           'name': 'Bumthang',
-          'shortCode': '33'
+          'shortCode': '33',
         },
           {
             'name': 'Chhukha',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Dagana',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Gasa',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Haa',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Lhuntse',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Mongar',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Paro',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Pemagatshel',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Punakha',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Samdrup Jongkhar',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Samtse',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Sarpang',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Thimphu',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Trashigang',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Trashiyangtse',
-            'shortCode': 'TY'
+            'shortCode': 'TY',
           },
           {
             'name': 'Trongsa',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Tsirang',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Wangdue Phodrang',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Zhemgang',
-            'shortCode': '34'
-          }
-        ]
+            'shortCode': '34',
+          },
+        ],
       },
       {
         'countryName': 'Bolivia',
         'countryShortCode': 'BO',
         'regions': [{
           'name': 'Beni',
-          'shortCode': 'B'
+          'shortCode': 'B',
         },
           {
             'name': 'Chuquisaca',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Cochabamba',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'La Paz',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Oruro',
-            'shortCode': 'O'
+            'shortCode': 'O',
           },
           {
             'name': 'Pando',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Potosí',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Santa Cruz',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Tarija',
-            'shortCode': 'T'
-          }
-        ]
+            'shortCode': 'T',
+          },
+        ],
       },
       {
         'countryName': 'Bonaire, Sint Eustatius and Saba',
         'countryShortCode': 'BQ',
         'regions': [{
           'name': 'Bonaire',
-          'shortCode': 'BO'
+          'shortCode': 'BO',
         },
           {
             'name': 'Saba Isand',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sint Eustatius',
-            'shortCode': 'SE'
-          }
-        ]
+            'shortCode': 'SE',
+          },
+        ],
       },
       {
         'countryName': 'Bosnia and Herzegovina',
         'countryShortCode': 'BA',
         'regions': [{
           'name': 'Brčko Distrikt',
-          'shortCode': 'BRC'
+          'shortCode': 'BRC',
         },
           {
             'name': 'Federacija Bosne i Hercegovine',
-            'shortCode': 'BIH'
+            'shortCode': 'BIH',
           },
           {
             'name': 'Republika Srpska',
-            'shortCode': 'SRP'
-          }
-        ]
+            'shortCode': 'SRP',
+          },
+        ],
       },
       {
         'countryName': 'Botswana',
         'countryShortCode': 'BW',
         'regions': [{
           'name': 'Central',
-          'shortCode': 'CE'
+          'shortCode': 'CE',
         },
           {
             'name': 'Ghanzi',
-            'shortCode': 'GH'
+            'shortCode': 'GH',
           },
           {
             'name': 'Kgalagadi',
-            'shortCode': 'KG'
+            'shortCode': 'KG',
           },
           {
             'name': 'Kgatleng',
-            'shortCode': 'KL'
+            'shortCode': 'KL',
           },
           {
             'name': 'Kweneng',
-            'shortCode': 'KW'
+            'shortCode': 'KW',
           },
           {
             'name': 'North West',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'North-East',
-            'shortCode': 'NE'
+            'shortCode': 'NE',
           },
           {
             'name': 'South East',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Southern',
-            'shortCode': 'SO'
-          }
-        ]
+            'shortCode': 'SO',
+          },
+        ],
       },
       {
         'countryName': 'Bouvet Island',
         'countryShortCode': 'BV',
         'regions': [{
           'name': 'Bouvet Island',
-          'shortCode': 'BV'
-        }]
+          'shortCode': 'BV',
+        }],
       },
       {
         'countryName': 'Brazil',
         'countryShortCode': 'BR',
         'regions': [{
           'name': 'Acre',
-          'shortCode': 'AC'
+          'shortCode': 'AC',
         },
           {
             'name': 'Alagoas',
-            'shortCode': 'AL'
+            'shortCode': 'AL',
           },
           {
             'name': 'Amapá',
-            'shortCode': 'AP'
+            'shortCode': 'AP',
           },
           {
             'name': 'Amazonas',
-            'shortCode': 'AM'
+            'shortCode': 'AM',
           },
           {
             'name': 'Bahia',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Ceará',
-            'shortCode': 'CE'
+            'shortCode': 'CE',
           },
           {
             'name': 'Distrito Federal',
-            'shortCode': 'DF'
+            'shortCode': 'DF',
           },
           {
             'name': 'Espírito Santo',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Goiás',
-            'shortCode': 'GO'
+            'shortCode': 'GO',
           },
           {
             'name': 'Maranhão',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mato Grosso',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Mato Grosso do Sul',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Minas Gerais',
-            'shortCode': 'MG'
+            'shortCode': 'MG',
           },
           {
             'name': 'Pará',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Paraíba',
-            'shortCode': 'PB'
+            'shortCode': 'PB',
           },
           {
             'name': 'Paraná',
-            'shortCode': 'PR'
+            'shortCode': 'PR',
           },
           {
             'name': 'Pernambuco',
-            'shortCode': 'PE'
+            'shortCode': 'PE',
           },
           {
             'name': 'Piauí',
-            'shortCode': 'PI'
+            'shortCode': 'PI',
           },
           {
             'name': 'Rio de Janeiro',
-            'shortCode': 'RJ'
+            'shortCode': 'RJ',
           },
           {
             'name': 'Rio Grande do Norte',
-            'shortCode': 'RN'
+            'shortCode': 'RN',
           },
           {
             'name': 'Rio Grande do Sul',
-            'shortCode': 'RS'
+            'shortCode': 'RS',
           },
           {
             'name': 'Rondônia',
-            'shortCode': 'RO'
+            'shortCode': 'RO',
           },
           {
             'name': 'Roraima',
-            'shortCode': 'RR'
+            'shortCode': 'RR',
           },
           {
             'name': 'Santa Catarina',
-            'shortCode': 'SC'
+            'shortCode': 'SC',
           },
           {
             'name': 'São Paulo',
-            'shortCode': 'SP'
+            'shortCode': 'SP',
           },
           {
             'name': 'Sergipe',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Tocantins',
-            'shortCode': 'TO'
-          }
-        ]
+            'shortCode': 'TO',
+          },
+        ],
       },
       {
         'countryName': 'British Indian Ocean Territory',
         'countryShortCode': 'IO',
         'regions': [{
           'name': 'British Indian Ocean Territory',
-          'shortCode': 'IO'
-        }]
+          'shortCode': 'IO',
+        }],
       },
       {
         'countryName': 'Brunei Darussalam',
         'countryShortCode': 'BN',
         'regions': [{
           'name': 'Belait',
-          'shortCode': 'BE'
+          'shortCode': 'BE',
         },
           {
             'name': 'Brunei Muara',
-            'shortCode': 'BM'
+            'shortCode': 'BM',
           },
           {
             'name': 'Temburong',
-            'shortCode': 'TE'
+            'shortCode': 'TE',
           },
           {
             'name': 'Tutong',
-            'shortCode': 'TU'
-          }
-        ]
+            'shortCode': 'TU',
+          },
+        ],
       },
       {
         'countryName': 'Bulgaria',
         'countryShortCode': 'BG',
         'regions': [{
           'name': 'Blagoevgrad',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Burgas',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Dobrich',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Gabrovo',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Jambol',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Khaskovo',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Kjustendil',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Kurdzhali',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Lovech',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Montana',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Pazardzhik',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Pernik',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Pleven',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Plovdiv',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Razgrad',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Ruse',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Shumen',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Silistra',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Sliven',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Smoljan',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Sofija',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Sofija-Grad',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Stara Zagora',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Turgovishhe',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Varna',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Veliko Turnovo',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Vidin',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Vraca',
-            'shortCode': '06'
-          }
-        ]
+            'shortCode': '06',
+          },
+        ],
       },
       {
         'countryName': 'Burkina Faso',
         'countryShortCode': 'BF',
         'regions': [{
           'name': 'Balé',
-          'shortCode': 'BAL'
+          'shortCode': 'BAL',
         },
           {
             'name': 'Bam/Lake Bam',
-            'shortCode': 'BAM'
+            'shortCode': 'BAM',
           },
           {
             'name': 'Banwa Province',
-            'shortCode': 'BAN'
+            'shortCode': 'BAN',
           },
           {
             'name': 'Bazèga',
-            'shortCode': 'BAZ'
+            'shortCode': 'BAZ',
           },
           {
             'name': 'Bougouriba',
-            'shortCode': 'BGR'
+            'shortCode': 'BGR',
           },
           {
             'name': 'Boulgou Province',
-            'shortCode': 'BLG'
+            'shortCode': 'BLG',
           },
           {
             'name': 'Boulkiemdé',
-            'shortCode': 'BLK'
+            'shortCode': 'BLK',
           },
           {
             'name': 'Comoé/Komoe',
-            'shortCode': 'COM'
+            'shortCode': 'COM',
           },
           {
             'name': 'Ganzourgou Province',
-            'shortCode': 'GAN'
+            'shortCode': 'GAN',
           },
           {
             'name': 'Gnagna',
-            'shortCode': 'GNA'
+            'shortCode': 'GNA',
           },
           {
             'name': 'Gourma Province',
-            'shortCode': 'GOU'
+            'shortCode': 'GOU',
           },
           {
             'name': 'Houet',
-            'shortCode': 'HOU'
+            'shortCode': 'HOU',
           },
           {
             'name': 'Ioba',
-            'shortCode': 'IOB'
+            'shortCode': 'IOB',
           },
           {
             'name': 'Kadiogo',
-            'shortCode': 'KAD'
+            'shortCode': 'KAD',
           },
           {
             'name': 'Kénédougou',
-            'shortCode': 'KEN'
+            'shortCode': 'KEN',
           },
           {
             'name': 'Komondjari',
-            'shortCode': 'KMD'
+            'shortCode': 'KMD',
           },
           {
             'name': 'Kompienga',
-            'shortCode': 'KMP'
+            'shortCode': 'KMP',
           },
           {
             'name': 'Kossi Province',
-            'shortCode': 'KOS'
+            'shortCode': 'KOS',
           },
           {
             'name': 'Koulpélogo',
-            'shortCode': 'KOP'
+            'shortCode': 'KOP',
           },
           {
             'name': 'Kouritenga',
-            'shortCode': 'KOT'
+            'shortCode': 'KOT',
           },
           {
             'name': 'Kourwéogo',
-            'shortCode': 'KOW'
+            'shortCode': 'KOW',
           },
           {
             'name': 'Léraba',
-            'shortCode': 'LER'
+            'shortCode': 'LER',
           },
           {
             'name': 'Loroum',
-            'shortCode': 'LOR'
+            'shortCode': 'LOR',
           },
           {
             'name': 'Mouhoun',
-            'shortCode': 'MOU'
+            'shortCode': 'MOU',
           },
           {
             'name': 'Namentenga',
-            'shortCode': 'NAM'
+            'shortCode': 'NAM',
           },
           {
             'name': 'Naouri/Nahouri',
-            'shortCode': 'NAO'
+            'shortCode': 'NAO',
           },
           {
             'name': 'Nayala',
-            'shortCode': 'NAY'
+            'shortCode': 'NAY',
           },
           {
             'name': 'Noumbiel',
-            'shortCode': 'NOU'
+            'shortCode': 'NOU',
           },
           {
             'name': 'Oubritenga',
-            'shortCode': 'OUB'
+            'shortCode': 'OUB',
           },
           {
             'name': 'Oudalan',
-            'shortCode': 'OUD'
+            'shortCode': 'OUD',
           },
           {
             'name': 'Passoré',
-            'shortCode': 'PAS'
+            'shortCode': 'PAS',
           },
           {
             'name': 'Poni',
-            'shortCode': 'PON'
+            'shortCode': 'PON',
           },
           {
             'name': 'Sanguié',
-            'shortCode': 'SNG'
+            'shortCode': 'SNG',
           },
           {
             'name': 'Sanmatenga',
-            'shortCode': 'SMT'
+            'shortCode': 'SMT',
           },
           {
             'name': 'Séno',
-            'shortCode': 'SEN'
+            'shortCode': 'SEN',
           },
           {
             'name': 'Sissili',
-            'shortCode': 'SIS'
+            'shortCode': 'SIS',
           },
           {
             'name': 'Soum',
-            'shortCode': 'SOM'
+            'shortCode': 'SOM',
           },
           {
             'name': 'Sourou',
-            'shortCode': 'SOR'
+            'shortCode': 'SOR',
           },
           {
             'name': 'Tapoa',
-            'shortCode': 'TAP'
+            'shortCode': 'TAP',
           },
           {
             'name': 'Tui/Tuy',
-            'shortCode': 'TUI'
+            'shortCode': 'TUI',
           },
           {
             'name': 'Yagha',
-            'shortCode': 'YAG'
+            'shortCode': 'YAG',
           },
           {
             'name': 'Yatenga',
-            'shortCode': 'YAT'
+            'shortCode': 'YAT',
           },
           {
             'name': 'Ziro',
-            'shortCode': 'ZIR'
+            'shortCode': 'ZIR',
           },
           {
             'name': 'Zondoma',
-            'shortCode': 'ZON'
+            'shortCode': 'ZON',
           },
           {
             'name': 'Zoundwéogo',
-            'shortCode': 'ZOU'
-          }
-        ]
+            'shortCode': 'ZOU',
+          },
+        ],
       },
       {
         'countryName': 'Burundi',
         'countryShortCode': 'BI',
         'regions': [{
           'name': 'Bubanza',
-          'shortCode': 'BB'
+          'shortCode': 'BB',
         },
           {
             'name': 'Bujumbura Mairie',
-            'shortCode': 'BM'
+            'shortCode': 'BM',
           },
           {
             'name': 'Bujumbura Rural',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Bururi',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Cankuzo',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Cibitoke',
-            'shortCode': 'CI'
+            'shortCode': 'CI',
           },
           {
             'name': 'Gitega',
-            'shortCode': 'GI'
+            'shortCode': 'GI',
           },
           {
             'name': 'Karuzi',
-            'shortCode': 'KR'
+            'shortCode': 'KR',
           },
           {
             'name': 'Kayanza',
-            'shortCode': 'KY'
+            'shortCode': 'KY',
           },
           {
             'name': 'Kirundo',
-            'shortCode': 'KI'
+            'shortCode': 'KI',
           },
           {
             'name': 'Makamba',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Muramvya',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Muyinga',
-            'shortCode': 'MY'
+            'shortCode': 'MY',
           },
           {
             'name': 'Mwaro',
-            'shortCode': 'MW'
+            'shortCode': 'MW',
           },
           {
             'name': 'Ngozi',
-            'shortCode': 'NG'
+            'shortCode': 'NG',
           },
           {
             'name': 'Rutana',
-            'shortCode': 'RT'
+            'shortCode': 'RT',
           },
           {
             'name': 'Ruyigi',
-            'shortCode': 'RY'
-          }
-        ]
+            'shortCode': 'RY',
+          },
+        ],
       },
       {
         'countryName': 'Cambodia',
         'countryShortCode': 'KH',
         'regions': [{
           'name': 'Baat Dambang',
-          'shortCode': '2'
+          'shortCode': '2',
         },
           {
             'name': 'Banteay Mean Chey',
-            'shortCode': '1'
+            'shortCode': '1',
           },
           {
             'name': 'Kampong Chaam',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Kampong Chhnang',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Kampong Spueu',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Kampong Thum',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Kampot',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Kandaal',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Kaoh Kong',
-            'shortCode': '9'
+            'shortCode': '9',
           },
           {
             'name': 'Kracheh',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Krong Kaeb',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Krong Pailin',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Krong Preah Sihanouk',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Mondol Kiri',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Otdar Mean Chey',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Phnom Penh',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Pousaat',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Preah Vihear',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Prey Veaeng',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Rotanah Kiri',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Siem Reab',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Stueng Treng',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Svaay Rieng',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Taakaev',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Tbong Khmum',
-            'shortCode': '25'
-          }
-        ]
+            'shortCode': '25',
+          },
+        ],
       },
       {
         'countryName': 'Cameroon',
         'countryShortCode': 'CM',
         'regions': [{
           'name': 'Adamaoua',
-          'shortCode': 'AD'
+          'shortCode': 'AD',
         },
           {
             'name': 'Centre',
-            'shortCode': 'CE'
+            'shortCode': 'CE',
           },
           {
             'name': 'Est',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Extrême-Nord',
-            'shortCode': 'EN'
+            'shortCode': 'EN',
           },
           {
             'name': 'Littoral',
-            'shortCode': 'LT'
+            'shortCode': 'LT',
           },
           {
             'name': 'Nord',
-            'shortCode': 'NO'
+            'shortCode': 'NO',
           },
           {
             'name': 'Nord-Ouest',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'Ouest',
-            'shortCode': 'OU'
+            'shortCode': 'OU',
           },
           {
             'name': 'Sud',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Sud-Ouest',
-            'shortCode': 'SW'
-          }
-        ]
+            'shortCode': 'SW',
+          },
+        ],
       },
       {
         'countryName': 'Canada',
         'countryShortCode': 'CA',
         'regions': [{
           'name': 'Alberta',
-          'shortCode': 'AB'
+          'shortCode': 'AB',
         },
           {
             'name': 'British Columbia',
-            'shortCode': 'BC'
+            'shortCode': 'BC',
           },
           {
             'name': 'Manitoba',
-            'shortCode': 'MB'
+            'shortCode': 'MB',
           },
           {
             'name': 'New Brunswick',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Newfoundland and Labrador',
-            'shortCode': 'NL'
+            'shortCode': 'NL',
           },
           {
             'name': 'Northwest Territories',
-            'shortCode': 'NT'
+            'shortCode': 'NT',
           },
           {
             'name': 'Nova Scotia',
-            'shortCode': 'NS'
+            'shortCode': 'NS',
           },
           {
             'name': 'Nunavut',
-            'shortCode': 'NU'
+            'shortCode': 'NU',
           },
           {
             'name': 'Ontario',
-            'shortCode': 'ON'
+            'shortCode': 'ON',
           },
           {
             'name': 'Prince Edward Island',
-            'shortCode': 'PE'
+            'shortCode': 'PE',
           },
           {
             'name': 'Quebec',
-            'shortCode': 'QC'
+            'shortCode': 'QC',
           },
           {
             'name': 'Saskatchewan',
-            'shortCode': 'SK'
+            'shortCode': 'SK',
           },
           {
             'name': 'Yukon',
-            'shortCode': 'YT'
-          }
-        ]
+            'shortCode': 'YT',
+          },
+        ],
       },
       {
         'countryName': 'Cape Verde',
         'countryShortCode': 'CV',
         'regions': [{
           'name': 'Boa Vista',
-          'shortCode': 'BV'
+          'shortCode': 'BV',
         },
           {
             'name': 'Brava',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Calheta de São Miguel',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Maio',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mosteiros',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Paúl',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Porto Novo',
-            'shortCode': 'PN'
+            'shortCode': 'PN',
           },
           {
             'name': 'Praia',
-            'shortCode': 'PR'
+            'shortCode': 'PR',
           },
           {
             'name': 'Ribeira Brava',
-            'shortCode': 'RB'
+            'shortCode': 'RB',
           },
           {
             'name': 'Ribeira Grande',
-            'shortCode': 'RG'
+            'shortCode': 'RG',
           },
           {
             'name': 'Sal',
-            'shortCode': 'SL'
+            'shortCode': 'SL',
           },
           {
             'name': 'Santa Catarina',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Santa Cruz',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'São Domingos',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'São Filipe',
-            'shortCode': 'SF'
+            'shortCode': 'SF',
           },
           {
             'name': 'São Nicolau',
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'São Vicente',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Tarrafal',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Tarrafal de São Nicolau',
-            'shortCode': 'TS'
-          }
-        ]
+            'shortCode': 'TS',
+          },
+        ],
       },
       {
         'countryName': 'Cayman Islands',
         'countryShortCode': 'KY',
         'regions': [{
-          'name': 'Creek'
+          'name': 'Creek',
         },
           {
-            'name': 'Eastern'
+            'name': 'Eastern',
           },
           {
-            'name': 'Midland'
+            'name': 'Midland',
           },
           {
-            'name': 'South Town'
+            'name': 'South Town',
           },
           {
-            'name': 'Spot Bay'
+            'name': 'Spot Bay',
           },
           {
-            'name': 'Stake Bay'
+            'name': 'Stake Bay',
           },
           {
-            'name': 'West End'
+            'name': 'West End',
           },
           {
-            'name': 'Western'
-          }
-        ]
+            'name': 'Western',
+          },
+        ],
       },
       {
         'countryName': 'Central African Republic',
         'countryShortCode': 'CF',
         'regions': [{
           'name': 'Bamingui-Bangoran',
-          'shortCode': 'BB'
+          'shortCode': 'BB',
         },
           {
             'name': 'Bangui',
-            'shortCode': 'BGF'
+            'shortCode': 'BGF',
           },
           {
             'name': 'Basse-Kotto',
-            'shortCode': 'BK'
+            'shortCode': 'BK',
           },
           {
             'name': 'Haute-Kotto',
-            'shortCode': 'HK'
+            'shortCode': 'HK',
           },
           {
             'name': 'Haut-Mbomou',
-            'shortCode': 'HM'
+            'shortCode': 'HM',
           },
           {
             'name': 'Kémo',
-            'shortCode': 'KG'
+            'shortCode': 'KG',
           },
           {
             'name': 'Lobaye',
-            'shortCode': 'LB'
+            'shortCode': 'LB',
           },
           {
             'name': 'Mambéré-Kadéï',
-            'shortCode': 'HS'
+            'shortCode': 'HS',
           },
           {
             'name': 'Mbomou',
-            'shortCode': 'MB'
+            'shortCode': 'MB',
           },
           {
             'name': 'Nana-Grebizi',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Nana-Mambéré',
-            'shortCode': 'NM'
+            'shortCode': 'NM',
           },
           {
             'name': "Ombella-M'Poko",
-            'shortCode': 'MP'
+            'shortCode': 'MP',
           },
           {
             'name': 'Ouaka',
-            'shortCode': 'UK'
+            'shortCode': 'UK',
           },
           {
             'name': 'Ouham',
-            'shortCode': 'AC'
+            'shortCode': 'AC',
           },
           {
             'name': 'Ouham Péndé',
-            'shortCode': 'OP'
+            'shortCode': 'OP',
           },
           {
             'name': 'Sangha-Mbaéré',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Vakaga',
-            'shortCode': 'VK'
-          }
-        ]
+            'shortCode': 'VK',
+          },
+        ],
       },
       {
         'countryName': 'Chad',
         'countryShortCode': 'TD',
         'regions': [{
           'name': 'Bahr el Ghazal',
-          'shortCode': 'BG'
+          'shortCode': 'BG',
         },
           {
             'name': 'Batha',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Borkou',
-            'shortCode': 'BO'
+            'shortCode': 'BO',
           },
           {
             'name': 'Chari-Baguirmi',
-            'shortCode': 'CB'
+            'shortCode': 'CB',
           },
           {
             'name': 'Ennedi-Est',
-            'shortCode': 'EE'
+            'shortCode': 'EE',
           },
           {
             'name': 'Ennedi-Ouest',
-            'shortCode': 'EO'
+            'shortCode': 'EO',
           },
           {
             'name': 'Guéra',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Hadjer Lamis',
-            'shortCode': 'HL'
+            'shortCode': 'HL',
           },
           {
             'name': 'Kanem',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Lac',
-            'shortCode': 'LC'
+            'shortCode': 'LC',
           },
           {
             'name': 'Logone Occidental',
-            'shortCode': 'LO'
+            'shortCode': 'LO',
           },
           {
             'name': 'Logone Oriental',
-            'shortCode': 'LR'
+            'shortCode': 'LR',
           },
           {
             'name': 'Mondoul',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mayo-Kébbi-Est',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Moyen-Chari',
-            'shortCode': 'MC'
+            'shortCode': 'MC',
           },
           {
             'name': 'Ouaddai',
-            'shortCode': 'OD'
+            'shortCode': 'OD',
           },
           {
             'name': 'Salamat',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sila',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'Tandjilé',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Tibesti',
-            'shortCode': 'TI'
+            'shortCode': 'TI',
           },
           {
             'name': 'Ville de Ndjamena',
-            'shortCode': 'ND'
+            'shortCode': 'ND',
           },
           {
             'name': 'Wadi Fira',
-            'shortCode': 'WF'
-          }
-        ]
+            'shortCode': 'WF',
+          },
+        ],
       },
       {
         'countryName': 'Chile',
         'countryShortCode': 'CL',
         'regions': [{
           'name': 'Aisén del General Carlos Ibáñez del Campo',
-          'shortCode': 'AI'
+          'shortCode': 'AI',
         },
           {
             'name': 'Antofagasta',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Araucanía',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Arica y Parinacota',
-            'shortCode': 'AP'
+            'shortCode': 'AP',
           },
           {
             'name': 'Atacama',
-            'shortCode': 'AT'
+            'shortCode': 'AT',
           },
           {
             'name': 'Bío-Bío',
-            'shortCode': 'BI'
+            'shortCode': 'BI',
           },
           {
             'name': 'Coquimbo',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': "Libertador General Bernardo O'Higgins",
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Los Lagos',
-            'shortCode': 'LL'
+            'shortCode': 'LL',
           },
           {
             'name': 'Los Ríos',
-            'shortCode': 'LR'
+            'shortCode': 'LR',
           },
           {
             'name': 'Magallanes y Antartica Chilena',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Marga-Marga',
-            'shortCode': ''
+            'shortCode': '',
           },
           {
             'name': 'Maule',
-            'shortCode': 'ML'
+            'shortCode': 'ML',
           },
           {
             'name': 'Ñuble',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Región Metropolitana de Santiago',
-            'shortCode': 'RM'
+            'shortCode': 'RM',
           },
           {
             'name': 'Tarapacá',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Valparaíso',
-            'shortCode': 'VS'
-          }
-        ]
+            'shortCode': 'VS',
+          },
+        ],
       },
       {
         'countryName': 'China',
         'countryShortCode': 'CN',
         'regions': [{
           'name': 'Anhui',
-          'shortCode': '34'
+          'shortCode': '34',
         },
           {
             'name': 'Beijing',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Chongqing',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'Fujian',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Gansu',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Guangdong',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Guangxi',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Guizhou',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Hainan',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Hebei',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Heilongjiang',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Henan',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Hong Kong',
-            'shortCode': '91'
+            'shortCode': '91',
           },
           {
             'name': 'Hubei',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Hunan',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Inner Mongolia',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Jiangsu',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Jiangxi',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Jilin',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Liaoning',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Macau',
-            'shortCode': '92'
+            'shortCode': '92',
           },
           {
             'name': 'Ningxia',
-            'shortCode': '64'
+            'shortCode': '64',
           },
           {
             'name': 'Qinghai',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Shaanxi',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Shandong',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Shanghai',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Shanxi',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Sichuan',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Tianjin',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Tibet',
-            'shortCode': '54'
+            'shortCode': '54',
           },
           {
             'name': 'Xinjiang',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Yunnan',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Zhejiang',
-            'shortCode': '33'
-          }
-        ]
+            'shortCode': '33',
+          },
+        ],
       },
       {
         'countryName': 'Christmas Island',
         'countryShortCode': 'CX',
         'regions': [{
           'name': 'Christmas Island',
-          'shortCode': 'CX'
-        }]
+          'shortCode': 'CX',
+        }],
       },
       {
         'countryName': 'Cocos (Keeling) Islands',
         'countryShortCode': 'CC',
         'regions': [{
           'name': 'Direction Island',
-          'shortCode': 'DI'
+          'shortCode': 'DI',
         },
           {
             'name': 'Home Island',
-            'shortCode': 'HM'
+            'shortCode': 'HM',
           },
           {
             'name': 'Horsburgh Island',
-            'shortCode': 'HR'
+            'shortCode': 'HR',
           },
           {
             'name': 'North Keeling Island',
-            'shortCode': 'NK'
+            'shortCode': 'NK',
           },
           {
             'name': 'South Island',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'West Island',
-            'shortCode': 'WI'
-          }
-        ]
+            'shortCode': 'WI',
+          },
+        ],
       },
       {
         'countryName': 'Colombia',
         'countryShortCode': 'CO',
         'regions': [{
           'name': 'Amazonas',
-          'shortCode': 'AMA'
+          'shortCode': 'AMA',
         },
           {
             'name': 'Antioquia',
-            'shortCode': 'ANT'
+            'shortCode': 'ANT',
           },
           {
             'name': 'Arauca',
-            'shortCode': 'ARA'
+            'shortCode': 'ARA',
           },
           {
             'name': 'Archipiélago de San Andrés',
-            'shortCode': 'SAP'
+            'shortCode': 'SAP',
           },
           {
             'name': 'Atlántico',
-            'shortCode': 'ATL'
+            'shortCode': 'ATL',
           },
           {
             'name': 'Bogotá D.C.',
-            'shortCode': 'DC'
+            'shortCode': 'DC',
           },
           {
             'name': 'Bolívar',
-            'shortCode': 'BOL'
+            'shortCode': 'BOL',
           },
           {
             'name': 'Boyacá',
-            'shortCode': 'BOY'
+            'shortCode': 'BOY',
           },
           {
             'name': 'Caldas',
-            'shortCode': 'CAL'
+            'shortCode': 'CAL',
           },
           {
             'name': 'Caquetá',
-            'shortCode': 'CAQ'
+            'shortCode': 'CAQ',
           },
           {
             'name': 'Casanare',
-            'shortCode': 'CAS'
+            'shortCode': 'CAS',
           },
           {
             'name': 'Cauca',
-            'shortCode': 'CAU'
+            'shortCode': 'CAU',
           },
           {
             'name': 'Cesar',
-            'shortCode': 'CES'
+            'shortCode': 'CES',
           },
           {
             'name': 'Chocó',
-            'shortCode': 'CHO'
+            'shortCode': 'CHO',
           },
           {
             'name': 'Córdoba',
-            'shortCode': 'COR'
+            'shortCode': 'COR',
           },
           {
             'name': 'Cundinamarca',
-            'shortCode': 'CUN'
+            'shortCode': 'CUN',
           },
           {
             'name': 'Guainía',
-            'shortCode': 'GUA'
+            'shortCode': 'GUA',
           },
           {
             'name': 'Guaviare',
-            'shortCode': 'GUV'
+            'shortCode': 'GUV',
           },
           {
             'name': 'Huila',
-            'shortCode': 'HUI'
+            'shortCode': 'HUI',
           },
           {
             'name': 'La Guajira',
-            'shortCode': 'LAG'
+            'shortCode': 'LAG',
           },
           {
             'name': 'Magdalena',
-            'shortCode': 'MAG'
+            'shortCode': 'MAG',
           },
           {
             'name': 'Meta',
-            'shortCode': 'MET'
+            'shortCode': 'MET',
           },
           {
             'name': 'Nariño',
-            'shortCode': 'NAR'
+            'shortCode': 'NAR',
           },
           {
             'name': 'Norte de Santander',
-            'shortCode': 'NSA'
+            'shortCode': 'NSA',
           },
           {
             'name': 'Putumayo',
-            'shortCode': 'PUT'
+            'shortCode': 'PUT',
           },
           {
             'name': 'Quindío',
-            'shortCode': 'QUI'
+            'shortCode': 'QUI',
           },
           {
             'name': 'Risaralda',
-            'shortCode': 'RIS'
+            'shortCode': 'RIS',
           },
           {
             'name': 'Santander',
-            'shortCode': 'SAN'
+            'shortCode': 'SAN',
           },
           {
             'name': 'Sucre',
-            'shortCode': 'SUC'
+            'shortCode': 'SUC',
           },
           {
             'name': 'Tolima',
-            'shortCode': 'TOL'
+            'shortCode': 'TOL',
           },
           {
             'name': 'Valle del Cauca',
-            'shortCode': 'VAC'
+            'shortCode': 'VAC',
           },
           {
             'name': 'Vaupés',
-            'shortCode': 'VAU'
+            'shortCode': 'VAU',
           },
           {
             'name': 'Vichada',
-            'shortCode': 'VID'
-          }
-        ]
+            'shortCode': 'VID',
+          },
+        ],
       },
       {
         'countryName': 'Comoros',
         'countryShortCode': 'KM',
         'regions': [{
           'name': 'Andjazîdja',
-          'shortCode': 'G'
+          'shortCode': 'G',
         },
           {
             'name': 'Andjouân',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'Moûhîlî',
-            'shortCode': 'M'
-          }
-        ]
+            'shortCode': 'M',
+          },
+        ],
       },
       {
         'countryName': 'Congo, Republic of the (Brazzaville)',
         'countryShortCode': 'CG',
         'regions': [{
           'name': 'Bouenza',
-          'shortCode': '11'
+          'shortCode': '11',
         },
           {
             'name': 'Brazzaville',
-            'shortCode': 'BZV'
+            'shortCode': 'BZV',
           },
           {
             'name': 'Cuvette',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Cuvette-Ouest',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Kouilou',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Lékoumou',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Likouala',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Niari',
-            'shortCode': '9'
+            'shortCode': '9',
           },
           {
             'name': 'Plateaux',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Pointe-Noire',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Pool',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Sangha',
-            'shortCode': '13'
-          }
-        ]
+            'shortCode': '13',
+          },
+        ],
       },
       {
         'countryName': 'Congo, the Democratic Republic of the (Kinshasa)',
         'countryShortCode': 'CD',
         'regions': [{
           'name': 'Bandundu',
-          'shortCode': 'BN'
+          'shortCode': 'BN',
         },
           {
             'name': 'Bas-Congo',
-            'shortCode': 'BC'
+            'shortCode': 'BC',
           },
           {
             'name': 'Équateur',
-            'shortCode': 'EQ'
+            'shortCode': 'EQ',
           },
           {
             'name': 'Kasaï-Occidental',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Kasaï-Oriental',
-            'shortCode': 'KW'
+            'shortCode': 'KW',
           },
           {
             'name': 'Katanga',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kinshasa',
-            'shortCode': 'KN'
+            'shortCode': 'KN',
           },
           {
             'name': 'Maniema',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Nord-Kivu',
-            'shortCode': 'NK'
+            'shortCode': 'NK',
           },
           {
             'name': 'Orientale',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Sud-Kivu',
-            'shortCode': 'SK'
-          }
-        ]
+            'shortCode': 'SK',
+          },
+        ],
       },
       {
         'countryName': 'Cook Islands',
         'countryShortCode': 'CK',
         'regions': [{
-          'name': 'Aitutaki'
+          'name': 'Aitutaki',
         },
           {
-            'name': 'Atiu'
+            'name': 'Atiu',
           },
           {
-            'name': 'Avarua'
+            'name': 'Avarua',
           },
           {
-            'name': 'Mangaia'
+            'name': 'Mangaia',
           },
           {
-            'name': 'Manihiki'
+            'name': 'Manihiki',
           },
           {
-            'name': "Ma'uke"
+            'name': "Ma'uke",
           },
           {
-            'name': 'Mitiaro'
+            'name': 'Mitiaro',
           },
           {
-            'name': 'Nassau'
+            'name': 'Nassau',
           },
           {
-            'name': 'Palmerston'
+            'name': 'Palmerston',
           },
           {
-            'name': 'Penrhyn'
+            'name': 'Penrhyn',
           },
           {
-            'name': 'Pukapuka'
+            'name': 'Pukapuka',
           },
           {
-            'name': 'Rakahanga'
-          }
-        ]
+            'name': 'Rakahanga',
+          },
+        ],
       },
       {
         'countryName': 'Costa Rica',
         'countryShortCode': 'CR',
         'regions': [{
           'name': 'Alajuela',
-          'shortCode': '2'
+          'shortCode': '2',
         },
           {
             'name': 'Cartago',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Guanacaste',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Heredia',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Limón',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Puntarenas',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'San José',
-            'shortCode': '1'
-          }
-        ]
+            'shortCode': '1',
+          },
+        ],
       },
       {
         'countryName': "Côte d'Ivoire, Republic of",
         'countryShortCode': 'CI',
         'regions': [{
           'name': 'Agnéby',
-          'shortCode': '16'
+          'shortCode': '16',
         },
           {
             'name': 'Bafing',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Bas-Sassandra',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Denguélé',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Dix-Huit Montagnes',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Fromager',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Haut-Sassandra',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Lacs',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Lagunes',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Marahoué',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Moyen-Cavally',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Moyen-Comoé',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': "N'zi-Comoé",
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Savanes',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Sud-Bandama',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Sud-Comoé',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Vallée du Bandama',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Worodougou',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Zanzan',
-            'shortCode': '08'
-          }
-        ]
+            'shortCode': '08',
+          },
+        ],
       },
       {
         'countryName': 'Croatia',
         'countryShortCode': 'HR',
         'regions': [{
           'name': 'Bjelovarsko-Bilogorska Županija',
-          'shortCode': '07'
+          'shortCode': '07',
         },
           {
             'name': 'Brodsko-Posavska Županija',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Dubrovačko-Neretvanska Županija',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Grad Zagreb',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Istarska Županija',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Karlovačka Županija',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Koprivničko-Krizevačka Županija',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Krapinsko-Zagorska Županija',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Ličko-Senjska Županija',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Međimurska Županija',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Osječko-Baranjska Županija',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Požeško-Slavonska Županija',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Primorsko-Goranska Županija',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Sisačko-Moslavačka Županija',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Splitsko-Dalmatinska Županija',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Sibensko-Kninska Županija',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Varaždinska Županija',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Virovitičko-Podravska Županija',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Vukovarsko-Srijemska Županija',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Zadarska Županija',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Zagrebacka Zupanija',
-            'shortCode': '01'
-          }
-        ]
+            'shortCode': '01',
+          },
+        ],
       },
       {
         'countryName': 'Cuba',
         'countryShortCode': 'CU',
         'regions': [{
           'name': 'Artemisa',
-          'shortCode': '15'
+          'shortCode': '15',
         },
           {
             'name': 'Camagüey',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Ciego de Ávila',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Cienfuegos',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Granma',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Guantánamo',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Holguín',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Isla de la Juventud',
-            'shortCode': '99'
+            'shortCode': '99',
           },
           {
             'name': 'La Habana',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Las Tunas',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Matanzas',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Mayabeque',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Pinar del Río',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Sancti Spíritus',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Santiago de Cuba',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Villa Clara',
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Curaçao',
         'countryShortCode': 'CW',
         'regions': [{
           'name': 'Curaçao',
-          'shortCode': 'CW'
-        }]
+          'shortCode': 'CW',
+        }],
       },
       {
         'countryName': 'Cyprus',
         'countryShortCode': 'CY',
         'regions': [{
           'name': 'Ammochostos',
-          'shortCode': '04'
+          'shortCode': '04',
         },
           {
             'name': 'Keryneia',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Larnaka',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Lefkosia',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Lemesos',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Pafos',
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Czech Republic',
         'countryShortCode': 'CZ',
         'regions': [{
           'name': 'Hlavní město Praha',
-          'shortCode': 'PR'
+          'shortCode': 'PR',
         },
           {
             'name': 'Jihočeský kraj',
-            'shortCode': 'JC'
+            'shortCode': 'JC',
           },
           {
             'name': 'Jihomoravský kraj',
-            'shortCode': 'JM'
+            'shortCode': 'JM',
           },
           {
             'name': 'Karlovarský kraj',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Královéhradecký kraj',
-            'shortCode': 'KR'
+            'shortCode': 'KR',
           },
           {
             'name': 'Liberecký kraj',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Moravskoslezský kraj',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Olomoucký kraj',
-            'shortCode': 'OL'
+            'shortCode': 'OL',
           },
           {
             'name': 'Pardubický kraj',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Plzeňský kraj',
-            'shortCode': 'PL'
+            'shortCode': 'PL',
           },
           {
             'name': 'Středočeský kraj',
-            'shortCode': 'ST'
+            'shortCode': 'ST',
           },
           {
             'name': 'Ústecký kraj',
-            'shortCode': 'US'
+            'shortCode': 'US',
           },
           {
             'name': 'Vysočina',
-            'shortCode': 'VY'
+            'shortCode': 'VY',
           },
           {
             'name': 'Zlínský kraj',
-            'shortCode': 'ZL'
-          }
-        ]
+            'shortCode': 'ZL',
+          },
+        ],
       },
       {
         'countryName': 'Denmark',
         'countryShortCode': 'DK',
         'regions': [{
           'name': 'Hovedstaden',
-          'shortCode': '84'
+          'shortCode': '84',
         },
           {
             'name': 'Kujalleq',
-            'shortCode': 'GL-KU'
+            'shortCode': 'GL-KU',
           },
           {
             'name': 'Midtjylland',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Norderøerne',
-            'shortCode': 'FO-01'
+            'shortCode': 'FO-01',
           },
           {
             'name': 'Nordjylland',
-            'shortCode': '81'
+            'shortCode': '81',
           },
           {
             'name': 'Østerø',
-            'shortCode': 'FO-06'
+            'shortCode': 'FO-06',
           },
           {
             'name': 'Qaasuitsup',
-            'shortCode': 'GL-QA'
+            'shortCode': 'GL-QA',
           },
           {
             'name': 'Qeqqata',
-            'shortCode': 'GL-QE'
+            'shortCode': 'GL-QE',
           },
           {
             'name': 'Sandø',
-            'shortCode': 'FO-02'
+            'shortCode': 'FO-02',
           },
           {
             'name': 'Sermersooq',
-            'shortCode': 'GL-SM'
+            'shortCode': 'GL-SM',
           },
           {
             'name': 'Sjælland',
-            'shortCode': '85'
+            'shortCode': '85',
           },
           {
             'name': 'Strømø',
-            'shortCode': 'FO-03'
+            'shortCode': 'FO-03',
           },
           {
             'name': 'Suderø',
-            'shortCode': 'FO-04'
+            'shortCode': 'FO-04',
           },
           {
             'name': 'Syddanmark',
-            'shortCode': '83'
+            'shortCode': '83',
           },
           {
             'name': 'Vågø',
-            'shortCode': 'FO-05'
-          }
-        ]
+            'shortCode': 'FO-05',
+          },
+        ],
       },
       {
         'countryName': 'Djibouti',
         'countryShortCode': 'DJ',
         'regions': [{
           'name': 'Ali Sabieh',
-          'shortCode': 'AS'
+          'shortCode': 'AS',
         },
           {
             'name': 'Arta',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Dikhil',
-            'shortCode': 'DI'
+            'shortCode': 'DI',
           },
           {
             'name': 'Obock',
-            'shortCode': 'OB'
+            'shortCode': 'OB',
           },
           {
             'name': 'Tadjourah',
-            'shortCode': 'TA'
-          }
-        ]
+            'shortCode': 'TA',
+          },
+        ],
       },
       {
         'countryName': 'Dominica',
         'countryShortCode': 'DM',
         'regions': [{
           'name': 'Saint Andrew Parish',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Saint David Parish',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Saint George Parish',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Saint John Parish',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Saint Joseph Parish',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Saint Luke Parish',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Saint Mark Parish',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Saint Patrick Parish',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Saint Paul Parish',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Saint Peter Parish',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Dominican Republic',
         'countryShortCode': 'DO',
         'regions': [{
           'name': 'Cibao Central',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Del Valle',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Distrito Nacional',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Enriquillo',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Norcentral',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Nordeste',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Noroeste',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Norte',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Valdesia',
-            'shortCode': '42'
-          }
-        ]
+            'shortCode': '42',
+          },
+        ],
       },
       {
         'countryName': 'Ecuador',
         'countryShortCode': 'EC',
         'regions': [{
           'name': 'Azuay',
-          'shortCode': 'A'
+          'shortCode': 'A',
         },
           {
             'name': 'Bolívar',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Cañar',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Carchi',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Chimborazo',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Cotopaxi',
-            'shortCode': 'X'
+            'shortCode': 'X',
           },
           {
             'name': 'El Oro',
-            'shortCode': 'O'
+            'shortCode': 'O',
           },
           {
             'name': 'Esmeraldas',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Galápagos',
-            'shortCode': 'W'
+            'shortCode': 'W',
           },
           {
             'name': 'Guayas',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Imbabura',
-            'shortCode': 'I'
+            'shortCode': 'I',
           },
           {
             'name': 'Loja',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Los Ríos',
-            'shortCode': 'R'
+            'shortCode': 'R',
           },
           {
             'name': 'Manabí',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Morona-Santiago',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Napo',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Orellana',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Pastaza',
-            'shortCode': 'Y'
+            'shortCode': 'Y',
           },
           {
             'name': 'Pichincha',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Santa Elena',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Santo Domingo de los Tsáchilas',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Sucumbíos',
-            'shortCode': 'U'
+            'shortCode': 'U',
           },
           {
             'name': 'Tungurahua',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Zamora-Chinchipe',
-            'shortCode': 'Z'
-          }
-        ]
+            'shortCode': 'Z',
+          },
+        ],
       },
       {
         'countryName': 'Egypt',
         'countryShortCode': 'EG',
         'regions': [{
           'name': 'Alexandria',
-          'shortCode': 'ALX'
+          'shortCode': 'ALX',
         },
           {
             'name': 'Aswan',
-            'shortCode': 'ASN'
+            'shortCode': 'ASN',
           },
           {
             'name': 'Asyout',
-            'shortCode': 'AST'
+            'shortCode': 'AST',
           },
           {
             'name': 'Bani Sueif',
-            'shortCode': 'BNS'
+            'shortCode': 'BNS',
           },
           {
             'name': 'Beheira',
-            'shortCode': 'BH'
+            'shortCode': 'BH',
           },
           {
             'name': 'Cairo',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Daqahlia',
-            'shortCode': 'DK'
+            'shortCode': 'DK',
           },
           {
             'name': 'Dumiat',
-            'shortCode': 'DT'
+            'shortCode': 'DT',
           },
           {
             'name': 'El Bahr El Ahmar',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'El Ismailia',
-            'shortCode': 'IS'
+            'shortCode': 'IS',
           },
           {
             'name': 'El Suez',
-            'shortCode': 'SUZ'
+            'shortCode': 'SUZ',
           },
           {
             'name': 'El Wadi El Gedeed',
-            'shortCode': 'WAD'
+            'shortCode': 'WAD',
           },
           {
             'name': 'Fayoum',
-            'shortCode': 'FYM'
+            'shortCode': 'FYM',
           },
           {
             'name': 'Gharbia',
-            'shortCode': 'GH'
+            'shortCode': 'GH',
           },
           {
             'name': 'Giza',
-            'shortCode': 'SUZ'
+            'shortCode': 'SUZ',
           },
           {
             'name': 'Helwan',
-            'shortCode': 'HU'
+            'shortCode': 'HU',
           },
           {
             'name': 'Kafr El Sheikh',
-            'shortCode': 'KFS'
+            'shortCode': 'KFS',
           },
           {
             'name': 'Luxor',
-            'shortCode': 'LX'
+            'shortCode': 'LX',
           },
           {
             'name': 'Matrouh',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Menia',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Menofia',
-            'shortCode': 'MNF'
+            'shortCode': 'MNF',
           },
           {
             'name': 'North Sinai',
-            'shortCode': 'SIN'
+            'shortCode': 'SIN',
           },
           {
             'name': 'Port Said',
-            'shortCode': 'PTS'
+            'shortCode': 'PTS',
           },
           {
             'name': 'Qalubia',
-            'shortCode': 'KB'
+            'shortCode': 'KB',
           },
           {
             'name': 'Qena',
-            'shortCode': 'KN'
+            'shortCode': 'KN',
           },
           {
             'name': 'Sharqia',
-            'shortCode': 'SHR'
+            'shortCode': 'SHR',
           },
           {
             'name': 'Sixth of October',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Sohag',
-            'shortCode': 'SHG'
+            'shortCode': 'SHG',
           },
           {
             'name': 'South Sinai',
-            'shortCode': 'JS'
-          }
-        ]
+            'shortCode': 'JS',
+          },
+        ],
       },
       {
         'countryName': 'El Salvador',
         'countryShortCode': 'SV',
         'regions': [{
           'name': 'Ahuachapán',
-          'shortCode': 'AH'
+          'shortCode': 'AH',
         },
           {
             'name': 'Cabañas',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Cuscatlán',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Chalatenango',
-            'shortCode': 'CH'
+            'shortCode': 'CH',
           },
           {
             'name': 'La Libertad',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'La Paz',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'La Unión',
-            'shortCode': 'UN'
+            'shortCode': 'UN',
           },
           {
             'name': 'Morazán',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'San Miguel',
-            'shortCode': 'SM'
+            'shortCode': 'SM',
           },
           {
             'name': 'San Salvador',
-            'shortCode': 'SS'
+            'shortCode': 'SS',
           },
           {
             'name': 'Santa Ana',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'San Vicente',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Sonsonate',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Usulután',
-            'shortCode': 'US'
-          }
-        ]
+            'shortCode': 'US',
+          },
+        ],
       },
       {
         'countryName': 'Equatorial Guinea',
         'countryShortCode': 'GQ',
         'regions': [{
           'name': 'Annobón',
-          'shortCode': 'AN'
+          'shortCode': 'AN',
         },
           {
             'name': 'Bioko Norte',
-            'shortCode': 'BN'
+            'shortCode': 'BN',
           },
           {
             'name': 'Bioko Sur',
-            'shortCode': 'BS'
+            'shortCode': 'BS',
           },
           {
             'name': 'Centro Sur',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Kié-Ntem',
-            'shortCode': 'KN'
+            'shortCode': 'KN',
           },
           {
             'name': 'Litoral',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Wele-Nzas',
-            'shortCode': 'WN'
-          }
-        ]
+            'shortCode': 'WN',
+          },
+        ],
       },
       {
         'countryName': 'Eritrea',
         'countryShortCode': 'ER',
         'regions': [{
           'name': 'Anseba',
-          'shortCode': 'AN'
+          'shortCode': 'AN',
         },
           {
             'name': 'Debub',
-            'shortCode': 'DU'
+            'shortCode': 'DU',
           },
           {
             'name': 'Debub-Keih-Bahri',
-            'shortCode': 'DK'
+            'shortCode': 'DK',
           },
           {
             'name': 'Gash-Barka',
-            'shortCode': 'GB'
+            'shortCode': 'GB',
           },
           {
             'name': 'Maekel',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Semien-Keih-Bahri',
-            'shortCode': 'SK'
-          }
-        ]
+            'shortCode': 'SK',
+          },
+        ],
       },
       {
         'countryName': 'Estonia',
         'countryShortCode': 'EE',
         'regions': [{
           'name': 'Harjumaa (Tallinn)',
-          'shortCode': '37'
+          'shortCode': '37',
         },
           {
             'name': 'Hiiumaa (Kardla)',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Ida-Virumaa (Johvi)',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Järvamaa (Paide)',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Jõgevamaa (Jogeva)',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Läänemaa',
-            'shortCode': '57'
+            'shortCode': '57',
           },
           {
             'name': 'Lääne-Virumaa (Rakvere)',
-            'shortCode': '59'
+            'shortCode': '59',
           },
           {
             'name': 'Pärnumaa (Parnu)',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Põlvamaa (Polva)',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Raplamaa (Rapla)',
-            'shortCode': '70'
+            'shortCode': '70',
           },
           {
             'name': 'Saaremaa (Kuessaare)',
-            'shortCode': '74'
+            'shortCode': '74',
           },
           {
             'name': 'Tartumaa (Tartu)',
-            'shortCode': '78'
+            'shortCode': '78',
           },
           {
             'name': 'Valgamaa (Valga)',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Viljandimaa (Viljandi)',
-            'shortCode': '84'
+            'shortCode': '84',
           },
           {
             'name': 'Võrumaa (Voru)',
-            'shortCode': '86'
-          }
-        ]
+            'shortCode': '86',
+          },
+        ],
       },
       {
         'countryName': 'Ethiopia',
         'countryShortCode': 'ET',
         'regions': [{
           'name': 'Addis Ababa',
-          'shortCode': 'AA'
+          'shortCode': 'AA',
         },
           {
             'name': 'Afar',
-            'shortCode': 'AF'
+            'shortCode': 'AF',
           },
           {
             'name': 'Amhara',
-            'shortCode': 'AM'
+            'shortCode': 'AM',
           },
           {
             'name': 'Benshangul-Gumaz',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Dire Dawa',
-            'shortCode': 'DD'
+            'shortCode': 'DD',
           },
           {
             'name': 'Gambela',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Harari',
-            'shortCode': 'HA'
+            'shortCode': 'HA',
           },
           {
             'name': 'Oromia',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Somali',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': "Southern Nations Nationalities and People's Region",
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'Tigray',
-            'shortCode': 'TI'
-          }
-        ]
+            'shortCode': 'TI',
+          },
+        ],
       },
       {
         'countryName': 'Falkland Islands (Islas Malvinas)',
         'countryShortCode': 'FK',
         'regions': [{
-          'name': 'Falkland Islands (Islas Malvinas)'
-        }]
+          'name': 'Falkland Islands (Islas Malvinas)',
+        }],
       },
       {
         'countryName': 'Faroe Islands',
         'countryShortCode': 'FO',
         'regions': [{
-          'name': 'Bordoy'
+          'name': 'Bordoy',
         },
           {
-            'name': 'Eysturoy'
+            'name': 'Eysturoy',
           },
           {
-            'name': 'Mykines'
+            'name': 'Mykines',
           },
           {
-            'name': 'Sandoy'
+            'name': 'Sandoy',
           },
           {
-            'name': 'Skuvoy'
+            'name': 'Skuvoy',
           },
           {
-            'name': 'Streymoy'
+            'name': 'Streymoy',
           },
           {
-            'name': 'Suduroy'
+            'name': 'Suduroy',
           },
           {
-            'name': 'Tvoroyri'
+            'name': 'Tvoroyri',
           },
           {
-            'name': 'Vagar'
-          }
-        ]
+            'name': 'Vagar',
+          },
+        ],
       },
       {
         'countryName': 'Fiji',
         'countryShortCode': 'FJ',
         'regions': [{
           'name': 'Ba',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Bua',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Cakaudrove',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Kadavu',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Lau',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Lomaiviti',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Macuata',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Nadroga and Navosa',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Naitasiri',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Namosi',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Ra',
-            'shortCode': '011'
+            'shortCode': '011',
           },
           {
             'name': 'Rewa',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Rotuma',
-            'shortCode': 'R'
+            'shortCode': 'R',
           },
           {
             'name': 'Serua',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Tailevu',
-            'shortCode': '14'
-          }
-        ]
+            'shortCode': '14',
+          },
+        ],
       },
       {
         'countryName': 'Finland',
         'countryShortCode': 'FI',
         'regions': [{
           'name': 'Ahvenanmaan lääni',
-          'shortCode': 'AL'
+          'shortCode': 'AL',
         },
           {
             'name': 'Etelä-Suomen lääni',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Itä-Suomen lääni',
-            'shortCode': 'IS'
+            'shortCode': 'IS',
           },
           {
             'name': 'Länsi-Suomen lääni',
-            'shortCode': 'LS'
+            'shortCode': 'LS',
           },
           {
             'name': 'Lapin lääni',
-            'shortCode': 'LL'
+            'shortCode': 'LL',
           },
           {
             'name': 'Oulun lääni',
-            'shortCode': 'OL'
-          }
-        ]
+            'shortCode': 'OL',
+          },
+        ],
       },
       {
         'countryName': 'France',
         'countryShortCode': 'FR',
         'regions': [{
           'name': 'Auvergne-Rhône-Alpes',
-          'shortCode': 'ARA'
+          'shortCode': 'ARA',
         },
           {
             'name': 'Bourgogne-Franche-Comté',
-            'shortCode': 'BFC'
+            'shortCode': 'BFC',
           },
           {
             'name': 'Bretagne',
-            'shortCode': 'BRE'
+            'shortCode': 'BRE',
           },
           {
             'name': 'Centre-Val de Loire',
-            'shortCode': 'CVL'
+            'shortCode': 'CVL',
           },
           {
             'name': 'Corse',
-            'shortCode': 'COR'
+            'shortCode': 'COR',
           },
           {
             'name': 'Grand Est',
-            'shortCode': 'GES'
+            'shortCode': 'GES',
           },
           {
             'name': 'Hauts-de-France',
-            'shortCode': 'HDF'
+            'shortCode': 'HDF',
           },
           {
             'name': 'Île-de-France',
-            'shortCode': 'IDF'
+            'shortCode': 'IDF',
           },
           {
             'name': 'Normandie',
-            'shortCode': 'NOR'
+            'shortCode': 'NOR',
           },
           {
             'name': 'Nouvelle-Aquitaine',
-            'shortCode': 'NAQ'
+            'shortCode': 'NAQ',
           },
           {
             'name': 'Occitanie',
-            'shortCode': 'OCC'
+            'shortCode': 'OCC',
           },
           {
             'name': 'Pays de la Loire',
-            'shortCode': 'PDL'
+            'shortCode': 'PDL',
           },
           {
             'name': "Provence-Alpes-Cote d'Azur",
-            'shortCode': 'PAC'
+            'shortCode': 'PAC',
           },
           {
             'name': 'Clipperton',
-            'shortCode': 'CP'
+            'shortCode': 'CP',
           },
           {
             'name': 'Guadeloupe',
-            'shortCode': 'GP'
+            'shortCode': 'GP',
           },
           {
             'name': 'Guyane',
-            'shortCode': 'GF'
+            'shortCode': 'GF',
           },
           {
             'name': 'Martinique',
-            'shortCode': 'MQ'
+            'shortCode': 'MQ',
           },
           {
             'name': 'Mayotte',
-            'shortCode': 'YT'
+            'shortCode': 'YT',
           },
           {
             'name': 'Novelle-Calédonie',
-            'shortCode': 'NC'
+            'shortCode': 'NC',
           },
           {
             'name': 'Polynésie',
-            'shortCode': 'PF'
+            'shortCode': 'PF',
           },
           {
             'name': 'Saint-Pierre-et-Miquelon',
-            'shortCode': 'PM'
+            'shortCode': 'PM',
           },
           {
             'name': 'Saint Barthélemy',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Saint Martin',
-            'shortCode': 'MF'
+            'shortCode': 'MF',
           },
           {
             'name': 'Réunion',
-            'shortCode': 'RE'
+            'shortCode': 'RE',
           },
           {
             'name': 'Terres Australes Françaises',
-            'shortCode': 'TF'
+            'shortCode': 'TF',
           },
           {
             'name': 'Wallis-et-Futuna',
-            'shortCode': 'WF'
-          }
-        ]
+            'shortCode': 'WF',
+          },
+        ],
       },
       {
         'countryName': 'French Guiana',
         'countryShortCode': 'GF',
         'regions': [{
-          'name': 'French Guiana'
-        }]
+          'name': 'French Guiana',
+        }],
       },
       {
         'countryName': 'French Polynesia',
         'countryShortCode': 'PF',
         'regions': [{
-          'name': 'Archipel des Marquises'
+          'name': 'Archipel des Marquises',
         },
           {
-            'name': 'Archipel des Tuamotu'
+            'name': 'Archipel des Tuamotu',
           },
           {
-            'name': 'Archipel des Tubuai'
+            'name': 'Archipel des Tubuai',
           },
           {
-            'name': 'Iles du Vent'
+            'name': 'Iles du Vent',
           },
           {
-            'name': 'Iles Sous-le-Vent'
-          }
-        ]
+            'name': 'Iles Sous-le-Vent',
+          },
+        ],
       },
       {
         'countryName': 'French Southern and Antarctic Lands',
         'countryShortCode': 'TF',
         'regions': [{
-          'name': 'Adelie Land'
+          'name': 'Adelie Land',
         },
           {
-            'name': 'Ile Crozet'
+            'name': 'Ile Crozet',
           },
           {
-            'name': 'Iles Kerguelen'
+            'name': 'Iles Kerguelen',
           },
           {
-            'name': 'Iles Saint-Paul et Amsterdam'
-          }
-        ]
+            'name': 'Iles Saint-Paul et Amsterdam',
+          },
+        ],
       },
       {
         'countryName': 'Gabon',
         'countryShortCode': 'GA',
         'regions': [{
           'name': 'Estuaire',
-          'shortCode': '1'
+          'shortCode': '1',
         },
           {
             'name': 'Haut-Ogooué',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Moyen-Ogooué',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Ngounié',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Nyanga',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Ogooué-Ivindo',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Ogooué-Lolo',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Ogooué-Maritime',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Woleu-Ntem',
-            'shortCode': '9'
-          }
-        ]
+            'shortCode': '9',
+          },
+        ],
       },
       {
         'countryName': 'Gambia, The',
         'countryShortCode': 'GM',
         'regions': [{
           'name': 'Banjul',
-          'shortCode': 'B'
+          'shortCode': 'B',
         },
           {
             'name': 'Central River',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Lower River',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'North Bank',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Upper River',
-            'shortCode': 'U'
+            'shortCode': 'U',
           },
           {
             'name': 'Western',
-            'shortCode': 'W'
-          }
-        ]
+            'shortCode': 'W',
+          },
+        ],
       },
       {
         'countryName': 'Georgia',
         'countryShortCode': 'GE',
         'regions': [{
           'name': 'Abkhazia (Sokhumi)',
-          'shortCode': 'AB'
+          'shortCode': 'AB',
         },
           {
             'name': "Ajaria (Bat'umi)",
-            'shortCode': 'AJ'
+            'shortCode': 'AJ',
           },
           {
             'name': 'Guria',
-            'shortCode': 'GU'
+            'shortCode': 'GU',
           },
           {
             'name': 'Imereti',
-            'shortCode': 'IM'
+            'shortCode': 'IM',
           },
           {
             'name': "K'akheti",
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kvemo Kartli',
-            'shortCode': 'KK'
+            'shortCode': 'KK',
           },
           {
             'name': 'Mtshkheta-Mtianeti',
-            'shortCode': 'MM'
+            'shortCode': 'MM',
           },
           {
             'name': "Rach'a-Lexhkumi-KvemoSvaneti",
-            'shortCode': 'RL'
+            'shortCode': 'RL',
           },
           {
             'name': 'Samegrelo-Zemo Svaneti',
-            'shortCode': 'SZ'
+            'shortCode': 'SZ',
           },
           {
             'name': 'Samtskhe-Javakheti',
-            'shortCode': 'SJ'
+            'shortCode': 'SJ',
           },
           {
             'name': 'Shida Kartli',
-            'shortCode': 'SK'
+            'shortCode': 'SK',
           },
           {
             'name': 'Tbilisi',
-            'shortCode': 'TB'
-          }
-        ]
+            'shortCode': 'TB',
+          },
+        ],
       },
       {
         'countryName': 'Germany',
         'countryShortCode': 'DE',
         'regions': [{
           'name': 'Baden-Württemberg',
-          'shortCode': 'BW'
+          'shortCode': 'BW',
         },
           {
             'name': 'Bayern',
-            'shortCode': 'BY'
+            'shortCode': 'BY',
           },
           {
             'name': 'Berlin',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Brandenburg',
-            'shortCode': 'BB'
+            'shortCode': 'BB',
           },
           {
             'name': 'Bremen',
-            'shortCode': 'HB'
+            'shortCode': 'HB',
           },
           {
             'name': 'Hamburg',
-            'shortCode': 'HH'
+            'shortCode': 'HH',
           },
           {
             'name': 'Hessen',
-            'shortCode': 'HE'
+            'shortCode': 'HE',
           },
           {
             'name': 'Mecklenburg-Vorpommern',
-            'shortCode': 'MV'
+            'shortCode': 'MV',
           },
           {
             'name': 'Niedersachsen',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Nordrhein-Westfalen',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'Rheinland-Pfalz',
-            'shortCode': 'RP'
+            'shortCode': 'RP',
           },
           {
             'name': 'Saarland',
-            'shortCode': 'SL'
+            'shortCode': 'SL',
           },
           {
             'name': 'Sachsen',
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'Sachsen-Anhalt',
-            'shortCode': 'ST'
+            'shortCode': 'ST',
           },
           {
             'name': 'Schleswig-Holstein',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Thüringen',
-            'shortCode': 'TH'
-          }
-        ]
+            'shortCode': 'TH',
+          },
+        ],
       },
       {
         'countryName': 'Ghana',
         'countryShortCode': 'GH',
         'regions': [{
-          'name': 'Ahafo'
+          'name': 'Ahafo',
         },
           {
             'name': 'Ashanti',
-            'shortCode': 'AH'
+            'shortCode': 'AH',
           },
           {
-            'name': 'Bono'
+            'name': 'Bono',
           },
           {
-            'name': 'Bono East'
+            'name': 'Bono East',
           },
           {
             'name': 'Central',
-            'shortCode': 'CP'
+            'shortCode': 'CP',
           },
           {
             'name': 'Eastern',
-            'shortCode': 'EP'
+            'shortCode': 'EP',
           },
           {
             'name': 'Greater Accra',
-            'shortCode': 'AA'
+            'shortCode': 'AA',
           },
           {
             'name': 'Northern',
-            'shortCode': 'NP'
+            'shortCode': 'NP',
           },
           {
-            'name': 'North East'
+            'name': 'North East',
           },
           {
-            'name': 'Oti'
+            'name': 'Oti',
           },
           {
-            'name': 'Savannah'
+            'name': 'Savannah',
           },
           {
             'name': 'Upper East',
-            'shortCode': 'UE'
+            'shortCode': 'UE',
           },
           {
             'name': 'Upper West',
-            'shortCode': 'UW'
+            'shortCode': 'UW',
           },
           {
             'name': 'Volta',
-            'shortCode': 'TV'
+            'shortCode': 'TV',
           },
           {
             'name': 'Western',
-            'shortCode': 'WP'
+            'shortCode': 'WP',
           },
           {
-            'name': 'Western North'
-          }
-        ]
+            'name': 'Western North',
+          },
+        ],
       },
       {
         'countryName': 'Gibraltar',
         'countryShortCode': 'GI',
         'regions': [{
-          'name': 'Gibraltar'
-        }]
+          'name': 'Gibraltar',
+        }],
       },
       {
         'countryName': 'Greece',
         'countryShortCode': 'GR',
         'regions': [{
           'name': 'Anatolikí Makedonía kai Thráki',
-          'shortCode': 'A'
+          'shortCode': 'A',
         },
           {
             'name': 'Attikḯ',
-            'shortCode': 'I'
+            'shortCode': 'I',
           },
           {
             'name': 'Dytikí Elláda',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Dytikí Makedonía',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Ionía Nísia',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Kentrikí Makedonía',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Krítí',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Notío Aigaío',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Peloponnísos',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': 'Stereá Elláda',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Thessalía',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Voreío Aigaío',
-            'shortCode': 'K'
+            'shortCode': 'K',
           },
           {
             'name': 'Ípeiros',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Ágion Óros',
-            'shortCode': '69'
-          }
-        ]
+            'shortCode': '69',
+          },
+        ],
       },
       {
         'countryName': 'Greenland',
         'countryShortCode': 'GL',
         'regions': [{
           'name': 'Kommune Kujalleq',
-          'shortCode': 'KU'
+          'shortCode': 'KU',
         },
           {
             'name': 'Kommuneqarfik Sermersooq',
-            'shortCode': 'SM'
+            'shortCode': 'SM',
           },
           {
             'name': 'Qaasuitsup Kommunia',
-            'shortCode': 'QA'
+            'shortCode': 'QA',
           },
           {
             'name': 'Qeqqata Kommunia',
-            'shortCode': 'QE'
-          }
-        ]
+            'shortCode': 'QE',
+          },
+        ],
       },
       {
         'countryName': 'Grenada',
         'countryShortCode': 'GD',
         'regions': [{
           'name': 'Saint Andrew',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Saint David',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Saint George',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Saint John',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Saint Mark',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Saint Patrick',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Southern Grenadine Islands',
-            'shortCode': '10'
-          }
-        ]
+            'shortCode': '10',
+          },
+        ],
       },
       {
         'countryName': 'Guadeloupe',
         'countryShortCode': 'GP',
         'regions': [{
-          'name': 'Guadeloupe'
-        }]
+          'name': 'Guadeloupe',
+        }],
       },
       {
         'countryName': 'Guam',
         'countryShortCode': 'GU',
         'regions': [{
-          'name': 'Guam'
-        }]
+          'name': 'Guam',
+        }],
       },
       {
         'countryName': 'Guatemala',
         'countryShortCode': 'GT',
         'regions': [{
           'name': 'Alta Verapaz',
-          'shortCode': 'AV'
+          'shortCode': 'AV',
         },
           {
             'name': 'Baja Verapaz',
-            'shortCode': 'BV'
+            'shortCode': 'BV',
           },
           {
             'name': 'Chimaltenango',
-            'shortCode': 'CM'
+            'shortCode': 'CM',
           },
           {
             'name': 'Chiquimula',
-            'shortCode': 'CQ'
+            'shortCode': 'CQ',
           },
           {
             'name': 'El Progreso',
-            'shortCode': 'PR'
+            'shortCode': 'PR',
           },
           {
             'name': 'Escuintla',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Guatemala',
-            'shortCode': 'GU'
+            'shortCode': 'GU',
           },
           {
             'name': 'Huehuetenango',
-            'shortCode': 'HU'
+            'shortCode': 'HU',
           },
           {
             'name': 'Izabal',
-            'shortCode': 'IZ'
+            'shortCode': 'IZ',
           },
           {
             'name': 'Jalapa',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Jutiapa',
-            'shortCode': 'JU'
+            'shortCode': 'JU',
           },
           {
             'name': 'Petén',
-            'shortCode': 'PE'
+            'shortCode': 'PE',
           },
           {
             'name': 'Quetzaltenango',
-            'shortCode': 'QZ'
+            'shortCode': 'QZ',
           },
           {
             'name': 'Quiché',
-            'shortCode': 'QC'
+            'shortCode': 'QC',
           },
           {
             'name': 'Retalhuleu',
-            'shortCode': 'Re'
+            'shortCode': 'Re',
           },
           {
             'name': 'Sacatepéquez',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'San Marcos',
-            'shortCode': 'SM'
+            'shortCode': 'SM',
           },
           {
             'name': 'Santa Rosa',
-            'shortCode': 'SR'
+            'shortCode': 'SR',
           },
           {
             'name': 'Sololá',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Suchitepéquez',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Totonicapán',
-            'shortCode': 'TO'
+            'shortCode': 'TO',
           },
           {
             'name': 'Zacapa',
-            'shortCode': 'ZA'
-          }
-        ]
+            'shortCode': 'ZA',
+          },
+        ],
       },
       {
         'countryName': 'Guernsey',
         'countryShortCode': 'GG',
         'regions': [{
-          'name': 'Castel'
+          'name': 'Castel',
         },
           {
-            'name': 'Forest'
+            'name': 'Forest',
           },
           {
-            'name': 'St. Andrew'
+            'name': 'St. Andrew',
           },
           {
-            'name': 'St. Martin'
+            'name': 'St. Martin',
           },
           {
-            'name': 'St. Peter Port'
+            'name': 'St. Peter Port',
           },
           {
-            'name': 'St. Pierre du Bois'
+            'name': 'St. Pierre du Bois',
           },
           {
-            'name': 'St. Sampson'
+            'name': 'St. Sampson',
           },
           {
-            'name': 'St. Saviour'
+            'name': 'St. Saviour',
           },
           {
-            'name': 'Torteval'
+            'name': 'Torteval',
           },
           {
-            'name': 'Vale'
-          }
-        ]
+            'name': 'Vale',
+          },
+        ],
       },
       {
         'countryName': 'Guinea',
         'countryShortCode': 'GN',
         'regions': [{
           'name': 'Boké',
-          'shortCode': 'B'
+          'shortCode': 'B',
         },
           {
             'name': 'Conakry',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Faranah',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Kankan',
-            'shortCode': 'K'
+            'shortCode': 'K',
           },
           {
             'name': 'Kindia',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Labé',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Mamou',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Nzérékoré',
-            'shortCode': 'N'
-          }
-        ]
+            'shortCode': 'N',
+          },
+        ],
       },
       {
         'countryName': 'Guinea-Bissau',
         'countryShortCode': 'GW',
         'regions': [{
           'name': 'Bafatá',
-          'shortCode': 'BA'
+          'shortCode': 'BA',
         },
           {
             'name': 'Biombo',
-            'shortCode': 'BM'
+            'shortCode': 'BM',
           },
           {
             'name': 'Bissau',
-            'shortCode': 'BS'
+            'shortCode': 'BS',
           },
           {
             'name': 'Bolama-Bijagos',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Cacheu',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Gabú',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Oio',
-            'shortCode': 'OI'
+            'shortCode': 'OI',
           },
           {
             'name': 'Quinara',
-            'shortCode': 'QU'
+            'shortCode': 'QU',
           },
           {
             'name': 'Tombali',
-            'shortCode': 'TO'
-          }
-        ]
+            'shortCode': 'TO',
+          },
+        ],
       },
       {
         'countryName': 'Guyana',
         'countryShortCode': 'GY',
         'regions': [{
           'name': 'Barima-Waini',
-          'shortCode': 'BA'
+          'shortCode': 'BA',
         },
           {
             'name': 'Cuyuni-Mazaruni',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Demerara-Mahaica',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'East Berbice-Corentyne',
-            'shortCode': 'EB'
+            'shortCode': 'EB',
           },
           {
             'name': 'Essequibo Islands-West Demerara',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Mahaica-Berbice',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Pomeroon-Supenaam',
-            'shortCode': 'PM'
+            'shortCode': 'PM',
           },
           {
             'name': 'Potaro-Siparuni',
-            'shortCode': 'PT'
+            'shortCode': 'PT',
           },
           {
             'name': 'Upper Demerara-Berbice',
-            'shortCode': 'UD'
+            'shortCode': 'UD',
           },
           {
             'name': 'Upper Takutu-Upper Essequibo',
-            'shortCode': 'UT'
-          }
-        ]
+            'shortCode': 'UT',
+          },
+        ],
       },
       {
         'countryName': 'Haiti',
         'countryShortCode': 'HT',
         'regions': [{
           'name': 'Artibonite',
-          'shortCode': 'AR'
+          'shortCode': 'AR',
         },
           {
             'name': 'Centre',
-            'shortCode': 'CE'
+            'shortCode': 'CE',
           },
           {
             'name': "Grand'Anse",
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           { 'name': 'Nippes', 'shortCode': 'NI' },
           {
             'name': 'Nord',
-            'shortCode': 'ND'
+            'shortCode': 'ND',
           },
           {
             'name': 'Nord-Est',
-            'shortCode': 'NE'
+            'shortCode': 'NE',
           },
           {
             'name': 'Nord-Ouest',
-            'shortCode': 'NO'
+            'shortCode': 'NO',
           },
           {
             'name': 'Ouest',
-            'shortCode': 'OU'
+            'shortCode': 'OU',
           },
           {
             'name': 'Sud',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Sud-Est',
-            'shortCode': 'SE'
-          }
-        ]
+            'shortCode': 'SE',
+          },
+        ],
       },
       {
         'countryName': 'Heard Island and McDonald Islands',
         'countryShortCode': 'HM',
         'regions': [{
-          'name': 'Heard Island and McDonald Islands'
-        }]
+          'name': 'Heard Island and McDonald Islands',
+        }],
       },
       {
         'countryName': 'Holy See (Vatican City)',
         'countryShortCode': 'VA',
         'regions': [{
           'name': 'Holy See (Vatican City)',
-          'shortCode': '01'
-        }]
+          'shortCode': '01',
+        }],
       },
       {
         'countryName': 'Honduras',
         'countryShortCode': 'HN',
         'regions': [{
           'name': 'Atlántida',
-          'shortCode': 'AT'
+          'shortCode': 'AT',
         },
           {
             'name': 'Choluteca',
-            'shortCode': 'CH'
+            'shortCode': 'CH',
           },
           {
             'name': 'Colón',
-            'shortCode': 'CL'
+            'shortCode': 'CL',
           },
           {
             'name': 'Comayagua',
-            'shortCode': 'CM'
+            'shortCode': 'CM',
           },
           {
             'name': 'Copán',
-            'shortCode': 'CP'
+            'shortCode': 'CP',
           },
           {
             'name': 'Cortés',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'El Paraíso',
-            'shortCode': 'EP'
+            'shortCode': 'EP',
           },
           {
             'name': 'Francisco Morazan',
-            'shortCode': 'FM'
+            'shortCode': 'FM',
           },
           {
             'name': 'Gracias a Dios',
-            'shortCode': 'GD'
+            'shortCode': 'GD',
           },
           {
             'name': 'Intibucá',
-            'shortCode': 'IN'
+            'shortCode': 'IN',
           },
           {
             'name': 'Islas de la Bahía',
-            'shortCode': 'IB'
+            'shortCode': 'IB',
           },
           {
             'name': 'La Paz',
-            'shortCode': 'LP'
+            'shortCode': 'LP',
           },
           {
             'name': 'Lempira',
-            'shortCode': 'LE'
+            'shortCode': 'LE',
           },
           {
             'name': 'Ocotepeque',
-            'shortCode': 'OC'
+            'shortCode': 'OC',
           },
           {
             'name': 'Olancho',
-            'shortCode': 'OL'
+            'shortCode': 'OL',
           },
           {
             'name': 'Santa Bárbara',
-            'shortCode': 'SB'
+            'shortCode': 'SB',
           },
           {
             'name': 'Valle',
-            'shortCode': 'VA'
+            'shortCode': 'VA',
           },
           {
             'name': 'Yoro',
-            'shortCode': 'YO'
-          }
-        ]
+            'shortCode': 'YO',
+          },
+        ],
       },
       {
         'countryName': 'Hong Kong',
         'countryShortCode': 'HK',
         'regions': [{
           'name': 'Hong Kong',
-          'shortCode': 'HK'
-        }]
+          'shortCode': 'HK',
+        }],
       },
       {
         'countryName': 'Hungary',
         'countryShortCode': 'HU',
         'regions': [{
           'name': 'Bács-Kiskun',
-          'shortCode': 'BK'
+          'shortCode': 'BK',
         },
           {
             'name': 'Baranya',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Békés',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Békéscsaba',
-            'shortCode': 'BC'
+            'shortCode': 'BC',
           },
           {
             'name': 'Borsod-Abauj-Zemplen',
-            'shortCode': 'BZ'
+            'shortCode': 'BZ',
           },
           {
             'name': 'Budapest',
-            'shortCode': 'BU'
+            'shortCode': 'BU',
           },
           {
             'name': 'Csongrád',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Debrecen',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'Dunaújváros',
-            'shortCode': 'DU'
+            'shortCode': 'DU',
           },
           {
             'name': 'Eger',
-            'shortCode': 'EG'
+            'shortCode': 'EG',
           },
           {
             'name': 'Érd',
-            'shortCode': 'ER'
+            'shortCode': 'ER',
           },
           {
             'name': 'Fejér',
-            'shortCode': 'FE'
+            'shortCode': 'FE',
           },
           {
             'name': 'Győr',
-            'shortCode': 'GY'
+            'shortCode': 'GY',
           },
           {
             'name': 'Győr-Moson-Sopron',
-            'shortCode': 'GS'
+            'shortCode': 'GS',
           },
           {
             'name': 'Hajdú-Bihar',
-            'shortCode': 'HB'
+            'shortCode': 'HB',
           },
           {
             'name': 'Heves',
-            'shortCode': 'HE'
+            'shortCode': 'HE',
           },
           {
             'name': 'Hódmezővásárhely',
-            'shortCode': 'HV'
+            'shortCode': 'HV',
           },
           {
             'name': 'Jász-Nagykun-Szolnok',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Kaposvár',
-            'shortCode': 'KV'
+            'shortCode': 'KV',
           },
           {
             'name': 'Kecskemét',
-            'shortCode': 'KM'
+            'shortCode': 'KM',
           },
           {
             'name': 'Komárom-Esztergom',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Miskolc',
-            'shortCode': 'MI'
+            'shortCode': 'MI',
           },
           {
             'name': 'Nagykanizsa',
-            'shortCode': 'NK'
+            'shortCode': 'NK',
           },
           {
             'name': 'Nógrád',
-            'shortCode': 'NO'
+            'shortCode': 'NO',
           },
           {
             'name': 'Nyíregyháza',
-            'shortCode': 'NY'
+            'shortCode': 'NY',
           },
           {
             'name': 'Pécs',
-            'shortCode': 'PS'
+            'shortCode': 'PS',
           },
           {
             'name': 'Pest',
-            'shortCode': 'PE'
+            'shortCode': 'PE',
           },
           { 'name': 'Salgótarján', 'shortCode': 'ST' },
           {
             'name': 'Somogy',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Sopron',
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'Szabolcs-á-Bereg',
-            'shortCode': 'SZ'
+            'shortCode': 'SZ',
           },
           {
             'name': 'Szeged',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Székesfehérvár',
-            'shortCode': 'SF'
+            'shortCode': 'SF',
           },
           { 'name': 'Szekszárd', 'shortCode': 'SS' },
           {
             'name': 'Szolnok',
-            'shortCode': 'SK'
+            'shortCode': 'SK',
           },
           {
             'name': 'Szombathely',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Tatabánya',
-            'shortCode': 'TB'
+            'shortCode': 'TB',
           },
           {
             'name': 'Tolna',
-            'shortCode': 'TO'
+            'shortCode': 'TO',
           },
           {
             'name': 'Vas',
-            'shortCode': 'VA'
+            'shortCode': 'VA',
           },
           {
             'name': 'Veszprém',
-            'shortCode': 'VE'
+            'shortCode': 'VE',
           },
           {
             'name': 'Veszprém (City)',
-            'shortCode': 'VM'
+            'shortCode': 'VM',
           },
           {
             'name': 'Zala',
-            'shortCode': 'ZA'
+            'shortCode': 'ZA',
           },
           {
             'name': 'Zalaegerszeg',
-            'shortCode': 'ZE'
-          }
-        ]
+            'shortCode': 'ZE',
+          },
+        ],
       },
       {
         'countryName': 'Iceland',
         'countryShortCode': 'IS',
         'regions': [{
           'name': 'Austurland',
-          'shortCode': '7'
+          'shortCode': '7',
         },
           {
             'name': 'Höfuðborgarsvæði utan Reykjavíkur',
-            'shortCode': '1'
+            'shortCode': '1',
           },
           {
             'name': 'Norðurland eystra',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Norðurland vestra',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Suðurland',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Suðurnes',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Vestfirðir',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Vesturland',
-            'shortCode': '3'
-          }
-        ]
+            'shortCode': '3',
+          },
+        ],
       },
       {
         'countryName': 'India',
         'countryShortCode': 'IN',
         'regions': [{
           'name': 'Andaman and Nicobar Islands',
-          'shortCode': 'AN'
+          'shortCode': 'AN',
         },
           {
             'name': 'Andhra Pradesh',
-            'shortCode': 'AP'
+            'shortCode': 'AP',
           },
           {
             'name': 'Arunachal Pradesh',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Assam',
-            'shortCode': 'AS'
+            'shortCode': 'AS',
           },
           {
             'name': 'Bihar',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Chandigarh',
-            'shortCode': 'CH'
+            'shortCode': 'CH',
           },
           {
             'name': 'Chhattisgarh',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Dadra and Nagar Haveli',
-            'shortCode': 'DN'
+            'shortCode': 'DN',
           },
           {
             'name': 'Daman and Diu',
-            'shortCode': 'DD'
+            'shortCode': 'DD',
           },
           {
             'name': 'Delhi',
-            'shortCode': 'DL'
+            'shortCode': 'DL',
           },
           {
             'name': 'Goa',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Gujarat',
-            'shortCode': 'GJ'
+            'shortCode': 'GJ',
           },
           {
             'name': 'Haryana',
-            'shortCode': 'HR'
+            'shortCode': 'HR',
           },
           {
             'name': 'Himachal Pradesh',
-            'shortCode': 'HP'
+            'shortCode': 'HP',
           },
           {
             'name': 'Jammu and Kashmir',
-            'shortCode': 'JK'
+            'shortCode': 'JK',
           },
           {
             'name': 'Jharkhand',
-            'shortCode': 'JH'
+            'shortCode': 'JH',
           },
           {
             'name': 'Karnataka',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kerala',
-            'shortCode': 'KL'
+            'shortCode': 'KL',
           },
           {
             'name': 'Lakshadweep',
-            'shortCode': 'LD'
+            'shortCode': 'LD',
           },
           {
             'name': 'Madhya Pradesh',
-            'shortCode': 'MP'
+            'shortCode': 'MP',
           },
           {
             'name': 'Maharashtra',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Manipur',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Meghalaya',
-            'shortCode': 'ML'
+            'shortCode': 'ML',
           },
           {
             'name': 'Mizoram',
-            'shortCode': 'MZ'
+            'shortCode': 'MZ',
           },
           {
             'name': 'Nagaland',
-            'shortCode': 'NL'
+            'shortCode': 'NL',
           },
           {
             'name': 'Odisha',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Puducherry',
-            'shortCode': 'PY'
+            'shortCode': 'PY',
           },
           {
             'name': 'Punjab',
-            'shortCode': 'PB'
+            'shortCode': 'PB',
           },
           {
             'name': 'Rajasthan',
-            'shortCode': 'RJ'
+            'shortCode': 'RJ',
           },
           {
             'name': 'Sikkim',
-            'shortCode': 'WK'
+            'shortCode': 'WK',
           },
           {
             'name': 'Tamil Nadu',
-            'shortCode': 'TN'
+            'shortCode': 'TN',
           },
           {
             'name': 'Telangana',
-            'shortCode': 'TG'
+            'shortCode': 'TG',
           },
           {
             'name': 'Tripura',
-            'shortCode': 'TR'
+            'shortCode': 'TR',
           },
           {
             'name': 'Uttarakhand',
-            'shortCode': 'UT'
+            'shortCode': 'UT',
           },
           {
             'name': 'Uttar Pradesh',
-            'shortCode': 'UP'
+            'shortCode': 'UP',
           },
           {
             'name': 'West Bengal',
-            'shortCode': 'WB'
-          }
-        ]
+            'shortCode': 'WB',
+          },
+        ],
       },
       {
         'countryName': 'Indonesia',
         'countryShortCode': 'ID',
         'regions': [{
           'name': 'Aceh',
-          'shortCode': 'AC'
+          'shortCode': 'AC',
         },
           {
             'name': 'Bali',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Bangka Belitung',
-            'shortCode': 'BB'
+            'shortCode': 'BB',
           },
           {
             'name': 'Banten',
-            'shortCode': 'BT'
+            'shortCode': 'BT',
           },
           {
             'name': 'Bengkulu',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Gorontalo',
-            'shortCode': 'GO'
+            'shortCode': 'GO',
           },
           {
             'name': 'Jakarta Raya',
-            'shortCode': 'JK'
+            'shortCode': 'JK',
           },
           {
             'name': 'Jambi',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Jawa Barat',
-            'shortCode': 'JB'
+            'shortCode': 'JB',
           },
           {
             'name': 'Jawa Tengah',
-            'shortCode': 'JT'
+            'shortCode': 'JT',
           },
           {
             'name': 'Jawa Timur',
-            'shortCode': 'JI'
+            'shortCode': 'JI',
           },
           {
             'name': 'Kalimantan Barat',
-            'shortCode': 'KB'
+            'shortCode': 'KB',
           },
           {
             'name': 'Kalimantan Selatan',
-            'shortCode': 'KS'
+            'shortCode': 'KS',
           },
           {
             'name': 'Kalimantan Tengah',
-            'shortCode': 'KT'
+            'shortCode': 'KT',
           },
           {
             'name': 'Kalimantan Timur',
-            'shortCode': 'KI'
+            'shortCode': 'KI',
           },
           {
             'name': 'Kalimantan Utara',
-            'shortCode': 'KU'
+            'shortCode': 'KU',
           },
           {
             'name': 'Kepulauan Riau',
-            'shortCode': 'KR'
+            'shortCode': 'KR',
           },
           {
             'name': 'Lampung',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Maluku',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Maluku Utara',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Nusa Tenggara Barat',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Nusa Tenggara Timur',
-            'shortCode': 'NT'
+            'shortCode': 'NT',
           },
           {
             'name': 'Papua',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Papua Barat',
-            'shortCode': 'PB'
+            'shortCode': 'PB',
           },
           {
             'name': 'Riau',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'Sulawesi Selatan',
-            'shortCode': 'SR'
+            'shortCode': 'SR',
           },
           {
             'name': 'Sulawesi Tengah',
-            'shortCode': 'ST'
+            'shortCode': 'ST',
           },
           {
             'name': 'Sulawesi Tenggara',
-            'shortCode': 'SG'
+            'shortCode': 'SG',
           },
           {
             'name': 'Sulawesi Utara',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sumatera Barat',
-            'shortCode': 'SB'
+            'shortCode': 'SB',
           },
           {
             'name': 'Sumatera Selatan',
-            'shortCode': 'SS'
+            'shortCode': 'SS',
           },
           {
             'name': 'Sumatera Utara',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Yogyakarta',
-            'shortCode': 'YO'
-          }
-        ]
+            'shortCode': 'YO',
+          },
+        ],
       },
       {
         'countryName': 'Iran, Islamic Republic of',
         'countryShortCode': 'IR',
         'regions': [{
           'name': 'Alborz',
-          'shortCode': '32'
+          'shortCode': '32',
         },
           {
             'name': 'Ardabīl',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Āz̄arbāyjān-e Gharbī',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Āz̄arbāyjān-e Sharqī',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Būshehr',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Chahār Maḩāl va Bakhtīārī',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Eşfahān',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Fārs',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Gīlān',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Golestān',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Hamadān',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Hormozgān',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Īlām',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Kermān',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Kermānshāh',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Khorāsān-e Jonūbī',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Khorāsān-e Raẕavī',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Khorāsān-e Shomālī',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Khūzestān',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Kohgīlūyeh va Bowyer Aḩmad',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Kordestān',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Lorestān',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Markazi',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Māzandarān',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Qazvīn',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Qom',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Semnān',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Sīstān va Balūchestān',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Tehrān',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Yazd',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Zanjān',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Iraq',
         'countryShortCode': 'IQ',
         'regions': [{
           'name': 'Al Anbār',
-          'shortCode': 'AN'
+          'shortCode': 'AN',
         },
           {
             'name': 'Al Başrah',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Al Muthanná',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Al Qādisīyah',
-            'shortCode': 'QA'
+            'shortCode': 'QA',
           },
           {
             'name': 'An Najaf',
-            'shortCode': 'NA'
+            'shortCode': 'NA',
           },
           {
             'name': 'Arbīl',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'As Sulaymānīyah',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Bābil',
-            'shortCode': 'BB'
+            'shortCode': 'BB',
           },
           {
             'name': 'Baghdād',
-            'shortCode': 'BG'
+            'shortCode': 'BG',
           },
           {
             'name': 'Dohuk',
-            'shortCode': 'DA'
+            'shortCode': 'DA',
           },
           {
             'name': 'Dhī Qār',
-            'shortCode': 'DQ'
+            'shortCode': 'DQ',
           },
           {
             'name': 'Diyālá',
-            'shortCode': 'DI'
+            'shortCode': 'DI',
           },
           {
             'name': "Karbalā'",
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kirkuk',
-            'shortCode': 'KI'
+            'shortCode': 'KI',
           },
           {
             'name': 'Maysān',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Nīnawá',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Şalāḩ ad Dīn',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Wāsiţ',
-            'shortCode': 'WA'
-          }
-        ]
+            'shortCode': 'WA',
+          },
+        ],
       },
       {
         'countryName': 'Ireland',
         'countryShortCode': 'IE',
         'regions': [{
           'name': 'Carlow',
-          'shortCode': 'CW'
+          'shortCode': 'CW',
         },
           {
             'name': 'Cavan',
-            'shortCode': 'CN'
+            'shortCode': 'CN',
           },
           {
             'name': 'Clare',
-            'shortCode': 'CE'
+            'shortCode': 'CE',
           },
           {
             'name': 'Cork',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Donegal',
-            'shortCode': 'DL'
+            'shortCode': 'DL',
           },
           {
             'name': 'Dublin',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Galway',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Kerry',
-            'shortCode': 'KY'
+            'shortCode': 'KY',
           },
           {
             'name': 'Kildare',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Kilkenny',
-            'shortCode': 'KK'
+            'shortCode': 'KK',
           },
           {
             'name': 'Laois',
-            'shortCode': 'LS'
+            'shortCode': 'LS',
           },
           {
             'name': 'Leitrim',
-            'shortCode': 'LM'
+            'shortCode': 'LM',
           },
           {
             'name': 'Limerick',
-            'shortCode': 'LK'
+            'shortCode': 'LK',
           },
           {
             'name': 'Longford',
-            'shortCode': 'LD'
+            'shortCode': 'LD',
           },
           {
             'name': 'Louth',
-            'shortCode': 'LH'
+            'shortCode': 'LH',
           },
           {
             'name': 'Mayo',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Meath',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Monaghan',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Offaly',
-            'shortCode': 'OY'
+            'shortCode': 'OY',
           },
           {
             'name': 'Roscommon',
-            'shortCode': 'RN'
+            'shortCode': 'RN',
           },
           {
             'name': 'Sligo',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Tipperary',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Waterford',
-            'shortCode': 'WD'
+            'shortCode': 'WD',
           },
           {
             'name': 'Westmeath',
-            'shortCode': 'WH'
+            'shortCode': 'WH',
           },
           {
             'name': 'Wexford',
-            'shortCode': 'WX'
+            'shortCode': 'WX',
           },
           {
             'name': 'Wicklow',
-            'shortCode': 'WW'
-          }
-        ]
+            'shortCode': 'WW',
+          },
+        ],
       },
       {
         'countryName': 'Isle of Man',
         'countryShortCode': 'IM',
         'regions': [{
-          'name': 'Isle of Man'
-        }]
+          'name': 'Isle of Man',
+        }],
       },
       {
         'countryName': 'Israel',
         'countryShortCode': 'IL',
         'regions': [{
           'name': 'HaDarom',
-          'shortCode': 'D'
+          'shortCode': 'D',
         },
           {
             'name': 'HaMerkaz',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'HaTsafon',
-            'shortCode': 'Z'
+            'shortCode': 'Z',
           },
           {
             'name': 'H̱efa',
-            'shortCode': 'HA'
+            'shortCode': 'HA',
           },
           {
             'name': 'Tel-Aviv',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Yerushalayim',
-            'shortCode': 'JM'
-          }
-        ]
+            'shortCode': 'JM',
+          },
+        ],
       },
       {
         'countryName': 'Italy',
         'countryShortCode': 'IT',
         'regions': [{
           'name': 'Abruzzo',
-          'shortCode': '65'
+          'shortCode': '65',
         },
           {
             'name': 'Basilicata',
-            'shortCode': '77'
+            'shortCode': '77',
           },
           {
             'name': 'Calabria',
-            'shortCode': '78'
+            'shortCode': '78',
           },
           {
             'name': 'Campania',
-            'shortCode': '72'
+            'shortCode': '72',
           },
           {
             'name': 'Emilia-Romagna',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Friuli-Venezia Giulia',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Lazio',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Liguria',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Lombardia',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Marche',
-            'shortCode': '57'
+            'shortCode': '57',
           },
           {
             'name': 'Molise',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Piemonte',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Puglia',
-            'shortCode': '75'
+            'shortCode': '75',
           },
           {
             'name': 'Sardegna',
-            'shortCode': '88'
+            'shortCode': '88',
           },
           {
             'name': 'Sicilia',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Toscana',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Trentino-Alto Adige',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Umbria',
-            'shortCode': '55'
+            'shortCode': '55',
           },
           {
             'name': "Valle d'Aosta",
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Veneto',
-            'shortCode': '34'
-          }
-        ]
+            'shortCode': '34',
+          },
+        ],
       },
       {
         'countryName': 'Jamaica',
         'countryShortCode': 'JM',
         'regions': [{
           'name': 'Clarendon',
-          'shortCode': '13'
+          'shortCode': '13',
         },
           {
             'name': 'Hanover',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Kingston',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Manchester',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Portland',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Saint Andrew',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Saint Ann',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Saint Catherine',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Saint Elizabeth',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Saint James',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Saint Mary',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Saint Thomas',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Trelawny',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Westmoreland',
-            'shortCode': '10'
-          }
-        ]
+            'shortCode': '10',
+          },
+        ],
       },
       {
         'countryName': 'Japan',
         'countryShortCode': 'JP',
         'regions': [{
           'name': 'Aichi',
-          'shortCode': '23'
+          'shortCode': '23',
         },
           {
             'name': 'Akita',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Aomori',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Chiba',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Ehime',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Fukui',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Fukuoka',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Fukushima',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Gifu',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Gunma',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Hiroshima',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Hokkaido',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Hyogo',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Ibaraki',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Ishikawa',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Iwate',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Kagawa',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Kagoshima',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Kanagawa',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Kochi',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Kumamoto',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Kyoto',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Mie',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Miyagi',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Miyazaki',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Nagano',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Nagasaki',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Nara',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Niigata',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Oita',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Okayama',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Okinawa',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Osaka',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Saga',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Saitama',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Shiga',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Shimane',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Shizuoka',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Tochigi',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Tokushima',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Tokyo',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Tottori',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Toyama',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Wakayama',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Yamagata',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Yamaguchi',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Yamanashi',
-            'shortCode': '19'
-          }
-        ]
+            'shortCode': '19',
+          },
+        ],
       },
       {
         'countryName': 'Jersey',
         'countryShortCode': 'JE',
         'regions': [{
-          'name': 'Jersey'
-        }]
+          'name': 'Jersey',
+        }],
       },
       {
         'countryName': 'Jordan',
         'countryShortCode': 'JO',
         'regions': [{
           'name': '‘Ajlūn',
-          'shortCode': 'AJ'
+          'shortCode': 'AJ',
         },
           {
             'name': "Al 'Aqabah",
-            'shortCode': 'AQ'
+            'shortCode': 'AQ',
           },
           {
             'name': 'Al Balqā’',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Al Karak',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Al Mafraq',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Al ‘A̅şimah',
-            'shortCode': 'AM'
+            'shortCode': 'AM',
           },
           {
             'name': 'Aţ Ţafīlah',
-            'shortCode': 'AT'
+            'shortCode': 'AT',
           },
           {
             'name': 'Az Zarqā’',
-            'shortCode': 'AZ'
+            'shortCode': 'AZ',
           },
           {
             'name': 'Irbid',
-            'shortCode': 'IR'
+            'shortCode': 'IR',
           },
           {
             'name': 'Jarash',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Ma‘ān',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Mādabā',
-            'shortCode': 'MD'
-          }
-        ]
+            'shortCode': 'MD',
+          },
+        ],
       },
       {
         'countryName': 'Kazakhstan',
         'countryShortCode': 'KZ',
         'regions': [{
           'name': 'Almaty',
-          'shortCode': 'ALA'
+          'shortCode': 'ALA',
         },
           {
             'name': 'Aqmola',
-            'shortCode': 'AKM'
+            'shortCode': 'AKM',
           },
           {
             'name': 'Aqtobe',
-            'shortCode': 'AKT'
+            'shortCode': 'AKT',
           },
           {
             'name': 'Astana',
-            'shortCode': 'AST'
+            'shortCode': 'AST',
           },
           {
             'name': 'Atyrau',
-            'shortCode': 'ATY'
+            'shortCode': 'ATY',
           },
           {
             'name': 'Batys Qazaqstan',
-            'shortCode': 'ZAP'
+            'shortCode': 'ZAP',
           },
           {
-            'name': 'Bayqongyr'
+            'name': 'Bayqongyr',
           },
           {
             'name': 'Mangghystau',
-            'shortCode': 'MAN'
+            'shortCode': 'MAN',
           },
           {
             'name': 'Ongtustik Qazaqstan',
-            'shortCode': 'YUZ'
+            'shortCode': 'YUZ',
           },
           {
             'name': 'Pavlodar',
-            'shortCode': 'PAV'
+            'shortCode': 'PAV',
           },
           {
             'name': 'Qaraghandy',
-            'shortCode': 'KAR'
+            'shortCode': 'KAR',
           },
           {
             'name': 'Qostanay',
-            'shortCode': 'KUS'
+            'shortCode': 'KUS',
           },
           {
             'name': 'Qyzylorda',
-            'shortCode': 'KZY'
+            'shortCode': 'KZY',
           },
           {
             'name': 'Shyghys Qazaqstan',
-            'shortCode': 'VOS'
+            'shortCode': 'VOS',
           },
           {
             'name': 'Soltustik Qazaqstan',
-            'shortCode': 'SEV'
+            'shortCode': 'SEV',
           },
           {
             'name': 'Zhambyl',
-            'shortCode': 'ZHA'
-          }
-        ]
+            'shortCode': 'ZHA',
+          },
+        ],
       },
       {
         'countryName': 'Kenya',
         'countryShortCode': 'KE',
         'regions': [{
           'name': 'Baringo',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Bomet',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Bungoma',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Busia',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Eleyo/Marakwet',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Embu',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Garissa',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Homa Bay',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Isiolo',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Kajiado',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Kakamega',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Kericho',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Kiambu',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Kilifi',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Kirinyaga',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Kisii',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Kisumu',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Kitui',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Kwale',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Laikipia',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Lamu',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Machakos',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Makueni',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Mandera',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Marsabit',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Meru',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Migori',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Mombasa',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': "Murang'a",
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Nairobi City',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Nakuru',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Nandi',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Narok',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Nyamira',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Nyandarua',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Nyeri',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Samburu',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Siaya',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Taita/Taveta',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Tana River',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Tharaka-Nithi',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Trans Nzoia',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Turkana',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Uasin Gishu',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Vihiga',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Wajir',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'West Pokot',
-            'shortCode': '47'
-          }
-        ]
+            'shortCode': '47',
+          },
+        ],
       },
       {
         'countryName': 'Kiribati',
         'countryShortCode': 'KI',
         'regions': [{
-          'name': 'Abaiang'
+          'name': 'Abaiang',
         },
           {
-            'name': 'Abemama'
+            'name': 'Abemama',
           },
           {
-            'name': 'Aranuka'
+            'name': 'Aranuka',
           },
           {
-            'name': 'Arorae'
+            'name': 'Arorae',
           },
           {
-            'name': 'Banaba'
+            'name': 'Banaba',
           },
           {
-            'name': 'Beru'
+            'name': 'Beru',
           },
           {
-            'name': 'Butaritari'
+            'name': 'Butaritari',
           },
           {
-            'name': 'Central Gilberts'
+            'name': 'Central Gilberts',
           },
           {
             'name': 'Gilbert Islands',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
-            'name': 'Kanton'
+            'name': 'Kanton',
           },
           {
-            'name': 'Kiritimati'
+            'name': 'Kiritimati',
           },
           {
-            'name': 'Kuria'
+            'name': 'Kuria',
           },
           {
             'name': 'Line Islands',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
-            'name': 'Maiana'
+            'name': 'Maiana',
           },
           {
-            'name': 'Makin'
+            'name': 'Makin',
           },
           {
-            'name': 'Marakei'
+            'name': 'Marakei',
           },
           {
-            'name': 'Nikunau'
+            'name': 'Nikunau',
           },
           {
-            'name': 'Nonouti'
+            'name': 'Nonouti',
           },
           {
-            'name': 'Northern Gilberts'
+            'name': 'Northern Gilberts',
           },
           {
-            'name': 'Onotoa'
+            'name': 'Onotoa',
           },
           {
             'name': 'Phoenix Islands',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
-            'name': 'Southern Gilberts'
+            'name': 'Southern Gilberts',
           },
           {
-            'name': 'Tabiteuea'
+            'name': 'Tabiteuea',
           },
           {
-            'name': 'Tabuaeran'
+            'name': 'Tabuaeran',
           },
           {
-            'name': 'Tamana'
+            'name': 'Tamana',
           },
           {
-            'name': 'Tarawa'
+            'name': 'Tarawa',
           },
           {
-            'name': 'Teraina'
-          }
-        ]
+            'name': 'Teraina',
+          },
+        ],
       },
       {
         'countryName': "Korea, Democratic People's Republic of",
         'countryShortCode': 'KP',
         'regions': [{
           'name': 'Chagang-do (Chagang Province)',
-          'shortCode': '04'
+          'shortCode': '04',
         },
           {
             'name': 'Hamgyong-bukto (North Hamgyong Province)',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Hamgyong-namdo (South Hamgyong Province)',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Hwanghae-bukto (North Hwanghae Province)',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Hwanghae-namdo (South Hwanghae Province)',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Kangwon-do (Kangwon Province)',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Nasŏn (Najin-Sŏnbong)',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': "P'yongan-bukto (North P'yongan Province)",
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': "P'yongan-namdo (South P'yongan Province)",
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': "P'yongyang-si (P'yongyang City)",
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Yanggang-do (Yanggang Province)',
-            'shortCode': '10'
-          }
-        ]
+            'shortCode': '10',
+          },
+        ],
       },
       {
         'countryName': 'Korea, Republic of',
         'countryShortCode': 'KR',
         'regions': [{
           'name': "Ch'ungch'ongbuk-do",
-          'shortCode': '43'
+          'shortCode': '43',
         },
           {
             'name': "Ch'ungch'ongnam-do",
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Cheju-do',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Chollabuk-do',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Chollanam-do',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': "Inch'on-Kwangyokhi",
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Kang-won-do',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Kwangju-Kwangyokshi',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Kyonggi-do',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Kyongsangbuk-do',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Kyongsangnam-do',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Pusan-Kwangyokshi',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': "Seoul-T'ukpyolshi",
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Sejong',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'Taegu-Kwangyokshi',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Taejon-Kwangyokshi',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Ulsan-Kwangyokshi',
-            'shortCode': '31'
-          }
-        ]
+            'shortCode': '31',
+          },
+        ],
       },
       {
         'countryName': 'Kuwait',
         'countryShortCode': 'KW',
         'regions': [{
           'name': 'Al Aḩmadi',
-          'shortCode': 'AH'
+          'shortCode': 'AH',
         },
           {
             'name': 'Al Farwānīyah',
-            'shortCode': 'FA'
+            'shortCode': 'FA',
           },
           {
             'name': 'Al Jahrā’',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Al ‘Āşimah',
-            'shortCode': 'KU'
+            'shortCode': 'KU',
           },
           {
             'name': 'Ḩawallī',
-            'shortCode': 'HA'
+            'shortCode': 'HA',
           },
           {
             'name': 'Mubārak al Kabir',
-            'shortCode': 'MU'
-          }
-        ]
+            'shortCode': 'MU',
+          },
+        ],
       },
       {
         'countryName': 'Kyrgyzstan',
         'countryShortCode': 'KG',
         'regions': [{
           'name': 'Batken Oblasty',
-          'shortCode': 'B'
+          'shortCode': 'B',
         },
           {
             'name': 'Bishkek Shaary',
-            'shortCode': 'GB'
+            'shortCode': 'GB',
           },
           {
             'name': 'Chuy Oblasty (Bishkek)',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Jalal-Abad Oblasty',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': 'Naryn Oblasty',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Osh Oblasty',
-            'shortCode': 'O'
+            'shortCode': 'O',
           },
           {
             'name': 'Talas Oblasty',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Ysyk-Kol Oblasty (Karakol)',
-            'shortCode': 'Y'
-          }
-        ]
+            'shortCode': 'Y',
+          },
+        ],
       },
       {
         'countryName': 'Laos',
         'countryShortCode': 'LA',
         'regions': [{
           'name': 'Attapu',
-          'shortCode': 'AT'
+          'shortCode': 'AT',
         },
           {
             'name': 'Bokèo',
-            'shortCode': 'BK'
+            'shortCode': 'BK',
           },
           {
             'name': 'Bolikhamxai',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Champasak',
-            'shortCode': 'CH'
+            'shortCode': 'CH',
           },
           {
             'name': 'Houaphan',
-            'shortCode': 'HO'
+            'shortCode': 'HO',
           },
           {
             'name': 'Khammouan',
-            'shortCode': 'KH'
+            'shortCode': 'KH',
           },
           {
             'name': 'Louang Namtha',
-            'shortCode': 'LM'
+            'shortCode': 'LM',
           },
           {
             'name': 'Louangphabang',
-            'shortCode': 'LP'
+            'shortCode': 'LP',
           },
           {
             'name': 'Oudômxai',
-            'shortCode': 'OU'
+            'shortCode': 'OU',
           },
           {
             'name': 'Phôngsali',
-            'shortCode': 'PH'
+            'shortCode': 'PH',
           },
           {
             'name': 'Salavan',
-            'shortCode': 'SL'
+            'shortCode': 'SL',
           },
           {
             'name': 'Savannakhét',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Vientiane',
-            'shortCode': 'VI'
+            'shortCode': 'VI',
           },
           {
             'name': 'Xaignabouli',
-            'shortCode': 'XA'
+            'shortCode': 'XA',
           },
           {
             'name': 'Xékong',
-            'shortCode': 'XE'
+            'shortCode': 'XE',
           },
           {
             'name': 'Xaisomboun',
-            'shortCode': 'XS'
+            'shortCode': 'XS',
           },
           {
             'name': 'Xiangkhouang',
-            'shortCode': 'XI'
-          }
-        ]
+            'shortCode': 'XI',
+          },
+        ],
       },
       {
         'countryName': 'Latvia',
         'countryShortCode': 'LV',
         'regions': [{
           'name': 'Aglona',
-          'shortCode': '001'
+          'shortCode': '001',
         },
           {
             'name': 'Aizkraukle',
-            'shortCode': '002'
+            'shortCode': '002',
           },
           {
             'name': 'Aizpute',
-            'shortCode': '003'
+            'shortCode': '003',
           },
           {
             'name': 'Aknīste',
-            'shortCode': '004'
+            'shortCode': '004',
           },
           {
             'name': 'Aloja',
-            'shortCode': '005'
+            'shortCode': '005',
           },
           {
             'name': 'Alsunga',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Alūksne',
-            'shortCode': '007'
+            'shortCode': '007',
           },
           {
             'name': 'Amata',
-            'shortCode': '008'
+            'shortCode': '008',
           },
           {
             'name': 'Ape',
-            'shortCode': '009'
+            'shortCode': '009',
           },
           {
             'name': 'Auce',
-            'shortCode': '010'
+            'shortCode': '010',
           },
           {
             'name': 'Ādaži',
-            'shortCode': '011'
+            'shortCode': '011',
           },
           {
             'name': 'Babīte',
-            'shortCode': '012'
+            'shortCode': '012',
           },
           {
             'name': 'Baldone',
-            'shortCode': '013'
+            'shortCode': '013',
           },
           {
             'name': 'Baltinava',
-            'shortCode': '014'
+            'shortCode': '014',
           },
           {
             'name': 'Balvi',
-            'shortCode': '015'
+            'shortCode': '015',
           },
           {
             'name': 'Bauska',
-            'shortCode': '016'
+            'shortCode': '016',
           },
           {
             'name': 'Beverīna',
-            'shortCode': '017'
+            'shortCode': '017',
           },
           {
             'name': 'Brocēni',
-            'shortCode': '018'
+            'shortCode': '018',
           },
           {
             'name': 'Burtnieki',
-            'shortCode': '019'
+            'shortCode': '019',
           },
           {
             'name': 'Carnikava',
-            'shortCode': '020'
+            'shortCode': '020',
           },
           {
             'name': 'Cesvaine',
-            'shortCode': '021'
+            'shortCode': '021',
           },
           {
             'name': 'Cēsis',
-            'shortCode': '022'
+            'shortCode': '022',
           },
           {
             'name': 'Cibla',
-            'shortCode': '023'
+            'shortCode': '023',
           },
           {
             'name': 'Dagda',
-            'shortCode': '024'
+            'shortCode': '024',
           },
           {
             'name': 'Daugavpils',
-            'shortCode': '025'
+            'shortCode': '025',
           },
           {
             'name': 'Daugavpils (City)',
-            'shortCode': 'DGV'
+            'shortCode': 'DGV',
           },
           {
             'name': 'Dobele',
-            'shortCode': '026'
+            'shortCode': '026',
           },
           {
             'name': 'Dundaga',
-            'shortCode': '027'
+            'shortCode': '027',
           },
           {
             'name': 'Durbe',
-            'shortCode': '028'
+            'shortCode': '028',
           },
           {
             'name': 'Engure',
-            'shortCode': '029'
+            'shortCode': '029',
           },
           {
             'name': 'Ērgļi',
-            'shortCode': '030'
+            'shortCode': '030',
           },
           {
             'name': 'Garkalne',
-            'shortCode': '031'
+            'shortCode': '031',
           },
           {
             'name': 'Grobiņa',
-            'shortCode': '032'
+            'shortCode': '032',
           },
           {
             'name': 'Gulbene',
-            'shortCode': '033'
+            'shortCode': '033',
           },
           {
             'name': 'Iecava',
-            'shortCode': '034'
+            'shortCode': '034',
           },
           {
             'name': 'Ikšķile',
-            'shortCode': '035'
+            'shortCode': '035',
           },
           {
             'name': 'Ilūkste',
-            'shortCode': '036'
+            'shortCode': '036',
           },
           {
             'name': 'Inčukalns',
-            'shortCode': '037'
+            'shortCode': '037',
           },
           {
             'name': 'Jaunjelgava',
-            'shortCode': '038'
+            'shortCode': '038',
           },
           {
             'name': 'Jaunpiebalga',
-            'shortCode': '039'
+            'shortCode': '039',
           },
           {
             'name': 'Jaunpils',
-            'shortCode': '040'
+            'shortCode': '040',
           },
           {
             'name': 'Jelgava',
-            'shortCode': '041'
+            'shortCode': '041',
           },
           {
             'name': 'Jelgava (City)',
-            'shortCode': 'JEL'
+            'shortCode': 'JEL',
           },
           {
             'name': 'Jēkabpils',
-            'shortCode': '042'
+            'shortCode': '042',
           },
           {
             'name': 'Jēkabpils (City)',
-            'shortCode': 'JKB'
+            'shortCode': 'JKB',
           },
           {
             'name': 'Jūrmala (City)',
-            'shortCode': 'JUR'
+            'shortCode': 'JUR',
           },
           {
             'name': 'Kandava',
-            'shortCode': '043'
+            'shortCode': '043',
           },
           {
             'name': 'Kārsava',
-            'shortCode': '044'
+            'shortCode': '044',
           },
           {
             'name': 'Kocēni',
-            'shortCode': '045'
+            'shortCode': '045',
           },
           {
             'name': 'Koknese',
-            'shortCode': '046'
+            'shortCode': '046',
           },
           {
             'name': 'Krāslava',
-            'shortCode': '047'
+            'shortCode': '047',
           },
           {
             'name': 'Krimulda',
-            'shortCode': '048'
+            'shortCode': '048',
           },
           {
             'name': 'Krustpils',
-            'shortCode': '049'
+            'shortCode': '049',
           },
           {
             'name': 'Kuldīga',
-            'shortCode': '050'
+            'shortCode': '050',
           },
           {
             'name': 'Ķegums',
-            'shortCode': '051'
+            'shortCode': '051',
           },
           {
             'name': 'Ķekava',
-            'shortCode': '052'
+            'shortCode': '052',
           },
           {
             'name': 'Lielvārde',
-            'shortCode': '053'
+            'shortCode': '053',
           },
           {
             'name': 'Liepāja',
-            'shortCode': 'LPX'
+            'shortCode': 'LPX',
           },
           {
             'name': 'Limbaži',
-            'shortCode': '054'
+            'shortCode': '054',
           },
           {
             'name': 'Līgatne',
-            'shortCode': '055'
+            'shortCode': '055',
           },
           {
             'name': 'Līvāni',
-            'shortCode': '056'
+            'shortCode': '056',
           },
           {
             'name': 'Lubāna',
-            'shortCode': '057'
+            'shortCode': '057',
           },
           {
             'name': 'Ludza',
-            'shortCode': '058'
+            'shortCode': '058',
           },
           {
             'name': 'Madona',
-            'shortCode': '059'
+            'shortCode': '059',
           },
           {
             'name': 'Mazsalaca',
-            'shortCode': '060'
+            'shortCode': '060',
           },
           {
             'name': 'Mālpils',
-            'shortCode': '061'
+            'shortCode': '061',
           },
           {
             'name': 'Mārupe',
-            'shortCode': '062'
+            'shortCode': '062',
           },
           {
             'name': 'Mērsrags',
-            'shortCode': '063'
+            'shortCode': '063',
           },
           {
             'name': 'Naukšēni',
-            'shortCode': '064'
+            'shortCode': '064',
           },
           {
             'name': 'Nereta',
-            'shortCode': '065'
+            'shortCode': '065',
           },
           {
             'name': 'Nīca',
-            'shortCode': '066'
+            'shortCode': '066',
           },
           {
             'name': 'Ogre',
-            'shortCode': '067'
+            'shortCode': '067',
           },
           {
             'name': 'Olaine',
-            'shortCode': '068'
+            'shortCode': '068',
           },
           {
             'name': 'Ozolnieki',
-            'shortCode': '069'
+            'shortCode': '069',
           },
           {
             'name': 'Pārgauja',
-            'shortCode': '070'
+            'shortCode': '070',
           },
           {
             'name': 'Pāvilosta',
-            'shortCode': '071'
+            'shortCode': '071',
           },
           {
             'name': 'Pļaviņas',
-            'shortCode': '072'
+            'shortCode': '072',
           },
           {
             'name': 'Preiļi',
-            'shortCode': '073'
+            'shortCode': '073',
           },
           {
             'name': 'Priekule',
-            'shortCode': '074'
+            'shortCode': '074',
           },
           {
             'name': 'Priekuļi',
-            'shortCode': '075'
+            'shortCode': '075',
           },
           {
             'name': 'Rauna',
-            'shortCode': '076'
+            'shortCode': '076',
           },
           {
             'name': 'Rēzekne',
-            'shortCode': '077'
+            'shortCode': '077',
           },
           {
             'name': 'Rēzekne (City)',
-            'shortCode': 'REZ'
+            'shortCode': 'REZ',
           },
           {
             'name': 'Riebiņi',
-            'shortCode': '078'
+            'shortCode': '078',
           },
           {
             'name': 'Rīga',
-            'shortCode': 'RIX'
+            'shortCode': 'RIX',
           },
           {
             'name': 'Roja',
-            'shortCode': '079'
+            'shortCode': '079',
           },
           {
             'name': 'Ropaži',
-            'shortCode': '080'
+            'shortCode': '080',
           },
           {
             'name': 'Rucava',
-            'shortCode': '081'
+            'shortCode': '081',
           },
           {
             'name': 'Rugāji',
-            'shortCode': '082'
+            'shortCode': '082',
           },
           {
             'name': 'Rundāle',
-            'shortCode': '083'
+            'shortCode': '083',
           },
           {
             'name': 'Rūjiena',
-            'shortCode': '084'
+            'shortCode': '084',
           },
           {
             'name': 'Sala',
-            'shortCode': '085'
+            'shortCode': '085',
           },
           {
             'name': 'Salacgrīva',
-            'shortCode': '086'
+            'shortCode': '086',
           },
           {
             'name': 'Salaspils',
-            'shortCode': '087'
+            'shortCode': '087',
           },
           {
             'name': 'Saldus',
-            'shortCode': '088'
+            'shortCode': '088',
           },
           {
             'name': 'Saulkrasti',
-            'shortCode': '089'
+            'shortCode': '089',
           },
           {
             'name': 'Sēja',
-            'shortCode': '090'
+            'shortCode': '090',
           },
           {
             'name': 'Sigulda',
-            'shortCode': '091'
+            'shortCode': '091',
           },
           {
             'name': 'Skrīveri',
-            'shortCode': '092'
+            'shortCode': '092',
           },
           {
             'name': 'Skrunda',
-            'shortCode': '093'
+            'shortCode': '093',
           },
           {
             'name': 'Smiltene',
-            'shortCode': '094'
+            'shortCode': '094',
           },
           {
             'name': 'Stopiņi',
-            'shortCode': '095'
+            'shortCode': '095',
           },
           {
             'name': 'Strenči',
-            'shortCode': '096'
+            'shortCode': '096',
           },
           {
             'name': 'Talsi',
-            'shortCode': '097'
+            'shortCode': '097',
           },
           {
             'name': 'Tērvete',
-            'shortCode': '098'
+            'shortCode': '098',
           },
           {
             'name': 'Tukums',
-            'shortCode': '099'
+            'shortCode': '099',
           },
           {
             'name': 'Vaiņode',
-            'shortCode': '100'
+            'shortCode': '100',
           },
           {
             'name': 'Valka',
-            'shortCode': '101'
+            'shortCode': '101',
           },
           {
             'name': 'Valmiera',
-            'shortCode': 'VMR'
+            'shortCode': 'VMR',
           },
           {
             'name': 'Varakļāni',
-            'shortCode': '102'
+            'shortCode': '102',
           },
           {
             'name': 'Vārkava',
-            'shortCode': '103'
+            'shortCode': '103',
           },
           {
             'name': 'Vecpiebalga',
-            'shortCode': '104'
+            'shortCode': '104',
           },
           {
             'name': 'Vecumnieki',
-            'shortCode': '105'
+            'shortCode': '105',
           },
           {
             'name': 'Ventspils',
-            'shortCode': '106'
+            'shortCode': '106',
           },
           {
             'name': 'Ventspils (City)',
-            'shortCode': 'VEN'
+            'shortCode': 'VEN',
           },
           {
             'name': 'Viesīte',
-            'shortCode': '107'
+            'shortCode': '107',
           },
           {
             'name': 'Viļaka',
-            'shortCode': '108'
+            'shortCode': '108',
           },
           {
             'name': 'Viļāni',
-            'shortCode': '109'
+            'shortCode': '109',
           },
           {
             'name': 'Zilupe',
-            'shortCode': '110'
-          }
-        ]
+            'shortCode': '110',
+          },
+        ],
       },
       {
         'countryName': 'Lebanon',
         'countryShortCode': 'LB',
         'regions': [{
           'name': 'Aakkâr',
-          'shortCode': 'AK'
+          'shortCode': 'AK',
         },
           {
             'name': 'Baalbelk-Hermel',
-            'shortCode': 'BH'
+            'shortCode': 'BH',
           },
           {
             'name': 'Béqaa',
-            'shortCode': 'BI'
+            'shortCode': 'BI',
           },
           {
             'name': 'Beyrouth',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Liban-Nord',
-            'shortCode': 'AS'
+            'shortCode': 'AS',
           },
           {
             'name': 'Liban-Sud',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Mont-Liban',
-            'shortCode': 'JL'
+            'shortCode': 'JL',
           },
           {
             'name': 'Nabatîyé',
-            'shortCode': 'NA'
-          }
-        ]
+            'shortCode': 'NA',
+          },
+        ],
       },
       {
         'countryName': 'Lesotho',
         'countryShortCode': 'LS',
         'regions': [{
           'name': 'Berea',
-          'shortCode': 'D'
+          'shortCode': 'D',
         },
           {
             'name': 'Butha-Buthe',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Leribe',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Mafeteng',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Maseru',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'Mohales Hoek',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Mokhotlong',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': "Qacha's Nek",
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Quthing',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Thaba-Tseka',
-            'shortCode': 'K'
-          }
-        ]
+            'shortCode': 'K',
+          },
+        ],
       },
       {
         'countryName': 'Liberia',
         'countryShortCode': 'LR',
         'regions': [{
           'name': 'Bomi',
-          'shortCode': 'BM'
+          'shortCode': 'BM',
         },
           {
             'name': 'Bong',
-            'shortCode': 'BG'
+            'shortCode': 'BG',
           },
           {
             'name': 'Gbarpolu',
-            'shortCode': 'GP'
+            'shortCode': 'GP',
           },
           {
             'name': 'Grand Bassa',
-            'shortCode': 'GB'
+            'shortCode': 'GB',
           },
           {
             'name': 'Grand Cape Mount',
-            'shortCode': 'CM'
+            'shortCode': 'CM',
           },
           {
             'name': 'Grand Gedeh',
-            'shortCode': 'GG'
+            'shortCode': 'GG',
           },
           {
             'name': 'Grand Kru',
-            'shortCode': 'GK'
+            'shortCode': 'GK',
           },
           {
             'name': 'Lofa',
-            'shortCode': 'LO'
+            'shortCode': 'LO',
           },
           {
             'name': 'Margibi',
-            'shortCode': 'MG'
+            'shortCode': 'MG',
           },
           {
             'name': 'Maryland',
-            'shortCode': 'MY'
+            'shortCode': 'MY',
           },
           {
             'name': 'Montserrado',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Nimba',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'River Cess',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'River Geee',
-            'shortCode': 'RG'
+            'shortCode': 'RG',
           },
           {
             'name': 'Sinoe',
-            'shortCode': 'SI'
-          }
-        ]
+            'shortCode': 'SI',
+          },
+        ],
       },
       {
         'countryName': 'Libya',
         'countryShortCode': 'LY',
         'regions': [{
           'name': 'Al Buţnān',
-          'shortCode': 'BU'
+          'shortCode': 'BU',
         },
           {
             'name': 'Al Jabal al Akhḑar',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Al Jabal al Gharbī',
-            'shortCode': 'JG'
+            'shortCode': 'JG',
           },
           {
             'name': 'Al Jafārah',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Al Jufrah',
-            'shortCode': 'JU'
+            'shortCode': 'JU',
           },
           {
             'name': 'Al Kufrah',
-            'shortCode': 'FK'
+            'shortCode': 'FK',
           },
           {
             'name': 'Al Marj',
-            'shortCode': 'MJ'
+            'shortCode': 'MJ',
           },
           {
             'name': 'Al Marquab',
-            'shortCode': 'MB'
+            'shortCode': 'MB',
           },
           {
             'name': 'Al Wāḩāt',
-            'shortCode': 'WA'
+            'shortCode': 'WA',
           },
           {
             'name': 'An Nuqaţ al Khams',
-            'shortCode': 'NQ'
+            'shortCode': 'NQ',
           },
           {
             'name': 'Az Zāwiyah',
-            'shortCode': 'ZA'
+            'shortCode': 'ZA',
           },
           {
             'name': 'Banghāzī',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Darnah',
-            'shortCode': 'DR'
+            'shortCode': 'DR',
           },
           {
             'name': 'Ghāt',
-            'shortCode': 'GH'
+            'shortCode': 'GH',
           },
           {
             'name': 'Mişrātah',
-            'shortCode': 'MI'
+            'shortCode': 'MI',
           },
           {
             'name': 'Murzuq',
-            'shortCode': 'MQ'
+            'shortCode': 'MQ',
           },
           {
             'name': 'Nālūt',
-            'shortCode': 'NL'
+            'shortCode': 'NL',
           },
           {
             'name': 'Sabhā',
-            'shortCode': 'SB'
+            'shortCode': 'SB',
           },
           {
             'name': 'Surt',
-            'shortCode': 'SR'
+            'shortCode': 'SR',
           },
           {
             'name': 'Ţarābulus',
-            'shortCode': 'TB'
+            'shortCode': 'TB',
           },
           {
             'name': 'Yafran',
-            'shortCode': 'WD'
+            'shortCode': 'WD',
           },
           {
             'name': 'Wādī ash Shāţiʾ',
-            'shortCode': 'WS'
-          }
-        ]
+            'shortCode': 'WS',
+          },
+        ],
       },
       {
         'countryName': 'Liechtenstein',
         'countryShortCode': 'LI',
         'regions': [{
           'name': 'Balzers',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Eschen',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Gamprin',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Mauren',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Planken',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Ruggell',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Schaan',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Schellenberg',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Triesen',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Triesenberg',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Vaduz',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Lithuania',
         'countryShortCode': 'LT',
         'regions': [{
           'name': 'Alytaus',
-          'shortCode': 'AL'
+          'shortCode': 'AL',
         },
           {
             'name': 'Kauno',
-            'shortCode': 'KU'
+            'shortCode': 'KU',
           },
           {
             'name': 'Klaipėdos',
-            'shortCode': 'KL'
+            'shortCode': 'KL',
           },
           {
             'name': 'Marijampolės',
-            'shortCode': 'MR'
+            'shortCode': 'MR',
           },
           {
             'name': 'Panevėžio',
-            'shortCode': 'PN'
+            'shortCode': 'PN',
           },
           {
             'name': 'Šiaulių',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Tauragės',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Telšių',
-            'shortCode': 'TE'
+            'shortCode': 'TE',
           },
           {
             'name': 'Utenos',
-            'shortCode': 'UT'
+            'shortCode': 'UT',
           },
           {
             'name': 'Vilniaus',
-            'shortCode': 'VL'
-          }
-        ]
+            'shortCode': 'VL',
+          },
+        ],
       },
       {
         'countryName': 'Luxembourg',
         'countryShortCode': 'LU',
         'regions': [{
           'name': 'Capellen',
-          'shortCode': 'CA'
+          'shortCode': 'CA',
         },
           {
             'name': 'Clevaux',
-            'shortCode': 'CL'
+            'shortCode': 'CL',
           },
           {
             'name': 'Diekirch',
-            'shortCode': 'DI'
+            'shortCode': 'DI',
           },
           {
             'name': 'Echternach',
-            'shortCode': 'EC'
+            'shortCode': 'EC',
           },
           {
             'name': 'Esch-sur-Alzette',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Grevenmacher',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Luxembourg',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Mersch',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Redange',
-            'shortCode': 'RD'
+            'shortCode': 'RD',
           },
           {
             'name': 'Remich',
-            'shortCode': 'RM'
+            'shortCode': 'RM',
           },
           {
             'name': 'Vianden',
-            'shortCode': 'VD'
+            'shortCode': 'VD',
           },
           {
             'name': 'Wiltz',
-            'shortCode': 'WI'
-          }
-        ]
+            'shortCode': 'WI',
+          },
+        ],
       },
       {
         'countryName': 'Macao',
         'countryShortCode': 'MO',
         'regions': [{
-          'name': 'Macao'
-        }]
+          'name': 'Macao',
+        }],
       },
       {
         'countryName': 'Macedonia, Republic of',
         'countryShortCode': 'MK',
         'regions': [{
           'name': 'Aračinovo',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Berovo',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Bitola',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Bogdanci',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Bogovinje',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Bosilovo',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Brvenica',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Centar Župa',
-            'shortCode': '78'
+            'shortCode': '78',
           },
           {
             'name': 'Čaška',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Češinovo-Obleševo',
-            'shortCode': '81'
+            'shortCode': '81',
           },
           {
             'name': 'Čučer Sandevo',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Debar',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Debarca',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Delčevo',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Demir Hisar',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Demir Kapija',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Doran',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Dolneni',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Gevgelija',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Gostivar',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Gradsko',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Ilinden',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Jegunovce',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Karbinci',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Kavadarci',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Kičevo',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Kočani',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Konče',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Kratovo',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Kriva Palanka',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Krivogaštani',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Kruševo',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Kumanovo',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Lipkovo',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Lozovo',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Makedonska Kamenica',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Makedonski Brod',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Mavrovo i Rostuša',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'Mogila',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Negotino',
-            'shortCode': '54'
+            'shortCode': '54',
           },
           {
             'name': 'Novaci',
-            'shortCode': '55'
+            'shortCode': '55',
           },
           {
             'name': 'Novo Selo',
-            'shortCode': '56'
+            'shortCode': '56',
           },
           {
             'name': 'Ohrid',
-            'shortCode': '58'
+            'shortCode': '58',
           },
           {
             'name': 'Pehčevo',
-            'shortCode': '60'
+            'shortCode': '60',
           },
           {
             'name': 'Petrovec',
-            'shortCode': '59'
+            'shortCode': '59',
           },
           {
             'name': 'Plasnica',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Prilep',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Probištip',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Radoviš',
-            'shortCode': ''
+            'shortCode': '',
           },
           {
             'name': 'Rankovce',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Resen',
-            'shortCode': '66'
+            'shortCode': '66',
           },
           {
             'name': 'Rosoman',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Skopje',
-            'shortCode': '85'
+            'shortCode': '85',
           },
           {
             'name': 'Sopište',
-            'shortCode': '70'
+            'shortCode': '70',
           },
           {
             'name': 'Staro Nagoričane',
-            'shortCode': '71'
+            'shortCode': '71',
           },
           {
             'name': 'Struga',
-            'shortCode': '72'
+            'shortCode': '72',
           },
           {
             'name': 'Strumica',
-            'shortCode': '73'
+            'shortCode': '73',
           },
           {
             'name': 'Studeničani',
-            'shortCode': '74'
+            'shortCode': '74',
           },
           {
             'name': 'Sveti Nikole',
-            'shortCode': '69'
+            'shortCode': '69',
           },
           {
             'name': 'Štip',
-            'shortCode': '83'
+            'shortCode': '83',
           },
           {
             'name': 'Tearce',
-            'shortCode': '75'
+            'shortCode': '75',
           },
           {
             'name': 'Tetovo',
-            'shortCode': '76'
+            'shortCode': '76',
           },
           {
             'name': 'Valandovo',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Vasilevo',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Veles',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Vevčani',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Vinica',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Vrapčište',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Zelenikovo',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Zrnovci',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Želino',
-            'shortCode': '30'
-          }
-        ]
+            'shortCode': '30',
+          },
+        ],
       },
       {
         'countryName': 'Madagascar',
         'countryShortCode': 'MG',
         'regions': [{
           'name': 'Antananarivo',
-          'shortCode': 'T'
+          'shortCode': 'T',
         },
           {
             'name': 'Antsiranana',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Fianarantsoa',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Mahajanga',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Toamasina',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'Toliara',
-            'shortCode': 'U'
-          }
-        ]
+            'shortCode': 'U',
+          },
+        ],
       },
       {
         'countryName': 'Malawi',
         'countryShortCode': 'MW',
         'regions': [{
           'name': 'Balaka',
-          'shortCode': 'BA'
+          'shortCode': 'BA',
         },
           {
             'name': 'Blantyre',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Chikwawa',
-            'shortCode': 'CK'
+            'shortCode': 'CK',
           },
           {
             'name': 'Chiradzulu',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'Chitipa',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Dedza',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'Dowa',
-            'shortCode': 'DO'
+            'shortCode': 'DO',
           },
           {
             'name': 'Karonga',
-            'shortCode': 'KR'
+            'shortCode': 'KR',
           },
           {
             'name': 'Kasungu',
-            'shortCode': 'KS'
+            'shortCode': 'KS',
           },
           {
             'name': 'Likoma',
-            'shortCode': 'LK'
+            'shortCode': 'LK',
           },
           {
             'name': 'Lilongwe',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Machinga',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Mangochi',
-            'shortCode': 'MG'
+            'shortCode': 'MG',
           },
           {
             'name': 'Mchinji',
-            'shortCode': 'MC'
+            'shortCode': 'MC',
           },
           {
             'name': 'Mulanje',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Mwanza',
-            'shortCode': 'MW'
+            'shortCode': 'MW',
           },
           {
             'name': 'Mzimba',
-            'shortCode': 'MZ'
+            'shortCode': 'MZ',
           },
           {
             'name': 'Nkhata Bay',
-            'shortCode': 'NE'
+            'shortCode': 'NE',
           },
           {
             'name': 'Nkhotakota',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Nsanje',
-            'shortCode': 'NS'
+            'shortCode': 'NS',
           },
           {
             'name': 'Ntcheu',
-            'shortCode': 'NU'
+            'shortCode': 'NU',
           },
           {
             'name': 'Ntchisi',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Phalombe',
-            'shortCode': 'PH'
+            'shortCode': 'PH',
           },
           {
             'name': 'Rumphi',
-            'shortCode': 'RU'
+            'shortCode': 'RU',
           },
           {
             'name': 'Salima',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Thyolo',
-            'shortCode': 'TH'
+            'shortCode': 'TH',
           },
           {
             'name': 'Zomba',
-            'shortCode': 'ZO'
-          }
-        ]
+            'shortCode': 'ZO',
+          },
+        ],
       },
       {
         'countryName': 'Malaysia',
         'countryShortCode': 'MY',
         'regions': [{
           'name': 'Johor',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Kedah',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Kelantan',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Melaka',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Negeri Sembilan',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Pahang',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Perak',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Perlis',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Pulau Pinang',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Sabah',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Sarawak',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Selangor',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Terengganu',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Wilayah Persekutuan (Kuala Lumpur)',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Wilayah Persekutuan (Labuan)',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Wilayah Persekutuan (Putrajaya)',
-            'shortCode': '16'
-          }
-        ]
+            'shortCode': '16',
+          },
+        ],
       },
       {
         'countryName': 'Maldives',
         'countryShortCode': 'MV',
         'regions': [{
           'name': 'Alifu Alifu',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Alifu Dhaalu',
-            'shortCode': '00'
+            'shortCode': '00',
           },
           {
             'name': 'Baa',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Dhaalu',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Faafu',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Gaafu Alifu',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Gaafu Dhaalu',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Gnaviyani',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Haa Alifu',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Haa Dhaalu',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Kaafu',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Laamu',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Lhaviyani',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Malé',
-            'shortCode': 'MLE'
+            'shortCode': 'MLE',
           },
           {
             'name': 'Meemu',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Noonu',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Raa',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Seenu',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Shaviyani',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Thaa',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Vaavu',
-            'shortCode': '04'
-          }
-        ]
+            'shortCode': '04',
+          },
+        ],
       },
       {
         'countryName': 'Mali',
         'countryShortCode': 'ML',
         'regions': [{
           'name': 'Bamako',
-          'shortCode': 'BKO'
+          'shortCode': 'BKO',
         },
           {
             'name': 'Gao',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Kayes',
-            'shortCode': '1'
+            'shortCode': '1',
           },
           {
             'name': 'Kidal',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Koulikoro',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Mopti',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Segou',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Sikasso',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Tombouctou',
-            'shortCode': '6'
-          }
-        ]
+            'shortCode': '6',
+          },
+        ],
       },
       {
         'countryName': 'Malta',
         'countryShortCode': 'MT',
         'regions': [{
           'name': 'Attard',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Balzan',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Birgu',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Birkirkara',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Birżebbuġa',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Bormla',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Dingli',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Fgura',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Floriana',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Fontana',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Guda',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Gżira',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Għajnsielem',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Għarb',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Għargħur',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Għasri',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Għaxaq',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Ħamrun',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Iklin',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Isla',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Kalkara',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Kerċem',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Kirkop',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Lija',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Luqa',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Marsa',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Marsaskala',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Marsaxlokk',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Mdina',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Mellieħa',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Mġarr',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Mosta',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Mqabba',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Msida',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Mtarfa',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Munxar',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Nadur',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Naxxar',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Paola',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Pembroke',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Pietà',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Qala',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Qormi',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Qrendi',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Rabat Għawdex',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Rabat Malta',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Safi',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'San Ġiljan',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'San Ġwann',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'San Lawrenz',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'San Pawl il-Baħar',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Sannat',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Santa Luċija',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Santa Venera',
-            'shortCode': '54'
+            'shortCode': '54',
           },
           {
             'name': 'Siġġiewi',
-            'shortCode': '55'
+            'shortCode': '55',
           },
           {
             'name': 'Sliema',
-            'shortCode': '56'
+            'shortCode': '56',
           },
           {
             'name': 'Swieqi',
-            'shortCode': '57'
+            'shortCode': '57',
           },
           {
             'name': 'Tai Xbiex',
-            'shortCode': '58'
+            'shortCode': '58',
           },
           {
             'name': 'Tarzien',
-            'shortCode': '59'
+            'shortCode': '59',
           },
           {
             'name': 'Valletta',
-            'shortCode': '60'
+            'shortCode': '60',
           },
           {
             'name': 'Xagħra',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Xewkija',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Xgħajra',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Żabbar',
-            'shortCode': '64'
+            'shortCode': '64',
           },
           {
             'name': 'Żebbuġ Għawde',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Żebbuġ Malta',
-            'shortCode': '66'
+            'shortCode': '66',
           },
           {
             'name': 'Żejtun',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Żurrieq',
-            'shortCode': '68'
-          }
-        ]
+            'shortCode': '68',
+          },
+        ],
       },
       {
         'countryName': 'Marshall Islands',
         'countryShortCode': 'MH',
         'regions': [{
           'name': 'Ailinglaplap',
-          'shortCode': 'ALL'
+          'shortCode': 'ALL',
         },
           {
             'name': 'Ailuk',
-            'shortCode': 'ALK'
+            'shortCode': 'ALK',
           },
           {
             'name': 'Arno',
-            'shortCode': 'ARN'
+            'shortCode': 'ARN',
           },
           {
             'name': 'Aur',
-            'shortCode': 'AUR'
+            'shortCode': 'AUR',
           },
           {
             'name': 'Bikini and Kili',
-            'shortCode': 'KIL'
+            'shortCode': 'KIL',
           },
           {
             'name': 'Ebon',
-            'shortCode': 'EBO'
+            'shortCode': 'EBO',
           },
           {
             'name': 'Jabat',
-            'shortCode': 'JAB'
+            'shortCode': 'JAB',
           },
           {
             'name': 'Jaluit',
-            'shortCode': 'JAL'
+            'shortCode': 'JAL',
           },
           {
             'name': 'Kwajalein',
-            'shortCode': 'KWA'
+            'shortCode': 'KWA',
           },
           {
             'name': 'Lae',
-            'shortCode': 'LAE'
+            'shortCode': 'LAE',
           },
           {
             'name': 'Lib',
-            'shortCode': 'LIB'
+            'shortCode': 'LIB',
           },
           {
             'name': 'Likiep',
-            'shortCode': 'LIK'
+            'shortCode': 'LIK',
           },
           {
             'name': 'Majuro',
-            'shortCode': 'MAJ'
+            'shortCode': 'MAJ',
           },
           {
             'name': 'Maloelap',
-            'shortCode': 'MAL'
+            'shortCode': 'MAL',
           },
           {
             'name': 'Mejit',
-            'shortCode': 'MEJ'
+            'shortCode': 'MEJ',
           },
           {
             'name': 'Namdrik',
-            'shortCode': 'NMK'
+            'shortCode': 'NMK',
           },
           {
             'name': 'Namu',
-            'shortCode': 'NMU'
+            'shortCode': 'NMU',
           },
           {
             'name': 'Rongelap',
-            'shortCode': 'RON'
+            'shortCode': 'RON',
           },
           {
             'name': 'Ujae',
-            'shortCode': 'UJA'
+            'shortCode': 'UJA',
           },
           {
             'name': 'Utrik',
-            'shortCode': 'UTI'
+            'shortCode': 'UTI',
           },
           {
             'name': 'Wotho',
-            'shortCode': 'WTH'
+            'shortCode': 'WTH',
           },
           {
             'name': 'Wotje',
-            'shortCode': 'WTJ'
-          }
-        ]
+            'shortCode': 'WTJ',
+          },
+        ],
       },
       {
         'countryName': 'Martinique',
         'countryShortCode': 'MQ',
         'regions': [{
-          'name': 'Martinique'
-        }]
+          'name': 'Martinique',
+        }],
       },
       {
         'countryName': 'Mauritania',
         'countryShortCode': 'MR',
         'regions': [{
           'name': 'Adrar',
-          'shortCode': '07'
+          'shortCode': '07',
         },
           {
             'name': 'Assaba',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Brakna',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Dakhlet Nouadhibou',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Gorgol',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Guidimaka',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Hodh Ech Chargui',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Hodh El Gharbi',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Inchiri',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Nouakchott Nord',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Nouakchott Ouest',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Nouakchott Sud',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Tagant',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Tiris Zemmour',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Trarza',
-            'shortCode': '06'
-          }
-        ]
+            'shortCode': '06',
+          },
+        ],
       },
       {
         'countryName': 'Mauritius',
         'countryShortCode': 'MU',
         'regions': [{
           'name': 'Agalega Islands',
-          'shortCode': 'AG'
+          'shortCode': 'AG',
         },
           {
             'name': 'Beau Bassin-Rose Hill',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Black River',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Cargados Carajos Shoals',
-            'shortCode': 'CC'
+            'shortCode': 'CC',
           },
           {
             'name': 'Curepipe',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Flacq',
-            'shortCode': 'FL'
+            'shortCode': 'FL',
           },
           {
             'name': 'Grand Port',
-            'shortCode': 'GP'
+            'shortCode': 'GP',
           },
           {
             'name': 'Moka',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Pamplemousses',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Plaines Wilhems',
-            'shortCode': 'PW'
+            'shortCode': 'PW',
           },
           {
             'name': 'Port Louis (City)',
-            'shortCode': 'PU'
+            'shortCode': 'PU',
           },
           {
             'name': 'Port Louis',
-            'shortCode': 'PL'
+            'shortCode': 'PL',
           },
           {
             'name': 'Riviere du Rempart',
-            'shortCode': 'RR'
+            'shortCode': 'RR',
           },
           {
             'name': 'Rodrigues Island',
-            'shortCode': 'RO'
+            'shortCode': 'RO',
           },
           {
             'name': 'Savanne',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Vacoas-Phoenix',
-            'shortCode': 'CP'
-          }
-        ]
+            'shortCode': 'CP',
+          },
+        ],
       },
       {
         'countryName': 'Mayotte',
         'countryShortCode': 'YT',
         'regions': [{
           'name': 'Dzaoudzi',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Pamandzi',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Mamoudzou',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Dembeni',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Bandrélé',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Kani-Kéli',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Bouéni',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Chirongui',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Sada',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Ouangani',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Chiconi',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Tsingoni',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': "M'Tsangamouji",
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Acoua',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Mtsamboro',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Bandraboua',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Koungou',
-            'shortCode': '17'
-          }
-        ]
+            'shortCode': '17',
+          },
+        ],
       },
       {
         'countryName': 'Mexico',
         'countryShortCode': 'MX',
         'regions': [{
           'name': 'Aguascalientes',
-          'shortCode': 'AGU'
+          'shortCode': 'AGU',
         },
           {
             'name': 'Baja California',
-            'shortCode': 'BCN'
+            'shortCode': 'BCN',
           },
           {
             'name': 'Baja California Sur',
-            'shortCode': 'BCS'
+            'shortCode': 'BCS',
           },
           {
             'name': 'Campeche',
-            'shortCode': 'CAM'
+            'shortCode': 'CAM',
           },
           {
             'name': 'Ciudad de México',
-            'shortCode': 'DIF'
+            'shortCode': 'DIF',
           },
           {
             'name': 'Chiapas',
-            'shortCode': 'CHP'
+            'shortCode': 'CHP',
           },
           {
             'name': 'Chihuahua',
-            'shortCode': 'CHH'
+            'shortCode': 'CHH',
           },
           {
             'name': 'Coahuila de Zaragoza',
-            'shortCode': 'COA'
+            'shortCode': 'COA',
           },
           {
             'name': 'Colima',
-            'shortCode': 'COL'
+            'shortCode': 'COL',
           },
           {
             'name': 'Durango',
-            'shortCode': 'DUR'
+            'shortCode': 'DUR',
           },
           {
             'name': 'Estado de México',
-            'shortCode': 'MEX'
+            'shortCode': 'MEX',
           },
           {
             'name': 'Guanajuato',
-            'shortCode': 'GUA'
+            'shortCode': 'GUA',
           },
           {
             'name': 'Guerrero',
-            'shortCode': 'GRO'
+            'shortCode': 'GRO',
           },
           {
             'name': 'Hidalgo',
-            'shortCode': 'HID'
+            'shortCode': 'HID',
           },
           {
             'name': 'Jalisco',
-            'shortCode': 'JAL'
+            'shortCode': 'JAL',
           },
           {
             'name': 'Michoacán de Ocampo',
-            'shortCode': 'MIC'
+            'shortCode': 'MIC',
           },
           {
             'name': 'Morelos',
-            'shortCode': 'MOR'
+            'shortCode': 'MOR',
           },
           {
             'name': 'Nayarit',
-            'shortCode': 'NAY'
+            'shortCode': 'NAY',
           },
           {
             'name': 'Nuevo León',
-            'shortCode': 'NLE'
+            'shortCode': 'NLE',
           },
           {
             'name': 'Oaxaca',
-            'shortCode': 'OAX'
+            'shortCode': 'OAX',
           },
           {
             'name': 'Puebla',
-            'shortCode': 'PUE'
+            'shortCode': 'PUE',
           },
           {
             'name': 'Querétaro de Arteaga',
-            'shortCode': 'QUE'
+            'shortCode': 'QUE',
           },
           {
             'name': 'Quintana Roo',
-            'shortCode': 'ROO'
+            'shortCode': 'ROO',
           },
           {
             'name': 'San Luis Potosí',
-            'shortCode': 'SLP'
+            'shortCode': 'SLP',
           },
           {
             'name': 'Sinaloa',
-            'shortCode': 'SIN'
+            'shortCode': 'SIN',
           },
           {
             'name': 'Sonora',
-            'shortCode': 'SON'
+            'shortCode': 'SON',
           },
           {
             'name': 'Tabasco',
-            'shortCode': 'TAB'
+            'shortCode': 'TAB',
           },
           {
             'name': 'Tamaulipas',
-            'shortCode': 'TAM'
+            'shortCode': 'TAM',
           },
           {
             'name': 'Tlaxcala',
-            'shortCode': 'TLA'
+            'shortCode': 'TLA',
           },
           {
             'name': 'Veracruz',
-            'shortCode': 'VER'
+            'shortCode': 'VER',
           },
           {
             'name': 'Yucatán',
-            'shortCode': 'YUC'
+            'shortCode': 'YUC',
           },
           {
             'name': 'Zacatecas',
-            'shortCode': 'ZAC'
-          }
-        ]
+            'shortCode': 'ZAC',
+          },
+        ],
       },
       {
         'countryName': 'Micronesia, Federated States of',
         'countryShortCode': 'FM',
         'regions': [{
           'name': 'Chuuk (Truk)',
-          'shortCode': 'TRK'
+          'shortCode': 'TRK',
         },
           {
             'name': 'Kosrae',
-            'shortCode': 'KSA'
+            'shortCode': 'KSA',
           },
           {
             'name': 'Pohnpei',
-            'shortCode': 'PNI'
+            'shortCode': 'PNI',
           },
           {
             'name': 'Yap',
-            'shortCode': 'YAP'
-          }
-        ]
+            'shortCode': 'YAP',
+          },
+        ],
       },
       {
         'countryName': 'Moldova',
         'countryShortCode': 'MD',
         'regions': [{
           'name': 'Aenii Noi',
-          'shortCode': 'AN'
+          'shortCode': 'AN',
         },
           {
             'name': 'Basarabeasca',
-            'shortCode': 'BS'
+            'shortCode': 'BS',
           },
           {
             'name': 'Bălți',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Bender',
-            'shortCode': 'BD'
+            'shortCode': 'BD',
           },
           {
             'name': 'Briceni',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Cahul',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Cantemir',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Călărași',
-            'shortCode': 'CL'
+            'shortCode': 'CL',
           },
           {
             'name': 'Căușeni',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Chișinău',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Cimișlia',
-            'shortCode': 'CM'
+            'shortCode': 'CM',
           },
           {
             'name': 'Criuleni',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'Dondușeni',
-            'shortCode': 'DO'
+            'shortCode': 'DO',
           },
           {
             'name': 'Drochia',
-            'shortCode': 'DR'
+            'shortCode': 'DR',
           },
           {
             'name': 'Dubăsari',
-            'shortCode': 'DU'
+            'shortCode': 'DU',
           },
           {
             'name': 'Edineț',
-            'shortCode': 'ED'
+            'shortCode': 'ED',
           },
           {
             'name': 'Fălești',
-            'shortCode': 'FA'
+            'shortCode': 'FA',
           },
           {
             'name': 'Florești',
-            'shortCode': 'FL'
+            'shortCode': 'FL',
           },
           {
             'name': 'Găgăuzia',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Glodeni',
-            'shortCode': 'GL'
+            'shortCode': 'GL',
           },
           {
             'name': 'Hîncești',
-            'shortCode': 'HI'
+            'shortCode': 'HI',
           },
           {
             'name': 'Ialoveni',
-            'shortCode': 'IA'
+            'shortCode': 'IA',
           },
           {
             'name': 'Leova',
-            'shortCode': 'LE'
+            'shortCode': 'LE',
           },
           {
             'name': 'Nisporeni',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Ocnița',
-            'shortCode': 'OC'
+            'shortCode': 'OC',
           },
           {
             'name': 'Orhei',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Rezina',
-            'shortCode': 'RE'
+            'shortCode': 'RE',
           },
           {
             'name': 'Rîșcani',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'Sîngerei',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'Soroca',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Stînga Nistrului',
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'Strășeni',
-            'shortCode': 'ST'
+            'shortCode': 'ST',
           },
           {
             'name': 'Șoldănești',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Ștefan Vodă',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Taraclia',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Telenești',
-            'shortCode': 'TE'
+            'shortCode': 'TE',
           },
           {
             'name': 'Ungheni',
-            'shortCode': 'UN'
-          }
-        ]
+            'shortCode': 'UN',
+          },
+        ],
       },
       {
         'countryName': 'Monaco',
         'countryShortCode': 'MC',
         'regions': [{
           'name': 'Colle',
-          'shortCode': 'CL'
+          'shortCode': 'CL',
         },
           {
             'name': 'Condamine',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Fontvieille',
-            'shortCode': 'FO'
+            'shortCode': 'FO',
           },
           {
             'name': 'Gare',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Jardin Exotique',
-            'shortCode': 'JE'
+            'shortCode': 'JE',
           },
           {
             'name': 'Larvotto',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Malbousquet',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Monaco-Ville',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Moneghetti',
-            'shortCode': 'MG'
+            'shortCode': 'MG',
           },
           {
             'name': 'Monte-Carlo',
-            'shortCode': 'MC'
+            'shortCode': 'MC',
           },
           {
             'name': 'Moulins',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Port-Hercule',
-            'shortCode': 'PH'
+            'shortCode': 'PH',
           },
           {
             'name': 'Saint-Roman',
-            'shortCode': 'SR'
+            'shortCode': 'SR',
           },
           {
             'name': 'Sainte-Dévote',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Source',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Spélugues',
-            'shortCode': 'SP'
+            'shortCode': 'SP',
           },
           {
             'name': 'Vallon de la Rousse',
-            'shortCode': 'VR'
-          }
-        ]
+            'shortCode': 'VR',
+          },
+        ],
       },
       {
         'countryName': 'Mongolia',
         'countryShortCode': 'MN',
         'regions': [{
           'name': 'Arhangay',
-          'shortCode': '073'
+          'shortCode': '073',
         },
           {
             'name': 'Bayan-Olgiy',
-            'shortCode': '071'
+            'shortCode': '071',
           },
           {
             'name': 'Bayanhongor',
-            'shortCode': '069'
+            'shortCode': '069',
           },
           {
             'name': 'Bulgan',
-            'shortCode': '067'
+            'shortCode': '067',
           },
           {
             'name': 'Darhan',
-            'shortCode': '037'
+            'shortCode': '037',
           },
           {
             'name': 'Dornod',
-            'shortCode': '061'
+            'shortCode': '061',
           },
           {
             'name': 'Dornogovi',
-            'shortCode': '063'
+            'shortCode': '063',
           },
           {
             'name': 'Dundgovi',
-            'shortCode': '059'
+            'shortCode': '059',
           },
           {
             'name': 'Dzavhan',
-            'shortCode': '065'
+            'shortCode': '065',
           },
           {
             'name': 'Govi-Altay',
-            'shortCode': '065'
+            'shortCode': '065',
           },
           {
             'name': 'Govi-Sumber',
-            'shortCode': '064'
+            'shortCode': '064',
           },
           {
             'name': 'Hovd',
-            'shortCode': '043'
+            'shortCode': '043',
           },
           {
             'name': 'Hovsgol',
-            'shortCode': '041'
+            'shortCode': '041',
           },
           {
             'name': 'Omnogovi',
-            'shortCode': '053'
+            'shortCode': '053',
           },
           {
             'name': 'Ovorhangay',
-            'shortCode': '055'
+            'shortCode': '055',
           },
           {
             'name': 'Selenge',
-            'shortCode': '049'
+            'shortCode': '049',
           },
           {
             'name': 'Suhbaatar',
-            'shortCode': '051'
+            'shortCode': '051',
           },
           {
             'name': 'Tov',
-            'shortCode': '047'
+            'shortCode': '047',
           },
           {
             'name': 'Ulaanbaatar',
-            'shortCode': '1'
+            'shortCode': '1',
           },
           {
             'name': 'Uvs',
-            'shortCode': '046'
-          }
-        ]
+            'shortCode': '046',
+          },
+        ],
       },
       {
         'countryName': 'Montenegro',
         'countryShortCode': 'ME',
         'regions': [{
           'name': 'Andrijevica',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Bar',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Berane',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Bijelo Polje',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Budva',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Cetinje',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Danilovgrad',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Gusinje',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Herceg Novi',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Kolašin',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Kotor',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Mojkovac',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Nikšić',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Petnica',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Plav',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Plužine',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Pljevlja',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Podgorica',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Rožaje',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Šavnik',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Tivat',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Ulcinj',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Žabljak',
-            'shortCode': '21'
-          }
-        ]
+            'shortCode': '21',
+          },
+        ],
       },
       {
         'countryName': 'Montserrat',
         'countryShortCode': 'MS',
         'regions': [{
-          'name': 'Saint Anthony'
+          'name': 'Saint Anthony',
         },
           {
-            'name': 'Saint Georges'
+            'name': 'Saint Georges',
           },
           {
-            'name': "Saint Peter's"
-          }
-        ]
+            'name': "Saint Peter's",
+          },
+        ],
       },
       {
         'countryName': 'Morocco',
         'countryShortCode': 'MA',
         'regions': [{
           'name': 'Chaouia-Ouardigha',
-          'shortCode': '09'
+          'shortCode': '09',
         },
           {
             'name': 'Doukhala-Abda',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Fès-Boulemane',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Gharb-Chrarda-Beni Hssen',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Grand Casablanca',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Guelmim-Es Semara',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Laâyoune-Boujdour-Sakia el Hamra',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Marrakech-Tensift-Al Haouz',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Meknès-Tafilalet',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Oriental',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Oued ed Dahab-Lagouira',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Souss-Massa-Drâa',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Tadla-Azilal',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Tanger-Tétouan',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Taza-Al Hoceima-Taounate',
-            'shortCode': '03'
-          }
-        ]
+            'shortCode': '03',
+          },
+        ],
       },
       {
         'countryName': 'Mozambique',
         'countryShortCode': 'MZ',
         'regions': [{
           'name': 'Cabo Delgado',
-          'shortCode': 'P'
+          'shortCode': 'P',
         },
           {
             'name': 'Gaza',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Inhambane',
-            'shortCode': 'I'
+            'shortCode': 'I',
           },
           {
             'name': 'Manica',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Maputo',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Maputo (City)',
-            'shortCode': 'MPM'
+            'shortCode': 'MPM',
           },
           {
             'name': 'Nampula',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Niassa',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'Sofala',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Tete',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Zambezia',
-            'shortCode': 'Q'
-          }
-        ]
+            'shortCode': 'Q',
+          },
+        ],
       },
       {
         'countryName': 'Myanmar',
         'countryShortCode': 'MM',
         'regions': [{
           'name': 'Ayeyarwady',
-          'shortCode': '07'
+          'shortCode': '07',
         },
           {
             'name': 'Bago',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Chin',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Kachin',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Kayah',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Kayin',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Magway',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Mandalay',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Mon',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Nay Pyi Taw',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Rakhine',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Sagaing',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Shan',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Tanintharyi',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Yangon',
-            'shortCode': '06'
-          }
-        ]
+            'shortCode': '06',
+          },
+        ],
       },
       {
         'countryName': 'Namibia',
         'countryShortCode': 'NA',
         'regions': [{
           'name': 'Erongo',
-          'shortCode': 'ER'
+          'shortCode': 'ER',
         },
           {
             'name': 'Hardap',
-            'shortCode': 'HA'
+            'shortCode': 'HA',
           },
           {
             'name': 'Kavango East',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Kavango West',
-            'shortCode': 'KW'
+            'shortCode': 'KW',
           },
           {
             'name': 'Karas',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Khomas',
-            'shortCode': 'KH'
+            'shortCode': 'KH',
           },
           {
             'name': 'Kunene',
-            'shortCode': 'KU'
+            'shortCode': 'KU',
           },
           {
             'name': 'Ohangwena',
-            'shortCode': 'OW'
+            'shortCode': 'OW',
           },
           {
             'name': 'Omaheke',
-            'shortCode': 'OH'
+            'shortCode': 'OH',
           },
           {
             'name': 'Omusati',
-            'shortCode': 'OS'
+            'shortCode': 'OS',
           },
           {
             'name': 'Oshana',
-            'shortCode': 'ON'
+            'shortCode': 'ON',
           },
           {
             'name': 'Oshikoto',
-            'shortCode': 'OT'
+            'shortCode': 'OT',
           },
           {
             'name': 'Otjozondjupa',
-            'shortCode': 'OD'
+            'shortCode': 'OD',
           },
           {
             'name': 'Zambezi',
-            'shortCode': 'CA'
-          }
-        ]
+            'shortCode': 'CA',
+          },
+        ],
       },
       {
         'countryName': 'Nauru',
         'countryShortCode': 'NR',
         'regions': [{
           'name': 'Aiwo',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Anabar',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Anetan',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Anibare',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Baiti',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Boe',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Buada',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Denigomodu',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Ewa',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Ijuw',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Meneng',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Nibok',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Uaboe',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Yaren',
-            'shortCode': '14'
-          }
-        ]
+            'shortCode': '14',
+          },
+        ],
       },
       {
         'countryName': 'Nepal',
         'countryShortCode': 'NP',
         'regions': [{
           'name': 'Bagmati',
-          'shortCode': 'BA'
+          'shortCode': 'BA',
         },
           {
             'name': 'Bheri',
-            'shortCode': 'BH'
+            'shortCode': 'BH',
           },
           {
             'name': 'Dhawalagiri',
-            'shortCode': 'DH'
+            'shortCode': 'DH',
           },
           {
             'name': 'Gandaki',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Janakpur',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Karnali',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kosi',
-            'shortCode': 'KO'
+            'shortCode': 'KO',
           },
           {
             'name': 'Lumbini',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Mahakali',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mechi',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Narayani',
-            'shortCode': 'NA'
+            'shortCode': 'NA',
           },
           {
             'name': 'Rapti',
-            'shortCode': 'RA'
+            'shortCode': 'RA',
           },
           {
             'name': 'Sagarmatha',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Seti',
-            'shortCode': 'SE'
-          }
-        ]
+            'shortCode': 'SE',
+          },
+        ],
       },
       {
         'countryName': 'Netherlands',
         'countryShortCode': 'NL',
         'regions': [{
           'name': 'Drenthe',
-          'shortCode': 'DR'
+          'shortCode': 'DR',
         },
           {
             'name': 'Flevoland',
-            'shortCode': 'FL'
+            'shortCode': 'FL',
           },
           {
             'name': 'Friesland',
-            'shortCode': 'FR'
+            'shortCode': 'FR',
           },
           {
             'name': 'Gelderland',
-            'shortCode': 'GE'
+            'shortCode': 'GE',
           },
           {
             'name': 'Groningen',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Limburg',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Noord-Brabant',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Noord-Holland',
-            'shortCode': 'NH'
+            'shortCode': 'NH',
           },
           {
             'name': 'Overijssel',
-            'shortCode': 'OV'
+            'shortCode': 'OV',
           },
           {
             'name': 'Utrecht',
-            'shortCode': 'UT'
+            'shortCode': 'UT',
           },
           {
             'name': 'Zeeland',
-            'shortCode': 'ZE'
+            'shortCode': 'ZE',
           },
           {
             'name': 'Zuid-Holland',
-            'shortCode': 'ZH'
-          }
-        ]
+            'shortCode': 'ZH',
+          },
+        ],
       },
       {
         'countryName': 'New Caledonia',
         'countryShortCode': 'NC',
         'regions': [{
-          'name': 'Iles Loyaute'
+          'name': 'Iles Loyaute',
         },
           {
-            'name': 'Nord'
+            'name': 'Nord',
           },
           {
-            'name': 'Sud'
-          }
-        ]
+            'name': 'Sud',
+          },
+        ],
       },
       {
         'countryName': 'New Zealand',
         'countryShortCode': 'NZ',
         'regions': [{
           'name': 'Auckland',
-          'shortCode': 'AUK'
+          'shortCode': 'AUK',
         },
           {
             'name': 'Bay of Plenty',
-            'shortCode': 'BOP'
+            'shortCode': 'BOP',
           },
           {
             'name': 'Canterbury',
-            'shortCode': 'CAN'
+            'shortCode': 'CAN',
           },
           {
             'name': 'Gisborne',
-            'shortCode': 'GIS'
+            'shortCode': 'GIS',
           },
           {
             'name': "Hawke's Bay",
-            'shortCode': 'HKB'
+            'shortCode': 'HKB',
           },
           {
             'name': 'Marlborough',
-            'shortCode': 'MBH'
+            'shortCode': 'MBH',
           },
           {
             'name': 'Manawatu-Wanganui',
-            'shortCode': 'MWT'
+            'shortCode': 'MWT',
           },
           {
             'name': 'Northland',
-            'shortCode': 'NTL'
+            'shortCode': 'NTL',
           },
           {
             'name': 'Nelson',
-            'shortCode': 'NSN'
+            'shortCode': 'NSN',
           },
           {
             'name': 'Otago',
-            'shortCode': 'OTA'
+            'shortCode': 'OTA',
           },
           {
             'name': 'Southland',
-            'shortCode': 'STL'
+            'shortCode': 'STL',
           },
           {
             'name': 'Taranaki',
-            'shortCode': 'TKI'
+            'shortCode': 'TKI',
           },
           {
             'name': 'Tasman',
-            'shortCode': 'TAS'
+            'shortCode': 'TAS',
           },
           {
             'name': 'Waikato',
-            'shortCode': 'WKO'
+            'shortCode': 'WKO',
           },
           {
             'name': 'Wellington',
-            'shortCode': 'WGN'
+            'shortCode': 'WGN',
           },
           {
             'name': 'West Coast',
-            'shortCode': 'WTC'
+            'shortCode': 'WTC',
           },
           {
             'name': 'Chatham Islands Territory',
-            'shortCode': 'CIT'
-          }
-        ]
+            'shortCode': 'CIT',
+          },
+        ],
       },
       {
         'countryName': 'Nicaragua',
         'countryShortCode': 'NI',
         'regions': [{
           'name': 'Boaco',
-          'shortCode': 'BO'
+          'shortCode': 'BO',
         },
           {
             'name': 'Carazo',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Chinandega',
-            'shortCode': 'CI'
+            'shortCode': 'CI',
           },
           {
             'name': 'Chontales',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Estelí',
-            'shortCode': 'ES'
+            'shortCode': 'ES',
           },
           {
             'name': 'Granada',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Jinotega',
-            'shortCode': 'JI'
+            'shortCode': 'JI',
           },
           {
             'name': 'León',
-            'shortCode': 'LE'
+            'shortCode': 'LE',
           },
           {
             'name': 'Madriz',
-            'shortCode': 'MD'
+            'shortCode': 'MD',
           },
           {
             'name': 'Managua',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Masaya',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Matagalpa',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Nueva Segovia',
-            'shortCode': 'NS'
+            'shortCode': 'NS',
           },
           {
             'name': 'Río San Juan',
-            'shortCode': 'SJ'
+            'shortCode': 'SJ',
           },
           {
             'name': 'Rivas',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'Atlántico Norte',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Atlántico Sur',
-            'shortCode': 'AS'
-          }
-        ]
+            'shortCode': 'AS',
+          },
+        ],
       },
       {
         'countryName': 'Niger',
         'countryShortCode': 'NE',
         'regions': [{
           'name': 'Agadez',
-          'shortCode': '1'
+          'shortCode': '1',
         },
           {
             'name': 'Diffa',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Dosso',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Maradi',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Niamey',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Tahoua',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Tillabéri',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Zinder',
-            'shortCode': '7'
-          }
-        ]
+            'shortCode': '7',
+          },
+        ],
       },
       {
         'countryName': 'Nigeria',
         'countryShortCode': 'NG',
         'regions': [{
           'name': 'Abia',
-          'shortCode': 'AB'
+          'shortCode': 'AB',
         },
           {
             'name': 'Abuja Federal Capital Territory',
-            'shortCode': 'FC'
+            'shortCode': 'FC',
           },
           {
             'name': 'Adamawa',
-            'shortCode': 'AD'
+            'shortCode': 'AD',
           },
           {
             'name': 'Akwa Ibom',
-            'shortCode': 'AK'
+            'shortCode': 'AK',
           },
           {
             'name': 'Anambra',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Bauchi',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Bayelsa',
-            'shortCode': 'BY'
+            'shortCode': 'BY',
           },
           {
             'name': 'Benue',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Borno',
-            'shortCode': 'BO'
+            'shortCode': 'BO',
           },
           {
             'name': 'Cross River',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'Delta',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'Ebonyi',
-            'shortCode': 'EB'
+            'shortCode': 'EB',
           },
           {
             'name': 'Edo',
-            'shortCode': 'ED'
+            'shortCode': 'ED',
           },
           {
             'name': 'Ekiti',
-            'shortCode': 'EK'
+            'shortCode': 'EK',
           },
           {
             'name': 'Enugu',
-            'shortCode': 'EN'
+            'shortCode': 'EN',
           },
           {
             'name': 'Gombe',
-            'shortCode': 'GO'
+            'shortCode': 'GO',
           },
           {
             'name': 'Imo',
-            'shortCode': 'IM'
+            'shortCode': 'IM',
           },
           {
             'name': 'Jigawa',
-            'shortCode': 'JI'
+            'shortCode': 'JI',
           },
           {
             'name': 'Kaduna',
-            'shortCode': 'KD'
+            'shortCode': 'KD',
           },
           {
             'name': 'Kano',
-            'shortCode': 'KN'
+            'shortCode': 'KN',
           },
           {
             'name': 'Katsina',
-            'shortCode': 'KT'
+            'shortCode': 'KT',
           },
           {
             'name': 'Kebbi',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Kogi',
-            'shortCode': 'KO'
+            'shortCode': 'KO',
           },
           {
             'name': 'Kwara',
-            'shortCode': 'KW'
+            'shortCode': 'KW',
           },
           {
             'name': 'Lagos',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Nassarawa',
-            'shortCode': 'NA'
+            'shortCode': 'NA',
           },
           {
             'name': 'Niger',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Ogun',
-            'shortCode': 'OG'
+            'shortCode': 'OG',
           },
           {
             'name': 'Ondo',
-            'shortCode': 'ON'
+            'shortCode': 'ON',
           },
           {
             'name': 'Osun',
-            'shortCode': 'OS'
+            'shortCode': 'OS',
           },
           {
             'name': 'Oyo',
-            'shortCode': 'OY'
+            'shortCode': 'OY',
           },
           {
             'name': 'Plateau',
-            'shortCode': 'PL'
+            'shortCode': 'PL',
           },
           {
             'name': 'Rivers',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'Sokoto',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Taraba',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Yobe',
-            'shortCode': 'YO'
+            'shortCode': 'YO',
           },
           {
             'name': 'Zamfara',
-            'shortCode': 'ZA'
-          }
-        ]
+            'shortCode': 'ZA',
+          },
+        ],
       },
       {
         'countryName': 'Niue',
         'countryShortCode': 'NU',
         'regions': [{
-          'name': 'Niue'
-        }]
+          'name': 'Niue',
+        }],
       },
       {
         'countryName': 'Norfolk Island',
         'countryShortCode': 'NF',
         'regions': [{
-          'name': 'Norfolk Island'
-        }]
+          'name': 'Norfolk Island',
+        }],
       },
       {
         'countryName': 'Northern Mariana Islands',
         'countryShortCode': 'MP',
         'regions': [{
-          'name': 'Northern Islands'
+          'name': 'Northern Islands',
         },
           {
-            'name': 'Rota'
+            'name': 'Rota',
           },
           {
-            'name': 'Saipan'
+            'name': 'Saipan',
           },
           {
-            'name': 'Tinian'
-          }
-        ]
+            'name': 'Tinian',
+          },
+        ],
       },
       {
         'countryName': 'Norway',
         'countryShortCode': 'NO',
         'regions': [{
           'name': 'Akershus',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Aust-Agder',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Buskerud',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Finnmark',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Hedmark',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Hordaland',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Møre og Romsdal',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Nordland',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Nord-Trøndelag',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Oppland',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Oslo',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Rogaland',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Sogn og Fjordane',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Sør-Trøndelag',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Telemark',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Troms',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Vest-Agder',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Vestfold',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Østfold',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Jan Mayen',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Svalbard',
-            'shortCode': '21'
-          }
-        ]
+            'shortCode': '21',
+          },
+        ],
       },
       {
         'countryName': 'Oman',
         'countryShortCode': 'OM',
         'regions': [{
           'name': 'Ad Dakhiliyah',
-          'shortCode': 'DA'
+          'shortCode': 'DA',
         },
           {
             'name': 'Al Buraymi',
-            'shortCode': 'BU'
+            'shortCode': 'BU',
           },
           {
             'name': 'Al Wusta',
-            'shortCode': 'WU'
+            'shortCode': 'WU',
           },
           {
             'name': 'Az Zahirah',
-            'shortCode': 'ZA'
+            'shortCode': 'ZA',
           },
           {
             'name': 'Janub al Batinah',
-            'shortCode': 'BS'
+            'shortCode': 'BS',
           },
           {
             'name': 'Janub ash Sharqiyah',
-            'shortCode': 'SS'
+            'shortCode': 'SS',
           },
           {
             'name': 'Masqat',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Musandam',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Shamal al Batinah',
-            'shortCode': 'BJ'
+            'shortCode': 'BJ',
           },
           {
             'name': 'Shamal ash Sharqiyah',
-            'shortCode': 'SJ'
+            'shortCode': 'SJ',
           },
           {
             'name': 'Zufar',
-            'shortCode': 'ZU'
-          }
-        ]
+            'shortCode': 'ZU',
+          },
+        ],
       },
       {
         'countryName': 'Pakistan',
         'countryShortCode': 'PK',
         'regions': [{
           'name': 'Āzād Kashmīr',
-          'shortCode': 'JK'
+          'shortCode': 'JK',
         },
           {
             'name': 'Balōchistān',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Gilgit-Baltistān',
-            'shortCode': 'GB'
+            'shortCode': 'GB',
           },
           {
             'name': 'Islāmābād',
-            'shortCode': 'IS'
+            'shortCode': 'IS',
           },
           {
             'name': 'Khaībar Pakhtūnkhwās',
-            'shortCode': 'KP'
+            'shortCode': 'KP',
           },
           {
             'name': 'Punjāb',
-            'shortCode': 'PB'
+            'shortCode': 'PB',
           },
           {
             'name': 'Sindh',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Federally Administered Tribal Areas',
-            'shortCode': 'TA'
-          }
-        ]
+            'shortCode': 'TA',
+          },
+        ],
       },
       {
         'countryName': 'Palau',
         'countryShortCode': 'PW',
         'regions': [{
           'name': 'Aimeliik',
-          'shortCode': '002'
+          'shortCode': '002',
         },
           {
             'name': 'Airai',
-            'shortCode': '004'
+            'shortCode': '004',
           },
           {
             'name': 'Angaur',
-            'shortCode': '010'
+            'shortCode': '010',
           },
           {
             'name': 'Hatobohei',
-            'shortCode': '050'
+            'shortCode': '050',
           },
           {
             'name': 'Kayangel',
-            'shortCode': '100'
+            'shortCode': '100',
           },
           {
             'name': 'Koror',
-            'shortCode': '150'
+            'shortCode': '150',
           },
           {
             'name': 'Melekeok',
-            'shortCode': '212'
+            'shortCode': '212',
           },
           {
             'name': 'Ngaraard',
-            'shortCode': '214'
+            'shortCode': '214',
           },
           {
             'name': 'Ngarchelong',
-            'shortCode': '218'
+            'shortCode': '218',
           },
           {
             'name': 'Ngardmau',
-            'shortCode': '222'
+            'shortCode': '222',
           },
           {
             'name': 'Ngatpang',
-            'shortCode': '224'
+            'shortCode': '224',
           },
           {
             'name': 'Ngchesar',
-            'shortCode': '226'
+            'shortCode': '226',
           },
           {
             'name': 'Ngeremlengui',
-            'shortCode': '227'
+            'shortCode': '227',
           },
           {
             'name': 'Ngiwal',
-            'shortCode': '228'
+            'shortCode': '228',
           },
           {
             'name': 'Peleliu',
-            'shortCode': '350'
+            'shortCode': '350',
           },
           {
             'name': 'Sonsoral',
-            'shortCode': '350'
-          }
-        ]
+            'shortCode': '350',
+          },
+        ],
       },
       {
         'countryName': 'Palestine, State of',
         'countryShortCode': 'PS',
         'regions': [{
           'name': 'Ak Khalīl',
-          'shortCode': 'HBN'
+          'shortCode': 'HBN',
         },
           {
             'name': 'Al Quds',
-            'shortCode': 'JEM'
+            'shortCode': 'JEM',
           },
           {
             'name': 'Arīḩā wal Aghwār',
-            'shortCode': 'JRH'
+            'shortCode': 'JRH',
           },
           {
             'name': 'Bayt Laḩm',
-            'shortCode': 'BTH'
+            'shortCode': 'BTH',
           },
           {
             'name': 'Dayr al Balaḩ',
-            'shortCode': 'DEB'
+            'shortCode': 'DEB',
           },
           {
             'name': 'Ghazzah',
-            'shortCode': 'GZA'
+            'shortCode': 'GZA',
           },
           {
             'name': 'Janīn',
-            'shortCode': 'JEN'
+            'shortCode': 'JEN',
           },
           {
             'name': 'Khān Yūnis',
-            'shortCode': 'KYS'
+            'shortCode': 'KYS',
           },
           {
             'name': 'Nāblus',
-            'shortCode': 'NBS'
+            'shortCode': 'NBS',
           },
           {
             'name': 'Qalqīyah',
-            'shortCode': 'QQA'
+            'shortCode': 'QQA',
           },
           {
             'name': 'Rafaḩ',
-            'shortCode': 'RFH'
+            'shortCode': 'RFH',
           },
           {
             'name': 'Rām Allāh wal Bīrah',
-            'shortCode': 'RBH'
+            'shortCode': 'RBH',
           },
           {
             'name': 'Salfīt',
-            'shortCode': 'SLT'
+            'shortCode': 'SLT',
           },
           {
             'name': 'Shamāl Ghazzah',
-            'shortCode': 'NGZ'
+            'shortCode': 'NGZ',
           },
           {
             'name': 'Ţūbās',
-            'shortCode': 'TBS'
+            'shortCode': 'TBS',
           },
           {
             'name': 'Ţūlkarm',
-            'shortCode': 'TKM'
-          }
-        ]
+            'shortCode': 'TKM',
+          },
+        ],
       },
       {
         'countryName': 'Panama',
         'countryShortCode': 'PA',
         'regions': [{
           'name': 'Bocas del Toro',
-          'shortCode': '1'
+          'shortCode': '1',
         },
           {
             'name': 'Chiriquí',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Coclé',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Colón',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Darién',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Emberá',
-            'shortCode': 'EM'
+            'shortCode': 'EM',
           },
           {
             'name': 'Herrera',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Kuna Yala',
-            'shortCode': 'KY'
+            'shortCode': 'KY',
           },
           {
             'name': 'Los Santos',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Ngäbe-Buglé',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Panamá',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Panamá Oeste',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Veraguas',
-            'shortCode': '9'
-          }
-        ]
+            'shortCode': '9',
+          },
+        ],
       },
       {
         'countryName': 'Papua New Guinea',
         'countryShortCode': 'PG',
         'regions': [{
           'name': 'Bougainville',
-          'shortCode': 'NSB'
+          'shortCode': 'NSB',
         },
           {
             'name': 'Central',
-            'shortCode': 'CPM'
+            'shortCode': 'CPM',
           },
           {
             'name': 'Chimbu',
-            'shortCode': 'CPK'
+            'shortCode': 'CPK',
           },
           {
             'name': 'East New Britain',
-            'shortCode': 'EBR'
+            'shortCode': 'EBR',
           },
           {
             'name': 'East Sepik',
-            'shortCode': 'ESW'
+            'shortCode': 'ESW',
           },
           {
             'name': 'Eastern Highlands',
-            'shortCode': 'EHG'
+            'shortCode': 'EHG',
           },
           {
             'name': 'Enga',
-            'shortCode': 'EPW'
+            'shortCode': 'EPW',
           },
           {
             'name': 'Gulf',
-            'shortCode': 'GPK'
+            'shortCode': 'GPK',
           },
           {
             'name': 'Hela',
-            'shortCode': 'HLA'
+            'shortCode': 'HLA',
           },
           {
             'name': 'Jiwaka',
-            'shortCode': 'JWK'
+            'shortCode': 'JWK',
           },
           {
             'name': 'Madang',
-            'shortCode': 'MOM'
+            'shortCode': 'MOM',
           },
           {
             'name': 'Manus',
-            'shortCode': 'MRL'
+            'shortCode': 'MRL',
           },
           {
             'name': 'Milne Bay',
-            'shortCode': 'MBA'
+            'shortCode': 'MBA',
           },
           {
             'name': 'Morobe',
-            'shortCode': 'MPL'
+            'shortCode': 'MPL',
           },
           {
             'name': 'Port Moresby',
-            'shortCode': 'NCD'
+            'shortCode': 'NCD',
           },
           {
             'name': 'New Ireland',
-            'shortCode': 'NIK'
+            'shortCode': 'NIK',
           },
           {
             'name': 'Northern',
-            'shortCode': 'NPP'
+            'shortCode': 'NPP',
           },
           {
             'name': 'Southern Highlands',
-            'shortCode': 'SHM'
+            'shortCode': 'SHM',
           },
           {
             'name': 'West New Britain',
-            'shortCode': 'WBK'
+            'shortCode': 'WBK',
           },
           {
             'name': 'West Sepik',
-            'shortCode': 'SAN'
+            'shortCode': 'SAN',
           },
           {
             'name': 'Western',
-            'shortCode': 'WPD'
+            'shortCode': 'WPD',
           },
           {
             'name': 'Western Highlands',
-            'shortCode': 'WHM'
-          }
-        ]
+            'shortCode': 'WHM',
+          },
+        ],
       },
       {
         'countryName': 'Paraguay',
         'countryShortCode': 'PY',
         'regions': [{
           'name': 'Alto Paraguay',
-          'shortCode': '16'
+          'shortCode': '16',
         },
           {
             'name': 'Alto Parana',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Amambay',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Asuncion',
-            'shortCode': 'ASU'
+            'shortCode': 'ASU',
           },
           {
             'name': 'Caaguazu',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Caazapa',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Canindeyu',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Central',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Concepcion',
-            'shortCode': '1'
+            'shortCode': '1',
           },
           {
             'name': 'Cordillera',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Guaira',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Itapua',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Misiones',
-            'shortCode': '8'
+            'shortCode': '8',
           },
           {
             'name': 'Neembucu',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Paraguari',
-            'shortCode': '9'
+            'shortCode': '9',
           },
           {
             'name': 'Presidente Hayes',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'San Pedro',
-            'shortCode': '2'
-          }
-        ]
+            'shortCode': '2',
+          },
+        ],
       },
       {
         'countryName': 'Peru',
         'countryShortCode': 'PE',
         'regions': [{
           'name': 'Amazonas',
-          'shortCode': 'AMA'
+          'shortCode': 'AMA',
         },
           {
             'name': 'Ancash',
-            'shortCode': 'ANC'
+            'shortCode': 'ANC',
           },
           {
             'name': 'Apurimac',
-            'shortCode': 'APU'
+            'shortCode': 'APU',
           },
           {
             'name': 'Arequipa',
-            'shortCode': 'ARE'
+            'shortCode': 'ARE',
           },
           {
             'name': 'Ayacucho',
-            'shortCode': 'AYA'
+            'shortCode': 'AYA',
           },
           {
             'name': 'Cajamarca',
-            'shortCode': 'CAJ'
+            'shortCode': 'CAJ',
           },
           {
             'name': 'Callao',
-            'shortCode': 'CAL'
+            'shortCode': 'CAL',
           },
           {
             'name': 'Cusco',
-            'shortCode': 'CUS'
+            'shortCode': 'CUS',
           },
           {
             'name': 'Huancavelica',
-            'shortCode': 'HUV'
+            'shortCode': 'HUV',
           },
           {
             'name': 'Huanuco',
-            'shortCode': 'HUC'
+            'shortCode': 'HUC',
           },
           {
             'name': 'Ica',
-            'shortCode': 'ICA'
+            'shortCode': 'ICA',
           },
           {
             'name': 'Junin',
-            'shortCode': 'JUN'
+            'shortCode': 'JUN',
           },
           {
             'name': 'La Libertad',
-            'shortCode': 'LAL'
+            'shortCode': 'LAL',
           },
           {
             'name': 'Lambayeque',
-            'shortCode': 'LAM'
+            'shortCode': 'LAM',
           },
           {
             'name': 'Lima',
-            'shortCode': 'LIM'
+            'shortCode': 'LIM',
           },
           {
             'name': 'Loreto',
-            'shortCode': 'LOR'
+            'shortCode': 'LOR',
           },
           {
             'name': 'Madre de Dios',
-            'shortCode': 'MDD'
+            'shortCode': 'MDD',
           },
           {
             'name': 'Moquegua',
-            'shortCode': 'MOQ'
+            'shortCode': 'MOQ',
           },
           {
             'name': 'Municipalidad Metropolitana de Lima',
-            'shortCode': 'LMA'
+            'shortCode': 'LMA',
           },
           {
             'name': 'Pasco',
-            'shortCode': 'PAS'
+            'shortCode': 'PAS',
           },
           {
             'name': 'Piura',
-            'shortCode': 'PIU'
+            'shortCode': 'PIU',
           },
           {
             'name': 'Puno',
-            'shortCode': 'PUN'
+            'shortCode': 'PUN',
           },
           {
             'name': 'San Martin',
-            'shortCode': 'SAM'
+            'shortCode': 'SAM',
           },
           {
             'name': 'Tacna',
-            'shortCode': 'TAC'
+            'shortCode': 'TAC',
           },
           {
             'name': 'Tumbes',
-            'shortCode': 'TUM'
+            'shortCode': 'TUM',
           },
           {
             'name': 'Ucayali',
-            'shortCode': 'UCA'
-          }
-        ]
+            'shortCode': 'UCA',
+          },
+        ],
       },
       {
         'countryName': 'Philippines',
         'countryShortCode': 'PH',
         'regions': [{
           'name': 'Abra',
-          'shortCode': 'ABR'
+          'shortCode': 'ABR',
         },
           {
             'name': 'Agusan del Norte',
-            'shortCode': 'AGN'
+            'shortCode': 'AGN',
           },
           {
             'name': 'Agusan del Sur',
-            'shortCode': 'AGS'
+            'shortCode': 'AGS',
           },
           {
             'name': 'Aklan',
-            'shortCode': 'AKL'
+            'shortCode': 'AKL',
           },
           {
             'name': 'Albay',
-            'shortCode': 'ALB'
+            'shortCode': 'ALB',
           },
           {
             'name': 'Antique',
-            'shortCode': 'ANT'
+            'shortCode': 'ANT',
           },
           {
             'name': 'Apayao',
-            'shortCode': 'APA'
+            'shortCode': 'APA',
           },
           {
             'name': 'Aurora',
-            'shortCode': 'AUR'
+            'shortCode': 'AUR',
           },
           {
             'name': 'Basilan',
-            'shortCode': 'BAS'
+            'shortCode': 'BAS',
           },
           {
             'name': 'Bataan',
-            'shortCode': 'BAN'
+            'shortCode': 'BAN',
           },
           {
             'name': 'Batanes',
-            'shortCode': 'BTN'
+            'shortCode': 'BTN',
           },
           {
             'name': 'Batangas',
-            'shortCode': 'BTG'
+            'shortCode': 'BTG',
           },
           {
             'name': 'Benguet',
-            'shortCode': 'BEN'
+            'shortCode': 'BEN',
           },
           {
             'name': 'Biliran',
-            'shortCode': 'BIL'
+            'shortCode': 'BIL',
           },
           {
             'name': 'Bohol',
-            'shortCode': 'BOH'
+            'shortCode': 'BOH',
           },
           {
             'name': 'Bukidnon',
-            'shortCode': 'BUK'
+            'shortCode': 'BUK',
           },
           {
             'name': 'Bulacan',
-            'shortCode': 'BUL'
+            'shortCode': 'BUL',
           },
           {
             'name': 'Cagayan',
-            'shortCode': 'CAG'
+            'shortCode': 'CAG',
           },
           {
             'name': 'Camarines Norte',
-            'shortCode': 'CAN'
+            'shortCode': 'CAN',
           },
           {
             'name': 'Camarines Sur',
-            'shortCode': 'CAS'
+            'shortCode': 'CAS',
           },
           {
             'name': 'Camiguin',
-            'shortCode': 'CAM'
+            'shortCode': 'CAM',
           },
           {
             'name': 'Capiz',
-            'shortCode': 'CAP'
+            'shortCode': 'CAP',
           },
           {
             'name': 'Catanduanes',
-            'shortCode': 'CAT'
+            'shortCode': 'CAT',
           },
           {
             'name': 'Cavite',
-            'shortCode': 'CAV'
+            'shortCode': 'CAV',
           },
           {
             'name': 'Cebu',
-            'shortCode': 'CEB'
+            'shortCode': 'CEB',
           },
           {
             'name': 'Compostela',
-            'shortCode': 'COM'
+            'shortCode': 'COM',
           },
           {
             'name': 'Cotabato',
-            'shortCode': 'NCO'
+            'shortCode': 'NCO',
           },
           {
             'name': 'Davao del Norte',
-            'shortCode': 'DAV'
+            'shortCode': 'DAV',
           },
           {
             'name': 'Davao del Sur',
-            'shortCode': 'DAS'
+            'shortCode': 'DAS',
           },
           {
             'name': 'Davao Occidental',
-            'shortCode': 'DVO'
+            'shortCode': 'DVO',
           },
           {
             'name': 'Davao Oriental',
-            'shortCode': 'DAO'
+            'shortCode': 'DAO',
           },
           {
             'name': 'Dinagat Islands',
-            'shortCode': 'DIN'
+            'shortCode': 'DIN',
           },
           {
             'name': 'Eastern Samar',
-            'shortCode': 'EAS'
+            'shortCode': 'EAS',
           },
           {
             'name': 'Guimaras',
-            'shortCode': 'GUI'
+            'shortCode': 'GUI',
           },
           {
             'name': 'Ifugao',
-            'shortCode': 'IFU'
+            'shortCode': 'IFU',
           },
           {
             'name': 'Ilocos Norte',
-            'shortCode': 'ILN'
+            'shortCode': 'ILN',
           },
           {
             'name': 'Ilocos Sur',
-            'shortCode': 'ILS'
+            'shortCode': 'ILS',
           },
           {
             'name': 'Iloilo',
-            'shortCode': 'ILI'
+            'shortCode': 'ILI',
           },
           {
             'name': 'Isabela',
-            'shortCode': 'ISA'
+            'shortCode': 'ISA',
           },
           {
             'name': 'Kalinga',
-            'shortCode': 'KAL'
+            'shortCode': 'KAL',
           },
           {
             'name': 'La Union',
-            'shortCode': 'LUN'
+            'shortCode': 'LUN',
           },
           {
             'name': 'Laguna',
-            'shortCode': 'LAG'
+            'shortCode': 'LAG',
           },
           {
             'name': 'Lanao del Norte',
-            'shortCode': 'LAN'
+            'shortCode': 'LAN',
           },
           {
             'name': 'Lanao del Sur',
-            'shortCode': 'LAS'
+            'shortCode': 'LAS',
           },
           {
             'name': 'Leyte',
-            'shortCode': 'LEY'
+            'shortCode': 'LEY',
           },
           {
             'name': 'Maguindanao',
-            'shortCode': 'MAG'
+            'shortCode': 'MAG',
           },
           {
             'name': 'Masbate',
-            'shortCode': 'MAS'
+            'shortCode': 'MAS',
           },
           {
             'name': 'Metro Manila',
-            'shortCode': '00'
+            'shortCode': '00',
           },
           {
             'name': 'Mindoro Occidental',
-            'shortCode': 'MDC'
+            'shortCode': 'MDC',
           },
           {
             'name': 'Mindoro Oriental',
-            'shortCode': 'MDR'
+            'shortCode': 'MDR',
           },
           {
             'name': 'Misamis Occidental',
-            'shortCode': 'MSC'
+            'shortCode': 'MSC',
           },
           {
             'name': 'Misamis Oriental',
-            'shortCode': 'MSR'
+            'shortCode': 'MSR',
           },
           {
             'name': 'Mountain Province',
-            'shortCode': 'MOU'
+            'shortCode': 'MOU',
           },
           {
             'name': 'Negros Occidental',
-            'shortCode': 'NEC'
+            'shortCode': 'NEC',
           },
           {
             'name': 'Negros Oriental',
-            'shortCode': 'NER'
+            'shortCode': 'NER',
           },
           {
             'name': 'Northern Samar',
-            'shortCode': 'NSA'
+            'shortCode': 'NSA',
           },
           {
             'name': 'Nueva Ecija',
-            'shortCode': 'NUE'
+            'shortCode': 'NUE',
           },
           {
             'name': 'Nueva Vizcaya',
-            'shortCode': 'NUV'
+            'shortCode': 'NUV',
           },
           {
             'name': 'Palawan',
-            'shortCode': 'PLW'
+            'shortCode': 'PLW',
           },
           {
             'name': 'Pampanga',
-            'shortCode': 'PAM'
+            'shortCode': 'PAM',
           },
           {
             'name': 'Pangasinan',
-            'shortCode': 'PAN'
+            'shortCode': 'PAN',
           },
           {
             'name': 'Quezon',
-            'shortCode': 'QUE'
+            'shortCode': 'QUE',
           },
           {
             'name': 'Quirino',
-            'shortCode': 'QUI'
+            'shortCode': 'QUI',
           },
           {
             'name': 'Rizal',
-            'shortCode': 'RIZ'
+            'shortCode': 'RIZ',
           },
           {
             'name': 'Romblon',
-            'shortCode': 'ROM'
+            'shortCode': 'ROM',
           },
           {
             'name': 'Samar',
-            'shortCode': 'WSA'
+            'shortCode': 'WSA',
           },
           {
             'name': 'Sarangani',
-            'shortCode': 'SAR'
+            'shortCode': 'SAR',
           },
           {
             'name': 'Siquijor',
-            'shortCode': 'SIG'
+            'shortCode': 'SIG',
           },
           {
             'name': 'Sorsogon',
-            'shortCode': 'SOR'
+            'shortCode': 'SOR',
           },
           {
             'name': 'Southern Leyte',
-            'shortCode': 'SLE'
+            'shortCode': 'SLE',
           },
           {
             'name': 'Sultan Kudarat',
-            'shortCode': 'AUK'
+            'shortCode': 'AUK',
           },
           {
             'name': 'Sulu',
-            'shortCode': 'SLU'
+            'shortCode': 'SLU',
           },
           {
             'name': 'Surigao del Norte',
-            'shortCode': 'SUN'
+            'shortCode': 'SUN',
           },
           {
             'name': 'Surigao del Sur',
-            'shortCode': 'SUR'
+            'shortCode': 'SUR',
           },
           {
             'name': 'Tarlac',
-            'shortCode': 'TAR'
+            'shortCode': 'TAR',
           },
           {
             'name': 'Tawi-Tawi',
-            'shortCode': 'TAW'
+            'shortCode': 'TAW',
           },
           {
             'name': 'Zambales',
-            'shortCode': 'ZMB'
+            'shortCode': 'ZMB',
           },
           {
             'name': 'Zamboanga del Norte',
-            'shortCode': 'ZAN'
+            'shortCode': 'ZAN',
           },
           {
             'name': 'Zamboanga del Sur',
-            'shortCode': 'ZAS'
+            'shortCode': 'ZAS',
           },
           {
             'name': 'Zamboanga Sibugay',
-            'shortCode': 'ZSI'
-          }
-        ]
+            'shortCode': 'ZSI',
+          },
+        ],
       },
       {
         'countryName': 'Pitcairn',
         'countryShortCode': 'PN',
         'regions': [{
-          'name': 'Pitcairn Islands'
-        }]
+          'name': 'Pitcairn Islands',
+        }],
       },
       {
         'countryName': 'Poland',
         'countryShortCode': 'PL',
         'regions': [{
           'name': 'Dolnośląskie',
-          'shortCode': 'DS'
+          'shortCode': 'DS',
         },
           {
             'name': 'Kujawsko-pomorskie',
-            'shortCode': 'KP'
+            'shortCode': 'KP',
           },
           {
             'name': 'Łódzkie',
-            'shortCode': 'LD'
+            'shortCode': 'LD',
           },
           {
             'name': 'Lubelskie',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Lubuskie',
-            'shortCode': 'LB'
+            'shortCode': 'LB',
           },
           {
             'name': 'Małopolskie',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mazowieckie',
-            'shortCode': 'MZ'
+            'shortCode': 'MZ',
           },
           {
             'name': 'Opolskie',
-            'shortCode': 'OP'
+            'shortCode': 'OP',
           },
           {
             'name': 'Podkarpackie',
-            'shortCode': 'PK'
+            'shortCode': 'PK',
           },
           {
             'name': 'Podlaskie',
-            'shortCode': 'PD'
+            'shortCode': 'PD',
           },
           {
             'name': 'Pomorskie',
-            'shortCode': 'PM'
+            'shortCode': 'PM',
           },
           {
             'name': 'Śląskie',
-            'shortCode': 'SL'
+            'shortCode': 'SL',
           },
           {
             'name': 'Świętokrzyskie',
-            'shortCode': 'SK'
+            'shortCode': 'SK',
           },
           {
             'name': 'Warmińsko-mazurskie',
-            'shortCode': 'WN'
+            'shortCode': 'WN',
           },
           {
             'name': 'Wielkopolskie',
-            'shortCode': 'WP'
+            'shortCode': 'WP',
           },
           {
             'name': 'Zachodniopomorskie',
-            'shortCode': 'ZP'
-          }
-        ]
+            'shortCode': 'ZP',
+          },
+        ],
       },
       {
         'countryName': 'Portugal',
         'countryShortCode': 'PT',
         'regions': [{
           'name': 'Açores',
-          'shortCode': '20'
+          'shortCode': '20',
         },
           {
             'name': 'Aveiro',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Beja',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Braga',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Bragança',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Castelo Branco',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Coimbra',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Évora',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Faro',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Guarda',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Leiria',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Lisboa',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Madeira',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Portalegre',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Porto',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Santarém',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Setúbal',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Viana do Castelo',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Vila Real',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Viseu',
-            'shortCode': '18'
-          }
-        ]
+            'shortCode': '18',
+          },
+        ],
       },
       {
         'countryName': 'Puerto Rico',
         'countryShortCode': 'PR',
         'regions': [{
-          'name': 'Adjuntas'
+          'name': 'Adjuntas',
         },
           {
-            'name': 'Aguada'
+            'name': 'Aguada',
           },
           {
-            'name': 'Aguadilla'
+            'name': 'Aguadilla',
           },
           {
-            'name': 'Aguas Buenas'
+            'name': 'Aguas Buenas',
           },
           {
-            'name': 'Aibonito'
+            'name': 'Aibonito',
           },
           {
-            'name': 'Anasco'
+            'name': 'Anasco',
           },
           {
-            'name': 'Arecibo'
+            'name': 'Arecibo',
           },
           {
-            'name': 'Arroyo'
+            'name': 'Arroyo',
           },
           {
-            'name': 'Barceloneta'
+            'name': 'Barceloneta',
           },
           {
-            'name': 'Barranquitas'
+            'name': 'Barranquitas',
           },
           {
-            'name': 'Bayamon'
+            'name': 'Bayamon',
           },
           {
-            'name': 'Cabo Rojo'
+            'name': 'Cabo Rojo',
           },
           {
-            'name': 'Caguas'
+            'name': 'Caguas',
           },
           {
-            'name': 'Camuy'
+            'name': 'Camuy',
           },
           {
-            'name': 'Canovanas'
+            'name': 'Canovanas',
           },
           {
-            'name': 'Carolina'
+            'name': 'Carolina',
           },
           {
-            'name': 'Cat'
+            'name': 'Cat',
           },
           {
-            'name': 'Ceiba'
+            'name': 'Ceiba',
           },
           {
-            'name': 'Ciales'
+            'name': 'Ciales',
           },
           {
-            'name': 'Cidra'
+            'name': 'Cidra',
           },
           {
-            'name': 'Coamo'
+            'name': 'Coamo',
           },
           {
-            'name': 'Comerio'
+            'name': 'Comerio',
           },
           {
-            'name': 'Corozal'
+            'name': 'Corozal',
           },
           {
-            'name': 'Culebra'
+            'name': 'Culebra',
           },
           {
-            'name': 'Dorado'
+            'name': 'Dorado',
           },
           {
-            'name': 'Fajardo'
+            'name': 'Fajardo',
           },
           {
-            'name': 'Florida'
+            'name': 'Florida',
           },
           {
-            'name': 'Guanica'
+            'name': 'Guanica',
           },
           {
-            'name': 'Guayama'
+            'name': 'Guayama',
           },
           {
-            'name': 'Guayanilla'
+            'name': 'Guayanilla',
           },
           {
-            'name': 'Guaynabo'
+            'name': 'Guaynabo',
           },
           {
-            'name': 'Gurabo'
+            'name': 'Gurabo',
           },
           {
-            'name': 'Hatillo'
+            'name': 'Hatillo',
           },
           {
-            'name': 'Hormigueros'
+            'name': 'Hormigueros',
           },
           {
-            'name': 'Humacao'
+            'name': 'Humacao',
           },
           {
-            'name': 'Isabe'
+            'name': 'Isabe',
           },
           {
-            'name': 'Juana Diaz'
+            'name': 'Juana Diaz',
           },
           {
-            'name': 'Juncos'
+            'name': 'Juncos',
           },
           {
-            'name': 'Lajas'
+            'name': 'Lajas',
           },
           {
-            'name': 'Lares'
+            'name': 'Lares',
           },
           {
-            'name': 'Las Marias'
+            'name': 'Las Marias',
           },
           {
-            'name': 'Las oiza'
+            'name': 'Las oiza',
           },
           {
-            'name': 'Luquillo'
+            'name': 'Luquillo',
           },
           {
-            'name': 'Manati'
+            'name': 'Manati',
           },
           {
-            'name': 'Maricao'
+            'name': 'Maricao',
           },
           {
-            'name': 'Maunabo'
+            'name': 'Maunabo',
           },
           {
-            'name': 'Mayaguez'
+            'name': 'Mayaguez',
           },
           {
-            'name': 'Moca'
+            'name': 'Moca',
           },
           {
-            'name': 'Morovis'
+            'name': 'Morovis',
           },
           {
-            'name': 'Naguabo'
+            'name': 'Naguabo',
           },
           {
-            'name': 'Naranjito'
+            'name': 'Naranjito',
           },
           {
-            'name': 'Orocovis'
+            'name': 'Orocovis',
           },
           {
-            'name': 'Patillas'
+            'name': 'Patillas',
           },
           {
-            'name': 'Penuelas'
+            'name': 'Penuelas',
           },
           {
-            'name': 'Ponce'
+            'name': 'Ponce',
           },
           {
-            'name': 'Quebradillas'
+            'name': 'Quebradillas',
           },
           {
-            'name': 'Rincon'
+            'name': 'Rincon',
           },
           {
-            'name': 'Rio Grande'
+            'name': 'Rio Grande',
           },
           {
-            'name': 'Sabana linas'
+            'name': 'Sabana linas',
           },
           {
-            'name': 'San German'
+            'name': 'San German',
           },
           {
-            'name': 'San Juan'
+            'name': 'San Juan',
           },
           {
-            'name': 'San Lorenzo'
+            'name': 'San Lorenzo',
           },
           {
-            'name': 'San Sebastian'
+            'name': 'San Sebastian',
           },
           {
-            'name': 'Santa Isabel'
+            'name': 'Santa Isabel',
           },
           {
-            'name': 'Toa Alta'
+            'name': 'Toa Alta',
           },
           {
-            'name': 'Toa Baja'
+            'name': 'Toa Baja',
           },
           {
-            'name': 'Trujillo Alto'
+            'name': 'Trujillo Alto',
           },
           {
-            'name': 'Utuado'
+            'name': 'Utuado',
           },
           {
-            'name': 'Vega Alta'
+            'name': 'Vega Alta',
           },
           {
-            'name': 'Vega ues'
+            'name': 'Vega ues',
           },
           {
-            'name': 'Villalba'
+            'name': 'Villalba',
           },
           {
-            'name': 'Yabucoa'
+            'name': 'Yabucoa',
           },
           {
-            'name': 'Yauco'
-          }
-        ]
+            'name': 'Yauco',
+          },
+        ],
       },
       {
         'countryName': 'Qatar',
         'countryShortCode': 'QA',
         'regions': [{
           'name': 'Ad Dawḩah',
-          'shortCode': 'DA'
+          'shortCode': 'DA',
         },
           {
             'name': 'Al Khawr wa adh Dhakhīrah',
-            'shortCode': 'KH'
+            'shortCode': 'KH',
           },
           {
             'name': 'Al Wakrah',
-            'shortCode': 'WA'
+            'shortCode': 'WA',
           },
           {
             'name': 'Ar Rayyān',
-            'shortCode': 'RA'
+            'shortCode': 'RA',
           },
           {
             'name': 'Ash Shamāl',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Az̧ Za̧`āyin',
-            'shortCode': 'ZA'
+            'shortCode': 'ZA',
           },
           {
             'name': 'Umm Şalāl',
-            'shortCode': 'US'
-          }
-        ]
+            'shortCode': 'US',
+          },
+        ],
       },
       {
         'countryName': 'Réunion',
         'countryShortCode': 'RE',
         'regions': [{
-          'name': 'Réunion'
-        }]
+          'name': 'Réunion',
+        }],
       },
       {
         'countryName': 'Romania',
         'countryShortCode': 'RO',
         'regions': [{
           'name': 'Alba',
-          'shortCode': 'AB'
+          'shortCode': 'AB',
         },
           {
             'name': 'Arad',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Arges',
-            'shortCode': 'AG'
+            'shortCode': 'AG',
           },
           {
             'name': 'Bacau',
-            'shortCode': 'BC'
+            'shortCode': 'BC',
           },
           {
             'name': 'Bihor',
-            'shortCode': 'BH'
+            'shortCode': 'BH',
           },
           {
             'name': 'Bistrita-Nasaud',
-            'shortCode': 'BN'
+            'shortCode': 'BN',
           },
           {
             'name': 'Botosani',
-            'shortCode': 'BT'
+            'shortCode': 'BT',
           },
           {
             'name': 'Braila',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Brasov',
-            'shortCode': 'BV'
+            'shortCode': 'BV',
           },
           {
             'name': 'Bucuresti',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Buzau',
-            'shortCode': 'BZ'
+            'shortCode': 'BZ',
           },
           {
             'name': 'Calarasi',
-            'shortCode': 'CL'
+            'shortCode': 'CL',
           },
           {
             'name': 'Caras-Severin',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Cluj',
-            'shortCode': 'CJ'
+            'shortCode': 'CJ',
           },
           {
             'name': 'Constanta',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Covasna',
-            'shortCode': 'CV'
+            'shortCode': 'CV',
           },
           {
             'name': 'Dambovita',
-            'shortCode': 'DB'
+            'shortCode': 'DB',
           },
           {
             'name': 'Dolj',
-            'shortCode': 'DJ'
+            'shortCode': 'DJ',
           },
           {
             'name': 'Galati',
-            'shortCode': 'GL'
+            'shortCode': 'GL',
           },
           {
             'name': 'Giurgiu',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Gorj',
-            'shortCode': 'GJ'
+            'shortCode': 'GJ',
           },
           {
             'name': 'Harghita',
-            'shortCode': 'HR'
+            'shortCode': 'HR',
           },
           {
             'name': 'Hunedoara',
-            'shortCode': 'HD'
+            'shortCode': 'HD',
           },
           {
             'name': 'Ialomita',
-            'shortCode': 'IL'
+            'shortCode': 'IL',
           },
           {
             'name': 'Iasi',
-            'shortCode': 'IS'
+            'shortCode': 'IS',
           },
           {
             'name': 'Maramures',
-            'shortCode': 'MM'
+            'shortCode': 'MM',
           },
           {
             'name': 'Mehedinti',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Mures',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Neamt',
-            'shortCode': 'NT'
+            'shortCode': 'NT',
           },
           {
             'name': 'Olt',
-            'shortCode': 'OT'
+            'shortCode': 'OT',
           },
           {
             'name': 'Prahova',
-            'shortCode': 'PH'
+            'shortCode': 'PH',
           },
           {
             'name': 'Salaj',
-            'shortCode': 'SJ'
+            'shortCode': 'SJ',
           },
           {
             'name': 'Satu Mare',
-            'shortCode': 'SM'
+            'shortCode': 'SM',
           },
           {
             'name': 'Sibiu',
-            'shortCode': 'SB'
+            'shortCode': 'SB',
           },
           {
             'name': 'Suceava',
-            'shortCode': 'SV'
+            'shortCode': 'SV',
           },
           {
             'name': 'Teleorman',
-            'shortCode': 'TR'
+            'shortCode': 'TR',
           },
           {
             'name': 'Timis',
-            'shortCode': 'TM'
+            'shortCode': 'TM',
           },
           {
             'name': 'Tulcea',
-            'shortCode': 'TL'
+            'shortCode': 'TL',
           },
           {
             'name': 'Valcea',
-            'shortCode': 'VL'
+            'shortCode': 'VL',
           },
           {
             'name': 'Vaslui',
-            'shortCode': 'VS'
+            'shortCode': 'VS',
           },
           {
             'name': 'Vrancea',
-            'shortCode': 'VN'
-          }
-        ]
+            'shortCode': 'VN',
+          },
+        ],
       },
       {
         'countryName': 'Russian Federation',
         'countryShortCode': 'RU',
         'regions': [{
           'name': 'Republic of Adygea',
-          'shortCode': 'AD'
+          'shortCode': 'AD',
         },
           {
             'name': 'Republic of Altai (Gorno-Altaysk)',
-            'shortCode': 'AL'
+            'shortCode': 'AL',
           },
           {
             'name': 'Altai Krai',
-            'shortCode': 'ALT'
+            'shortCode': 'ALT',
           },
           {
             'name': 'Amur Oblast',
-            'shortCode': 'AMU'
+            'shortCode': 'AMU',
           },
           {
             'name': 'Arkhangelsk Oblast',
-            'shortCode': 'ARK'
+            'shortCode': 'ARK',
           },
           {
             'name': 'Astrakhan Oblast',
-            'shortCode': 'AST'
+            'shortCode': 'AST',
           },
           {
             'name': 'Republic of Bashkortostan',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Belgorod Oblast',
-            'shortCode': 'BEL'
+            'shortCode': 'BEL',
           },
           {
             'name': 'Bryansk Oblast',
-            'shortCode': 'BRY'
+            'shortCode': 'BRY',
           },
           {
             'name': 'Republic of Buryatia',
-            'shortCode': 'BU'
+            'shortCode': 'BU',
           },
           {
             'name': 'Chechen Republic',
-            'shortCode': 'CE'
+            'shortCode': 'CE',
           },
           {
             'name': 'Chelyabinsk Oblast',
-            'shortCode': 'CHE'
+            'shortCode': 'CHE',
           },
           {
             'name': 'Chukotka Autonomous Okrug',
-            'shortCode': 'CHU'
+            'shortCode': 'CHU',
           },
           {
             'name': 'Chuvash Republic',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Republic of Dagestan',
-            'shortCode': 'DA'
+            'shortCode': 'DA',
           },
           {
             'name': 'Republic of Ingushetia',
-            'shortCode': 'IN'
+            'shortCode': 'IN',
           },
           {
             'name': 'Irkutsk Oblast',
-            'shortCode': 'IRK'
+            'shortCode': 'IRK',
           },
           {
             'name': 'Ivanovo Oblast',
-            'shortCode': 'IVA'
+            'shortCode': 'IVA',
           },
           {
             'name': 'Jewish Autonomous Oblast',
-            'shortCode': 'JEW'
+            'shortCode': 'JEW',
           },
           {
             'name': 'Kabardino-Balkar Republic',
-            'shortCode': 'KB'
+            'shortCode': 'KB',
           },
           {
             'name': 'Kaliningrad Oblast',
-            'shortCode': 'KLN'
+            'shortCode': 'KLN',
           },
           {
             'name': 'Republic of Kalmykia',
-            'shortCode': 'KL'
+            'shortCode': 'KL',
           },
           {
             'name': 'Kaluga Oblast',
-            'shortCode': 'KLU'
+            'shortCode': 'KLU',
           },
           {
             'name': 'Kamchatka Krai',
-            'shortCode': 'KAM'
+            'shortCode': 'KAM',
           },
           {
             'name': 'Karachay-Cherkess Republic',
-            'shortCode': 'KC'
+            'shortCode': 'KC',
           },
           {
             'name': 'Republic of Karelia',
-            'shortCode': 'KR'
+            'shortCode': 'KR',
           },
           {
             'name': 'Khabarovsk Krai',
-            'shortCode': 'KHA'
+            'shortCode': 'KHA',
           },
           {
             'name': 'Republic of Khakassia',
-            'shortCode': 'KK'
+            'shortCode': 'KK',
           },
           {
             'name': 'Khanty-Mansi Autonomous Okrug - Yugra',
-            'shortCode': 'KHM'
+            'shortCode': 'KHM',
           },
           {
             'name': 'Kemerovo Oblast',
-            'shortCode': 'KEM'
+            'shortCode': 'KEM',
           },
           {
             'name': 'Kirov Oblast',
-            'shortCode': 'KIR'
+            'shortCode': 'KIR',
           },
           {
             'name': 'Komi Republic',
-            'shortCode': 'KO'
+            'shortCode': 'KO',
           },
           {
             'name': 'Kostroma Oblast',
-            'shortCode': 'KOS'
+            'shortCode': 'KOS',
           },
           {
             'name': 'Krasnodar Krai',
-            'shortCode': 'KDA'
+            'shortCode': 'KDA',
           },
           {
             'name': 'Krasnoyarsk Krai',
-            'shortCode': 'KYA'
+            'shortCode': 'KYA',
           },
           {
             'name': 'Kurgan Oblast',
-            'shortCode': 'KGN'
+            'shortCode': 'KGN',
           },
           {
             'name': 'Kursk Oblast',
-            'shortCode': 'KRS'
+            'shortCode': 'KRS',
           },
           {
             'name': 'Leningrad Oblast',
-            'shortCode': 'LEN'
+            'shortCode': 'LEN',
           },
           {
             'name': 'Lipetsk Oblast',
-            'shortCode': 'LIP'
+            'shortCode': 'LIP',
           },
           {
             'name': 'Magadan Oblast',
-            'shortCode': 'MAG'
+            'shortCode': 'MAG',
           },
           {
             'name': 'Mari El Republic',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Republic of Mordovia',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Moscow Oblast',
-            'shortCode': 'MOS'
+            'shortCode': 'MOS',
           },
           {
             'name': 'Moscow',
-            'shortCode': 'MOW'
+            'shortCode': 'MOW',
           },
           {
             'name': 'Murmansk Oblast',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Nenets Autonomous Okrug',
-            'shortCode': 'NEN'
+            'shortCode': 'NEN',
           },
           {
             'name': 'Nizhny Novgorod Oblast',
-            'shortCode': 'NIZ'
+            'shortCode': 'NIZ',
           },
           {
             'name': 'Novgorod Oblast',
-            'shortCode': 'NGR'
+            'shortCode': 'NGR',
           },
           {
             'name': 'Novosibirsk Oblast',
-            'shortCode': 'NVS'
+            'shortCode': 'NVS',
           },
           {
             'name': 'Omsk Oblast',
-            'shortCode': 'OMS'
+            'shortCode': 'OMS',
           },
           {
             'name': 'Orenburg Oblast',
-            'shortCode': 'ORE'
+            'shortCode': 'ORE',
           },
           {
             'name': 'Oryol Oblast',
-            'shortCode': 'ORL'
+            'shortCode': 'ORL',
           },
           {
             'name': 'Penza Oblast',
-            'shortCode': 'PNZ'
+            'shortCode': 'PNZ',
           },
           {
             'name': 'Perm Krai',
-            'shortCode': 'PER'
+            'shortCode': 'PER',
           },
           {
             'name': 'Primorsky Krai',
-            'shortCode': 'PRI'
+            'shortCode': 'PRI',
           },
           {
             'name': 'Pskov Oblast',
-            'shortCode': 'PSK'
+            'shortCode': 'PSK',
           },
           {
             'name': 'Rostov Oblast',
-            'shortCode': 'ROS'
+            'shortCode': 'ROS',
           },
           {
             'name': 'Ryazan Oblast',
-            'shortCode': 'RYA'
+            'shortCode': 'RYA',
           },
           {
             'name': 'Saint Petersburg',
-            'shortCode': 'SPE'
+            'shortCode': 'SPE',
           },
           {
             'name': 'Sakha (Yakutia) Republic',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sakhalin Oblast',
-            'shortCode': 'SAK'
+            'shortCode': 'SAK',
           },
           {
             'name': 'Samara Oblast',
-            'shortCode': 'SAM'
+            'shortCode': 'SAM',
           },
           {
             'name': 'Saratov Oblast',
-            'shortCode': 'SAR'
+            'shortCode': 'SAR',
           },
           {
             'name': 'Republic of North Ossetia-Alania',
-            'shortCode': 'NOA'
+            'shortCode': 'NOA',
           },
           {
             'name': 'Smolensk Oblast',
-            'shortCode': 'SMO'
+            'shortCode': 'SMO',
           },
           {
             'name': 'Stavropol Krai',
-            'shortCode': 'STA'
+            'shortCode': 'STA',
           },
           {
             'name': 'Sverdlovsk Oblast',
-            'shortCode': 'SVE'
+            'shortCode': 'SVE',
           },
           {
             'name': 'Tambov Oblast',
-            'shortCode': 'TAM'
+            'shortCode': 'TAM',
           },
           {
             'name': 'Republic of Tatarstan',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Tomsk Oblast',
-            'shortCode': 'TOM'
+            'shortCode': 'TOM',
           },
           {
             'name': 'Tuva Republic',
-            'shortCode': 'TU'
+            'shortCode': 'TU',
           },
           {
             'name': 'Tula Oblast',
-            'shortCode': 'TUL'
+            'shortCode': 'TUL',
           },
           {
             'name': 'Tver Oblast',
-            'shortCode': 'TVE'
+            'shortCode': 'TVE',
           },
           {
             'name': 'Tyumen Oblast',
-            'shortCode': 'TYU'
+            'shortCode': 'TYU',
           },
           {
             'name': 'Udmurt Republic',
-            'shortCode': 'UD'
+            'shortCode': 'UD',
           },
           {
             'name': 'Ulyanovsk Oblast',
-            'shortCode': 'ULY'
+            'shortCode': 'ULY',
           },
           {
             'name': 'Vladimir Oblast',
-            'shortCode': 'VLA'
+            'shortCode': 'VLA',
           },
           {
             'name': 'Volgograd Oblast',
-            'shortCode': 'VGG'
+            'shortCode': 'VGG',
           },
           {
             'name': 'Vologda Oblast',
-            'shortCode': 'VLG'
+            'shortCode': 'VLG',
           },
           {
             'name': 'Voronezh Oblast',
-            'shortCode': 'VOR'
+            'shortCode': 'VOR',
           },
           {
             'name': 'Yamalo-Nenets Autonomous Okrug',
-            'shortCode': 'YAN'
+            'shortCode': 'YAN',
           },
           {
             'name': 'Yaroslavl Oblast',
-            'shortCode': 'YAR'
+            'shortCode': 'YAR',
           },
           {
             'name': 'Zabaykalsky Krai',
-            'shortCode': 'ZAB'
-          }
-        ]
+            'shortCode': 'ZAB',
+          },
+        ],
       },
       {
         'countryName': 'Rwanda',
         'countryShortCode': 'RW',
         'regions': [{
           'name': 'Kigali',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Eastern',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Northern',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Western',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Southern',
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Saint Barthélemy',
         'countryShortCode': 'BL',
         'regions': [{
           'name': 'Au Vent',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Sous le Vent',
-            'shortCode': '01'
-          }
-        ]
+            'shortCode': '01',
+          },
+        ],
       },
       {
         'countryName': 'Saint Helena, Ascension and Tristan da Cunha',
         'countryShortCode': 'SH',
         'regions': [{
           'name': 'Ascension',
-          'shortCode': 'AC'
+          'shortCode': 'AC',
         },
           {
             'name': 'Saint Helena',
-            'shortCode': 'HL'
+            'shortCode': 'HL',
           },
           {
             'name': 'Tristan da Cunha',
-            'shortCode': 'TA'
-          }
-        ]
+            'shortCode': 'TA',
+          },
+        ],
       },
       {
         'countryName': 'Saint Kitts and Nevis',
         'countryShortCode': 'KN',
         'regions': [{
           'name': 'Saint Kitts',
-          'shortCode': 'K'
+          'shortCode': 'K',
         },
           {
             'name': 'Nevis',
-            'shortCode': 'N'
-          }
-        ]
+            'shortCode': 'N',
+          },
+        ],
       },
       {
         'countryName': 'Saint Lucia',
         'countryShortCode': 'LC',
         'regions': [{
           'name': 'Anse-la-Raye',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Canaries',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Castries',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Choiseul',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Dennery',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Gros Islet',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Laborie',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Micoud',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Soufriere',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Vieux Fort',
-            'shortCode': '11'
-          }
-        ]
+            'shortCode': '11',
+          },
+        ],
       },
       {
         'countryName': 'Saint Martin',
         'countryShortCode': 'MF',
         'regions': [{
-          'name': 'Saint Martin'
-        }]
+          'name': 'Saint Martin',
+        }],
       },
       {
         'countryName': 'Saint Pierre and Miquelon',
         'countryShortCode': 'PM',
         'regions': [{
-          'name': 'Miquelon'
+          'name': 'Miquelon',
         },
           {
-            'name': 'Saint Pierre'
-          }
-        ]
+            'name': 'Saint Pierre',
+          },
+        ],
       },
       {
         'countryName': 'Saint Vincent and the Grenadines',
         'countryShortCode': 'VC',
         'regions': [{
           'name': 'Charlotte',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Grenadines',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Saint Andrew',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Saint David',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Saint George',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Saint Patrick',
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Samoa',
         'countryShortCode': 'WS',
         'regions': [{
           'name': "A'ana",
-          'shortCode': 'AA'
+          'shortCode': 'AA',
         },
           {
             'name': 'Aiga-i-le-Tai',
-            'shortCode': 'AL'
+            'shortCode': 'AL',
           },
           {
             'name': 'Atua',
-            'shortCode': 'AT'
+            'shortCode': 'AT',
           },
           {
             'name': "Fa'asaleleaga",
-            'shortCode': 'FA'
+            'shortCode': 'FA',
           },
           {
             'name': "Gaga'emauga",
-            'shortCode': 'GE'
+            'shortCode': 'GE',
           },
           {
             'name': 'Gagaifomauga',
-            'shortCode': 'GI'
+            'shortCode': 'GI',
           },
           {
             'name': 'Palauli',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': "Satupa'itea",
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Tuamasaga',
-            'shortCode': 'TU'
+            'shortCode': 'TU',
           },
           {
             'name': "Va'a-o-Fonoti",
-            'shortCode': 'VF'
+            'shortCode': 'VF',
           },
           {
             'name': 'Vaisigano',
-            'shortCode': 'VS'
-          }
-        ]
+            'shortCode': 'VS',
+          },
+        ],
       },
       {
         'countryName': 'San Marino',
         'countryShortCode': 'SM',
         'regions': [{
           'name': 'Acquaviva',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Borgo Maggiore',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Chiesanuova',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Domagnano',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Faetano',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Fiorentino',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Montegiardino',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'San Marino',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Serravalle',
-            'shortCode': '09'
-          }
-        ]
+            'shortCode': '09',
+          },
+        ],
       },
       {
         'countryName': 'Sao Tome and Principe',
         'countryShortCode': 'ST',
         'regions': [{
           'name': 'Principe',
-          'shortCode': 'P'
+          'shortCode': 'P',
         },
           {
             'name': 'Sao Tome',
-            'shortCode': 'S'
-          }
-        ]
+            'shortCode': 'S',
+          },
+        ],
       },
       {
         'countryName': 'Saudi Arabia',
         'countryShortCode': 'SA',
         'regions': [{
           'name': "'Asir",
-          'shortCode': '14'
+          'shortCode': '14',
         },
           {
             'name': 'Al Bahah',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Al Hudud ash Shamaliyah',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Al Jawf',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Al Madinah al Munawwarah',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Al Qasim',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Ar Riyad',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Ash Sharqiyah',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': "Ha'il",
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Jazan',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Makkah al Mukarramah',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Najran',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Tabuk',
-            'shortCode': '07'
-          }
-        ]
+            'shortCode': '07',
+          },
+        ],
       },
       {
         'countryName': 'Senegal',
         'countryShortCode': 'SN',
         'regions': [{
           'name': 'Dakar',
-          'shortCode': 'DK'
+          'shortCode': 'DK',
         },
           {
             'name': 'Diourbel',
-            'shortCode': 'DB'
+            'shortCode': 'DB',
           },
           {
             'name': 'Fatick',
-            'shortCode': 'FK'
+            'shortCode': 'FK',
           },
           {
             'name': 'Kaffrine',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Kaolack',
-            'shortCode': 'KL'
+            'shortCode': 'KL',
           },
           {
             'name': 'Kedougou',
-            'shortCode': 'KE'
+            'shortCode': 'KE',
           },
           {
             'name': 'Kolda',
-            'shortCode': 'KD'
+            'shortCode': 'KD',
           },
           {
             'name': 'Louga',
-            'shortCode': 'LG'
+            'shortCode': 'LG',
           },
           {
             'name': 'Matam',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Saint-Louis',
-            'shortCode': 'SL'
+            'shortCode': 'SL',
           },
           {
             'name': 'Sedhiou',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Tambacounda',
-            'shortCode': 'TC'
+            'shortCode': 'TC',
           },
           {
             'name': 'Thies',
-            'shortCode': 'TH'
+            'shortCode': 'TH',
           },
           {
             'name': 'Ziguinchor',
-            'shortCode': 'ZG'
-          }
-        ]
+            'shortCode': 'ZG',
+          },
+        ],
       },
       {
         'countryName': 'Serbia',
         'countryShortCode': 'RS',
         'regions': [{
           'name': 'Beograd (Belgrade)',
-          'shortCode': '00'
+          'shortCode': '00',
         },
           {
             'name': 'Borski',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Braničevski',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Jablanički',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Južnobački',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Južnobanatski',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Kolubarski',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Kosovski',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Kosovsko-Mitrovački',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Kosovsko-Pomoravski',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Mačvanski',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Moravički',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Nišavski',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Pčinjski',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Pećki',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Pirotski',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Podunavski',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Pomoravski',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Prizrenski',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Rasinski',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Raški',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Severnobački',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Severnobanatski',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Srednjebanatski',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Sremski',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Šumadijski',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Toplički',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Zaječarski',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Zapadnobački',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Zlatiborski',
-            'shortCode': '16'
-          }
-        ]
+            'shortCode': '16',
+          },
+        ],
       },
       {
         'countryName': 'Seychelles',
         'countryShortCode': 'SC',
         'regions': [{
           'name': 'Anse aux Pins',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Anse Boileau',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Anse Etoile',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Anse Royale',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Anu Cap',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Baie Lazare',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Baie Sainte Anne',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Beau Vallon',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Bel Air',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Bel Ombre',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Cascade',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Glacis',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': "Grand'Anse Mahe",
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': "Grand'Anse Praslin",
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'La Digue',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'La Riviere Anglaise',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Les Mamelles',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Mont Buxton',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Mont Fleuri',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Plaisance',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Pointe La Rue',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Port Glaud',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Roche Caiman',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Saint Louis',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Takamaka',
-            'shortCode': '23'
-          }
-        ]
+            'shortCode': '23',
+          },
+        ],
       },
       {
         'countryName': 'Sierra Leone',
         'countryShortCode': 'SL',
         'regions': [{
           'name': 'Eastern',
-          'shortCode': 'E'
+          'shortCode': 'E',
         },
           {
             'name': 'Northern',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Southern',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Western',
-            'shortCode': 'W'
-          }
-        ]
+            'shortCode': 'W',
+          },
+        ],
       },
       {
         'countryName': 'Singapore',
         'countryShortCode': 'SG',
         'regions': [{
           'name': 'Central Singapore',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'North East',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'North West',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'South East',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'South West',
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Sint Maarten (Dutch part)',
         'countryShortCode': 'SX',
         'regions': [{
-          'name': 'Sint Maarten'
-        }]
+          'name': 'Sint Maarten',
+        }],
       },
       {
         'countryName': 'Slovakia',
         'countryShortCode': 'SK',
         'regions': [{
           'name': 'Banskobystricky',
-          'shortCode': 'BC'
+          'shortCode': 'BC',
         },
           {
             'name': 'Bratislavsky',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Kosicky',
-            'shortCode': 'KI'
+            'shortCode': 'KI',
           },
           {
             'name': 'Nitriansky',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Presovsky',
-            'shortCode': 'PV'
+            'shortCode': 'PV',
           },
           {
             'name': 'Trenciansky',
-            'shortCode': 'TC'
+            'shortCode': 'TC',
           },
           {
             'name': 'Trnavsky',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Zilinsky',
-            'shortCode': 'ZI'
-          }
-        ]
+            'shortCode': 'ZI',
+          },
+        ],
       },
       {
         'countryName': 'Slovenia',
         'countryShortCode': 'SI',
         'regions': [{
           'name': 'Ajdovscina',
-          'shortCode': '001'
+          'shortCode': '001',
         },
           {
             'name': 'Apace',
-            'shortCode': '195'
+            'shortCode': '195',
           },
           {
             'name': 'Beltinci',
-            'shortCode': '002'
+            'shortCode': '002',
           },
           {
             'name': 'Benedikt',
-            'shortCode': '148'
+            'shortCode': '148',
           },
           {
             'name': 'Bistrica ob Sotli',
-            'shortCode': '149'
+            'shortCode': '149',
           },
           {
             'name': 'Bled',
-            'shortCode': '003'
+            'shortCode': '003',
           },
           {
             'name': 'Bloke',
-            'shortCode': '150'
+            'shortCode': '150',
           },
           {
             'name': 'Bohinj',
-            'shortCode': '004'
+            'shortCode': '004',
           },
           {
             'name': 'Borovnica',
-            'shortCode': '005'
+            'shortCode': '005',
           },
           {
             'name': 'Bovec',
-            'shortCode': '006'
+            'shortCode': '006',
           },
           {
             'name': 'Braslovce',
-            'shortCode': '151'
+            'shortCode': '151',
           },
           {
             'name': 'Brda',
-            'shortCode': '007'
+            'shortCode': '007',
           },
           {
             'name': 'Brezice',
-            'shortCode': '009'
+            'shortCode': '009',
           },
           {
             'name': 'Brezovica',
-            'shortCode': '008'
+            'shortCode': '008',
           },
           {
             'name': 'Cankova',
-            'shortCode': '152'
+            'shortCode': '152',
           },
           {
             'name': 'Celje',
-            'shortCode': '011'
+            'shortCode': '011',
           },
           {
             'name': 'Cerklje na Gorenjskem',
-            'shortCode': '012'
+            'shortCode': '012',
           },
           {
             'name': 'Cerknica',
-            'shortCode': '013'
+            'shortCode': '013',
           },
           {
             'name': 'Cerkno',
-            'shortCode': '014'
+            'shortCode': '014',
           },
           {
             'name': 'Cerkvenjak',
-            'shortCode': '153'
+            'shortCode': '153',
           },
           {
             'name': 'Cirkulane',
-            'shortCode': '196'
+            'shortCode': '196',
           },
           {
             'name': 'Crensovci',
-            'shortCode': '015'
+            'shortCode': '015',
           },
           {
             'name': 'Crna na Koroskem',
-            'shortCode': '016'
+            'shortCode': '016',
           },
           {
             'name': 'Crnomelj',
-            'shortCode': '017'
+            'shortCode': '017',
           },
           {
             'name': 'Destrnik',
-            'shortCode': '018'
+            'shortCode': '018',
           },
           {
             'name': 'Divaca',
-            'shortCode': '019'
+            'shortCode': '019',
           },
           {
             'name': 'Dobje',
-            'shortCode': '154'
+            'shortCode': '154',
           },
           {
             'name': 'Dobrepolje',
-            'shortCode': '020'
+            'shortCode': '020',
           },
           {
             'name': 'Dobrna',
-            'shortCode': '155'
+            'shortCode': '155',
           },
           {
             'name': 'Dobrova-Polhov Gradec',
-            'shortCode': '021'
+            'shortCode': '021',
           },
           {
             'name': 'Dobrovnik',
-            'shortCode': '156'
+            'shortCode': '156',
           },
           {
             'name': 'Dol pri Ljubljani',
-            'shortCode': '022'
+            'shortCode': '022',
           },
           {
             'name': 'Dolenjske Toplice',
-            'shortCode': '157'
+            'shortCode': '157',
           },
           {
             'name': 'Domzale',
-            'shortCode': '023'
+            'shortCode': '023',
           },
           {
             'name': 'Dornava',
-            'shortCode': '024'
+            'shortCode': '024',
           },
           {
             'name': 'Dravograd',
-            'shortCode': '025'
+            'shortCode': '025',
           },
           {
             'name': 'Duplek',
-            'shortCode': '026'
+            'shortCode': '026',
           },
           {
             'name': 'Gorenja Vas-Poljane',
-            'shortCode': '027'
+            'shortCode': '027',
           },
           {
             'name': 'Gorisnica',
-            'shortCode': '028'
+            'shortCode': '028',
           },
           {
             'name': 'Gorje',
-            'shortCode': '207'
+            'shortCode': '207',
           },
           {
             'name': 'Gornja Radgona',
-            'shortCode': '029'
+            'shortCode': '029',
           },
           {
             'name': 'Gornji Grad',
-            'shortCode': '030'
+            'shortCode': '030',
           },
           {
             'name': 'Gornji Petrovci',
-            'shortCode': '031'
+            'shortCode': '031',
           },
           {
             'name': 'Grad',
-            'shortCode': '158'
+            'shortCode': '158',
           },
           {
             'name': 'Grosuplje',
-            'shortCode': '032'
+            'shortCode': '032',
           },
           {
             'name': 'Hajdina',
-            'shortCode': '159'
+            'shortCode': '159',
           },
           {
             'name': 'Hoce-Slivnica',
-            'shortCode': '160'
+            'shortCode': '160',
           },
           {
             'name': 'Hodos',
-            'shortCode': '161'
+            'shortCode': '161',
           },
           {
             'name': 'Horjul',
-            'shortCode': '162'
+            'shortCode': '162',
           },
           {
             'name': 'Hrastnik',
-            'shortCode': '034'
+            'shortCode': '034',
           },
           {
             'name': 'Hrpelje-Kozina',
-            'shortCode': '035'
+            'shortCode': '035',
           },
           {
             'name': 'Idrija',
-            'shortCode': '036'
+            'shortCode': '036',
           },
           {
             'name': 'Ig',
-            'shortCode': '037'
+            'shortCode': '037',
           },
           {
             'name': 'Ilirska Bistrica',
-            'shortCode': '038'
+            'shortCode': '038',
           },
           {
             'name': 'Ivancna Gorica',
-            'shortCode': '039'
+            'shortCode': '039',
           },
           {
             'name': 'Izola',
-            'shortCode': '040s'
+            'shortCode': '040s',
           },
           {
             'name': 'Jesenice',
-            'shortCode': '041'
+            'shortCode': '041',
           },
           {
             'name': 'Jursinci',
-            'shortCode': '042'
+            'shortCode': '042',
           },
           {
             'name': 'Kamnik',
-            'shortCode': '043'
+            'shortCode': '043',
           },
           {
             'name': 'Kanal',
-            'shortCode': '044'
+            'shortCode': '044',
           },
           {
             'name': 'Kidricevo',
-            'shortCode': '045'
+            'shortCode': '045',
           },
           {
             'name': 'Kobarid',
-            'shortCode': '046'
+            'shortCode': '046',
           },
           {
             'name': 'Kobilje',
-            'shortCode': '047'
+            'shortCode': '047',
           },
           {
             'name': 'Kocevje',
-            'shortCode': '048'
+            'shortCode': '048',
           },
           {
             'name': 'Komen',
-            'shortCode': '049'
+            'shortCode': '049',
           },
           {
             'name': 'Komenda',
-            'shortCode': '164'
+            'shortCode': '164',
           },
           {
             'name': 'Koper',
-            'shortCode': '050'
+            'shortCode': '050',
           },
           {
             'name': 'Kodanjevica na Krki',
-            'shortCode': '197'
+            'shortCode': '197',
           },
           {
             'name': 'Kostel',
-            'shortCode': '165'
+            'shortCode': '165',
           },
           {
             'name': 'Kozje',
-            'shortCode': '051'
+            'shortCode': '051',
           },
           {
             'name': 'Kranj',
-            'shortCode': '052'
+            'shortCode': '052',
           },
           {
             'name': 'Kranjska Gora',
-            'shortCode': '053'
+            'shortCode': '053',
           },
           {
             'name': 'Krizevci',
-            'shortCode': '166'
+            'shortCode': '166',
           },
           {
             'name': 'Krsko',
-            'shortCode': '054'
+            'shortCode': '054',
           },
           {
             'name': 'Kungota',
-            'shortCode': '055'
+            'shortCode': '055',
           },
           {
             'name': 'Kuzma',
-            'shortCode': '056'
+            'shortCode': '056',
           },
           {
             'name': 'Lasko',
-            'shortCode': '057'
+            'shortCode': '057',
           },
           {
             'name': 'Lenart',
-            'shortCode': '058'
+            'shortCode': '058',
           },
           {
             'name': 'Lendava',
-            'shortCode': '059'
+            'shortCode': '059',
           },
           {
             'name': 'Litija',
-            'shortCode': '068'
+            'shortCode': '068',
           },
           {
             'name': 'Ljubljana',
-            'shortCode': '061'
+            'shortCode': '061',
           },
           {
             'name': 'Ljubno',
-            'shortCode': '062'
+            'shortCode': '062',
           },
           {
             'name': 'Ljutomer',
-            'shortCode': '063'
+            'shortCode': '063',
           },
           {
             'name': 'Log-Dragomer',
-            'shortCode': '208'
+            'shortCode': '208',
           },
           {
             'name': 'Logatec',
-            'shortCode': '064'
+            'shortCode': '064',
           },
           {
             'name': 'Loska Dolina',
-            'shortCode': '065'
+            'shortCode': '065',
           },
           {
             'name': 'Loski Potok',
-            'shortCode': '066'
+            'shortCode': '066',
           },
           {
             'name': 'Lovrenc na Pohorju',
-            'shortCode': '167'
+            'shortCode': '167',
           },
           {
             'name': 'Lukovica',
-            'shortCode': '068'
+            'shortCode': '068',
           },
           {
             'name': 'Luce',
-            'shortCode': '067'
+            'shortCode': '067',
           },
           {
             'name': 'Majsperk',
-            'shortCode': '069'
+            'shortCode': '069',
           },
           {
             'name': 'Makole',
-            'shortCode': '198'
+            'shortCode': '198',
           },
           {
             'name': 'Maribor',
-            'shortCode': '070'
+            'shortCode': '070',
           },
           {
             'name': 'Markovci',
-            'shortCode': '168'
+            'shortCode': '168',
           },
           {
             'name': 'Medvode',
-            'shortCode': '071'
+            'shortCode': '071',
           },
           {
             'name': 'Menges',
-            'shortCode': '072'
+            'shortCode': '072',
           },
           {
             'name': 'Metlika',
-            'shortCode': '073'
+            'shortCode': '073',
           },
           {
             'name': 'Mezica',
-            'shortCode': '074'
+            'shortCode': '074',
           },
           {
             'name': 'Miklavz na Dravskem Polju',
-            'shortCode': '169'
+            'shortCode': '169',
           },
           {
             'name': 'Miren-Kostanjevica',
-            'shortCode': '075'
+            'shortCode': '075',
           },
           {
             'name': 'Mirna',
-            'shortCode': '212'
+            'shortCode': '212',
           },
           {
             'name': 'Mirna Pec',
-            'shortCode': '170'
+            'shortCode': '170',
           },
           {
             'name': 'Mislinja',
-            'shortCode': '076'
+            'shortCode': '076',
           },
           {
             'name': 'Mokronog-Trebelno',
-            'shortCode': '199'
+            'shortCode': '199',
           },
           {
             'name': 'Moravce',
-            'shortCode': '077'
+            'shortCode': '077',
           },
           {
             'name': 'Moravske Toplice',
-            'shortCode': '078'
+            'shortCode': '078',
           },
           {
             'name': 'Mozirje',
-            'shortCode': '079'
+            'shortCode': '079',
           },
           {
             'name': 'Murska Sobota',
-            'shortCode': '080'
+            'shortCode': '080',
           },
           {
             'name': 'Naklo',
-            'shortCode': '082'
+            'shortCode': '082',
           },
           {
             'name': 'Nazarje',
-            'shortCode': '083'
+            'shortCode': '083',
           },
           {
             'name': 'Nova Gorica',
-            'shortCode': '084'
+            'shortCode': '084',
           },
           {
             'name': 'Novo Mesto',
-            'shortCode': '085'
+            'shortCode': '085',
           },
           {
             'name': 'Odranci',
-            'shortCode': '086'
+            'shortCode': '086',
           },
           {
             'name': 'Ormoz',
-            'shortCode': '087'
+            'shortCode': '087',
           },
           {
             'name': 'Osilnica',
-            'shortCode': '088'
+            'shortCode': '088',
           },
           {
             'name': 'Pesnica',
-            'shortCode': '089'
+            'shortCode': '089',
           },
           {
             'name': 'Piran',
-            'shortCode': '090'
+            'shortCode': '090',
           },
           {
             'name': 'Pivka',
-            'shortCode': '091'
+            'shortCode': '091',
           },
           {
             'name': 'Podcetrtek',
-            'shortCode': '092'
+            'shortCode': '092',
           },
           {
             'name': 'Podlehnik',
-            'shortCode': '172'
+            'shortCode': '172',
           },
           {
             'name': 'Podvelka',
-            'shortCode': '093'
+            'shortCode': '093',
           },
           {
             'name': 'Poljcane',
-            'shortCode': '200'
+            'shortCode': '200',
           },
           {
             'name': 'Postojna',
-            'shortCode': '094'
+            'shortCode': '094',
           },
           {
             'name': 'Prebold',
-            'shortCode': '174'
+            'shortCode': '174',
           },
           {
             'name': 'Preddvor',
-            'shortCode': '095'
+            'shortCode': '095',
           },
           {
             'name': 'Prevalje',
-            'shortCode': '175'
+            'shortCode': '175',
           },
           {
             'name': 'Ptuj',
-            'shortCode': '096'
+            'shortCode': '096',
           },
           {
             'name': 'Race-Fram',
-            'shortCode': '098'
+            'shortCode': '098',
           },
           {
             'name': 'Radece',
-            'shortCode': '099'
+            'shortCode': '099',
           },
           {
             'name': 'Radenci',
-            'shortCode': '100'
+            'shortCode': '100',
           },
           {
             'name': 'Radlje ob Dravi',
-            'shortCode': '101'
+            'shortCode': '101',
           },
           {
             'name': 'Radovljica',
-            'shortCode': '102'
+            'shortCode': '102',
           },
           {
             'name': 'Ravne na Koroskem',
-            'shortCode': '103'
+            'shortCode': '103',
           },
           {
             'name': 'Razkrizje',
-            'shortCode': '176'
+            'shortCode': '176',
           },
           {
             'name': 'Recica ob Savinji',
-            'shortCode': '209'
+            'shortCode': '209',
           },
           {
             'name': 'Rence-Vogrsko',
-            'shortCode': '201'
+            'shortCode': '201',
           },
           {
             'name': 'Ribnica',
-            'shortCode': '104'
+            'shortCode': '104',
           },
           {
             'name': 'Ribnica na Poboriu',
-            'shortCode': '177'
+            'shortCode': '177',
           },
           {
             'name': 'Rogaska Slatina',
-            'shortCode': '106'
+            'shortCode': '106',
           },
           {
             'name': 'Rogasovci',
-            'shortCode': '105'
+            'shortCode': '105',
           },
           {
             'name': 'Rogatec',
-            'shortCode': '107'
+            'shortCode': '107',
           },
           {
             'name': 'Ruse',
-            'shortCode': '108'
+            'shortCode': '108',
           },
           {
             'name': 'Salovci',
-            'shortCode': '033'
+            'shortCode': '033',
           },
           {
             'name': 'Selnica ob Dravi',
-            'shortCode': '178'
+            'shortCode': '178',
           },
           {
             'name': 'Semic',
-            'shortCode': '109'
+            'shortCode': '109',
           },
           {
             'name': 'Sempeter-Vrtojba',
-            'shortCode': '183'
+            'shortCode': '183',
           },
           {
             'name': 'Sencur',
-            'shortCode': '117'
+            'shortCode': '117',
           },
           {
             'name': 'Sentilj',
-            'shortCode': '118'
+            'shortCode': '118',
           },
           {
             'name': 'Sentjernej',
-            'shortCode': '119'
+            'shortCode': '119',
           },
           {
             'name': 'Sentjur',
-            'shortCode': '120'
+            'shortCode': '120',
           },
           {
             'name': 'Sentrupert',
-            'shortCode': '211'
+            'shortCode': '211',
           },
           {
             'name': 'Sevnica',
-            'shortCode': '110'
+            'shortCode': '110',
           },
           {
             'name': 'Sezana',
-            'shortCode': '111'
+            'shortCode': '111',
           },
           {
             'name': 'Skocjan',
-            'shortCode': '121'
+            'shortCode': '121',
           },
           {
             'name': 'Skofja Loka',
-            'shortCode': '122'
+            'shortCode': '122',
           },
           {
             'name': 'Skofljica',
-            'shortCode': '123'
+            'shortCode': '123',
           },
           {
             'name': 'Slovenj Gradec',
-            'shortCode': '112'
+            'shortCode': '112',
           },
           {
             'name': 'Slovenska Bistrica',
-            'shortCode': '113'
+            'shortCode': '113',
           },
           {
             'name': 'Slovenske Konjice',
-            'shortCode': '114'
+            'shortCode': '114',
           },
           {
             'name': 'Smarje pri elsah',
-            'shortCode': '124'
+            'shortCode': '124',
           },
           {
             'name': 'Smarjeske Toplice',
-            'shortCode': '206'
+            'shortCode': '206',
           },
           {
             'name': 'Smartno ob Paki',
-            'shortCode': '125'
+            'shortCode': '125',
           },
           {
             'name': 'Smartno pri Litiji',
-            'shortCode': '194'
+            'shortCode': '194',
           },
           {
             'name': 'Sodrazica',
-            'shortCode': '179'
+            'shortCode': '179',
           },
           {
             'name': 'Solcava',
-            'shortCode': '180'
+            'shortCode': '180',
           },
           {
             'name': 'Sostanj',
-            'shortCode': '126'
+            'shortCode': '126',
           },
           {
             'name': 'Sredisce ob Dravi',
-            'shortCode': '202'
+            'shortCode': '202',
           },
           {
             'name': 'Starse',
-            'shortCode': '115'
+            'shortCode': '115',
           },
           {
             'name': 'Store',
-            'shortCode': '127'
+            'shortCode': '127',
           },
           {
             'name': 'Straza',
-            'shortCode': '203'
+            'shortCode': '203',
           },
           {
             'name': 'Sveta Ana',
-            'shortCode': '181'
+            'shortCode': '181',
           },
           {
             'name': 'Sveta Trojica v Slovenskih Goricah',
-            'shortCode': '204'
+            'shortCode': '204',
           },
           {
             'name': 'Sveta Andraz v Slovenskih Goricah',
-            'shortCode': '182'
+            'shortCode': '182',
           },
           {
             'name': 'Sveti Jurij',
-            'shortCode': '116'
+            'shortCode': '116',
           },
           {
             'name': 'Sveti Jurij v Slovenskih Goricah',
-            'shortCode': '210'
+            'shortCode': '210',
           },
           {
             'name': 'Sveti Tomaz',
-            'shortCode': '205'
+            'shortCode': '205',
           },
           {
             'name': 'Tabor',
-            'shortCode': '184'
+            'shortCode': '184',
           },
           {
             'name': 'Tisina',
-            'shortCode': '128'
+            'shortCode': '128',
           },
           {
             'name': 'Tolmin',
-            'shortCode': '128'
+            'shortCode': '128',
           },
           {
             'name': 'Trbovlje',
-            'shortCode': '129'
+            'shortCode': '129',
           },
           {
             'name': 'Trebnje',
-            'shortCode': '130'
+            'shortCode': '130',
           },
           {
             'name': 'Trnovska Vas',
-            'shortCode': '185'
+            'shortCode': '185',
           },
           {
             'name': 'Trzin',
-            'shortCode': '186'
+            'shortCode': '186',
           },
           {
             'name': 'Trzic',
-            'shortCode': '131'
+            'shortCode': '131',
           },
           {
             'name': 'Turnisce',
-            'shortCode': '132'
+            'shortCode': '132',
           },
           {
             'name': 'Velenje',
-            'shortCode': '133'
+            'shortCode': '133',
           },
           {
             'name': 'Velika Polana',
-            'shortCode': '187'
+            'shortCode': '187',
           },
           {
             'name': 'Velike Lasce',
-            'shortCode': '134'
+            'shortCode': '134',
           },
           {
             'name': 'Verzej',
-            'shortCode': '188'
+            'shortCode': '188',
           },
           {
             'name': 'Videm',
-            'shortCode': '135'
+            'shortCode': '135',
           },
           {
             'name': 'Vipava',
-            'shortCode': '136'
+            'shortCode': '136',
           },
           {
             'name': 'Vitanje',
-            'shortCode': '137'
+            'shortCode': '137',
           },
           {
             'name': 'Vodice',
-            'shortCode': '138'
+            'shortCode': '138',
           },
           {
             'name': 'Vojnik',
-            'shortCode': '139'
+            'shortCode': '139',
           },
           {
             'name': 'Vransko',
-            'shortCode': '189'
+            'shortCode': '189',
           },
           {
             'name': 'Vrhnika',
-            'shortCode': '140'
+            'shortCode': '140',
           },
           {
             'name': 'Vuzenica',
-            'shortCode': '141'
+            'shortCode': '141',
           },
           {
             'name': 'Zagorje ob Savi',
-            'shortCode': '142'
+            'shortCode': '142',
           },
           {
             'name': 'Zavrc',
-            'shortCode': '143'
+            'shortCode': '143',
           },
           {
             'name': 'Zrece',
-            'shortCode': '144'
+            'shortCode': '144',
           },
           {
             'name': 'Zalec',
-            'shortCode': '190'
+            'shortCode': '190',
           },
           {
             'name': 'Zelezniki',
-            'shortCode': '146'
+            'shortCode': '146',
           },
           {
             'name': 'Zetale',
-            'shortCode': '191'
+            'shortCode': '191',
           },
           {
             'name': 'Ziri',
-            'shortCode': '147'
+            'shortCode': '147',
           },
           {
             'name': 'Zirovnica',
-            'shortCode': '192'
+            'shortCode': '192',
           },
           {
             'name': 'Zuzemberk',
-            'shortCode': '193'
-          }
-        ]
+            'shortCode': '193',
+          },
+        ],
       },
       {
         'countryName': 'Solomon Islands',
         'countryShortCode': 'SB',
         'regions': [{
           'name': 'Central',
-          'shortCode': 'CE'
+          'shortCode': 'CE',
         },
           {
             'name': 'Choiseul',
-            'shortCode': 'CH'
+            'shortCode': 'CH',
           },
           {
             'name': 'Guadalcanal',
-            'shortCode': 'GU'
+            'shortCode': 'GU',
           },
           {
             'name': 'Honiara',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Isabel',
-            'shortCode': 'IS'
+            'shortCode': 'IS',
           },
           {
             'name': 'Makira-Ulawa',
-            'shortCode': 'MK'
+            'shortCode': 'MK',
           },
           {
             'name': 'Malaita',
-            'shortCode': 'ML'
+            'shortCode': 'ML',
           },
           {
             'name': 'Rennell and Bellona',
-            'shortCode': 'RB'
+            'shortCode': 'RB',
           },
           {
             'name': 'Temotu',
-            'shortCode': 'TE'
+            'shortCode': 'TE',
           },
           {
             'name': 'Western',
-            'shortCode': 'WE'
-          }
-        ]
+            'shortCode': 'WE',
+          },
+        ],
       },
       {
         'countryName': 'Somalia',
         'countryShortCode': 'SO',
         'regions': [{
           'name': 'Awdal',
-          'shortCode': 'AW'
+          'shortCode': 'AW',
         },
           {
             'name': 'Bakool',
-            'shortCode': 'BK'
+            'shortCode': 'BK',
           },
           {
             'name': 'Banaadir',
-            'shortCode': 'BN'
+            'shortCode': 'BN',
           },
           {
             'name': 'Bari',
-            'shortCode': 'BR'
+            'shortCode': 'BR',
           },
           {
             'name': 'Bay',
-            'shortCode': 'BY'
+            'shortCode': 'BY',
           },
           {
             'name': 'Galguduud',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Gedo',
-            'shortCode': 'GE'
+            'shortCode': 'GE',
           },
           {
             'name': 'Hiiraan',
-            'shortCode': 'HI'
+            'shortCode': 'HI',
           },
           {
             'name': 'Jubbada Dhexe',
-            'shortCode': 'JD'
+            'shortCode': 'JD',
           },
           {
             'name': 'Jubbada Hoose',
-            'shortCode': 'JH'
+            'shortCode': 'JH',
           },
           {
             'name': 'Mudug',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Nugaal',
-            'shortCode': 'NU'
+            'shortCode': 'NU',
           },
           {
             'name': 'Sanaag',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Shabeellaha Dhexe',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Shabeellaha Hoose',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Sool',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Togdheer',
-            'shortCode': 'TO'
+            'shortCode': 'TO',
           },
           {
             'name': 'Woqooyi Galbeed',
-            'shortCode': 'WO'
-          }
-        ]
+            'shortCode': 'WO',
+          },
+        ],
       },
       {
         'countryName': 'South Africa',
         'countryShortCode': 'ZA',
         'regions': [{
           'name': 'Eastern Cape',
-          'shortCode': 'EC'
+          'shortCode': 'EC',
         },
           {
             'name': 'Free State',
-            'shortCode': 'FS'
+            'shortCode': 'FS',
           },
           {
             'name': 'Gauteng',
-            'shortCode': 'GT'
+            'shortCode': 'GT',
           },
           {
             'name': 'KwaZulu-Natal',
-            'shortCode': 'NL'
+            'shortCode': 'NL',
           },
           {
             'name': 'Limpopo',
-            'shortCode': 'LP'
+            'shortCode': 'LP',
           },
           {
             'name': 'Mpumalanga',
-            'shortCode': 'MP'
+            'shortCode': 'MP',
           },
           {
             'name': 'Northern Cape',
-            'shortCode': 'NC'
+            'shortCode': 'NC',
           },
           {
             'name': 'North West',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'Western Cape',
-            'shortCode': 'WC'
-          }
-        ]
+            'shortCode': 'WC',
+          },
+        ],
       },
       {
         'countryName': 'South Georgia and South Sandwich Islands',
         'countryShortCode': 'GS',
         'regions': [{
-          'name': 'Bird Island'
+          'name': 'Bird Island',
         },
           {
-            'name': 'Bristol Island'
+            'name': 'Bristol Island',
           },
           {
-            'name': 'Clerke Rocks'
+            'name': 'Clerke Rocks',
           },
           {
-            'name': 'Montagu Island'
+            'name': 'Montagu Island',
           },
           {
-            'name': 'Saunders Island'
+            'name': 'Saunders Island',
           },
           {
-            'name': 'South Georgia'
+            'name': 'South Georgia',
           },
           {
-            'name': 'Southern Thule'
+            'name': 'Southern Thule',
           },
           {
-            'name': 'Traversay Islands'
-          }
-        ]
+            'name': 'Traversay Islands',
+          },
+        ],
       },
       {
         'countryName': 'South Sudan',
         'countryShortCode': 'SS',
         'regions': [{
           'name': 'Central Equatoria',
-          'shortCode': 'CE'
+          'shortCode': 'CE',
         },
           {
             'name': 'Eastern Equatoria',
-            'shortCode': 'EE'
+            'shortCode': 'EE',
           },
           {
             'name': 'Jonglei',
-            'shortCode': 'JG'
+            'shortCode': 'JG',
           },
           {
             'name': 'Lakes',
-            'shortCode': 'LK'
+            'shortCode': 'LK',
           },
           {
             'name': 'Northern Bahr el Ghazal',
-            'shortCode': 'BN'
+            'shortCode': 'BN',
           },
           {
             'name': 'Unity',
-            'shortCode': 'UY'
+            'shortCode': 'UY',
           },
           {
             'name': 'Upper Nile',
-            'shortCode': 'NU'
+            'shortCode': 'NU',
           },
           {
             'name': 'Warrap',
-            'shortCode': 'WR'
+            'shortCode': 'WR',
           },
           {
             'name': 'Western Bahr el Ghazal',
-            'shortCode': 'BW'
+            'shortCode': 'BW',
           },
           {
             'name': 'Western Equatoria',
-            'shortCode': 'EW'
-          }
-        ]
+            'shortCode': 'EW',
+          },
+        ],
       },
       {
         'countryName': 'Spain',
         'countryShortCode': 'ES',
         'regions': [{
           'name': 'Albacete',
-          'shortCode': 'CM'
+          'shortCode': 'CM',
         },
           {
             'name': 'Alicante',
-            'shortCode': 'VC'
+            'shortCode': 'VC',
           },
           {
             'name': 'Almería',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Araba/Álava',
-            'shortCode': 'VI'
+            'shortCode': 'VI',
           },
           {
             'name': 'Asturias',
-            'shortCode': 'O'
+            'shortCode': 'O',
           },
           {
             'name': 'Ávila',
-            'shortCode': 'AV'
+            'shortCode': 'AV',
           },
           {
             'name': 'Badajoz',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Barcelona',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Bizkaia',
-            'shortCode': 'BI'
+            'shortCode': 'BI',
           },
           {
             'name': 'Burgos',
-            'shortCode': 'BU'
+            'shortCode': 'BU',
           },
           {
             'name': 'Cáceres',
-            'shortCode': 'CC'
+            'shortCode': 'CC',
           },
           {
             'name': 'Cádiz',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Cantabria',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Castellón',
-            'shortCode': 'CS'
+            'shortCode': 'CS',
           },
           {
             'name': 'Cueta',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Ciudad Real',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'Córdoba',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'A Coruña',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Cuenca',
-            'shortCode': 'CU'
+            'shortCode': 'CU',
           },
           {
             'name': 'Gipuzkoa',
-            'shortCode': 'SS'
+            'shortCode': 'SS',
           },
           {
             'name': 'Girona',
-            'shortCode': 'GI'
+            'shortCode': 'GI',
           },
           {
             'name': 'Granada',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Guadalajara',
-            'shortCode': 'GU'
+            'shortCode': 'GU',
           },
           {
             'name': 'Huelva',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Huesca',
-            'shortCode': 'HU'
+            'shortCode': 'HU',
           },
           {
             'name': 'Illes Balears',
-            'shortCode': 'PM'
+            'shortCode': 'PM',
           },
           {
             'name': 'Jaén',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': 'León',
-            'shortCode': 'LE'
+            'shortCode': 'LE',
           },
           {
             'name': 'Lleida',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Lugo',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Madrid',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Málaga',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Melilla',
-            'shortCode': 'ML'
+            'shortCode': 'ML',
           },
           {
             'name': 'Murcia',
-            'shortCode': 'MU'
+            'shortCode': 'MU',
           },
           {
             'name': 'Navarre',
-            'shortCode': 'NA'
+            'shortCode': 'NA',
           },
           {
             'name': 'Ourense',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Palencia',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Las Palmas',
-            'shortCode': 'GC'
+            'shortCode': 'GC',
           },
           {
             'name': 'Pontevedra',
-            'shortCode': 'PO'
+            'shortCode': 'PO',
           },
           {
             'name': 'La Rioja',
-            'shortCode': 'LO'
+            'shortCode': 'LO',
           },
           {
             'name': 'Salamanca',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Santa Cruz de Tenerife',
-            'shortCode': 'TF'
+            'shortCode': 'TF',
           },
           {
             'name': 'Segovia',
-            'shortCode': 'SG'
+            'shortCode': 'SG',
           },
           {
             'name': 'Sevilla',
-            'shortCode': 'SE'
+            'shortCode': 'SE',
           },
           {
             'name': 'Soria',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Tarragona',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Teruel',
-            'shortCode': 'TE'
+            'shortCode': 'TE',
           },
           {
             'name': 'Toledo',
-            'shortCode': 'TO'
+            'shortCode': 'TO',
           },
           {
             'name': 'Valencia',
-            'shortCode': 'V'
+            'shortCode': 'V',
           },
           {
             'name': 'Valladolid',
-            'shortCode': 'VA'
+            'shortCode': 'VA',
           },
           {
             'name': 'Zamora',
-            'shortCode': 'ZA'
+            'shortCode': 'ZA',
           },
           {
             'name': 'Zaragoza',
-            'shortCode': 'Z'
-          }
-        ]
+            'shortCode': 'Z',
+          },
+        ],
       },
       {
         'countryName': 'Sri Lanka',
         'countryShortCode': 'LK',
         'regions': [{
           'name': 'Basnahira',
-          'shortCode': '1'
+          'shortCode': '1',
         },
           {
             'name': 'Dakunu',
-            'shortCode': '3'
+            'shortCode': '3',
           },
           {
             'name': 'Madhyama',
-            'shortCode': '2'
+            'shortCode': '2',
           },
           {
             'name': 'Naegenahira',
-            'shortCode': '5'
+            'shortCode': '5',
           },
           {
             'name': 'Sabaragamuwa',
-            'shortCode': '9'
+            'shortCode': '9',
           },
           {
             'name': 'Uturu',
-            'shortCode': '4'
+            'shortCode': '4',
           },
           {
             'name': 'Uturumaeda',
-            'shortCode': '7'
+            'shortCode': '7',
           },
           {
             'name': 'Vayamba',
-            'shortCode': '6'
+            'shortCode': '6',
           },
           {
             'name': 'Uva',
-            'shortCode': '8'
-          }
-        ]
+            'shortCode': '8',
+          },
+        ],
       },
       {
         'countryName': 'Sudan',
         'countryShortCode': 'SD',
         'regions': [{
           'name': 'Al Bahr al Ahmar',
-          'shortCode': 'RS'
+          'shortCode': 'RS',
         },
           {
             'name': 'Al Jazirah',
-            'shortCode': 'GZ'
+            'shortCode': 'GZ',
           },
           {
             'name': 'Al Khartum',
-            'shortCode': 'KH'
+            'shortCode': 'KH',
           },
           {
             'name': 'Al Qadarif',
-            'shortCode': 'GD'
+            'shortCode': 'GD',
           },
           {
             'name': 'An Nil al Abyad',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'An Nil al Azraq',
-            'shortCode': 'NB'
+            'shortCode': 'NB',
           },
           {
             'name': 'Ash Shamaliyah',
-            'shortCode': 'NO'
+            'shortCode': 'NO',
           },
           {
             'name': 'Gharb Darfur',
-            'shortCode': 'DW'
+            'shortCode': 'DW',
           },
           {
             'name': 'Gharb Kurdufan',
-            'shortCode': 'GK'
+            'shortCode': 'GK',
           },
           {
             'name': 'Janub Darfur',
-            'shortCode': 'DS'
+            'shortCode': 'DS',
           },
           {
             'name': 'Janub Kurdufan',
-            'shortCode': 'KS'
+            'shortCode': 'KS',
           },
           {
             'name': 'Kassala',
-            'shortCode': 'KA'
+            'shortCode': 'KA',
           },
           {
             'name': 'Nahr an Nil',
-            'shortCode': 'NR'
+            'shortCode': 'NR',
           },
           {
             'name': 'Shamal Darfur',
-            'shortCode': 'DN'
+            'shortCode': 'DN',
           },
           {
             'name': 'Sharq Darfur',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'Shiamal Kurdufan',
-            'shortCode': 'KN'
+            'shortCode': 'KN',
           },
           {
             'name': 'Sinnar',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'Wasat Darfur Zalinjay',
-            'shortCode': 'DC'
-          }
-        ]
+            'shortCode': 'DC',
+          },
+        ],
       },
       {
         'countryName': 'Suriname',
         'countryShortCode': 'SR',
         'regions': [{
           'name': 'Brokopondo',
-          'shortCode': 'BR'
+          'shortCode': 'BR',
         },
           {
             'name': 'Commewijne',
-            'shortCode': 'CM'
+            'shortCode': 'CM',
           },
           {
             'name': 'Coronie',
-            'shortCode': 'CR'
+            'shortCode': 'CR',
           },
           {
             'name': 'Marowijne',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Nickerie',
-            'shortCode': 'NI'
+            'shortCode': 'NI',
           },
           {
             'name': 'Para',
-            'shortCode': 'PR'
+            'shortCode': 'PR',
           },
           {
             'name': 'Paramaribo',
-            'shortCode': 'PM'
+            'shortCode': 'PM',
           },
           {
             'name': 'Saramacca',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sipaliwini',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'Wanica',
-            'shortCode': 'WA'
-          }
-        ]
+            'shortCode': 'WA',
+          },
+        ],
       },
       {
         'countryName': 'Swaziland',
         'countryShortCode': 'SZ',
         'regions': [{
           'name': 'Hhohho',
-          'shortCode': 'HH'
+          'shortCode': 'HH',
         },
           {
             'name': 'Lubombo',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Manzini',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Shiselweni',
-            'shortCode': 'SH'
-          }
-        ]
+            'shortCode': 'SH',
+          },
+        ],
       },
       {
         'countryName': 'Sweden',
         'countryShortCode': 'SE',
         'regions': [{
           'name': 'Blekinge',
-          'shortCode': 'K'
+          'shortCode': 'K',
         },
           {
             'name': 'Dalarna',
-            'shortCode': 'W'
+            'shortCode': 'W',
           },
           {
             'name': 'Gävleborg',
-            'shortCode': 'X'
+            'shortCode': 'X',
           },
           {
             'name': 'Gotland',
-            'shortCode': 'I'
+            'shortCode': 'I',
           },
           {
             'name': 'Halland',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Jämtland',
-            'shortCode': 'Z'
+            'shortCode': 'Z',
           },
           {
             'name': 'Jönköping',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Kalmar',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Kronoberg',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Norrbotten',
-            'shortCode': 'BD'
+            'shortCode': 'BD',
           },
           {
             'name': 'Örebro',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Östergötland',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Skåne',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Södermanland',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Stockholm',
-            'shortCode': 'AB'
+            'shortCode': 'AB',
           },
           {
             'name': 'Uppsala',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Värmland',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Västerbotten',
-            'shortCode': 'AC'
+            'shortCode': 'AC',
           },
           {
             'name': 'Västernorrland',
-            'shortCode': 'Y'
+            'shortCode': 'Y',
           },
           {
             'name': 'Västmanland',
-            'shortCode': 'U'
+            'shortCode': 'U',
           },
           {
             'name': 'Västra Götaland',
-            'shortCode': 'O'
-          }
-        ]
+            'shortCode': 'O',
+          },
+        ],
       },
       {
         'countryName': 'Switzerland',
         'countryShortCode': 'CH',
         'regions': [{
           'name': 'Aargau',
-          'shortCode': 'AG'
+          'shortCode': 'AG',
         },
           {
             'name': 'Appenzell Ausserrhoden',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'Appenzell Innerhoden',
-            'shortCode': 'AI'
+            'shortCode': 'AI',
           },
           {
             'name': 'Basel-Landschaft',
-            'shortCode': 'BL'
+            'shortCode': 'BL',
           },
           {
             'name': 'Basel-Stadt',
-            'shortCode': 'BS'
+            'shortCode': 'BS',
           },
           {
             'name': 'Bern',
-            'shortCode': 'BE'
+            'shortCode': 'BE',
           },
           {
             'name': 'Fribourg',
-            'shortCode': 'FR'
+            'shortCode': 'FR',
           },
           {
             'name': 'Genève',
-            'shortCode': 'GE'
+            'shortCode': 'GE',
           },
           {
             'name': 'Glarus',
-            'shortCode': 'GL'
+            'shortCode': 'GL',
           },
           {
             'name': 'Graubünden',
-            'shortCode': 'GR'
+            'shortCode': 'GR',
           },
           {
             'name': 'Jura',
-            'shortCode': 'JU'
+            'shortCode': 'JU',
           },
           {
             'name': 'Luzern',
-            'shortCode': 'LU'
+            'shortCode': 'LU',
           },
           {
             'name': 'Neuchâtel',
-            'shortCode': 'NE'
+            'shortCode': 'NE',
           },
           {
             'name': 'Nidwalden',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'Obwalden',
-            'shortCode': 'OW'
+            'shortCode': 'OW',
           },
           {
             'name': 'Sankt Gallen',
-            'shortCode': 'SG'
+            'shortCode': 'SG',
           },
           {
             'name': 'Schaffhausen',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Schwyz',
-            'shortCode': 'SZ'
+            'shortCode': 'SZ',
           },
           {
             'name': 'Solothurn',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Thurgau',
-            'shortCode': 'TG'
+            'shortCode': 'TG',
           },
           {
             'name': 'Ticino',
-            'shortCode': 'TI'
+            'shortCode': 'TI',
           },
           {
             'name': 'Uri',
-            'shortCode': 'UR'
+            'shortCode': 'UR',
           },
           {
             'name': 'Valais',
-            'shortCode': 'VS'
+            'shortCode': 'VS',
           },
           {
             'name': 'Vaud',
-            'shortCode': 'VD'
+            'shortCode': 'VD',
           },
           {
             'name': 'Zug',
-            'shortCode': 'ZG'
+            'shortCode': 'ZG',
           },
           {
             'name': 'Zürich',
-            'shortCode': 'ZH'
-          }
-        ]
+            'shortCode': 'ZH',
+          },
+        ],
       },
       {
         'countryName': 'Syrian Arab Republic',
         'countryShortCode': 'SY',
         'regions': [{
           'name': 'Al Hasakah',
-          'shortCode': 'HA'
+          'shortCode': 'HA',
         },
           {
             'name': 'Al Ladhiqiyah',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Al Qunaytirah',
-            'shortCode': 'QU'
+            'shortCode': 'QU',
           },
           {
             'name': 'Ar Raqqah',
-            'shortCode': 'RA'
+            'shortCode': 'RA',
           },
           {
             'name': "As Suwayda'",
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': "Dar'a",
-            'shortCode': 'DR'
+            'shortCode': 'DR',
           },
           {
             'name': 'Dayr az Zawr',
-            'shortCode': 'DY'
+            'shortCode': 'DY',
           },
           {
             'name': 'Dimashq',
-            'shortCode': 'DI'
+            'shortCode': 'DI',
           },
           {
             'name': 'Halab',
-            'shortCode': 'HL'
+            'shortCode': 'HL',
           },
           {
             'name': 'Hamah',
-            'shortCode': 'HM'
+            'shortCode': 'HM',
           },
           {
             'name': 'Hims',
-            'shortCode': 'HI'
+            'shortCode': 'HI',
           },
           {
             'name': 'Idlib',
-            'shortCode': 'ID'
+            'shortCode': 'ID',
           },
           {
             'name': 'Rif Dimashq',
-            'shortCode': 'RD'
+            'shortCode': 'RD',
           },
           {
             'name': 'Tartus',
-            'shortCode': 'TA'
-          }
-        ]
+            'shortCode': 'TA',
+          },
+        ],
       },
       {
         'countryName': 'Taiwan',
         'countryShortCode': 'TW',
         'regions': [{
           'name': 'Chang-hua',
-          'shortCode': 'CHA'
+          'shortCode': 'CHA',
         },
           {
             'name': 'Chia-i',
-            'shortCode': 'CYQ'
+            'shortCode': 'CYQ',
           },
           {
             'name': 'Hsin-chu',
-            'shortCode': 'HSQ'
+            'shortCode': 'HSQ',
           },
           {
             'name': 'Hua-lien',
-            'shortCode': 'HUA'
+            'shortCode': 'HUA',
           },
           {
             'name': 'Kao-hsiung',
-            'shortCode': 'KHH'
+            'shortCode': 'KHH',
           },
           {
             'name': 'Keelung',
-            'shortCode': 'KEE'
+            'shortCode': 'KEE',
           },
           {
             'name': 'Kinmen',
-            'shortCode': 'KIN'
+            'shortCode': 'KIN',
           },
           {
             'name': 'Lienchiang',
-            'shortCode': 'LIE'
+            'shortCode': 'LIE',
           },
           {
             'name': 'Miao-li',
-            'shortCode': 'MIA'
+            'shortCode': 'MIA',
           },
           {
             'name': "Nan-t'ou",
-            'shortCode': 'NAN'
+            'shortCode': 'NAN',
           },
           {
             'name': "P'eng-hu",
-            'shortCode': 'PEN'
+            'shortCode': 'PEN',
           },
           {
             'name': 'New Taipei',
-            'shortCode': 'NWT'
+            'shortCode': 'NWT',
           },
           {
             'name': "P'ing-chung",
-            'shortCode': 'PIF'
+            'shortCode': 'PIF',
           },
           {
             'name': "T'ai-chung",
-            'shortCode': 'TXG'
+            'shortCode': 'TXG',
           },
           {
             'name': "T'ai-nan",
-            'shortCode': 'TNN'
+            'shortCode': 'TNN',
           },
           {
             'name': "T'ai-pei",
-            'shortCode': 'TPE'
+            'shortCode': 'TPE',
           },
           {
             'name': "T'ai-tung",
-            'shortCode': 'TTT'
+            'shortCode': 'TTT',
           },
           {
             'name': "T'ao-yuan",
-            'shortCode': 'TAO'
+            'shortCode': 'TAO',
           },
           {
             'name': 'Yi-lan',
-            'shortCode': 'ILA'
+            'shortCode': 'ILA',
           },
           {
             'name': 'Yun-lin',
-            'shortCode': 'YUN'
-          }
-        ]
+            'shortCode': 'YUN',
+          },
+        ],
       },
       {
         'countryName': 'Tajikistan',
         'countryShortCode': 'TJ',
         'regions': [{
           'name': 'Dushanbe',
-          'shortCode': 'DU'
+          'shortCode': 'DU',
         },
           {
             'name': 'Kŭhistoni Badakhshon',
-            'shortCode': 'GB'
+            'shortCode': 'GB',
           },
           {
             'name': 'Khatlon',
-            'shortCode': 'KT'
+            'shortCode': 'KT',
           },
           {
             'name': 'Sughd',
-            'shortCode': 'SU'
-          }
-        ]
+            'shortCode': 'SU',
+          },
+        ],
       },
       {
         'countryName': 'Tanzania, United Republic of',
         'countryShortCode': 'TZ',
         'regions': [{
           'name': 'Arusha',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Coast',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Dar es Salaam',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Dodoma',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Iringa',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Kagera',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Kigoma',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Kilimanjaro',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Lindi',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Manyara',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Mara',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Mbeya',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Morogoro',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Mtwara',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Mwanza',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Pemba North',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Pemba South',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Rukwa',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Ruvuma',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Shinyanga',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Singida',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Tabora',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Tanga',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Zanzibar North',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Zanzibar Central/South',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Zanzibar Urban/West',
-            'shortCode': '15'
-          }
-        ]
+            'shortCode': '15',
+          },
+        ],
       },
       {
         'countryName': 'Thailand',
         'countryShortCode': 'TH',
         'regions': [{
           'name': 'Amnat Charoen',
-          'shortCode': '37'
+          'shortCode': '37',
         },
           {
             'name': 'Ang Thong',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Bueng Kan',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Buri Ram',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Chachoengsao',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Chai Nat',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Chaiyaphum',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Chanthaburi',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Chiang Mai',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'Chiang Rai',
-            'shortCode': '57'
+            'shortCode': '57',
           },
           {
             'name': 'Chon Buri',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Chumphon',
-            'shortCode': '86'
+            'shortCode': '86',
           },
           {
             'name': 'Kalasin',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Kamphaeng Phet',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Kanchanaburi',
-            'shortCode': '71'
+            'shortCode': '71',
           },
           {
             'name': 'Khon Kaen',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Krabi',
-            'shortCode': '81'
+            'shortCode': '81',
           },
           {
             'name': 'Krung Thep Mahanakhon (Bangkok)',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Lampang',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Lamphun',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Loei',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Lop Buri',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Mae Hong Son',
-            'shortCode': '58'
+            'shortCode': '58',
           },
           {
             'name': 'Maha Sarakham',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Mukdahan',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Nakhon Nayok',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Nakhon Phathom',
-            'shortCode': '73'
+            'shortCode': '73',
           },
           {
             'name': 'Nakhon Phanom',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Nakhon Ratchasima',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Nakhon Sawan',
-            'shortCode': '60'
+            'shortCode': '60',
           },
           {
             'name': 'Nakhon Si Thammarat',
-            'shortCode': '80'
+            'shortCode': '80',
           },
           {
             'name': 'Nan',
-            'shortCode': '55'
+            'shortCode': '55',
           },
           {
             'name': 'Narathiwat',
-            'shortCode': '96'
+            'shortCode': '96',
           },
           {
             'name': 'Nong Bua Lam Phu',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Nong Khai',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Nonthaburi',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Pathum Thani',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Pattani',
-            'shortCode': '94'
+            'shortCode': '94',
           },
           {
             'name': 'Phangnga',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Phatthalung',
-            'shortCode': '93'
+            'shortCode': '93',
           },
           {
             'name': 'Phayao',
-            'shortCode': '56'
+            'shortCode': '56',
           },
           {
             'name': 'Phetchabun',
-            'shortCode': '76'
+            'shortCode': '76',
           },
           {
             'name': 'Phetchaburi',
-            'shortCode': '76'
+            'shortCode': '76',
           },
           {
             'name': 'Phichit',
-            'shortCode': '66'
+            'shortCode': '66',
           },
           {
             'name': 'Phitsanulok',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Phra Nakhon Si Ayutthaya',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Phrae',
-            'shortCode': '54'
+            'shortCode': '54',
           },
           {
             'name': 'Phuket',
-            'shortCode': '83'
+            'shortCode': '83',
           },
           {
             'name': 'Prachin Buri',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Prachuap Khiri Khan',
-            'shortCode': '77'
+            'shortCode': '77',
           },
           {
             'name': 'Ranong',
-            'shortCode': '85'
+            'shortCode': '85',
           },
           {
             'name': 'Ratchaburi',
-            'shortCode': '70'
+            'shortCode': '70',
           },
           {
             'name': 'Rayong',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Roi Et',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Sa Kaeo',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Sakon Nakhon',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Samut Prakan',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Samut Sakhon',
-            'shortCode': '74'
+            'shortCode': '74',
           },
           {
             'name': 'Samut Songkhram',
-            'shortCode': '75'
+            'shortCode': '75',
           },
           {
             'name': 'Saraburi',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Satun',
-            'shortCode': '91'
+            'shortCode': '91',
           },
           {
             'name': 'Sing Buri',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Si Sa ket',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Songkhla',
-            'shortCode': '90'
+            'shortCode': '90',
           },
           {
             'name': 'Sukhothai',
-            'shortCode': '64'
+            'shortCode': '64',
           },
           {
             'name': 'Suphan Buri',
-            'shortCode': '72'
+            'shortCode': '72',
           },
           {
             'name': 'Surat Thani',
-            'shortCode': '84'
+            'shortCode': '84',
           },
           {
             'name': 'Surin',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Tak',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Trang',
-            'shortCode': '92'
+            'shortCode': '92',
           },
           {
             'name': 'Trat',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Ubon Ratchathani',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Udon Thani',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Uthai Thani',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Uttaradit',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Yala',
-            'shortCode': '95'
+            'shortCode': '95',
           },
           {
             'name': 'Yasothon',
-            'shortCode': '35'
-          }
-        ]
+            'shortCode': '35',
+          },
+        ],
       },
       {
         'countryName': 'Timor-Leste',
         'countryShortCode': 'TL',
         'regions': [{
           'name': 'Aileu',
-          'shortCode': 'AL'
+          'shortCode': 'AL',
         },
           {
             'name': 'Ainaro',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Baucau',
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Bobonaro',
-            'shortCode': 'BO'
+            'shortCode': 'BO',
           },
           {
             'name': 'Cova Lima',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Dili',
-            'shortCode': 'DI'
+            'shortCode': 'DI',
           },
           {
             'name': 'Ermera',
-            'shortCode': 'ER'
+            'shortCode': 'ER',
           },
           {
             'name': 'Lautem',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Liquica',
-            'shortCode': 'LI'
+            'shortCode': 'LI',
           },
           {
             'name': 'Manatuto',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Manufahi',
-            'shortCode': 'MF'
+            'shortCode': 'MF',
           },
           {
             'name': 'Oecussi',
-            'shortCode': 'OE'
+            'shortCode': 'OE',
           },
           {
             'name': 'Viqueque',
-            'shortCode': 'VI'
-          }
-        ]
+            'shortCode': 'VI',
+          },
+        ],
       },
       {
         'countryName': 'Togo',
         'countryShortCode': 'TG',
         'regions': [{
           'name': 'Centre',
-          'shortCode': 'C'
+          'shortCode': 'C',
         },
           {
             'name': 'Kara',
-            'shortCode': 'K'
+            'shortCode': 'K',
           },
           {
             'name': 'Maritime',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Plateaux',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Savannes',
-            'shortCode': 'S'
-          }
-        ]
+            'shortCode': 'S',
+          },
+        ],
       },
       {
         'countryName': 'Tokelau',
         'countryShortCode': 'TK',
         'regions': [{
-          'name': 'Atafu'
+          'name': 'Atafu',
         },
           {
-            'name': 'Fakaofo'
+            'name': 'Fakaofo',
           },
           {
-            'name': 'Nukunonu'
-          }
-        ]
+            'name': 'Nukunonu',
+          },
+        ],
       },
       {
         'countryName': 'Tonga',
         'countryShortCode': 'TO',
         'regions': [{
           'name': "'Eua",
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': "Ha'apai",
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Niuas',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Tongatapu',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': "Vava'u",
-            'shortCode': '05'
-          }
-        ]
+            'shortCode': '05',
+          },
+        ],
       },
       {
         'countryName': 'Trinidad and Tobago',
         'countryShortCode': 'TT',
         'regions': [{
           'name': 'Arima',
-          'shortCode': 'ARI'
+          'shortCode': 'ARI',
         },
           {
             'name': 'Chaguanas',
-            'shortCode': 'CHA'
+            'shortCode': 'CHA',
           },
           {
             'name': 'Couva-Tabaquite-Talparo',
-            'shortCode': 'CTT'
+            'shortCode': 'CTT',
           },
           {
             'name': 'Diefo Martin',
-            'shortCode': 'DMN'
+            'shortCode': 'DMN',
           },
           {
             'name': 'Mayaro-Rio Claro',
-            'shortCode': 'MRC'
+            'shortCode': 'MRC',
           },
           {
             'name': 'Penal-Debe',
-            'shortCode': 'PED'
+            'shortCode': 'PED',
           },
           {
             'name': 'Point Fortin',
-            'shortCode': 'PTF'
+            'shortCode': 'PTF',
           },
           {
             'name': 'Port-of-Spain',
-            'shortCode': 'POS'
+            'shortCode': 'POS',
           },
           {
             'name': 'Princes Town',
-            'shortCode': 'PRT'
+            'shortCode': 'PRT',
           },
           {
             'name': 'San Fernando',
-            'shortCode': 'SFO'
+            'shortCode': 'SFO',
           },
           {
             'name': 'San Juan-Laventille',
-            'shortCode': 'SJL'
+            'shortCode': 'SJL',
           },
           {
             'name': 'Sangre Grande',
-            'shortCode': 'SGE'
+            'shortCode': 'SGE',
           },
           {
             'name': 'Siparia',
-            'shortCode': 'SIP'
+            'shortCode': 'SIP',
           },
           {
             'name': 'Tobago',
-            'shortCode': 'TOB'
+            'shortCode': 'TOB',
           },
           {
             'name': 'Tunapuna-Piarco',
-            'shortCode': 'TUP'
-          }
-        ]
+            'shortCode': 'TUP',
+          },
+        ],
       },
       {
         'countryName': 'Tunisia',
         'countryShortCode': 'TN',
         'regions': [{
           'name': 'Ariana',
-          'shortCode': '12'
+          'shortCode': '12',
         },
           {
             'name': 'Beja',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Ben Arous',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Bizerte',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Gabes',
-            'shortCode': '81'
+            'shortCode': '81',
           },
           {
             'name': 'Gafsa',
-            'shortCode': '71'
+            'shortCode': '71',
           },
           {
             'name': 'Jendouba',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Kairouan',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Kasserine',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Kebili',
-            'shortCode': '73'
+            'shortCode': '73',
           },
           {
             'name': 'Kef',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Mahdia',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Medenine',
-            'shortCode': '82'
+            'shortCode': '82',
           },
           {
             'name': 'Monastir',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Nabeul',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Sfax',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Sidi Bouzid',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Siliana',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Sousse',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Tataouine',
-            'shortCode': '83'
+            'shortCode': '83',
           },
           {
             'name': 'Tozeur',
-            'shortCode': '72'
+            'shortCode': '72',
           },
           {
             'name': 'Tunis',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Zaghouan',
-            'shortCode': '22'
-          }
-        ]
+            'shortCode': '22',
+          },
+        ],
       },
       {
         'countryName': 'Turkey',
         'countryShortCode': 'TR',
         'regions': [{
           'name': 'Adana',
-          'shortCode': '01'
+          'shortCode': '01',
         },
           {
             'name': 'Adiyaman',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Afyonkarahisar',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Agri',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Aksaray',
-            'shortCode': '68'
+            'shortCode': '68',
           },
           {
             'name': 'Amasya',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Ankara',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Antalya',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Ardahan',
-            'shortCode': '75'
+            'shortCode': '75',
           },
           {
             'name': 'Artvin',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Aydin',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Balikesir',
-            'shortCode': '10'
+            'shortCode': '10',
           },
           {
             'name': 'Bartin',
-            'shortCode': '74'
+            'shortCode': '74',
           },
           {
             'name': 'Batman',
-            'shortCode': '72'
+            'shortCode': '72',
           },
           {
             'name': 'Bayburt',
-            'shortCode': '69'
+            'shortCode': '69',
           },
           {
             'name': 'Bilecik',
-            'shortCode': '11'
+            'shortCode': '11',
           },
           {
             'name': 'Bingol',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Bitlis',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Bolu',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Burdur',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Bursa',
-            'shortCode': '16'
+            'shortCode': '16',
           },
           {
             'name': 'Canakkale',
-            'shortCode': '17'
+            'shortCode': '17',
           },
           {
             'name': 'Cankiri',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Corum',
-            'shortCode': '19'
+            'shortCode': '19',
           },
           {
             'name': 'Denizli',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Diyarbakir',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Duzce',
-            'shortCode': '81'
+            'shortCode': '81',
           },
           {
             'name': 'Edirne',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Elazig',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Erzincan',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Erzurum',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Eskisehir',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Gaziantep',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Giresun',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Gumushane',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Hakkari',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Hatay',
-            'shortCode': '31'
+            'shortCode': '31',
           },
           {
             'name': 'Igdir',
-            'shortCode': '76'
+            'shortCode': '76',
           },
           {
             'name': 'Isparta',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Istanbul',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Izmir',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Kahramanmaras',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Karabuk',
-            'shortCode': '78'
+            'shortCode': '78',
           },
           {
             'name': 'Karaman',
-            'shortCode': '70'
+            'shortCode': '70',
           },
           {
             'name': 'Kars',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Kastamonu',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Kayseri',
-            'shortCode': '38'
+            'shortCode': '38',
           },
           {
             'name': 'Kilis',
-            'shortCode': '79'
+            'shortCode': '79',
           },
           {
             'name': 'Kirikkale',
-            'shortCode': '71'
+            'shortCode': '71',
           },
           {
             'name': 'Kirklareli',
-            'shortCode': '39'
+            'shortCode': '39',
           },
           {
             'name': 'Kirsehir',
-            'shortCode': '40'
+            'shortCode': '40',
           },
           {
             'name': 'Kocaeli',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Konya',
-            'shortCode': '42'
+            'shortCode': '42',
           },
           {
             'name': 'Kutahya',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Malatya',
-            'shortCode': '44'
+            'shortCode': '44',
           },
           {
             'name': 'Manisa',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Mardin',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Mersin',
-            'shortCode': '33'
+            'shortCode': '33',
           },
           {
             'name': 'Mugla',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Mus',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Nevsehir',
-            'shortCode': '50'
+            'shortCode': '50',
           },
           {
             'name': 'Nigde',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Ordu',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Osmaniye',
-            'shortCode': '80'
+            'shortCode': '80',
           },
           {
             'name': 'Rize',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Sakarya',
-            'shortCode': '54'
+            'shortCode': '54',
           },
           {
             'name': 'Samsun',
-            'shortCode': '55'
+            'shortCode': '55',
           },
           {
             'name': 'Sanliurfa',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Siirt',
-            'shortCode': '56'
+            'shortCode': '56',
           },
           {
             'name': 'Sinop',
-            'shortCode': '57'
+            'shortCode': '57',
           },
           {
             'name': 'Sirnak',
-            'shortCode': '73'
+            'shortCode': '73',
           },
           {
             'name': 'Sivas',
-            'shortCode': '58'
+            'shortCode': '58',
           },
           {
             'name': 'Tekirdag',
-            'shortCode': '59'
+            'shortCode': '59',
           },
           {
             'name': 'Tokat',
-            'shortCode': '60'
+            'shortCode': '60',
           },
           {
             'name': 'Trabzon',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Tunceli',
-            'shortCode': '62'
+            'shortCode': '62',
           },
           {
             'name': 'Usak',
-            'shortCode': '64'
+            'shortCode': '64',
           },
           {
             'name': 'Van',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Yalova',
-            'shortCode': '77'
+            'shortCode': '77',
           },
           {
             'name': 'Yozgat',
-            'shortCode': '66'
+            'shortCode': '66',
           },
           {
             'name': 'Zonguldak',
-            'shortCode': '67'
-          }
-        ]
+            'shortCode': '67',
+          },
+        ],
       },
       {
         'countryName': 'Turkmenistan',
         'countryShortCode': 'TM',
         'regions': [{
           'name': 'Ahal',
-          'shortCode': 'A'
+          'shortCode': 'A',
         },
           {
             'name': 'Asgabat',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Balkan',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Dashoguz',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Lebap',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Mary',
-            'shortCode': 'M'
-          }
-        ]
+            'shortCode': 'M',
+          },
+        ],
       },
       {
         'countryName': 'Turks and Caicos Islands',
         'countryShortCode': 'TC',
         'regions': [{
-          'name': 'Turks and Caicos Islands'
-        }]
+          'name': 'Turks and Caicos Islands',
+        }],
       },
       {
         'countryName': 'Tuvalu',
         'countryShortCode': 'TV',
         'regions': [{
           'name': 'Funafuti',
-          'shortCode': 'FUN'
+          'shortCode': 'FUN',
         },
           {
             'name': 'Nanumanga',
-            'shortCode': 'NMG'
+            'shortCode': 'NMG',
           },
           {
             'name': 'Nanumea',
-            'shortCode': 'NMA'
+            'shortCode': 'NMA',
           },
           {
             'name': 'Niutao',
-            'shortCode': 'NIT'
+            'shortCode': 'NIT',
           },
           {
             'name': 'Nui',
-            'shortCode': 'NUI'
+            'shortCode': 'NUI',
           },
           {
             'name': 'Nukufetau',
-            'shortCode': 'NKF'
+            'shortCode': 'NKF',
           },
           {
             'name': 'Nukulaelae',
-            'shortCode': 'NKL'
+            'shortCode': 'NKL',
           },
           {
             'name': 'Vaitupu',
-            'shortCode': 'VAU'
-          }
-        ]
+            'shortCode': 'VAU',
+          },
+        ],
       },
       {
         'countryName': 'Uganda',
         'countryShortCode': 'UG',
         'regions': [{
           'name': 'Abim',
-          'shortCode': '317'
+          'shortCode': '317',
         },
           {
             'name': 'Adjumani',
-            'shortCode': '301'
+            'shortCode': '301',
           },
           {
             'name': 'Amolatar',
-            'shortCode': '314'
+            'shortCode': '314',
           },
           {
             'name': 'Amuria',
-            'shortCode': '216'
+            'shortCode': '216',
           },
           {
             'name': 'Amuru',
-            'shortCode': '319'
+            'shortCode': '319',
           },
           {
             'name': 'Apac',
-            'shortCode': '302'
+            'shortCode': '302',
           },
           {
             'name': 'Arua',
-            'shortCode': '303'
+            'shortCode': '303',
           },
           {
             'name': 'Budaka',
-            'shortCode': '217'
+            'shortCode': '217',
           },
           {
             'name': 'Bududa',
-            'shortCode': '223'
+            'shortCode': '223',
           },
           {
             'name': 'Bugiri',
-            'shortCode': '201'
+            'shortCode': '201',
           },
           {
             'name': 'Bukedea',
-            'shortCode': '224'
+            'shortCode': '224',
           },
           {
             'name': 'Bukwa',
-            'shortCode': '218'
+            'shortCode': '218',
           },
           {
             'name': 'Buliisa',
-            'shortCode': '419'
+            'shortCode': '419',
           },
           {
             'name': 'Bundibugyo',
-            'shortCode': '401'
+            'shortCode': '401',
           },
           {
             'name': 'Bushenyi',
-            'shortCode': '402'
+            'shortCode': '402',
           },
           {
             'name': 'Busia',
-            'shortCode': '202'
+            'shortCode': '202',
           },
           {
             'name': 'Butaleja',
-            'shortCode': '219'
+            'shortCode': '219',
           },
           {
             'name': 'Dokolo',
-            'shortCode': '318'
+            'shortCode': '318',
           },
           {
             'name': 'Gulu',
-            'shortCode': '304'
+            'shortCode': '304',
           },
           {
             'name': 'Hoima',
-            'shortCode': '403'
+            'shortCode': '403',
           },
           {
             'name': 'Ibanda',
-            'shortCode': '416'
+            'shortCode': '416',
           },
           {
             'name': 'Iganga',
-            'shortCode': '203'
+            'shortCode': '203',
           },
           {
             'name': 'Isingiro',
-            'shortCode': '417'
+            'shortCode': '417',
           },
           {
             'name': 'Jinja',
-            'shortCode': '204'
+            'shortCode': '204',
           },
           {
             'name': 'Kaabong',
-            'shortCode': '315'
+            'shortCode': '315',
           },
           {
             'name': 'Kabale',
-            'shortCode': '404'
+            'shortCode': '404',
           },
           {
             'name': 'Kabarole',
-            'shortCode': '405'
+            'shortCode': '405',
           },
           {
             'name': 'Kaberamaido',
-            'shortCode': '213'
+            'shortCode': '213',
           },
           {
             'name': 'Kalangala',
-            'shortCode': '101'
+            'shortCode': '101',
           },
           {
             'name': 'Kaliro',
-            'shortCode': '220'
+            'shortCode': '220',
           },
           {
             'name': 'Kampala',
-            'shortCode': '102'
+            'shortCode': '102',
           },
           {
             'name': 'Kamuli',
-            'shortCode': '205'
+            'shortCode': '205',
           },
           {
             'name': 'Kamwenge',
-            'shortCode': '413'
+            'shortCode': '413',
           },
           {
             'name': 'Kanungu',
-            'shortCode': '414'
+            'shortCode': '414',
           },
           {
             'name': 'Kapchorwa',
-            'shortCode': '206'
+            'shortCode': '206',
           },
           {
             'name': 'Kasese',
-            'shortCode': '406'
+            'shortCode': '406',
           },
           {
             'name': 'Katakwi',
-            'shortCode': '207'
+            'shortCode': '207',
           },
           {
             'name': 'Kayunga',
-            'shortCode': '112'
+            'shortCode': '112',
           },
           {
             'name': 'Kibaale',
-            'shortCode': '407'
+            'shortCode': '407',
           },
           {
             'name': 'Kiboga',
-            'shortCode': '103'
+            'shortCode': '103',
           },
           {
             'name': 'Kiruhura',
-            'shortCode': '418'
+            'shortCode': '418',
           },
           {
             'name': 'Kisoro',
-            'shortCode': '408'
+            'shortCode': '408',
           },
           {
             'name': 'Kitgum',
-            'shortCode': '305'
+            'shortCode': '305',
           },
           {
             'name': 'Koboko',
-            'shortCode': '316'
+            'shortCode': '316',
           },
           {
             'name': 'Kotido',
-            'shortCode': '306'
+            'shortCode': '306',
           },
           {
             'name': 'Kumi',
-            'shortCode': '208'
+            'shortCode': '208',
           },
           {
             'name': 'Kyenjojo',
-            'shortCode': '415'
+            'shortCode': '415',
           },
           {
             'name': 'Lira',
-            'shortCode': '307'
+            'shortCode': '307',
           },
           {
             'name': 'Luwero',
-            'shortCode': '104'
+            'shortCode': '104',
           },
           {
             'name': 'Lyantonde',
-            'shortCode': '116'
+            'shortCode': '116',
           },
           {
             'name': 'Manafwa',
-            'shortCode': '221'
+            'shortCode': '221',
           },
           {
             'name': 'Maracha',
-            'shortCode': '320'
+            'shortCode': '320',
           },
           {
             'name': 'Masaka',
-            'shortCode': '105'
+            'shortCode': '105',
           },
           {
             'name': 'Masindi',
-            'shortCode': '409'
+            'shortCode': '409',
           },
           {
             'name': 'Mayuge',
-            'shortCode': '214'
+            'shortCode': '214',
           },
           {
             'name': 'Mbale',
-            'shortCode': '209'
+            'shortCode': '209',
           },
           {
             'name': 'Mbarara',
-            'shortCode': '410'
+            'shortCode': '410',
           },
           {
             'name': 'Mityana',
-            'shortCode': '114'
+            'shortCode': '114',
           },
           {
             'name': 'Moroto',
-            'shortCode': '308'
+            'shortCode': '308',
           },
           {
             'name': 'Moyo',
-            'shortCode': '309'
+            'shortCode': '309',
           },
           {
             'name': 'Mpigi',
-            'shortCode': '106'
+            'shortCode': '106',
           },
           {
             'name': 'Mubende',
-            'shortCode': '107'
+            'shortCode': '107',
           },
           {
             'name': 'Mukono',
-            'shortCode': '108'
+            'shortCode': '108',
           },
           {
             'name': 'Nakapiripirit',
-            'shortCode': '311'
+            'shortCode': '311',
           },
           {
             'name': 'Nakaseke',
-            'shortCode': '115'
+            'shortCode': '115',
           },
           {
             'name': 'Nakasongola',
-            'shortCode': '109'
+            'shortCode': '109',
           },
           {
             'name': 'Namutumba',
-            'shortCode': '222'
+            'shortCode': '222',
           },
           {
             'name': 'Nebbi',
-            'shortCode': '310'
+            'shortCode': '310',
           },
           {
             'name': 'Ntungamo',
-            'shortCode': '411'
+            'shortCode': '411',
           },
           {
             'name': 'Oyam',
-            'shortCode': '321'
+            'shortCode': '321',
           },
           {
             'name': 'Pader',
-            'shortCode': '312'
+            'shortCode': '312',
           },
           {
             'name': 'Pallisa',
-            'shortCode': '210'
+            'shortCode': '210',
           },
           {
             'name': 'Rakai',
-            'shortCode': '110'
+            'shortCode': '110',
           },
           {
             'name': 'Rukungiri',
-            'shortCode': '412'
+            'shortCode': '412',
           },
           {
             'name': 'Sembabule',
-            'shortCode': '111'
+            'shortCode': '111',
           },
           {
             'name': 'Sironko',
-            'shortCode': '215'
+            'shortCode': '215',
           },
           {
             'name': 'Soroti',
-            'shortCode': '211'
+            'shortCode': '211',
           },
           {
             'name': 'Tororo',
-            'shortCode': '212'
+            'shortCode': '212',
           },
           {
             'name': 'Wakiso',
-            'shortCode': '113'
+            'shortCode': '113',
           },
           {
             'name': 'Yumbe',
-            'shortCode': '313'
-          }
-        ]
+            'shortCode': '313',
+          },
+        ],
       },
       {
         'countryName': 'Ukraine',
         'countryShortCode': 'UA',
         'regions': [{
           'name': 'Cherkasy',
-          'shortCode': '71'
+          'shortCode': '71',
         },
           {
             'name': 'Chernihiv',
-            'shortCode': '74'
+            'shortCode': '74',
           },
           {
             'name': 'Chernivtsi',
-            'shortCode': '77'
+            'shortCode': '77',
           },
           {
             'name': 'Dnipropetrovsk',
-            'shortCode': '12'
+            'shortCode': '12',
           },
           {
             'name': 'Donetsk',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Ivano-Frankivsk',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Kharkiv',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Kherson',
-            'shortCode': '65'
+            'shortCode': '65',
           },
           {
             'name': 'Khmelnytskyi',
-            'shortCode': '68'
+            'shortCode': '68',
           },
           {
             'name': 'Kiev',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Kirovohrad',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Luhansk',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Lviv',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Mykolaiv',
-            'shortCode': '48'
+            'shortCode': '48',
           },
           {
             'name': 'Odessa',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Poltava',
-            'shortCode': '53'
+            'shortCode': '53',
           },
           {
             'name': 'Rivne',
-            'shortCode': '56'
+            'shortCode': '56',
           },
           {
             'name': 'Sumy',
-            'shortCode': '59'
+            'shortCode': '59',
           },
           {
             'name': 'Ternopil',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Vinnytsia',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Volyn',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Zakarpattia',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Zaporizhia',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Zhytomyr',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Avtonomna Respublika Krym',
-            'shortCode': '43'
+            'shortCode': '43',
           },
           {
             'name': 'Kyïv',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Sevastopol',
-            'shortCode': '40'
-          }
-        ]
+            'shortCode': '40',
+          },
+        ],
       },
       {
         'countryName': 'United Arab Emirates',
         'countryShortCode': 'AE',
         'regions': [{
           'name': 'Abu Dhabi',
-          'shortCode': 'AZ'
+          'shortCode': 'AZ',
         },
           {
             'name': 'Ajman',
-            'shortCode': 'AJ'
+            'shortCode': 'AJ',
           },
           {
             'name': 'Dubai',
-            'shortCode': 'DU'
+            'shortCode': 'DU',
           },
           {
             'name': 'Fujairah',
-            'shortCode': 'FU'
+            'shortCode': 'FU',
           },
           {
             'name': 'Ras al Khaimah',
-            'shortCode': 'RK'
+            'shortCode': 'RK',
           },
           {
             'name': 'Sharjah',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Umm Al Quwain',
-            'shortCode': 'UQ'
-          }
-        ]
+            'shortCode': 'UQ',
+          },
+        ],
       },
       {
         'countryName': 'United Kingdom',
         'countryShortCode': 'GB',
         'regions': [{
           'name': 'Aberdeen City',
-          'shortCode': 'ABE'
+          'shortCode': 'ABE',
         },
           {
             'name': 'Aberdeenshire',
-            'shortCode': 'ABD'
+            'shortCode': 'ABD',
           },
           {
             'name': 'Angus',
-            'shortCode': 'ANS'
+            'shortCode': 'ANS',
           },
           {
             'name': 'Antrim and Newtownabbey',
-            'shortCode': 'ANN'
+            'shortCode': 'ANN',
           },
           {
             'name': 'Ards and North Down',
-            'shortCode': 'AND'
+            'shortCode': 'AND',
           },
           {
             'name': 'Argyll and Bute',
-            'shortCode': 'AGB'
+            'shortCode': 'AGB',
           },
           {
             'name': 'Armagh, Banbridge and Craigavon',
-            'shortCode': 'ABC'
+            'shortCode': 'ABC',
           },
           {
             'name': 'Barking and Dagenham',
-            'shortCode': 'BDG'
+            'shortCode': 'BDG',
           },
           {
             'name': 'Barnet',
-            'shortCode': 'BNE'
+            'shortCode': 'BNE',
           },
           {
             'name': 'Barnsley',
-            'shortCode': 'BNS'
+            'shortCode': 'BNS',
           },
           {
             'name': 'Bath and North East Somerset',
-            'shortCode': 'BAS'
+            'shortCode': 'BAS',
           },
           {
             'name': 'Bedford',
-            'shortCode': 'BDF'
+            'shortCode': 'BDF',
           },
           {
             'name': 'Belfast',
-            'shortCode': 'BFS'
+            'shortCode': 'BFS',
           },
           {
             'name': 'Bexley',
-            'shortCode': 'BEX'
+            'shortCode': 'BEX',
           },
           {
             'name': 'Birmingham',
-            'shortCode': 'BIR'
+            'shortCode': 'BIR',
           },
           {
             'name': 'Blackburn with Darwen',
-            'shortCode': 'BBD'
+            'shortCode': 'BBD',
           },
           {
             'name': 'Blackpool',
-            'shortCode': 'BPL'
+            'shortCode': 'BPL',
           },
           {
             'name': 'Blaenau Gwent',
-            'shortCode': 'BGW'
+            'shortCode': 'BGW',
           },
           {
             'name': 'Bolton',
-            'shortCode': 'BOL'
+            'shortCode': 'BOL',
           },
           {
             'name': 'Bournemouth',
-            'shortCode': 'BMH'
+            'shortCode': 'BMH',
           },
           {
             'name': 'Bracknell Forest',
-            'shortCode': 'BRC'
+            'shortCode': 'BRC',
           },
           {
             'name': 'Bradford',
-            'shortCode': 'BRD'
+            'shortCode': 'BRD',
           },
           {
             'name': 'Brent',
-            'shortCode': 'BEN'
+            'shortCode': 'BEN',
           },
           {
             'name': 'Bridgend',
-            'shortCode': 'BGE'
+            'shortCode': 'BGE',
           },
           {
             'name': 'Brighton and Hove',
-            'shortCode': 'BNH'
+            'shortCode': 'BNH',
           },
           {
             'name': 'Bristol, City of',
-            'shortCode': 'BST'
+            'shortCode': 'BST',
           },
           {
             'name': 'Bromley',
-            'shortCode': 'BRY'
+            'shortCode': 'BRY',
           },
           {
             'name': 'Buckinghamshire',
-            'shortCode': 'BKM'
+            'shortCode': 'BKM',
           },
           {
             'name': 'Bury',
-            'shortCode': 'BUR'
+            'shortCode': 'BUR',
           },
           {
             'name': 'Caerphilly',
-            'shortCode': 'CAY'
+            'shortCode': 'CAY',
           },
           {
             'name': 'Calderdale',
-            'shortCode': 'CLD'
+            'shortCode': 'CLD',
           },
           {
             'name': 'Cambridgeshire',
-            'shortCode': 'CAM'
+            'shortCode': 'CAM',
           },
           {
             'name': 'Camden',
-            'shortCode': 'CMD'
+            'shortCode': 'CMD',
           },
           {
             'name': 'Cardiff',
-            'shortCode': 'CRF'
+            'shortCode': 'CRF',
           },
           {
             'name': 'Carmarthenshire',
-            'shortCode': 'CMN'
+            'shortCode': 'CMN',
           },
           {
             'name': 'Causeway Coast and Glens',
-            'shortCode': 'CCG'
+            'shortCode': 'CCG',
           },
           {
             'name': 'Central Bedfordshire',
-            'shortCode': 'CBF'
+            'shortCode': 'CBF',
           },
           {
             'name': 'Ceredigion',
-            'shortCode': 'CGN'
+            'shortCode': 'CGN',
           },
           {
             'name': 'Cheshire East',
-            'shortCode': 'CHE'
+            'shortCode': 'CHE',
           },
           {
             'name': 'Cheshire West and Chester',
-            'shortCode': 'CHW'
+            'shortCode': 'CHW',
           },
           {
             'name': 'Clackmannanshire',
-            'shortCode': 'CLK'
+            'shortCode': 'CLK',
           },
           {
             'name': 'Conwy',
-            'shortCode': 'CWY'
+            'shortCode': 'CWY',
           },
           {
             'name': 'Cornwall',
-            'shortCode': 'CON'
+            'shortCode': 'CON',
           },
           {
             'name': 'Coventry',
-            'shortCode': 'COV'
+            'shortCode': 'COV',
           },
           {
             'name': 'Croydon',
-            'shortCode': 'CRY'
+            'shortCode': 'CRY',
           },
           {
             'name': 'Cumbria',
-            'shortCode': 'CMA'
+            'shortCode': 'CMA',
           },
           {
             'name': 'Darlington',
-            'shortCode': 'DAL'
+            'shortCode': 'DAL',
           },
           {
             'name': 'Denbighshire',
-            'shortCode': 'DEN'
+            'shortCode': 'DEN',
           },
           {
             'name': 'Derby',
-            'shortCode': 'DER'
+            'shortCode': 'DER',
           },
           {
             'name': 'Derbyshire',
-            'shortCode': 'DBY'
+            'shortCode': 'DBY',
           },
           {
             'name': 'Derry and Strabane',
-            'shortCode': 'DRS'
+            'shortCode': 'DRS',
           },
           {
             'name': 'Devon',
-            'shortCode': 'DEV'
+            'shortCode': 'DEV',
           },
           {
             'name': 'Doncaster',
-            'shortCode': 'DNC'
+            'shortCode': 'DNC',
           },
           {
             'name': 'Dorset',
-            'shortCode': 'DOR'
+            'shortCode': 'DOR',
           },
           {
             'name': 'Dudley',
-            'shortCode': 'DUD'
+            'shortCode': 'DUD',
           },
           {
             'name': 'Dumfries and Galloway',
-            'shortCode': 'DGY'
+            'shortCode': 'DGY',
           },
           {
             'name': 'Dundee City',
-            'shortCode': 'DND'
+            'shortCode': 'DND',
           },
           {
             'name': 'Durham County',
-            'shortCode': 'DUR'
+            'shortCode': 'DUR',
           },
           {
             'name': 'Ealing',
-            'shortCode': 'EAL'
+            'shortCode': 'EAL',
           },
           {
             'name': 'East Ayrshire',
-            'shortCode': 'EAY'
+            'shortCode': 'EAY',
           },
           {
             'name': 'East Dunbartonshire',
-            'shortCode': 'EDU'
+            'shortCode': 'EDU',
           },
           {
             'name': 'East Lothian',
-            'shortCode': 'ELN'
+            'shortCode': 'ELN',
           },
           {
             'name': 'East Renfrewshire',
-            'shortCode': 'ERW'
+            'shortCode': 'ERW',
           },
           {
             'name': 'East Riding of Yorkshire',
-            'shortCode': 'ERY'
+            'shortCode': 'ERY',
           },
           {
             'name': 'East Sussex',
-            'shortCode': 'ESX'
+            'shortCode': 'ESX',
           },
           {
             'name': 'Edinburgh, City of',
-            'shortCode': 'EDH'
+            'shortCode': 'EDH',
           },
           {
             'name': 'Eilean Siar',
-            'shortCode': 'ELS'
+            'shortCode': 'ELS',
           },
           {
             'name': 'Enfield',
-            'shortCode': 'ENF'
+            'shortCode': 'ENF',
           },
           {
             'name': 'Essex',
-            'shortCode': 'ESS'
+            'shortCode': 'ESS',
           },
           {
             'name': 'Falkirk',
-            'shortCode': 'FAL'
+            'shortCode': 'FAL',
           },
           {
             'name': 'Fermanagh and Omagh',
-            'shortCode': 'FMO'
+            'shortCode': 'FMO',
           },
           {
             'name': 'Fife',
-            'shortCode': 'FIF'
+            'shortCode': 'FIF',
           },
           {
             'name': 'Flintshire',
-            'shortCode': 'FLN'
+            'shortCode': 'FLN',
           },
           {
             'name': 'Gateshead',
-            'shortCode': 'GAT'
+            'shortCode': 'GAT',
           },
           {
             'name': 'Glasgow City',
-            'shortCode': 'GLG'
+            'shortCode': 'GLG',
           },
           {
             'name': 'Gloucestershire',
-            'shortCode': 'GLS'
+            'shortCode': 'GLS',
           },
           {
             'name': 'Greenwich',
-            'shortCode': 'GRE'
+            'shortCode': 'GRE',
           },
           {
             'name': 'Gwynedd',
-            'shortCode': 'GWN'
+            'shortCode': 'GWN',
           },
           {
             'name': 'Hackney',
-            'shortCode': 'HCK'
+            'shortCode': 'HCK',
           },
           {
             'name': 'Halton',
-            'shortCode': 'HAL'
+            'shortCode': 'HAL',
           },
           {
             'name': 'Hammersmith and Fulham',
-            'shortCode': 'HMF'
+            'shortCode': 'HMF',
           },
           {
             'name': 'Hampshire',
-            'shortCode': 'HAM'
+            'shortCode': 'HAM',
           },
           {
             'name': 'Haringey',
-            'shortCode': 'HRY'
+            'shortCode': 'HRY',
           },
           {
             'name': 'Harrow',
-            'shortCode': 'HRW'
+            'shortCode': 'HRW',
           },
           {
             'name': 'Hartlepool',
-            'shortCode': 'HPL'
+            'shortCode': 'HPL',
           },
           {
             'name': 'Havering',
-            'shortCode': 'HAV'
+            'shortCode': 'HAV',
           },
           {
             'name': 'Herefordshire',
-            'shortCode': 'HEF'
+            'shortCode': 'HEF',
           },
           {
             'name': 'Hertfordshire',
-            'shortCode': 'HRT'
+            'shortCode': 'HRT',
           },
           {
             'name': 'Highland',
-            'shortCode': 'HLD'
+            'shortCode': 'HLD',
           },
           {
             'name': 'Hillingdon',
-            'shortCode': 'HIL'
+            'shortCode': 'HIL',
           },
           {
             'name': 'Hounslow',
-            'shortCode': 'HNS'
+            'shortCode': 'HNS',
           },
           {
             'name': 'Inverclyde',
-            'shortCode': 'IVC'
+            'shortCode': 'IVC',
           },
           {
             'name': 'Isle of Anglesey',
-            'shortCode': 'AGY'
+            'shortCode': 'AGY',
           },
           {
             'name': 'Isle of Wight',
-            'shortCode': 'IOW'
+            'shortCode': 'IOW',
           },
           {
             'name': 'Isles of Scilly',
-            'shortCode': 'IOS'
+            'shortCode': 'IOS',
           },
           {
             'name': 'Islington',
-            'shortCode': 'ISL'
+            'shortCode': 'ISL',
           },
           {
             'name': 'Kensington and Chelsea',
-            'shortCode': 'KEC'
+            'shortCode': 'KEC',
           },
           {
             'name': 'Kent',
-            'shortCode': 'KEN'
+            'shortCode': 'KEN',
           },
           {
             'name': 'Kingston upon Hull',
-            'shortCode': 'KHL'
+            'shortCode': 'KHL',
           },
           {
             'name': 'Kingston upon Thames',
-            'shortCode': 'KTT'
+            'shortCode': 'KTT',
           },
           {
             'name': 'Kirklees',
-            'shortCode': 'KIR'
+            'shortCode': 'KIR',
           },
           {
             'name': 'Knowsley',
-            'shortCode': 'KWL'
+            'shortCode': 'KWL',
           },
           {
             'name': 'Lambeth',
-            'shortCode': 'LBH'
+            'shortCode': 'LBH',
           },
           {
             'name': 'Lancashire',
-            'shortCode': 'LAN'
+            'shortCode': 'LAN',
           },
           {
             'name': 'Leeds',
-            'shortCode': 'LDS'
+            'shortCode': 'LDS',
           },
           {
             'name': 'Leicester',
-            'shortCode': 'LCE'
+            'shortCode': 'LCE',
           },
           {
             'name': 'Leicestershire',
-            'shortCode': 'LEC'
+            'shortCode': 'LEC',
           },
           {
             'name': 'Lewisham',
-            'shortCode': 'LEW'
+            'shortCode': 'LEW',
           },
           {
             'name': 'Lincolnshire',
-            'shortCode': 'LIN'
+            'shortCode': 'LIN',
           },
           {
             'name': 'Lisburn and Castlereagh',
-            'shortCode': 'LBC'
+            'shortCode': 'LBC',
           },
           {
             'name': 'Liverpool',
-            'shortCode': 'LIV'
+            'shortCode': 'LIV',
           },
           {
             'name': 'London, City of',
-            'shortCode': 'LND'
+            'shortCode': 'LND',
           },
           {
             'name': 'Luton',
-            'shortCode': 'LUT'
+            'shortCode': 'LUT',
           },
           {
             'name': 'Manchester',
-            'shortCode': 'MAN'
+            'shortCode': 'MAN',
           },
           {
             'name': 'Medway',
-            'shortCode': 'MDW'
+            'shortCode': 'MDW',
           },
           {
             'name': 'Merthyr Tydfil',
-            'shortCode': 'MTY'
+            'shortCode': 'MTY',
           },
           {
             'name': 'Merton',
-            'shortCode': 'MRT'
+            'shortCode': 'MRT',
           },
           {
             'name': 'Mid and East Antrim',
-            'shortCode': 'MEA'
+            'shortCode': 'MEA',
           },
           {
             'name': 'Mid Ulster',
-            'shortCode': 'MUL'
+            'shortCode': 'MUL',
           },
           {
             'name': 'Middlesbrough',
-            'shortCode': 'MDB'
+            'shortCode': 'MDB',
           },
           {
             'name': 'Midlothian',
-            'shortCode': 'MLN'
+            'shortCode': 'MLN',
           },
           {
             'name': 'Milton Keynes',
-            'shortCode': 'MIK'
+            'shortCode': 'MIK',
           },
           {
             'name': 'Monmouthshire',
-            'shortCode': 'MON'
+            'shortCode': 'MON',
           },
           {
             'name': 'Moray',
-            'shortCode': 'MRY'
+            'shortCode': 'MRY',
           },
           {
             'name': 'Neath Port Talbot',
-            'shortCode': 'NTL'
+            'shortCode': 'NTL',
           },
           {
             'name': 'Newcastle upon Tyne',
-            'shortCode': 'NET'
+            'shortCode': 'NET',
           },
           {
             'name': 'Newham',
-            'shortCode': 'NWM'
+            'shortCode': 'NWM',
           },
           {
             'name': 'Newport',
-            'shortCode': 'NWP'
+            'shortCode': 'NWP',
           },
           {
             'name': 'Newry, Mourne and Down',
-            'shortCode': 'NMD'
+            'shortCode': 'NMD',
           },
           {
             'name': 'Norfolk',
-            'shortCode': 'NFK'
+            'shortCode': 'NFK',
           },
           {
             'name': 'North Ayrshire',
-            'shortCode': 'NAY'
+            'shortCode': 'NAY',
           },
           {
             'name': 'North East Lincolnshire',
-            'shortCode': 'NEL'
+            'shortCode': 'NEL',
           },
           {
             'name': 'North Lanarkshire',
-            'shortCode': 'NLK'
+            'shortCode': 'NLK',
           },
           {
             'name': 'North Lincolnshire',
-            'shortCode': 'NLN'
+            'shortCode': 'NLN',
           },
           {
             'name': 'North Somerset',
-            'shortCode': 'NSM'
+            'shortCode': 'NSM',
           },
           {
             'name': 'North Tyneside',
-            'shortCode': 'NTY'
+            'shortCode': 'NTY',
           },
           {
             'name': 'North Yorkshire',
-            'shortCode': 'NYK'
+            'shortCode': 'NYK',
           },
           {
             'name': 'Northamptonshire',
-            'shortCode': 'NTH'
+            'shortCode': 'NTH',
           },
           {
             'name': 'Northumberland',
-            'shortCode': 'NBL'
+            'shortCode': 'NBL',
           },
           {
             'name': 'Nottingham',
-            'shortCode': 'NGM'
+            'shortCode': 'NGM',
           },
           {
             'name': 'Nottinghamshire',
-            'shortCode': 'NTT'
+            'shortCode': 'NTT',
           },
           {
             'name': 'Oldham',
-            'shortCode': 'OLD'
+            'shortCode': 'OLD',
           },
           {
             'name': 'Orkney Islands',
-            'shortCode': 'ORK'
+            'shortCode': 'ORK',
           },
           {
             'name': 'Oxfordshire',
-            'shortCode': 'OXF'
+            'shortCode': 'OXF',
           },
           {
             'name': 'Pembrokeshire',
-            'shortCode': 'PEM'
+            'shortCode': 'PEM',
           },
           {
             'name': 'Perth and Kinross',
-            'shortCode': 'PKN'
+            'shortCode': 'PKN',
           },
           {
             'name': 'Peterborough',
-            'shortCode': 'PTE'
+            'shortCode': 'PTE',
           },
           {
             'name': 'Plymouth',
-            'shortCode': 'PLY'
+            'shortCode': 'PLY',
           },
           {
             'name': 'Poole',
-            'shortCode': 'POL'
+            'shortCode': 'POL',
           },
           {
             'name': 'Portsmouth',
-            'shortCode': 'POR'
+            'shortCode': 'POR',
           },
           {
             'name': 'Powys',
-            'shortCode': 'POW'
+            'shortCode': 'POW',
           },
           {
             'name': 'Reading',
-            'shortCode': 'RDG'
+            'shortCode': 'RDG',
           },
           {
             'name': 'Redbridge',
-            'shortCode': 'RDB'
+            'shortCode': 'RDB',
           },
           {
             'name': 'Redcar and Cleveland',
-            'shortCode': 'RCC'
+            'shortCode': 'RCC',
           },
           {
             'name': 'Renfrewshire',
-            'shortCode': 'RFW'
+            'shortCode': 'RFW',
           },
           {
             'name': 'Rhondda, Cynon, Taff',
-            'shortCode': 'RCT'
+            'shortCode': 'RCT',
           },
           {
             'name': 'Richmond upon Thames',
-            'shortCode': 'RIC'
+            'shortCode': 'RIC',
           },
           {
             'name': 'Rochdale',
-            'shortCode': 'RCH'
+            'shortCode': 'RCH',
           },
           {
             'name': 'Rotherham',
-            'shortCode': 'ROT'
+            'shortCode': 'ROT',
           },
           {
             'name': 'Rutland',
-            'shortCode': 'RUT'
+            'shortCode': 'RUT',
           },
           {
             'name': 'St. Helens',
-            'shortCode': 'SHN'
+            'shortCode': 'SHN',
           },
           {
             'name': 'Salford',
-            'shortCode': 'SLF'
+            'shortCode': 'SLF',
           },
           {
             'name': 'Sandwell',
-            'shortCode': 'SAW'
+            'shortCode': 'SAW',
           },
           {
             'name': 'Scottish Borders, The',
-            'shortCode': 'SCB'
+            'shortCode': 'SCB',
           },
           {
             'name': 'Sefton',
-            'shortCode': 'SFT'
+            'shortCode': 'SFT',
           },
           {
             'name': 'Sheffield',
-            'shortCode': 'SHF'
+            'shortCode': 'SHF',
           },
           {
             'name': 'Shetland Islands',
-            'shortCode': 'ZET'
+            'shortCode': 'ZET',
           },
           {
             'name': 'Shropshire',
-            'shortCode': 'SHR'
+            'shortCode': 'SHR',
           },
           {
             'name': 'Slough',
-            'shortCode': 'SLG'
+            'shortCode': 'SLG',
           },
           {
             'name': 'Solihull',
-            'shortCode': 'SOL'
+            'shortCode': 'SOL',
           },
           {
             'name': 'Somerset',
-            'shortCode': 'SOM'
+            'shortCode': 'SOM',
           },
           {
             'name': 'South Ayrshire',
-            'shortCode': 'SAY'
+            'shortCode': 'SAY',
           },
           {
             'name': 'South Gloucestershire',
-            'shortCode': 'SGC'
+            'shortCode': 'SGC',
           },
           {
             'name': 'South Lanarkshire',
-            'shortCode': 'SLK'
+            'shortCode': 'SLK',
           },
           {
             'name': 'South Tyneside',
-            'shortCode': 'STY'
+            'shortCode': 'STY',
           },
           {
             'name': 'Southampton',
-            'shortCode': 'STH'
+            'shortCode': 'STH',
           },
           {
             'name': 'Southend-on-Sea',
-            'shortCode': 'SOS'
+            'shortCode': 'SOS',
           },
           {
             'name': 'Southwark',
-            'shortCode': 'SWK'
+            'shortCode': 'SWK',
           },
           {
             'name': 'Staffordshire',
-            'shortCode': 'STS'
+            'shortCode': 'STS',
           },
           {
             'name': 'Stirling',
-            'shortCode': 'STG'
+            'shortCode': 'STG',
           },
           {
             'name': 'Stockport',
-            'shortCode': 'SKP'
+            'shortCode': 'SKP',
           },
           {
             'name': 'Stockton-on-Tees',
-            'shortCode': 'STT'
+            'shortCode': 'STT',
           },
           {
             'name': 'Stoke-on-Trent',
-            'shortCode': 'STE'
+            'shortCode': 'STE',
           },
           {
             'name': 'Suffolk',
-            'shortCode': 'SFK'
+            'shortCode': 'SFK',
           },
           {
             'name': 'Sunderland',
-            'shortCode': 'SND'
+            'shortCode': 'SND',
           },
           {
             'name': 'Surrey',
-            'shortCode': 'SRY'
+            'shortCode': 'SRY',
           },
           {
             'name': 'Sutton',
-            'shortCode': 'STN'
+            'shortCode': 'STN',
           },
           {
             'name': 'Swansea',
-            'shortCode': 'SWA'
+            'shortCode': 'SWA',
           },
           {
             'name': 'Swindon',
-            'shortCode': 'SWD'
+            'shortCode': 'SWD',
           },
           {
             'name': 'Tameside',
-            'shortCode': 'TAM'
+            'shortCode': 'TAM',
           },
           {
             'name': 'Telford and Wrekin',
-            'shortCode': 'TFW'
+            'shortCode': 'TFW',
           },
           {
             'name': 'Thurrock',
-            'shortCode': 'THR'
+            'shortCode': 'THR',
           },
           {
             'name': 'Torbay',
-            'shortCode': 'TOB'
+            'shortCode': 'TOB',
           },
           {
             'name': 'Torfaen',
-            'shortCode': 'TOF'
+            'shortCode': 'TOF',
           },
           {
             'name': 'Tower Hamlets',
-            'shortCode': 'TWH'
+            'shortCode': 'TWH',
           },
           {
             'name': 'Trafford',
-            'shortCode': 'TRF'
+            'shortCode': 'TRF',
           },
           {
             'name': 'Vale of Glamorgan, The',
-            'shortCode': 'VGL'
+            'shortCode': 'VGL',
           },
           {
             'name': 'Wakefield',
-            'shortCode': 'WKF'
+            'shortCode': 'WKF',
           },
           {
             'name': 'Walsall',
-            'shortCode': 'WLL'
+            'shortCode': 'WLL',
           },
           {
             'name': 'Waltham Forest',
-            'shortCode': 'WFT'
+            'shortCode': 'WFT',
           },
           {
             'name': 'Wandsworth',
-            'shortCode': 'WND'
+            'shortCode': 'WND',
           },
           {
             'name': 'Warrington',
-            'shortCode': 'WRT'
+            'shortCode': 'WRT',
           },
           {
             'name': 'Warwickshire',
-            'shortCode': 'WAR'
+            'shortCode': 'WAR',
           },
           {
             'name': 'West Berkshire',
-            'shortCode': 'WBK'
+            'shortCode': 'WBK',
           },
           {
             'name': 'West Dunbartonshire',
-            'shortCode': 'WDU'
+            'shortCode': 'WDU',
           },
           {
             'name': 'West Lothian',
-            'shortCode': 'WLN'
+            'shortCode': 'WLN',
           },
           {
             'name': 'West Sussex',
-            'shortCode': 'WSX'
+            'shortCode': 'WSX',
           },
           {
             'name': 'Westminster',
-            'shortCode': 'WSM'
+            'shortCode': 'WSM',
           },
           {
             'name': 'Wigan',
-            'shortCode': 'WGN'
+            'shortCode': 'WGN',
           },
           {
             'name': 'Wiltshire',
-            'shortCode': 'WIL'
+            'shortCode': 'WIL',
           },
           {
             'name': 'Windsor and Maidenhead',
-            'shortCode': 'WNM'
+            'shortCode': 'WNM',
           },
           {
             'name': 'Wirral',
-            'shortCode': 'WRL'
+            'shortCode': 'WRL',
           },
           {
             'name': 'Wokingham',
-            'shortCode': 'WOK'
+            'shortCode': 'WOK',
           },
           {
             'name': 'Wolverhampton',
-            'shortCode': 'WLV'
+            'shortCode': 'WLV',
           },
           {
             'name': 'Worcestershire',
-            'shortCode': 'WOR'
+            'shortCode': 'WOR',
           },
           {
             'name': 'Wrexham',
-            'shortCode': 'WRX'
+            'shortCode': 'WRX',
           },
           {
             'name': 'York',
-            'shortCode': 'YOR'
-          }
-        ]
+            'shortCode': 'YOR',
+          },
+        ],
       },
       {
         'countryName': 'United States',
         'countryShortCode': 'US',
         'regions': [{
           'name': 'Alabama',
-          'shortCode': 'AL'
+          'shortCode': 'AL',
         },
           {
             'name': 'Alaska',
-            'shortCode': 'AK'
+            'shortCode': 'AK',
           },
           {
             'name': 'American Samoa',
-            'shortCode': 'AS'
+            'shortCode': 'AS',
           },
           {
             'name': 'Arizona',
-            'shortCode': 'AZ'
+            'shortCode': 'AZ',
           },
           {
             'name': 'Arkansas',
-            'shortCode': 'AR'
+            'shortCode': 'AR',
           },
           {
             'name': 'California',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Colorado',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Connecticut',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Delaware',
-            'shortCode': 'DE'
+            'shortCode': 'DE',
           },
           {
             'name': 'District of Columbia',
-            'shortCode': 'DC'
+            'shortCode': 'DC',
           },
           {
             'name': 'Micronesia',
-            'shortCode': 'FM'
+            'shortCode': 'FM',
           },
           {
             'name': 'Florida',
-            'shortCode': 'FL'
+            'shortCode': 'FL',
           },
           {
             'name': 'Georgia',
-            'shortCode': 'GA'
+            'shortCode': 'GA',
           },
           {
             'name': 'Guam',
-            'shortCode': 'GU'
+            'shortCode': 'GU',
           },
           {
             'name': 'Hawaii',
-            'shortCode': 'HI'
+            'shortCode': 'HI',
           },
           {
             'name': 'Idaho',
-            'shortCode': 'ID'
+            'shortCode': 'ID',
           },
           {
             'name': 'Illinois',
-            'shortCode': 'IL'
+            'shortCode': 'IL',
           },
           {
             'name': 'Indiana',
-            'shortCode': 'IN'
+            'shortCode': 'IN',
           },
           {
             'name': 'Iowa',
-            'shortCode': 'IA'
+            'shortCode': 'IA',
           },
           {
             'name': 'Kansas',
-            'shortCode': 'KS'
+            'shortCode': 'KS',
           },
           {
             'name': 'Kentucky',
-            'shortCode': 'KY'
+            'shortCode': 'KY',
           },
           {
             'name': 'Louisiana',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Maine',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Marshall Islands',
-            'shortCode': 'MH'
+            'shortCode': 'MH',
           },
           {
             'name': 'Maryland',
-            'shortCode': 'MD'
+            'shortCode': 'MD',
           },
           {
             'name': 'Massachusetts',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Michigan',
-            'shortCode': 'MI'
+            'shortCode': 'MI',
           },
           {
             'name': 'Minnesota',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Mississippi',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Missouri',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Montana',
-            'shortCode': 'MT'
+            'shortCode': 'MT',
           },
           {
             'name': 'Nebraska',
-            'shortCode': 'NE'
+            'shortCode': 'NE',
           },
           {
             'name': 'Nevada',
-            'shortCode': 'NV'
+            'shortCode': 'NV',
           },
           {
             'name': 'New Hampshire',
-            'shortCode': 'NH'
+            'shortCode': 'NH',
           },
           {
             'name': 'New Jersey',
-            'shortCode': 'NJ'
+            'shortCode': 'NJ',
           },
           {
             'name': 'New Mexico',
-            'shortCode': 'NM'
+            'shortCode': 'NM',
           },
           {
             'name': 'New York',
-            'shortCode': 'NY'
+            'shortCode': 'NY',
           },
           {
             'name': 'North Carolina',
-            'shortCode': 'NC'
+            'shortCode': 'NC',
           },
           {
             'name': 'North Dakota',
-            'shortCode': 'ND'
+            'shortCode': 'ND',
           },
           {
             'name': 'Northern Mariana Islands',
-            'shortCode': 'MP'
+            'shortCode': 'MP',
           },
           {
             'name': 'Ohio',
-            'shortCode': 'OH'
+            'shortCode': 'OH',
           },
           {
             'name': 'Oklahoma',
-            'shortCode': 'OK'
+            'shortCode': 'OK',
           },
           {
             'name': 'Oregon',
-            'shortCode': 'OR'
+            'shortCode': 'OR',
           },
           {
             'name': 'Palau',
-            'shortCode': 'PW'
+            'shortCode': 'PW',
           },
           {
             'name': 'Pennsylvania',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Puerto Rico',
-            'shortCode': 'PR'
+            'shortCode': 'PR',
           },
           {
             'name': 'Rhode Island',
-            'shortCode': 'RI'
+            'shortCode': 'RI',
           },
           {
             'name': 'South Carolina',
-            'shortCode': 'SC'
+            'shortCode': 'SC',
           },
           {
             'name': 'South Dakota',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': 'Tennessee',
-            'shortCode': 'TN'
+            'shortCode': 'TN',
           },
           {
             'name': 'Texas',
-            'shortCode': 'TX'
+            'shortCode': 'TX',
           },
           {
             'name': 'Utah',
-            'shortCode': 'UT'
+            'shortCode': 'UT',
           },
           {
             'name': 'Vermont',
-            'shortCode': 'VT'
+            'shortCode': 'VT',
           },
           {
             'name': 'Virgin Islands',
-            'shortCode': 'VI'
+            'shortCode': 'VI',
           },
           {
             'name': 'Virginia',
-            'shortCode': 'VA'
+            'shortCode': 'VA',
           },
           {
             'name': 'Washington',
-            'shortCode': 'WA'
+            'shortCode': 'WA',
           },
           {
             'name': 'West Virginia',
-            'shortCode': 'WV'
+            'shortCode': 'WV',
           },
           {
             'name': 'Wisconsin',
-            'shortCode': 'WI'
+            'shortCode': 'WI',
           },
           {
             'name': 'Wyoming',
-            'shortCode': 'WY'
+            'shortCode': 'WY',
           },
           {
             'name': 'Armed Forces Americas',
-            'shortCode': 'AA'
+            'shortCode': 'AA',
           },
           {
             'name': 'Armed Forces Europe, Canada, Africa and Middle East',
-            'shortCode': 'AE'
+            'shortCode': 'AE',
           },
           {
             'name': 'Armed Forces Pacific',
-            'shortCode': 'AP'
-          }
-        ]
+            'shortCode': 'AP',
+          },
+        ],
       },
       {
         'countryName': 'United States Minor Outlying Islands',
         'countryShortCode': 'UM',
         'regions': [{
           'name': 'Baker Island',
-          'shortCode': '81'
+          'shortCode': '81',
         },
           {
             'name': 'Howland Island',
-            'shortCode': '84'
+            'shortCode': '84',
           },
           {
             'name': 'Jarvis Island',
-            'shortCode': '86'
+            'shortCode': '86',
           },
           {
             'name': 'Johnston Atoll',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Kingman Reef',
-            'shortCode': '89'
+            'shortCode': '89',
           },
           {
             'name': 'Midway Islands',
-            'shortCode': '71'
+            'shortCode': '71',
           },
           {
             'name': 'Navassa Island',
-            'shortCode': '76'
+            'shortCode': '76',
           },
           {
             'name': 'Palmyra Atoll',
-            'shortCode': '95'
+            'shortCode': '95',
           },
           {
             'name': 'Wake Island',
-            'shortCode': '79'
+            'shortCode': '79',
           },
           {
             'name': 'Bajo Nuevo Bank',
-            'shortCode': 'BN'
+            'shortCode': 'BN',
           },
           {
             'name': 'Serranilla Bank',
-            'shortCode': 'SB'
-          }
-        ]
+            'shortCode': 'SB',
+          },
+        ],
       },
       {
         'countryName': 'Uruguay',
         'countryShortCode': 'UY',
         'regions': [{
           'name': 'Artigas',
-          'shortCode': 'AR'
+          'shortCode': 'AR',
         },
           {
             'name': 'Canelones',
-            'shortCode': 'CA'
+            'shortCode': 'CA',
           },
           {
             'name': 'Cerro Largo',
-            'shortCode': 'CL'
+            'shortCode': 'CL',
           },
           {
             'name': 'Colonia',
-            'shortCode': 'CO'
+            'shortCode': 'CO',
           },
           {
             'name': 'Durazno',
-            'shortCode': 'DU'
+            'shortCode': 'DU',
           },
           {
             'name': 'Flores',
-            'shortCode': 'FS'
+            'shortCode': 'FS',
           },
           {
             'name': 'Florida',
-            'shortCode': 'FD'
+            'shortCode': 'FD',
           },
           {
             'name': 'Lavalleja',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': 'Maldonado',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Montevideo',
-            'shortCode': 'MO'
+            'shortCode': 'MO',
           },
           {
             'name': 'Paysandú',
-            'shortCode': 'PA'
+            'shortCode': 'PA',
           },
           {
             'name': 'Río Negro',
-            'shortCode': 'RN'
+            'shortCode': 'RN',
           },
           {
             'name': 'Rivera',
-            'shortCode': 'RV'
+            'shortCode': 'RV',
           },
           {
             'name': 'Rocha',
-            'shortCode': 'RO'
+            'shortCode': 'RO',
           },
           {
             'name': 'Salto',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'San José',
-            'shortCode': 'SJ'
+            'shortCode': 'SJ',
           },
           {
             'name': 'Soriano',
-            'shortCode': 'SO'
+            'shortCode': 'SO',
           },
           {
             'name': 'Tacuarembó',
-            'shortCode': 'TA'
+            'shortCode': 'TA',
           },
           {
             'name': 'Treinta y Tres',
-            'shortCode': 'TT'
-          }
-        ]
+            'shortCode': 'TT',
+          },
+        ],
       },
       {
         'countryName': 'Uzbekistan',
         'countryShortCode': 'UZ',
         'regions': [{
           'name': 'Toshkent shahri',
-          'shortCode': 'TK'
+          'shortCode': 'TK',
         },
           {
             'name': 'Andijon',
-            'shortCode': 'AN'
+            'shortCode': 'AN',
           },
           {
             'name': 'Buxoro',
-            'shortCode': 'BU'
+            'shortCode': 'BU',
           },
           {
             'name': 'Farg‘ona',
-            'shortCode': 'FA'
+            'shortCode': 'FA',
           },
           {
             'name': 'Jizzax',
-            'shortCode': 'JI'
+            'shortCode': 'JI',
           },
           {
             'name': 'Namangan',
-            'shortCode': 'NG'
+            'shortCode': 'NG',
           },
           {
             'name': 'Navoiy',
-            'shortCode': 'NW'
+            'shortCode': 'NW',
           },
           {
             'name': 'Qashqadaryo (Qarshi)',
-            'shortCode': 'QA'
+            'shortCode': 'QA',
           },
           {
             'name': 'Samarqand',
-            'shortCode': 'SA'
+            'shortCode': 'SA',
           },
           {
             'name': 'Sirdaryo (Guliston)',
-            'shortCode': 'SI'
+            'shortCode': 'SI',
           },
           {
             'name': 'Surxondaryo (Termiz)',
-            'shortCode': 'SU'
+            'shortCode': 'SU',
           },
           {
             'name': 'Toshkent wiloyati',
-            'shortCode': 'TO'
+            'shortCode': 'TO',
           },
           {
             'name': 'Xorazm (Urganch)',
-            'shortCode': 'XO'
+            'shortCode': 'XO',
           },
           {
             'name': 'Qoraqalpog‘iston Respublikasi (Nukus)',
-            'shortCode': 'QR'
-          }
-        ]
+            'shortCode': 'QR',
+          },
+        ],
       },
       {
         'countryName': 'Vanuatu',
         'countryShortCode': 'VU',
         'regions': [{
           'name': 'Malampa',
-          'shortCode': 'MAP'
+          'shortCode': 'MAP',
         },
           {
             'name': 'Pénama',
-            'shortCode': 'PAM'
+            'shortCode': 'PAM',
           },
           {
             'name': 'Sanma',
-            'shortCode': 'SAM'
+            'shortCode': 'SAM',
           },
           {
             'name': 'Shéfa',
-            'shortCode': 'SEE'
+            'shortCode': 'SEE',
           },
           {
             'name': 'Taféa',
-            'shortCode': 'TAE'
+            'shortCode': 'TAE',
           },
           {
             'name': 'Torba',
-            'shortCode': 'TOB'
-          }
-        ]
+            'shortCode': 'TOB',
+          },
+        ],
       },
       {
         'countryName': 'Venezuela, Bolivarian Republic of',
         'countryShortCode': 'VE',
         'regions': [{
           'name': 'Dependencias Federales',
-          'shortCode': 'W'
+          'shortCode': 'W',
         },
           {
             'name': 'Distrito Federal',
-            'shortCode': 'A'
+            'shortCode': 'A',
           },
           {
             'name': 'Amazonas',
-            'shortCode': 'Z'
+            'shortCode': 'Z',
           },
           {
             'name': 'Anzoátegui',
-            'shortCode': 'B'
+            'shortCode': 'B',
           },
           {
             'name': 'Apure',
-            'shortCode': 'C'
+            'shortCode': 'C',
           },
           {
             'name': 'Aragua',
-            'shortCode': 'D'
+            'shortCode': 'D',
           },
           {
             'name': 'Barinas',
-            'shortCode': 'E'
+            'shortCode': 'E',
           },
           {
             'name': 'Bolívar',
-            'shortCode': 'F'
+            'shortCode': 'F',
           },
           {
             'name': 'Carabobo',
-            'shortCode': 'G'
+            'shortCode': 'G',
           },
           {
             'name': 'Cojedes',
-            'shortCode': 'H'
+            'shortCode': 'H',
           },
           {
             'name': 'Delta Amacuro',
-            'shortCode': 'Y'
+            'shortCode': 'Y',
           },
           {
             'name': 'Falcón',
-            'shortCode': 'I'
+            'shortCode': 'I',
           },
           {
             'name': 'Guárico',
-            'shortCode': 'J'
+            'shortCode': 'J',
           },
           {
             'name': 'Lara',
-            'shortCode': 'K'
+            'shortCode': 'K',
           },
           {
             'name': 'Mérida',
-            'shortCode': 'L'
+            'shortCode': 'L',
           },
           {
             'name': 'Miranda',
-            'shortCode': 'M'
+            'shortCode': 'M',
           },
           {
             'name': 'Monagas',
-            'shortCode': 'N'
+            'shortCode': 'N',
           },
           {
             'name': 'Nueva Esparta',
-            'shortCode': 'O'
+            'shortCode': 'O',
           },
           {
             'name': 'Portuguesa',
-            'shortCode': 'P'
+            'shortCode': 'P',
           },
           {
             'name': 'Sucre',
-            'shortCode': 'R'
+            'shortCode': 'R',
           },
           {
             'name': 'Táchira',
-            'shortCode': 'S'
+            'shortCode': 'S',
           },
           {
             'name': 'Trujillo',
-            'shortCode': 'T'
+            'shortCode': 'T',
           },
           {
             'name': 'Vargas',
-            'shortCode': 'X'
+            'shortCode': 'X',
           },
           {
             'name': 'Yaracuy',
-            'shortCode': 'U'
+            'shortCode': 'U',
           },
           {
             'name': 'Zulia',
-            'shortCode': 'V'
-          }
-        ]
+            'shortCode': 'V',
+          },
+        ],
       },
       {
         'countryName': 'Vietnam',
         'countryShortCode': 'VN',
         'regions': [{
           'name': 'Đồng Nai',
-          'shortCode': '39'
+          'shortCode': '39',
         },
           {
             'name': 'Đồng Tháp',
-            'shortCode': '45'
+            'shortCode': '45',
           },
           {
             'name': 'Gia Lai',
-            'shortCode': '30'
+            'shortCode': '30',
           },
           {
             'name': 'Hà Giang',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Hà Nam',
-            'shortCode': '63'
+            'shortCode': '63',
           },
           {
             'name': 'Hà Tây',
-            'shortCode': '15'
+            'shortCode': '15',
           },
           {
             'name': 'Hà Tĩnh',
-            'shortCode': '23'
+            'shortCode': '23',
           },
           {
             'name': 'Hải Dương',
-            'shortCode': '61'
+            'shortCode': '61',
           },
           {
             'name': 'Hậu Giang',
-            'shortCode': '73'
+            'shortCode': '73',
           },
           {
             'name': 'Hòa Bình',
-            'shortCode': '14'
+            'shortCode': '14',
           },
           {
             'name': 'Hưng Yên',
-            'shortCode': '66'
+            'shortCode': '66',
           },
           {
             'name': 'Khánh Hòa',
-            'shortCode': '34'
+            'shortCode': '34',
           },
           {
             'name': 'Kiên Giang',
-            'shortCode': '47'
+            'shortCode': '47',
           },
           {
             'name': 'Kon Tum',
-            'shortCode': '28'
+            'shortCode': '28',
           },
           {
             'name': 'Lai Châu',
-            'shortCode': '01'
+            'shortCode': '01',
           },
           {
             'name': 'Lâm Đồng',
-            'shortCode': '35'
+            'shortCode': '35',
           },
           {
             'name': 'Lạng Sơn',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Lào Cai',
-            'shortCode': '02'
+            'shortCode': '02',
           },
           {
             'name': 'Long An',
-            'shortCode': '41'
+            'shortCode': '41',
           },
           {
             'name': 'Nam Định',
-            'shortCode': '67'
+            'shortCode': '67',
           },
           {
             'name': 'Nghệ An',
-            'shortCode': '22'
+            'shortCode': '22',
           },
           {
             'name': 'Ninh Bình',
-            'shortCode': '18'
+            'shortCode': '18',
           },
           {
             'name': 'Ninh Thuận',
-            'shortCode': '36'
+            'shortCode': '36',
           },
           {
             'name': 'Phú Thọ',
-            'shortCode': '68'
+            'shortCode': '68',
           },
           {
             'name': 'Phú Yên',
-            'shortCode': '32'
+            'shortCode': '32',
           },
           {
             'name': 'Quảng Bình',
-            'shortCode': '24'
+            'shortCode': '24',
           },
           {
             'name': 'Quảng Nam',
-            'shortCode': '27'
+            'shortCode': '27',
           },
           {
             'name': 'Quảng Ngãi',
-            'shortCode': '29'
+            'shortCode': '29',
           },
           {
             'name': 'Quảng Ninh',
-            'shortCode': '13'
+            'shortCode': '13',
           },
           {
             'name': 'Quảng Trị',
-            'shortCode': '25'
+            'shortCode': '25',
           },
           {
             'name': 'Sóc Trăng',
-            'shortCode': '52'
+            'shortCode': '52',
           },
           {
             'name': 'Sơn La',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'Tây Ninh',
-            'shortCode': '37'
+            'shortCode': '37',
           },
           {
             'name': 'Thái Bình',
-            'shortCode': '20'
+            'shortCode': '20',
           },
           {
             'name': 'Thái Nguyên',
-            'shortCode': '69'
+            'shortCode': '69',
           },
           {
             'name': 'Thanh Hóa',
-            'shortCode': '21'
+            'shortCode': '21',
           },
           {
             'name': 'Thừa Thiên–Huế',
-            'shortCode': '26'
+            'shortCode': '26',
           },
           {
             'name': 'Tiền Giang',
-            'shortCode': '46'
+            'shortCode': '46',
           },
           {
             'name': 'Trà Vinh',
-            'shortCode': '51'
+            'shortCode': '51',
           },
           {
             'name': 'Tuyên Quang',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Vĩnh Long',
-            'shortCode': '49'
+            'shortCode': '49',
           },
           {
             'name': 'Vĩnh Phúc',
-            'shortCode': '70'
+            'shortCode': '70',
           },
           {
             'name': 'Yên Bái',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Cần Thơ',
-            'shortCode': 'CT'
+            'shortCode': 'CT',
           },
           {
             'name': 'Đà Nẵng',
-            'shortCode': 'DN'
+            'shortCode': 'DN',
           },
           {
             'name': 'Hà Nội',
-            'shortCode': 'HN'
+            'shortCode': 'HN',
           },
           {
             'name': 'Hải Phòng',
-            'shortCode': 'HP'
+            'shortCode': 'HP',
           },
           {
             'name': 'Hồ Chí Minh (Sài Gòn)',
-            'shortCode': 'SG'
-          }
-        ]
+            'shortCode': 'SG',
+          },
+        ],
       },
       {
         'countryName': 'Virgin Islands, British',
         'countryShortCode': 'VG',
         'regions': [{
           'name': 'Anegada',
-          'shortCode': 'ANG'
+          'shortCode': 'ANG',
         },
           {
             'name': 'Jost Van Dyke',
-            'shortCode': 'JVD'
+            'shortCode': 'JVD',
           },
           {
             'name': 'Tortola',
-            'shortCode': 'TTA'
+            'shortCode': 'TTA',
           },
           {
             'name': 'Virgin Gorda',
-            'shortCode': 'VGD'
-          }
-        ]
+            'shortCode': 'VGD',
+          },
+        ],
       },
       {
         'countryName': 'Virgin Islands, U.S.',
         'countryShortCode': 'VI',
         'regions': [{
           'name': 'St. Thomas',
-          'shortCode': 'STH'
+          'shortCode': 'STH',
         },
           {
             'name': 'St. John',
-            'shortCode': 'SJO'
+            'shortCode': 'SJO',
           },
           {
             'name': 'St. Croix',
-            'shortCode': 'SCR'
-          }
-        ]
+            'shortCode': 'SCR',
+          },
+        ],
       },
       {
         'countryName': 'Wallis and Futuna',
         'countryShortCode': 'WF',
         'regions': [{
           'name': 'Alo',
-          'shortCode': 'ALO'
+          'shortCode': 'ALO',
         },
           {
             'name': 'Sigave',
-            'shortCode': 'SIG'
+            'shortCode': 'SIG',
           },
           {
             'name': 'Wallis',
-            'shortCode': 'WAL'
-          }
-        ]
+            'shortCode': 'WAL',
+          },
+        ],
       },
       {
         'countryName': 'Western Sahara',
         'countryShortCode': 'EH',
         'regions': [{
           'name': 'Es Smara',
-          'shortCode': 'ESM'
+          'shortCode': 'ESM',
         },
           {
             'name': 'Boujdour',
-            'shortCode': 'BOD'
+            'shortCode': 'BOD',
           },
           {
             'name': 'Laâyoune',
-            'shortCode': 'LAA'
+            'shortCode': 'LAA',
           },
           {
             'name': 'Aousserd',
-            'shortCode': 'AOU'
+            'shortCode': 'AOU',
           },
           {
             'name': 'Oued ed Dahab',
-            'shortCode': 'OUD'
-          }
-        ]
+            'shortCode': 'OUD',
+          },
+        ],
       },
       {
         'countryName': 'Yemen',
         'countryShortCode': 'YE',
         'regions': [{
           'name': 'Abyān',
-          'shortCode': 'AB'
+          'shortCode': 'AB',
         },
           {
             'name': "'Adan",
-            'shortCode': 'AD'
+            'shortCode': 'AD',
           },
           {
             'name': "Aḑ Ḑāli'",
-            'shortCode': 'DA'
+            'shortCode': 'DA',
           },
           {
             'name': "Al Bayḑā'",
-            'shortCode': 'BA'
+            'shortCode': 'BA',
           },
           {
             'name': 'Al Ḩudaydah',
-            'shortCode': 'HU'
+            'shortCode': 'HU',
           },
           {
             'name': 'Al Jawf',
-            'shortCode': 'JA'
+            'shortCode': 'JA',
           },
           {
             'name': 'Al Mahrah',
-            'shortCode': 'MR'
+            'shortCode': 'MR',
           },
           {
             'name': 'Al Maḩwīt',
-            'shortCode': 'MW'
+            'shortCode': 'MW',
           },
           {
             'name': "'Amrān",
-            'shortCode': 'AM'
+            'shortCode': 'AM',
           },
           {
             'name': 'Dhamār',
-            'shortCode': 'DH'
+            'shortCode': 'DH',
           },
           {
             'name': 'Ḩaḑramawt',
-            'shortCode': 'HD'
+            'shortCode': 'HD',
           },
           {
             'name': 'Ḩajjah',
-            'shortCode': 'HJ'
+            'shortCode': 'HJ',
           },
           {
             'name': 'Ibb',
-            'shortCode': 'IB'
+            'shortCode': 'IB',
           },
           {
             'name': 'Laḩij',
-            'shortCode': 'LA'
+            'shortCode': 'LA',
           },
           {
             'name': "Ma'rib",
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Raymah',
-            'shortCode': 'RA'
+            'shortCode': 'RA',
           },
           {
             'name': 'Şā‘dah',
-            'shortCode': 'SD'
+            'shortCode': 'SD',
           },
           {
             'name': "Şan‘ā'",
-            'shortCode': 'SN'
+            'shortCode': 'SN',
           },
           {
             'name': 'Shabwah',
-            'shortCode': 'SH'
+            'shortCode': 'SH',
           },
           {
             'name': 'Tā‘izz',
-            'shortCode': 'TA'
-          }
-        ]
+            'shortCode': 'TA',
+          },
+        ],
       },
       {
         'countryName': 'Zambia',
         'countryShortCode': 'ZM',
         'regions': [{
           'name': 'Central',
-          'shortCode': '02'
+          'shortCode': '02',
         },
           {
             'name': 'Copperbelt',
-            'shortCode': '08'
+            'shortCode': '08',
           },
           {
             'name': 'Eastern',
-            'shortCode': '03'
+            'shortCode': '03',
           },
           {
             'name': 'Luapula',
-            'shortCode': '04'
+            'shortCode': '04',
           },
           {
             'name': 'Lusaka',
-            'shortCode': '09'
+            'shortCode': '09',
           },
           {
             'name': 'Northern',
-            'shortCode': '05'
+            'shortCode': '05',
           },
           {
             'name': 'North-Western',
-            'shortCode': '06'
+            'shortCode': '06',
           },
           {
             'name': 'Southern',
-            'shortCode': '07'
+            'shortCode': '07',
           },
           {
             'name': 'Western',
-            'shortCode': '01'
-          }
-        ]
+            'shortCode': '01',
+          },
+        ],
       },
       {
         'countryName': 'Zimbabwe',
         'countryShortCode': 'ZW',
         'regions': [{
           'name': 'Bulawayo',
-          'shortCode': 'BU'
+          'shortCode': 'BU',
         },
           {
             'name': 'Harare',
-            'shortCode': 'HA'
+            'shortCode': 'HA',
           },
           {
             'name': 'Manicaland',
-            'shortCode': 'MA'
+            'shortCode': 'MA',
           },
           {
             'name': 'Mashonaland Central',
-            'shortCode': 'MC'
+            'shortCode': 'MC',
           },
           {
             'name': 'Mashonaland East',
-            'shortCode': 'ME'
+            'shortCode': 'ME',
           },
           {
             'name': 'Mashonaland West',
-            'shortCode': 'MW'
+            'shortCode': 'MW',
           },
           {
             'name': 'Masvingo',
-            'shortCode': 'MV'
+            'shortCode': 'MV',
           },
           {
             'name': 'Matabeleland North',
-            'shortCode': 'MN'
+            'shortCode': 'MN',
           },
           {
             'name': 'Matabeleland South',
-            'shortCode': 'MS'
+            'shortCode': 'MS',
           },
           {
             'name': 'Midlands',
-            'shortCode': 'MI'
-          }
-        ]
-      }
+            'shortCode': 'MI',
+          },
+        ],
+      },
     ]
   ;
 

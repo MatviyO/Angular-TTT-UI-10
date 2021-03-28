@@ -7,10 +7,11 @@ import { MemoryCache, UrlProvider, genKey } from '../utils';
 
 export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
 
-  private readonly headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  protected readonly headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
   protected http: HttpClient;
   protected cache: ICache;
   protected urlProvider: IUrlProvider;
+  options: any;
 
   constructor(
     protected injector: Injector,
@@ -20,18 +21,22 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
     this.http = injector.get(HttpClient);
     this.cache = injector.get(MemoryCache);
     this.urlProvider = injector.get(UrlProvider);
+
+    this.options = {
+      headers: this.headers,
+    };
   }
 
   queryWithTotal(filter: string = '', order: string = '', take: number = 20, skip: number = 0, args: any[] = [], includes: string = null, selectJSONPath: string = null):
     Promise<BaseEntityCollection<T>> {
-    return this.http.get<BaseEntityCollection<T>>(this.urlProvider.query(this.url, filter, order, take, skip, args, this.defaultFilter, includes, selectJSONPath, true))
+    return this.http.get<BaseEntityCollection<T>>(this.urlProvider.query(this.url, filter, order, take, skip, args, this.defaultFilter, includes, selectJSONPath, true), this.options)
       .toPromise()
       .catch(this.handleError);
   }
 
   query(filter: string = '', order: string = '', take: number = 20, skip: number = 0, args: any[] = [], includes: string = null, selectJSONPath: string = null):
     Promise<T[]> {
-    return this.http.get<T[]>(this.urlProvider.query(this.url, filter, order, take, skip, args, this.defaultFilter, includes, selectJSONPath))
+    return this.http.get<T[]>(this.urlProvider.query(this.url, filter, order, take, skip, args, this.defaultFilter, includes, selectJSONPath), this.options)
       .toPromise()
       .catch(this.handleError);
   }
@@ -41,7 +46,7 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
       return this.getBySelector(id, selector, includes);
     }
 
-    return this.http.get<T>(this.urlProvider.select(this.url, id, includes))
+    return this.http.get<T>(this.urlProvider.select(this.url, id, includes), this.options)
       .toPromise()
       .catch(this.handleError);
   }
@@ -51,7 +56,7 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
     return this.http.get<T[]>(this.urlProvider.selectByPrefix(this.url, id, selector, this.defaultFilter, includes))
       .toPromise()
       .then(response => {
-        return response.length > 0 ? response[0] : null;
+        return response && response.length > 0 ? response[0] : null;
       })
       .catch(this.handleError);
   }
@@ -73,7 +78,7 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
   create(obj: T, _url: string = null): Promise<T> {
     const url = _url ? _url : this.urlProvider.create(this.url);
     return this.http
-      .post<T>(url, JSON.stringify(obj), { headers: this.headers })
+      .post<T>(url, JSON.stringify(obj), this.options)
       .toPromise()
       .then(res => {
         this.cache.invalidate(genKey([_url ? _url : this.url]));
@@ -98,7 +103,7 @@ export class BaseDataService<T extends BaseEntity> implements IDataService<T> {
         })
         .catch(this.handleError);
     } else {
-      return this.http.delete(url, { headers: this.headers })
+      return this.http.delete(url, this.options)
         .toPromise()
         .then(() => {
           this.cache.invalidate(genKey([_url ? _url : this.url]));

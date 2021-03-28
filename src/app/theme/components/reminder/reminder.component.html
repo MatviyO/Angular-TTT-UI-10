@@ -1,0 +1,186 @@
+<div>
+    <div *ngIf="general" class="reminder-count" title="{{showCalendar ? 'Hide calendar' : 'Show calendar'}}"
+        (click)="showCalendar = !showCalendar">
+        <div>
+            <span>{{notificationReminders.length}}</span>
+            <div class="notification-left"></div>
+        </div>
+        <i class="fa fa-bell-o"></i>
+    </div>
+
+    <div *ngIf="!general">
+        <a *ngIf="!showButton" class="btnHover">
+            <i class="fa fa-bell-o" (click)="setUrlReminder()" title="Add reminder"></i>
+        </a>
+        <div *ngIf="showButton" class="btn-component">
+            <button class="btn btn-default" title="Add reminder" (click)="setUrlReminder()">+ <i
+                    class="fa fa-bell-o"></i></button>
+        </div>
+
+    </div>
+
+    <div *ngIf="showCalendar || editReminder" class="reminder-body" (click)="outsideClick()">
+        <div class="reminder-main " (click)="outsideClick($event)">
+            <div class="calendar" *ngIf="showCalendar">
+                <div class="header row-cal flex-middle">
+                    <div class="col-cal col-start" (click)="prevMonth($event)">
+                        <i class="fa fa-chevron-left icon-left"></i>
+                    </div>
+                    <div class="col-cal col-center">
+                        <span>{{dateFns.format(currentMonth, dateFormat)}}</span>
+                    </div>
+                    <div class="col-cal col-end" (click)="nextMonth($event)">
+                        <i class="fa fa-chevron-right icon-right"></i>
+                    </div>
+                </div>
+                <div class="days row-cal">
+                    <div *ngFor="let i of [1,2,3,4,5,6,7]" class="col-cal col-center">
+                        {{dateFns.format(dateFns.addDays(daysStartDate, i), daysFormat)}}
+                    </div>
+                </div>
+                <div class="body">
+                    <div *ngFor="let row of calendar.row" class="row-cal">
+                        <div (click)="addReminder(date.date, $event)" *ngFor="let date of row.data" class="col-calendar col-cal cell {{dateFns.isSameMonth(date.date, currentMonth)? '' : 'out-month'}}
+                                        {{dateFns.isToday(date.date)? 'current-day' : ''}}">
+                            <span class="day number">{{dateFns.format(date.date, "DD")}}</span>
+                            <span (click)="addReminder(date.date, $event)" class="add-button"
+                                title="Create a new reminder">
+                                +<i class="fa fa-bell-o" aria-hidden="true"></i>
+                            </span>
+
+                            <div class="reminder-list">
+                                <div *ngFor="let reminder of date.reminders" (click)="clickEvent(reminder, $event)">
+                                    <div *ngIf="showDismiss || (!showDismiss && !reminder.isDismissed)"
+                                        class="reminder-item" [ngClass]="{'reminder-dismiss' : reminder.isDismissed}">
+                                        <span class="reminder-item-time">
+                                            {{dateFns.format(reminder.activeAfterUtc, "hh:mm a")}}
+                                        </span>
+                                        <span class="reminder-item-text" title="{{reminder.text}}">
+                                            {{reminder.headerText ? reminder.headerText : reminder.text }}
+                                        </span>
+                                        <span class="reminder-item-action">
+                                            <i (click)="deleteReminder(reminder, $event)"
+                                                class="delete-icon fa fa-trash-o" aria-hidden="true" title="Delete"></i>
+                                            <i (click)="dismissReminder(reminder, $event)" class="dismiss-icon fa"
+                                                [ngClass]="{'fa-check-square-o' : reminder.isDismissed, 'fa-square-o' : !reminder.isDismissed, 'disable-icon' : reminder.isDismissed || isFuture(reminder) }"
+                                                aria-hidden="true" title="Complete"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="editReminder">
+                <div class="reminder-edit">
+                    <div class="main">
+                        <div class="item">
+                            <p class="head-title"><i class="fa fa-bell-o" aria-hidden="true"></i> &nbsp; <span
+                                    *ngIf="!showDetails"> New</span> Reminder </p>
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="title">Header</label>
+                                        <input type="text" name="title" class="form-control" autocomplete="off"
+                                            placeholder="title" [(ngModel)]="editReminder.headerText">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="unit">Text</label>
+                                        <textarea class="form-control" [(ngModel)]="editReminder.text"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <!-- <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="siteUrl">Link</label>
+                                        <input type="text" name="siteUrl" class="form-control" autocomplete="off"
+                                            placeholder="url" [(ngModel)]="editReminder.siteUrl">
+                                    </div>
+                                </div> -->
+                                <!-- <div class="row"> -->
+                                    <div class="form-group col-sm-6">
+                                        <label>Company</label>
+                                        <div class="form-control searchh" [ngClass]="{'disableSelect': false}">
+                                            <label for="search">
+                                                <i class="fa fa-search" [ngClass]="{'no-visible': false}"
+                                                    aria-hidden="true"></i>
+                                            </label>
+                                            <input id="search" autocomplete="off" [ngClass]="{'disableSelect': false}"
+                                                class="form-control input" name="search"
+                                                (blur)="companyChanged(selectCompany)" max-num-list='100'
+                                                value-formatter="name" list-formatter="name" auto-complete
+                                                [(ngModel)]="selectCompany" [source]="observableSource(selectCompany)"
+                                                min-chars="3" placeholder='search' match-formatted="true" />
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="swd">Date</label>
+                                        <input type="date" name="date" class="form-control" id="swd"
+                                            [ngModel]="editReminder.activeAfterUtc | date:'yyyy-MM-dd'"
+                                            (blur)="addDate($event.target.value)">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="swd">Time</label>
+                                        <input type="time" name="date33" class="form-control" id="ssswd"
+                                            [ngModel]="editReminder.activeAfterUtc | date:'HH:mm'"
+                                            (blur)="editReminder.time = $event.target.value">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- <select class="form-control" name="classes" [(ngModel)]="selectedClassId">
+                            <option hidden [value]="null">select...</option>
+                            <option *ngFor="let class of classes" [ngClass]="{'yellow': isActualClass(class.endDate)}" [value]="class.id">
+                                {{class? class.program.name: ""}} {{"("}}{{class.startDate | date:'MM/dd/yyyy'}} {{"-"}} {{class.endDate | date:'MM/dd/yyyy'}}{{")"}} {{class.priorClass || class.laterClass ? getSchedulingType(class.schedulingType) : ''}}
+                            </option>
+                          </select>
+
+                          <div class="item-radio">
+                            <label for="sort1" (click)="sorting(true)"> Sort by start date </label>
+                            <input name="sort" id="sort1" type="radio" class="form-control" checked (click)="sorting(true)">
+                          </div>
+                          <div class="item-radio">
+                            <label for="sort2" (click)="sorting(false)"> Sort by end date </label>
+                            <input name="sort" id="sort2" type="radio" class="form-control" (click)="sorting(false)">
+                          </div> -->
+
+                            <!-- <p [ngClass]="{'show': showErr && !selectedClassId}" class="error"> <i class="fa fa-info-circle" aria-hidden="true"></i> Please select a class </p> -->
+
+                            <div class="buttons">
+                                <button class="btn btn-default" (click)="cancelEdit($event)">CANCEL</button>
+                                <button *ngIf="!showDetails" class="btn btn-default"
+                                    [ngClass]="{'disable' : (!editReminder.text && !editReminder.headerText)}"
+                                    (click)="createReminder()">CREATE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div *ngIf="showCalendar" class="btns-schedule">
+                <button type="button" class="btn btn-default" (click)="showDismiss = !showDismiss">
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i> {{showDismiss ? 'Hide' : 'Show'}} dismissed
+                </button>
+                <button type="button" class="btn btn-primary" (click)="selectEvent()">
+                    <i class="fa fa-check" aria-hidden="true"></i> OK
+                </button>
+            </div>
+        </div>
+    </div>
+    <app-confirm></app-confirm>
+    <load-data *ngIf="showLoadData" [fullscreen]='true'></load-data>
+</div>

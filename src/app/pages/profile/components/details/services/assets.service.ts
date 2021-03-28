@@ -7,7 +7,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class AssetsService {
   private url = 'api/assets';
-  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
 
   constructor(private http: HttpClient, protected urlProvider: UrlProvider) { }
 

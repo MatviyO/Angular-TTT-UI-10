@@ -12,7 +12,7 @@ export class Mentorship extends BaseEntity {
 
     feedbacks?: MentorFeedback[];
 
-    constructor () {
+    constructor() {
         super();
         this.feedbacks = new Array<MentorFeedback>();
     }

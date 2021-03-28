@@ -277,7 +277,7 @@ export class MilitaryBranchStatsService extends ResourceServiceBase<ProfileStats
   }
 
   getStats(): Promise<ProfileStats> {
-    return this.http.get<ProfileStats>('/api/Reports/ProfilePerMilBaseMilBranch')
+    return this.http.get<ProfileStats>('/api/Reports/ProfilePerMilBaseMilBranch', { headers: this.headers })
       .toPromise()
       .catch(this.handleError);
   }

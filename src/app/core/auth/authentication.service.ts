@@ -9,10 +9,11 @@ import {IAuthenticationService} from '../../common/interfaces';
 
 @Injectable()
 export class AuthenticationService implements IAuthenticationService {
-    protected http: HttpClient;
-    private readonly headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  protected http: HttpClient;
+  // private readonly headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  protected readonly headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
 
-    constructor(
+  constructor(
         protected injector: Injector,
     ) {
         this.http = injector.get(HttpClient);

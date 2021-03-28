@@ -1,19 +1,30 @@
 import { IBaseConfig, INotificationService } from '../interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NotificationService } from '../services';
-import {Directive} from '@angular/core';
+import {Directive, OnDestroy, OnInit} from '@angular/core';
+import ReminderService from '../services/reminder.service';
+import { NotificationService } from '../services/notification.service';
 
 @Directive()
-export class ComponentBaseDirective {
+export class ComponentBaseDirective implements OnInit{
 
   protected notificationSvc: INotificationService;
   protected componentTitle: string;
+  protected reminderSvc: ReminderService;
   showLoadData: boolean;
 
   constructor(config: IBaseConfig) {
     this.notificationSvc = config.injector.get(NotificationService);
+    this.reminderSvc = config.injector.get(ReminderService);
     this.componentTitle = config.componentTitle;
   }
+
+  ngOnInit(): void {
+    this.getReminders();
+  }
+
+  // ngOnDestroy(): void { this.getReminders(true); }
+
+  getReminders(unsubscribe: boolean = false): void { }
 
   onHttpError(exception: HttpErrorResponse): void {
     this.showLoadData = false;

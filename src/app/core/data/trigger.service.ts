@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Trigger} from '../model';
 import {Observable} from 'rxjs/Observable';
 import {catchError, map, publishReplay, refCount} from 'rxjs/operators';
@@ -10,9 +10,8 @@ export class TriggerService implements ITriggerService {
 
   url: string;
   triggers: Observable<Trigger[]>;
-
-  constructor(protected http: HttpClient) {
-  }
+  protected readonly headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
+  constructor(protected http: HttpClient) { }
 
   queryByCategory(category: string, filter: string): Observable<Trigger[]> {
     let url = 'api/Triggers/category?';
@@ -64,7 +63,7 @@ export class TriggerService implements ITriggerService {
   }
 
   private query(url: string): Observable<Trigger[]> {
-    return this.http.get<Trigger[]>(`${url}`)
+    return this.http.get<Trigger[]>(`${url}`, { headers: this.headers })
       .pipe(publishReplay(1))
       .pipe(refCount())
       .pipe(map(x => x.filter(t => +t.data.type === 3)));

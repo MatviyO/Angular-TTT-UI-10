@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: '',  redirectTo: 'todo-dashboard', pathMatch: 'full', },
+      { path: '',  redirectTo: 'todo-dashboard', pathMatch: 'prefix', },
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule), },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule), },
       { path: 'todo-dashboard', loadChildren: () => import('./todo/todo-dashboard.module').then((m) => m.TodoDashboardModule), },

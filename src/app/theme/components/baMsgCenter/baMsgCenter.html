@@ -1,19 +1,24 @@
 <ul class="al-msg-center clearfix">
   <li>
+         <app-reminder general="true"></app-reminder>
+  </li>
+  <li>
     <a routerLink="/" id="msg-dd1">
-      <i class="fa fa-bell-o"></i>
-      <div >
+      <div>
         <span>{{triggerDanger.length}}</span>
         <div *ngIf="triggerDanger.length > 0" class="notification-left"></div>
       </div>
 
-      <div >
+      <div>
         <span class="warningTrig">{{triggerWarning.length}}</span>
         <div *ngIf="triggerWarning.length > 0" class="notification-right"></div>
-      </div>    
+      </div>
     </a>
   </li>
 </ul>
+
+<div>
+</div>
 
 
 

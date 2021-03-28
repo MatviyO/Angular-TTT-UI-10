@@ -1,3 +1,6 @@
+import {ProfileDetailsComponent} from './profile/components/details';
+import {ProfileListComponent} from './profile/components/list';
+
 export const PAGES_MENU = [
   {
     path: '',
@@ -148,7 +151,7 @@ export const PAGES_MENU = [
               menu: {
                 title: 'Profiles',
                 icon: 'fa fa-user',
-                pathMatch: 'prefix',
+                pathMatch: 'full',
                 selected: false,
                 expanded: false,
                 order: 909,

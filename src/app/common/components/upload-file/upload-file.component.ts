@@ -28,7 +28,7 @@ export class FileUploaderComponent implements OnInit {
   addFiles: boolean;
   loading: boolean;
   hide = true;
-  headers = new HttpHeaders({'Content-Type': 'application/json'});
+  headers = new HttpHeaders({ 'Content-Type': 'application/json', 'x-app-name' : 'ttt' });
 
   @Input() objId: number;
   @Input() url: string;
